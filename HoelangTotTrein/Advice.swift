@@ -24,8 +24,14 @@ struct OVTime {
     }
 }
 
+struct Stop {
+    let time:NSDate
+    let spoor:String?
+}
+
 struct ReisDeel {
     let vervoerder:String
+    let stops:Array<Stop>
 }
 
 class Advice {
@@ -49,10 +55,24 @@ class Advice {
         aankomst = OVTime(planned:(obj.childrenWithTag("GeplandeAankomstTijd").first as ONOXMLElement).dateValue(),
             actual: (obj.childrenWithTag("ActueleAankomstTijd").first as ONOXMLElement).dateValue())
         
-        reisDeel = obj.childrenWithTag("ReisDeel").map { obj in
+        reisDeel = obj.childrenWithTag("ReisDeel").map { reisDeelObj in
+            let reisDeel:ONOXMLElement = reisDeelObj as ONOXMLElement
             let vervoerder = "NS"
             
-            return ReisDeel(vervoerder: vervoerder)
+            let stopDelen = reisDeel.childrenWithTag("ReisStop")
+            let stopElements = stopDelen.map { el in
+                el as ONOXMLElement
+            }
+            
+            let stops:Array<Stop> = stopElements.map { stopEl in
+                let stop = stopEl as ONOXMLElement
+                let spoor = (stop.childrenWithTag("Spoor").first as? ONOXMLElement)?.stringValue()
+                let time = (stop.childrenWithTag("Tijd").first as ONOXMLElement).dateValue()
+                
+                return Stop(time: time, spoor: spoor)
+            }
+            
+            return ReisDeel(vervoerder: vervoerder, stops: stops)
         }
     }
 }
