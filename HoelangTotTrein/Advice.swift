@@ -21,7 +21,7 @@ struct OVTime {
 }
 
 struct Stop {
-    let time:NSDate
+    let time:NSDate?
     let spoor:String?
     let name:String
 }

@@ -64,7 +64,7 @@ class Station: Hashable {
     
     func getRegion(i:Int) -> CLRegion {
         let center = getLocation().coordinate
-        return CLCircularRegion(center: center, radius: RADIUS, identifier: CodeContainer(namespace: "STATION:", code: code, deelIndex: i).string())
+        return CLCircularRegion(center: center, radius: RADIUS, identifier: CodeContainer(namespace: "STATION", code: code, deelIndex: i).string())
     }
 }
 

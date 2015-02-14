@@ -54,6 +54,7 @@
 		C371CF781A8FAF88004C35A0 /* sloterdijk.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sloterdijk.gpx; sourceTree = "<group>"; };
 		C371CF7A1A8FCBF1004C35A0 /* Koog aan de Zaan.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Koog aan de Zaan.gpx"; sourceTree = "<group>"; };
 		C371CF7B1A8FDCA0004C35A0 /* UIColor+HLTT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+HLTT.swift"; sourceTree = "<group>"; };
+		C371CF7D1A8FF046004C35A0 /* Den Haag HS.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Den Haag HS.gpx"; sourceTree = "<group>"; };
 		C3C53D0F1A8E41C80056DDFC /* XMLParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParse.swift; sourceTree = "<group>"; };
 		C3C53D111A8E44C40056DDFC /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		C3C53D151A8E4B540056DDFC /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 				C36CEFA11A8B3D8300C9F3CC /* AppDelegate.swift */,
 				C371CF781A8FAF88004C35A0 /* sloterdijk.gpx */,
 				C36CEFA51A8B3D8300C9F3CC /* Main.storyboard */,
+				C371CF7D1A8FF046004C35A0 /* Den Haag HS.gpx */,
 				C36CEFA81A8B3D8300C9F3CC /* Images.xcassets */,
 				C36CEFAA1A8B3D8300C9F3CC /* LaunchScreen.xib */,
 				C371CF7A1A8FCBF1004C35A0 /* Koog aan de Zaan.gpx */,

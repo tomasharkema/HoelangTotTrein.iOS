@@ -37,7 +37,8 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
     var stations:Array<Station> = []
     var heartBeat:NSTimer!
     var minuteTicker:Int = 0
-    private var advices:Array<Advice> = []
+    var advices:Array<Advice> = []
+    var currentLocation:CLLocation!
     
     var tickerHandler:TickerHandler!
     var adviceChangedHandler:AdviceChangedHandler!
@@ -107,7 +108,8 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
             minuteTicker = 0
         }
     }
-
+    
+    var originalFrom:Station!
     var from:Station! {
         didSet {
             //fromButton.setTitle(from.naam.lang, forState: UIControlState.Normal)
@@ -213,7 +215,17 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
         return closestStation
     }
     
+    func switchAdviceRequest() {
+        let newTo = from
+        let newFrom = to
+        to = newTo
+        from = newFrom
+    }
+    
+    var shouldUpdate:Bool = false
+    
     func fromCurrentLocation() {
+        shouldUpdate = true
         locationManager.startUpdatingLocation()
     }
     
@@ -230,11 +242,15 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
         let arrivedStation = findStationByCode(code)
         println("DID ENTER REGION: \(arrivedStation!.name.lang)")
         
+        if (currentAdivce.reisDeel.count <= (code.deelIndex + 1)) {
+            return;
+        }
+        
         from = arrivedStation
         
         let notification = UILocalNotification()
         let vervolgStation = currentAdivce.reisDeel[code.deelIndex + 1].stops.first?
-        let vervolgStationTime:String! = vervolgStation?.time.toHHMM().string()
+        let vervolgStationTime:String! = vervolgStation?.time!.toHHMM().string()
         let vervolgSpoor:String! = vervolgStation?.spoor
         let aankomstStation:String! = arrivedStation?.name.lang
         
@@ -252,11 +268,19 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         manager.stopUpdatingLocation()
+        if (!shouldUpdate) {
+            return
+        }
         
-        let currentLocation = locations[0] as? CLLocation
-        println(currentLocation)
+        shouldUpdate = false
+        
+        currentLocation = locations[0] as? CLLocation
         
         let closest = getClosestStation(currentLocation!)
-        from = closest
+        if (closest! == to!) {
+            switchAdviceRequest()
+        } else {
+            from = closest
+        }
     }
 }

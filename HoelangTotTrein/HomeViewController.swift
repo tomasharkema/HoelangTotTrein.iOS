@@ -119,6 +119,7 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if selectionState == .From {
+            TreinTicker.sharedInstance.originalFrom = TreinTicker.sharedInstance.stations[row]
             TreinTicker.sharedInstance.from = TreinTicker.sharedInstance.stations[row]
         } else {
             TreinTicker.sharedInstance.to = TreinTicker.sharedInstance.stations[row]
@@ -133,7 +134,7 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         }
         
         if animate {
-            UIView.animateWithDuration(0.5, animateBlock)
+            UIView.animateWithDuration(0.2, animateBlock)
         } else {
             animateBlock()
         }
@@ -155,6 +156,11 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     @IBAction func pickerGereedButton(sender: AnyObject) {
         setPickerState(false)
+    }
+    
+    @IBAction func swapLocations(sender: AnyObject) {
+        setPickerState(false)
+        TreinTicker.sharedInstance.switchAdviceRequest()
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
