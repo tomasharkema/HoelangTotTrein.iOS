@@ -20,6 +20,12 @@ struct OVTime {
     }
 }
 
+struct Melding {
+    let id:String
+    let ernstig:Bool
+    let text:String
+}
+
 struct Stop {
     let time:NSDate?
     let spoor:String?
@@ -43,10 +49,12 @@ class Advice {
     let overstappen:Int
     let vertrek:OVTime
     let aankomst:OVTime
+    let melding:Melding?
     
     let reisDeel:Array<ReisDeel>
     
     let adviceRequest:AdviceRequest
+    let vertrekVertraging:String!
     
     init(obj: ONOXMLElement, adviceRequest:AdviceRequest) {
         self.adviceRequest = adviceRequest
@@ -77,6 +85,14 @@ class Advice {
             }
             
             return ReisDeel(vervoerder: vervoerder, stops: stops)
+        }
+        
+        if let mel = obj.getElement("Melding") {
+            melding = Melding(id: mel.string(tagName: "Id")!, ernstig: false, text: mel.string(tagName: "Text")!)
+        }
+        
+        if let vertraging = obj.string(tagName: "VertrekVertraging") {
+            vertrekVertraging = vertraging
         }
     }
     

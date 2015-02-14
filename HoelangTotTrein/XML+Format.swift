@@ -11,7 +11,7 @@ import Ono
 
 extension ONOXMLElement {
     
-    private func getElement(tag:String) -> ONOXMLElement? {
+    func getElement(tag:String) -> ONOXMLElement! {
         return self.childrenWithTag(tag).first as? ONOXMLElement
     }
     

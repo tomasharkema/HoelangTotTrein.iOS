@@ -16,6 +16,7 @@ enum StationType {
 class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var timeToGoLabel: UILabel!
+    @IBOutlet weak var vertagingLabel: UILabel!
     @IBOutlet weak var stationPicker: UIPickerView!
     @IBOutlet weak var fromButton: UIButton!
     @IBOutlet weak var toButton: UIButton!
@@ -28,6 +29,8 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     @IBOutlet weak var legPhraseRightTextView: UITextView!
     
     @IBOutlet weak var pickerContainerView: UIView!
+    
+    @IBOutlet weak var alertTextView: UITextView!
     
     private var selectionState:StationType = .From {
         didSet {
@@ -68,6 +71,21 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
             self?.legPhraseRightTextView.text = advice.legPhraseRight()
             self?.legPhraseRightTextView.textColor = UIColor.secundairThemeColor()
             self?.legPhraseRightTextView.textAlignment = NSTextAlignment.Left
+            
+            if let melding = advice.melding {
+                self?.alertTextView.text = melding.text
+                self?.alertTextView.hidden = false
+            } else {
+                self?.alertTextView.insertText("")
+                self?.alertTextView.hidden = true
+            }
+            
+            if let vertraging = advice.vertrekVertraging {
+                self?.vertagingLabel.text = vertraging
+                self?.vertagingLabel.hidden = false
+            } else {
+                self?.vertagingLabel.hidden = true
+            }
         }
         
         TreinTicker.sharedInstance.stationChangedHandler = { [weak self] s in
