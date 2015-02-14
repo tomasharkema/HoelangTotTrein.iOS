@@ -210,6 +210,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="switch" width="84" height="60"/>
+        <image name="switch" width="28" height="20"/>
     </resources>
 </document>

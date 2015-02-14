@@ -152,6 +152,7 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     @IBAction func locButton(sender: AnyObject) {
         TreinTicker.sharedInstance.fromCurrentLocation()
+        setPickerState(false)
     }
     
     @IBAction func pickerGereedButton(sender: AnyObject) {
@@ -161,6 +162,7 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     @IBAction func swapLocations(sender: AnyObject) {
         setPickerState(false)
         TreinTicker.sharedInstance.switchAdviceRequest()
+        TreinTicker.sharedInstance.saveOriginalFrom()
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

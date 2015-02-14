@@ -109,7 +109,16 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    var originalFrom:Station!
+    var originalFrom:Station! {
+        get {
+            return find(stations, NSUserDefaults.standardUserDefaults().stringForKey("originalFromKey"))
+        }
+        set (newOriginalFrom) {
+            NSUserDefaults.standardUserDefaults().setValue(newOriginalFrom.code, forKey: "originalFromKey")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+    }
+    
     var from:Station! {
         didSet {
             //fromButton.setTitle(from.naam.lang, forState: UIControlState.Normal)
@@ -215,11 +224,22 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
         return closestStation
     }
     
+    func saveOriginalFrom() {
+        originalFrom = from
+    }
+    
     func switchAdviceRequest() {
         let newTo = from
         let newFrom = to
         to = newTo
         from = newFrom
+    }
+    
+    func switchAdviceRequestOriginal() {
+        switchAdviceRequest()
+        if originalFrom != nil {
+            to = originalFrom!
+        }
     }
     
     var shouldUpdate:Bool = false
@@ -243,6 +263,9 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
         println("DID ENTER REGION: \(arrivedStation!.name.lang)")
         
         if (currentAdivce.reisDeel.count <= (code.deelIndex + 1)) {
+            // final destination
+            switchAdviceRequestOriginal()
+            originalFrom = to
             return;
         }
         
@@ -281,6 +304,7 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
             switchAdviceRequest()
         } else {
             from = closest
+            originalFrom = from
         }
     }
 }
