@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1AD0CE7D2153D6DBBCE34001 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE01B4B52BDC71CED562DEBB /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C31626C11A8EA72F00410F63 /* NSDate+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31626C01A8EA72F00410F63 /* NSDate+Format.swift */; };
+		C33A03E31A8F98EB004E88F5 /* XML+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A03E21A8F98EB004E88F5 /* XML+Format.swift */; };
 		C36CEFA21A8B3D8300C9F3CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36CEFA11A8B3D8300C9F3CC /* AppDelegate.swift */; };
 		C36CEFA71A8B3D8300C9F3CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36CEFA51A8B3D8300C9F3CC /* Main.storyboard */; };
 		C36CEFA91A8B3D8300C9F3CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C36CEFA81A8B3D8300C9F3CC /* Images.xcassets */; };
@@ -16,6 +17,8 @@
 		C36CEFB81A8B3D8300C9F3CC /* HoelangTotTreinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36CEFB71A8B3D8300C9F3CC /* HoelangTotTreinTests.swift */; };
 		C36CEFC31A8B3E8A00C9F3CC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36CEFC21A8B3E8A00C9F3CC /* HomeViewController.swift */; };
 		C36CEFC51A8B3FDC00C9F3CC /* TreinTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36CEFC41A8B3FDC00C9F3CC /* TreinTicker.swift */; };
+		C371CF791A8FAF88004C35A0 /* sloterdijk.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C371CF781A8FAF88004C35A0 /* sloterdijk.gpx */; };
+		C371CF7C1A8FDCA0004C35A0 /* UIColor+HLTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371CF7B1A8FDCA0004C35A0 /* UIColor+HLTT.swift */; };
 		C3C53D101A8E41C80056DDFC /* XMLParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D0F1A8E41C80056DDFC /* XMLParse.swift */; };
 		C3C53D121A8E44C40056DDFC /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D111A8E44C40056DDFC /* API.swift */; };
 		C3C53D161A8E4B540056DDFC /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D151A8E4B540056DDFC /* Station.swift */; };
@@ -36,6 +39,7 @@
 		3601E695C84C96385D481886 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AE01B4B52BDC71CED562DEBB /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C31626C01A8EA72F00410F63 /* NSDate+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Format.swift"; sourceTree = "<group>"; };
+		C33A03E21A8F98EB004E88F5 /* XML+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XML+Format.swift"; sourceTree = "<group>"; };
 		C36CEF9C1A8B3D8300C9F3CC /* HoelangTotTrein.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoelangTotTrein.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36CEFA01A8B3D8300C9F3CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C36CEFA11A8B3D8300C9F3CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +51,9 @@
 		C36CEFB71A8B3D8300C9F3CC /* HoelangTotTreinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoelangTotTreinTests.swift; sourceTree = "<group>"; };
 		C36CEFC21A8B3E8A00C9F3CC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C36CEFC41A8B3FDC00C9F3CC /* TreinTicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreinTicker.swift; sourceTree = "<group>"; };
+		C371CF781A8FAF88004C35A0 /* sloterdijk.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sloterdijk.gpx; sourceTree = "<group>"; };
+		C371CF7A1A8FCBF1004C35A0 /* Koog aan de Zaan.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Koog aan de Zaan.gpx"; sourceTree = "<group>"; };
+		C371CF7B1A8FDCA0004C35A0 /* UIColor+HLTT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+HLTT.swift"; sourceTree = "<group>"; };
 		C3C53D0F1A8E41C80056DDFC /* XMLParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParse.swift; sourceTree = "<group>"; };
 		C3C53D111A8E44C40056DDFC /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		C3C53D151A8E4B540056DDFC /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
@@ -94,6 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				C31626C01A8EA72F00410F63 /* NSDate+Format.swift */,
+				C33A03E21A8F98EB004E88F5 /* XML+Format.swift */,
+				C371CF7B1A8FDCA0004C35A0 /* UIColor+HLTT.swift */,
 			);
 			name = Extentions;
 			sourceTree = "<group>";
@@ -126,9 +135,11 @@
 				C3C53D0E1A8E41B60056DDFC /* Connectivity */,
 				C36CEFC11A8B3DAB00C9F3CC /* View */,
 				C36CEFA11A8B3D8300C9F3CC /* AppDelegate.swift */,
+				C371CF781A8FAF88004C35A0 /* sloterdijk.gpx */,
 				C36CEFA51A8B3D8300C9F3CC /* Main.storyboard */,
 				C36CEFA81A8B3D8300C9F3CC /* Images.xcassets */,
 				C36CEFAA1A8B3D8300C9F3CC /* LaunchScreen.xib */,
+				C371CF7A1A8FCBF1004C35A0 /* Koog aan de Zaan.gpx */,
 				C36CEF9F1A8B3D8300C9F3CC /* Supporting Files */,
 			);
 			path = HoelangTotTrein;
@@ -271,6 +282,7 @@
 			files = (
 				C36CEFA71A8B3D8300C9F3CC /* Main.storyboard in Resources */,
 				C36CEFAC1A8B3D8300C9F3CC /* LaunchScreen.xib in Resources */,
+				C371CF791A8FAF88004C35A0 /* sloterdijk.gpx in Resources */,
 				C36CEFA91A8B3D8300C9F3CC /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,9 +354,11 @@
 				C3C53D101A8E41C80056DDFC /* XMLParse.swift in Sources */,
 				C3C53D1A1A8E7F8F0056DDFC /* Advice.swift in Sources */,
 				C36CEFC31A8B3E8A00C9F3CC /* HomeViewController.swift in Sources */,
+				C33A03E31A8F98EB004E88F5 /* XML+Format.swift in Sources */,
 				C36CEFC51A8B3FDC00C9F3CC /* TreinTicker.swift in Sources */,
 				C3C53D161A8E4B540056DDFC /* Station.swift in Sources */,
 				C3C53D121A8E44C40056DDFC /* API.swift in Sources */,
+				C371CF7C1A8FDCA0004C35A0 /* UIColor+HLTT.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

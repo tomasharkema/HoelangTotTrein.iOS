@@ -8,30 +8,34 @@
 
 import Foundation
 import Ono
+import CoreLocation
 
 struct OVTime {
     let planned:NSDate
     let actual:NSDate
     
     func getFormattedString() -> String {
-        
-        var flags: NSCalendarUnit = .HourCalendarUnit | .MinuteCalendarUnit | .SecondCalendarUnit
-        var options: NSCalendarOptions = .WrapComponents
-    
-        let fromComponent = NSCalendar.currentCalendar().components(flags, fromDate: actual)
-        
-        return "\(fromComponent.hour):\(fromComponent.minute)"
+        let hhmm = actual.toHHMM()
+        return "\(hhmm.hour):\(hhmm.minute)"
     }
 }
 
 struct Stop {
     let time:NSDate
     let spoor:String?
+    let name:String
 }
 
 struct ReisDeel {
     let vervoerder:String
     let stops:Array<Stop>
+    
+    func getRegion() -> CLRegion {
+        
+        let target = stops.last!
+        
+        return CLCircularRegion()
+    }
 }
 
 class Advice {
@@ -68,11 +72,40 @@ class Advice {
                 let stop = stopEl as ONOXMLElement
                 let spoor = (stop.childrenWithTag("Spoor").first as? ONOXMLElement)?.stringValue()
                 let time = (stop.childrenWithTag("Tijd").first as ONOXMLElement).dateValue()
-                
-                return Stop(time: time, spoor: spoor)
+                let naam = (stop.childrenWithTag("Naam").first as ONOXMLElement).stringValue()
+                return Stop(time: time, spoor: spoor, name: naam)
             }
             
             return ReisDeel(vervoerder: vervoerder, stops: stops)
+        }
+    }
+    
+    func firstStop() -> Stop? {
+        return reisDeel.first?.stops.first
+    }
+    
+    func legPhraseLeft() -> String {
+        if reisDeel.count > 1 {
+            return reisDeel.reduce("", { str, deel in
+                var firstStop = deel.stops.first
+                var lastStop = deel.stops.last
+                
+                return str + "\(firstStop!.name) (\(firstStop!.spoor!))\n"
+            })
+        } else {
+            return ""
+        }
+    }
+    
+    func legPhraseRight() -> String {
+        if (reisDeel.count > 1) {
+            return reisDeel.reduce("") { str, deel in
+                var firstStop = deel.stops.first
+                var lastStop = deel.stops.last
+                return  str + ">  (\(lastStop!.spoor!)) \(lastStop!.name)\n"
+            }
+        } else {
+            return ""
         }
     }
 }

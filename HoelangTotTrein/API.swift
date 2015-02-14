@@ -23,7 +23,7 @@ class API: NSObject {
         return request
     }
     
-    func getStations(aHandler:([Station]) -> Void) -> Request {
+    func getStations(aHandler:(Array<Station>) -> Void) -> Request {
         let request = authenticatedRequest(Alamofire.Method.GET, url:"http://webservices.ns.nl/ns-api-stations-v2")
             .responseXMLDocument { (_, _, string, _) in
                 if let object = string {

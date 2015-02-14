@@ -8,20 +8,30 @@
 
 import Foundation
 import Ono
+import CoreLocation
 
 struct Namen {
     let kort:String
     let middel:String
     let lang:String
+    
+    func string() -> String {
+        return lang
+    }
 }
+
+let RADIUS:CLLocationDistance = 50
 
 class Station: Hashable {
     
     let code:String!
     let type:String!
-    let naam:Namen!
+    let name:Namen!
     let land:String!
-    //let UICCode:Int
+    let lat:Double!
+    let long:Double!
+    
+    let UICCode:Int
     //let synoniemen:[String]
     
     var hashValue: Int {
@@ -33,18 +43,28 @@ class Station: Hashable {
     init (obj:ONOXMLElement) {
         stationData = obj.document
 
-        code = (obj.childrenWithTag("Code").first as ONOXMLElement).stringValue()
-        type = (obj.childrenWithTag("Type").first as ONOXMLElement).stringValue()
-        land = (obj.childrenWithTag("Land").first as ONOXMLElement).stringValue()
+        code    = obj.string(tagName: "Code")
+        type    = obj.string(tagName: "Type")
+        land    = obj.string(tagName: "Land")
+        lat     = obj.double(tagName: "Lat")
+        long    = obj.double(tagName: "Lon")
+        UICCode = obj.int(tagName: "UICCode")!
         
-        if let el:ONOXMLElement = (obj.childrenWithTag("Namen")[0] as? ONOXMLElement) {
-            naam = Namen(
-                kort: (el.childrenWithTag("Kort").first as ONOXMLElement).stringValue(),
-                middel: (el.childrenWithTag("Middel").first as ONOXMLElement).stringValue(),
-                lang: (el.childrenWithTag("Lang").first as ONOXMLElement).stringValue())
-        } else {
-            naam = nil
-        }
+        let el:ONOXMLElement = (obj.childrenWithTag("Namen")[0] as? ONOXMLElement)!
+        
+        name = Namen(
+            kort: (el.childrenWithTag("Kort").first as ONOXMLElement).stringValue(),
+            middel: (el.childrenWithTag("Middel").first as ONOXMLElement).stringValue(),
+            lang: (el.childrenWithTag("Lang").first as ONOXMLElement).stringValue())
+    }
+    
+    func getLocation() -> CLLocation {
+        return CLLocation(latitude: lat!, longitude: long!)
+    }
+    
+    func getRegion(i:Int) -> CLRegion {
+        let center = getLocation().coordinate
+        return CLCircularRegion(center: center, radius: RADIUS, identifier: CodeContainer(namespace: "STATION:", code: code, deelIndex: i).string())
     }
 }
 
