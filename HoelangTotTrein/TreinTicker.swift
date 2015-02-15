@@ -81,8 +81,6 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
                 adviceChangedHandler(currentAdivce)
             }
             
-            // TODO: Tussenstops voorzien van geofences
-            
             for region in locationManager.monitoredRegions.allObjects {
                 if let r = region as? CLRegion {
                     println("STOP OBSERVING FOR \(findStationByCode(CodeContainer.getFromString(r.identifier))!.name.lang)")
@@ -111,7 +109,7 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
     
     var originalFrom:Station! {
         get {
-            return find(stations, NSUserDefaults.standardUserDefaults().stringForKey("originalFromKey"))
+            return find(stations, NSUserDefaults.standardUserDefaults().stringForKey("originalFromKey")!)
         }
         set (newOriginalFrom) {
             NSUserDefaults.standardUserDefaults().setValue(newOriginalFrom.code, forKey: "originalFromKey")
@@ -128,6 +126,8 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
             }
             NSUserDefaults.standardUserDefaults().setValue(from.code, forKey: "fromKey")
             NSUserDefaults.standardUserDefaults().synchronize()
+            
+            MostUsed.addStation(from)
         }
     }
     var to:Station! {
@@ -139,13 +139,15 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
             }
             NSUserDefaults.standardUserDefaults().setValue(to.code, forKey: "toKey")
             NSUserDefaults.standardUserDefaults().synchronize()
+            
+            MostUsed.addStation(to)
         }
     }
     
     func setInitialState() {
         let defaults = NSUserDefaults.standardUserDefaults()
-        from = find(stations, defaults.stringForKey("fromKey")) ?? stations.first
-        to = find(stations, defaults.stringForKey("toKey")) ?? stations.first
+        from = find(stations, defaults.stringForKey("fromKey")!) ?? stations.first
+        to = find(stations, defaults.stringForKey("toKey")!) ?? stations.first
         
         adviceRequest = AdviceRequest(from: from!, to: to!)
     }
@@ -207,21 +209,6 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
         return stations.filter {
             $0.code == code.code
         }.first
-    }
-    
-    func getClosestStation(loc:CLLocation) -> Station? {
-        var currentStation:Station
-        var closestDistance:CLLocationDistance = DBL_MAX
-        var closestStation:Station?
-        
-        for station in stations {
-            let dist = station.getLocation().distanceFromLocation(loc)
-            if (dist < closestDistance) {
-                closestStation = station;
-                closestDistance = dist;
-            }
-        }
-        return closestStation
     }
     
     func saveOriginalFrom() {
@@ -299,7 +286,7 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
         
         currentLocation = locations[0] as? CLLocation
         
-        let closest = getClosestStation(currentLocation!)
+        let closest = Station.getClosestStation(stations, loc: currentLocation!)
         if (closest! == to!) {
             switchAdviceRequest()
         } else {

@@ -9,7 +9,24 @@
 import UIKit
 
 extension UIColor {
-    class func secundairThemeColor() -> UIColor {
+    
+    class func primaryGreyColor() -> UIColor {
+        return UIColor.blackColor()
+    }
+    
+    class func secundairGreyColor() -> UIColor {
         return UIColor(red: 120/255.0, green: 120/255.0, blue: 120/255.0, alpha: 1)
+    }
+    
+    class func traitaryGreyColor() -> UIColor {
+        return UIColor(red: 40/255.0, green: 40/255.0, blue: 40/255.0, alpha: 1)
+    }
+    
+    class func primaryThemeColor() -> UIColor {
+        return UIColor(red: 83/255, green: 216/255, blue: 105/255, alpha: 1)
+    }
+    
+    class func secundaryThemeColor() -> UIColor {
+        return UIColor(red: 83/255, green: 216/255, blue: 105/255, alpha: 1)
     }
 }

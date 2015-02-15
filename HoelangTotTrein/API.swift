@@ -28,7 +28,9 @@ class API: NSObject {
             .responseXMLDocument { (_, _, string, _) in
                 if let object = string {
                     if let stationsData = object.rootElement?.children {
-                        let stations:[Station] = stationsData.map { Station(obj: $0 as ONOXMLElement) }
+                        let stations:[Station] = stationsData
+                            .map { Station(obj: $0 as ONOXMLElement) }
+                            .filter { $0.land == "NL" }
                         aHandler(stations)
                     }
                 }

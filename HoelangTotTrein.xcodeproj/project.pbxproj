@@ -19,6 +19,12 @@
 		C36CEFC51A8B3FDC00C9F3CC /* TreinTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36CEFC41A8B3FDC00C9F3CC /* TreinTicker.swift */; };
 		C371CF791A8FAF88004C35A0 /* sloterdijk.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C371CF781A8FAF88004C35A0 /* sloterdijk.gpx */; };
 		C371CF7C1A8FDCA0004C35A0 /* UIColor+HLTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371CF7B1A8FDCA0004C35A0 /* UIColor+HLTT.swift */; };
+		C371CF831A90F7B2004C35A0 /* Aktiv-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C371CF821A90F7B2004C35A0 /* Aktiv-Light.otf */; };
+		C371CF851A90F838004C35A0 /* Aktiv-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = C371CF841A90F838004C35A0 /* Aktiv-Thin.otf */; };
+		C371CF871A90FC04004C35A0 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371CF861A90FC04004C35A0 /* PickerViewController.swift */; };
+		C371CF891A90FD4A004C35A0 /* PickerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371CF881A90FD4A004C35A0 /* PickerCellView.swift */; };
+		C371CF8C1A911E65004C35A0 /* MostUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371CF8B1A911E65004C35A0 /* MostUsed.swift */; };
+		C371CF8E1A912ED2004C35A0 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371CF8D1A912ED2004C35A0 /* Dictionary.swift */; };
 		C3C53D101A8E41C80056DDFC /* XMLParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D0F1A8E41C80056DDFC /* XMLParse.swift */; };
 		C3C53D121A8E44C40056DDFC /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D111A8E44C40056DDFC /* API.swift */; };
 		C3C53D161A8E4B540056DDFC /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D151A8E4B540056DDFC /* Station.swift */; };
@@ -55,6 +61,12 @@
 		C371CF7A1A8FCBF1004C35A0 /* Koog aan de Zaan.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Koog aan de Zaan.gpx"; sourceTree = "<group>"; };
 		C371CF7B1A8FDCA0004C35A0 /* UIColor+HLTT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+HLTT.swift"; sourceTree = "<group>"; };
 		C371CF7D1A8FF046004C35A0 /* Den Haag HS.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Den Haag HS.gpx"; sourceTree = "<group>"; };
+		C371CF821A90F7B2004C35A0 /* Aktiv-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aktiv-Light.otf"; sourceTree = "<group>"; };
+		C371CF841A90F838004C35A0 /* Aktiv-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aktiv-Thin.otf"; sourceTree = "<group>"; };
+		C371CF861A90FC04004C35A0 /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		C371CF881A90FD4A004C35A0 /* PickerCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerCellView.swift; sourceTree = "<group>"; };
+		C371CF8B1A911E65004C35A0 /* MostUsed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MostUsed.swift; sourceTree = "<group>"; };
+		C371CF8D1A912ED2004C35A0 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		C3C53D0F1A8E41C80056DDFC /* XMLParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParse.swift; sourceTree = "<group>"; };
 		C3C53D111A8E44C40056DDFC /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		C3C53D151A8E4B540056DDFC /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
@@ -104,6 +116,7 @@
 				C31626C01A8EA72F00410F63 /* NSDate+Format.swift */,
 				C33A03E21A8F98EB004E88F5 /* XML+Format.swift */,
 				C371CF7B1A8FDCA0004C35A0 /* UIColor+HLTT.swift */,
+				C371CF8D1A912ED2004C35A0 /* Dictionary.swift */,
 			);
 			name = Extentions;
 			sourceTree = "<group>";
@@ -131,6 +144,8 @@
 		C36CEF9E1A8B3D8300C9F3CC /* HoelangTotTrein */ = {
 			isa = PBXGroup;
 			children = (
+				C371CF8A1A911E51004C35A0 /* Storage */,
+				C371CF811A90F79C004C35A0 /* Fonts */,
 				C31626BF1A8EA71D00410F63 /* Extentions */,
 				C3C53D141A8E4B460056DDFC /* Model */,
 				C3C53D0E1A8E41B60056DDFC /* Connectivity */,
@@ -177,8 +192,27 @@
 			children = (
 				C36CEFC21A8B3E8A00C9F3CC /* HomeViewController.swift */,
 				C36CEFC41A8B3FDC00C9F3CC /* TreinTicker.swift */,
+				C371CF861A90FC04004C35A0 /* PickerViewController.swift */,
+				C371CF881A90FD4A004C35A0 /* PickerCellView.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		C371CF811A90F79C004C35A0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C371CF841A90F838004C35A0 /* Aktiv-Thin.otf */,
+				C371CF821A90F7B2004C35A0 /* Aktiv-Light.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		C371CF8A1A911E51004C35A0 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				C371CF8B1A911E65004C35A0 /* MostUsed.swift */,
+			);
+			name = Storage;
 			sourceTree = "<group>";
 		};
 		C3C53D0E1A8E41B60056DDFC /* Connectivity */ = {
@@ -282,10 +316,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C371CF851A90F838004C35A0 /* Aktiv-Thin.otf in Resources */,
 				C36CEFA71A8B3D8300C9F3CC /* Main.storyboard in Resources */,
 				C36CEFAC1A8B3D8300C9F3CC /* LaunchScreen.xib in Resources */,
 				C371CF791A8FAF88004C35A0 /* sloterdijk.gpx in Resources */,
 				C36CEFA91A8B3D8300C9F3CC /* Images.xcassets in Resources */,
+				C371CF831A90F7B2004C35A0 /* Aktiv-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,10 +391,14 @@
 				C31626C11A8EA72F00410F63 /* NSDate+Format.swift in Sources */,
 				C3C53D101A8E41C80056DDFC /* XMLParse.swift in Sources */,
 				C3C53D1A1A8E7F8F0056DDFC /* Advice.swift in Sources */,
+				C371CF8C1A911E65004C35A0 /* MostUsed.swift in Sources */,
 				C36CEFC31A8B3E8A00C9F3CC /* HomeViewController.swift in Sources */,
 				C33A03E31A8F98EB004E88F5 /* XML+Format.swift in Sources */,
 				C36CEFC51A8B3FDC00C9F3CC /* TreinTicker.swift in Sources */,
+				C371CF871A90FC04004C35A0 /* PickerViewController.swift in Sources */,
+				C371CF891A90FD4A004C35A0 /* PickerCellView.swift in Sources */,
 				C3C53D161A8E4B540056DDFC /* Station.swift in Sources */,
+				C371CF8E1A912ED2004C35A0 /* Dictionary.swift in Sources */,
 				C3C53D121A8E44C40056DDFC /* API.swift in Sources */,
 				C371CF7C1A8FDCA0004C35A0 /* UIColor+HLTT.swift in Sources */,
 			);

@@ -13,11 +13,10 @@ enum StationType {
     case To
 }
 
-class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class HomeViewController: UIViewController {
     
     @IBOutlet weak var timeToGoLabel: UILabel!
     @IBOutlet weak var vertagingLabel: UILabel!
-    @IBOutlet weak var stationPicker: UIPickerView!
     @IBOutlet weak var fromButton: UIButton!
     @IBOutlet weak var toButton: UIButton!
     
@@ -28,14 +27,13 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     @IBOutlet weak var legPhraseLeftTextView: UITextView!
     @IBOutlet weak var legPhraseRightTextView: UITextView!
     
-    @IBOutlet weak var pickerContainerView: UIView!
-    
     @IBOutlet weak var alertTextView: UITextView!
     
     private var selectionState:StationType = .From {
         didSet {
-            if let i = find(TreinTicker.sharedInstance.stations, selectionState == .From ? TreinTicker.sharedInstance.from : TreinTicker.sharedInstance.to) {
-                pick(TreinTicker.sharedInstance.stations[i])
+            if let i:Int = find(TreinTicker.sharedInstance.stations, selectionState == .From ? TreinTicker.sharedInstance.from : TreinTicker.sharedInstance.to) {
+                let station:Station = TreinTicker.sharedInstance.stations[i]
+                self.pick(station)
                 selectRow()
             }
         }
@@ -43,7 +41,7 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
     
     private func selectRow() {
         if let i = find(TreinTicker.sharedInstance.stations, selectionState == .From ? TreinTicker.sharedInstance.from : TreinTicker.sharedInstance.to!) {
-            stationPicker.selectRow(i, inComponent: 0, animated: true)
+            //stationPicker.selectRow(i, inComponent: 0, animated: true)
         }
     }
     
@@ -65,11 +63,11 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
             self?.toStationLabel.text = "\(to) - \(toTime)"
             self?.spoorLabel.text = advice.firstStop()?.spoor ?? "Spoor onbekend"
             self?.legPhraseLeftTextView.text = advice.legPhraseLeft()
-            self?.legPhraseLeftTextView.textColor = UIColor.secundairThemeColor()
+            self?.legPhraseLeftTextView.textColor = UIColor.secundairGreyColor()
             self?.legPhraseLeftTextView.textAlignment = NSTextAlignment.Right
             
             self?.legPhraseRightTextView.text = advice.legPhraseRight()
-            self?.legPhraseRightTextView.textColor = UIColor.secundairThemeColor()
+            self?.legPhraseRightTextView.textColor = UIColor.secundairGreyColor()
             self?.legPhraseRightTextView.textAlignment = NSTextAlignment.Left
             
             if let melding = advice.melding {
@@ -88,11 +86,6 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
             }
         }
         
-        TreinTicker.sharedInstance.stationChangedHandler = { [weak self] s in
-            self?.stationPicker.reloadAllComponents()
-            self?.selectRow()
-        }
-        
         TreinTicker.sharedInstance.fromToChanged = { [weak self] from, to in
             self?.toButton.setTitle(to?.name.lang, forState: UIControlState.Normal)
             self?.fromButton.setTitle(from?.name.lang, forState: UIControlState.Normal)
@@ -100,15 +93,6 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         }
         
         TreinTicker.sharedInstance.start()
-        
-        stationPicker.dataSource = self
-        stationPicker.delegate = self
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        setPickerState(false, animate: false)
     }
     
     func pick(station:Station) {
@@ -123,67 +107,41 @@ class HomeViewController: UIViewController, UIPickerViewDataSource, UIPickerView
         }
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        return TreinTicker.sharedInstance.stations[row].name.lang
-    }
-    
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return TreinTicker.sharedInstance.stations.count
-    }
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if selectionState == .From {
-            TreinTicker.sharedInstance.originalFrom = TreinTicker.sharedInstance.stations[row]
-            TreinTicker.sharedInstance.from = TreinTicker.sharedInstance.stations[row]
-        } else {
-            TreinTicker.sharedInstance.to = TreinTicker.sharedInstance.stations[row]
-        }
-    }
-    
-    func setPickerState(state:Bool, animate:Bool = true) {
-        
-        let animateBlock:() -> Void = { [weak self] _ in
-            let height = self?.pickerContainerView.bounds.height
-            self?.pickerContainerView.transform = state ? CGAffineTransformIdentity : CGAffineTransformMakeTranslation(0, height!)
-        }
-        
-        if animate {
-            UIView.animateWithDuration(0.2, animateBlock)
-        } else {
-            animateBlock()
-        }
-    }
     
     @IBAction func fromButton(sender: AnyObject) {
-        setPickerState(true)
         selectionState = .From
+        
+        performSegueWithIdentifier("picker", sender: nil)
     }
     
     @IBAction func toButton(sender: AnyObject) {
-        setPickerState(true)
         selectionState = .To
+        
+        performSegueWithIdentifier("picker", sender: nil)
     }
     
     @IBAction func locButton(sender: AnyObject) {
         TreinTicker.sharedInstance.fromCurrentLocation()
-        setPickerState(false)
-    }
-    
-    @IBAction func pickerGereedButton(sender: AnyObject) {
-        setPickerState(false)
     }
     
     @IBAction func swapLocations(sender: AnyObject) {
-        setPickerState(false)
         TreinTicker.sharedInstance.switchAdviceRequest()
         TreinTicker.sharedInstance.saveOriginalFrom()
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "picker" {
+            let picker:PickerViewController = segue.destinationViewController as PickerViewController
+            picker.mode = selectionState
+            picker.currentStation = (selectionState == .From) ? TreinTicker.sharedInstance.from : TreinTicker.sharedInstance.to
+            picker.selectStationHandler = { [weak self] station in
+                self?.pick(station)
+                println(station)
+            }
+        }
     }
 }
