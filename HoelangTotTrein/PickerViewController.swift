@@ -25,25 +25,38 @@ class PickerViewController : UITableViewController, UITableViewDelegate, UITable
     
     var currentStation:Station! {
         didSet {
-            selectRow()
+            reload()
         }
     }
     
     var selectStationHandler:SelectStationHandler!
-    var mostUsed:Array<Station> {
-        return MostUsed.getListByVisited()
-    }
+    
     var currentLocation:CLLocation?
-    var stations:Array<Station> {
-        let mostUsed =  self.mostUsed
+    
+    var mostUsed:Array<Station> = []
+    var stations:Array<Station> = []
+    
+    func reload() {
+        self.mostUsed = MostUsed.getListByVisited()
         let stations = TreinTicker.sharedInstance.stations.filter { [weak self] station in
-            return !mostUsed.contains(station)
+            return (self?.mostUsed.contains(station) != nil)
         }
         if let c = currentLocation {
-            return Station.sortStationsOnLocation(stations, loc: c, sorter: <)
+            let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+            dispatch_async(dispatch_get_global_queue(priority, 0)) { [weak self] _ in
+                self?.stations = Station.sortStationsOnLocation(stations, loc: c, sorter: <)
+                dispatch_async(dispatch_get_main_queue()) { [weak self] _ in
+                    self?.tableView.reloadData()
+                    self?.selectRow()
+                }
+            }
+            return
         } else {
-            return stations
+            self.stations = stations
         }
+        
+        tableView.reloadData()
+        selectRow()
     }
     
     override func viewDidLoad() {
@@ -54,8 +67,7 @@ class PickerViewController : UITableViewController, UITableViewDelegate, UITable
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
-        selectRow()
+        reload()
         locationManager.startUpdatingLocation()
     }
     
@@ -103,13 +115,16 @@ class PickerViewController : UITableViewController, UITableViewDelegate, UITable
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return section == 0 ? "Meest gebruikt" : ""
+    }
+    
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         locationManager.stopUpdatingLocation()
         
-        //currentLocation = locations.first as? CLLocation
+        currentLocation = locations.first as? CLLocation
         
-        tableView.reloadData()
-        selectRow()
+        reload()
     }
     
 }
