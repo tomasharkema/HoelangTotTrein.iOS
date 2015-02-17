@@ -171,7 +171,19 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
         currentAdviceRequest = API().getAdvice(adviceRequest) { [weak self] advices in
             let a:Array<Advice> = advices;
             self?.advices = a
+            
+            if let cb = self?.updateCallback {
+                if let adv = self?.getCurrentAdvice() {
+                    cb(adv)
+                    self?.updateCallback = nil
+                }
+            }
         }
+    }
+    
+    var updateCallback:((Advice) -> Void)!
+    func updateAdvice(cb:(Advice) -> Void) {
+        updateCallback = cb
     }
     
     func getCurrentAdvice() -> Advice? {
@@ -256,20 +268,45 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
             return;
         }
         
-        from = arrivedStation
-        
-        let notification = UILocalNotification()
         let vervolgStation = currentAdivce.reisDeel[code.deelIndex + 1].stops.first?
-        let vervolgStationTime:String! = vervolgStation?.time!.toHHMM().string()
-        let vervolgSpoor:String! = vervolgStation?.spoor
-        let aankomstStation:String! = arrivedStation?.name.lang
         
-        let vervolgString = vervolgStationTime + " vanaf spoor " + vervolgSpoor
+        var vervolgStationTime:String! = ""
+        var vervolgSpoor:String! = ""
+        var aankomstStation:String! = ""
         
-        notification.alertBody = "Je bent nu aangekomen bij \(aankomstStation). Je vervolgtrein vertrekt om " + vervolgString
-        notification.fireDate = NSDate()
+        let sendNotification:(String, String, String) -> Void = { vervolgStationTime, vervolgSpoor, aankomstStation in
+            let notification = UILocalNotification()
+            let vervolgString = vervolgStationTime + " vanaf spoor " + vervolgSpoor
+            
+            notification.alertBody = "Je vervolgtrein vertrekt om " + vervolgString
+            notification.fireDate = NSDate()
+            
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        }
         
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        if (vervolgStation?.time?.timeIntervalSinceNow < 0 ) {
+            
+            // Advice is veroudert.
+            println("Veroudert")
+            updateAdvice {
+                println("Nieuw advice")
+                let newStation = $0.firstStop()
+                let vervolgStationTime = newStation?.time!.toHHMM().string()
+                let vervolgSpoor = newStation?.spoor
+                let aankomstStation = arrivedStation?.name.lang
+                
+                sendNotification(vervolgStationTime!, vervolgSpoor!, aankomstStation!)
+            }
+            
+        } else {
+            println("Toon Notificatie")
+            vervolgStationTime = vervolgStation?.time!.toHHMM().string()
+            vervolgSpoor = vervolgStation?.spoor
+            aankomstStation = arrivedStation?.name.lang
+            sendNotification(vervolgStationTime, vervolgSpoor, aankomstStation)
+        }
+        
+        from = arrivedStation
     }
     
     func locationManager(manager: CLLocationManager!, didExitRegion region: CLRegion!) {

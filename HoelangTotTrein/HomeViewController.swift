@@ -91,8 +91,15 @@ class HomeViewController: UIViewController {
             self?.fromButton.setTitle(from?.name.lang, forState: UIControlState.Normal)
             self?.selectRow()
         }
-        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         TreinTicker.sharedInstance.start()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        TreinTicker.sharedInstance.stop()
     }
     
     func pick(station:Station) {

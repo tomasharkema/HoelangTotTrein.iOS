@@ -11,17 +11,16 @@ import CoreLocation
 
 typealias SelectStationHandler = (Station) -> Void
 
-class PickerViewController : UITableViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
-    
-    @IBOutlet weak var pickerTitle: UINavigationItem!
+class PickerViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UITextFieldDelegate {
+  
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var pickerTitle: UILabel!
+    @IBOutlet weak var searchView: UITextField!
+    @IBOutlet weak var leftMarginSearchField: NSLayoutConstraint!
     
     var locationManager:CLLocationManager = CLLocationManager()
     
-    var mode:StationType! {
-        didSet {
-            pickerTitle?.title = (mode == StationType.From) ? "Van" : "Naar"
-        }
-    }
+    var mode:StationType!
     
     var currentStation:Station! {
         didSet {
@@ -54,15 +53,24 @@ class PickerViewController : UITableViewController, UITableViewDelegate, UITable
         } else {
             self.stations = stations
         }
-        
-        tableView.reloadData()
-        selectRow()
+      
+        if let tv = tableView {
+            tv.reloadData()
+            selectRow()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.blackColor()
+      
+        tableView.backgroundColor = UIColor.blackColor()
         locationManager.delegate = self
+        tableView.delegate = self
+        tableView.dataSource = self
+      
+        pickerTitle.text = (mode == StationType.From) ? "Van" : "Naar"
+      
+        searchView.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -85,7 +93,7 @@ class PickerViewController : UITableViewController, UITableViewDelegate, UITable
         tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: UITableViewScrollPosition.Middle)
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let station = (indexPath.section) == 0 ? mostUsed[indexPath.row] : stations[indexPath.row]
         
         var cell:PickerCellView = self.tableView.dequeueReusableCellWithIdentifier("cell") as PickerCellView
@@ -95,11 +103,11 @@ class PickerViewController : UITableViewController, UITableViewDelegate, UITable
         return cell
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return mostUsed.count
         } else {
@@ -107,7 +115,7 @@ class PickerViewController : UITableViewController, UITableViewDelegate, UITable
         }
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let cb = selectStationHandler {
             cb(indexPath.section == 0 ? mostUsed[indexPath.row] : stations[indexPath.row])
         }
@@ -115,8 +123,16 @@ class PickerViewController : UITableViewController, UITableViewDelegate, UITable
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "Meest gebruikt" : ""
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return section == 0 ? "Meest gebruikt" : (currentLocation == nil ? "A-B" : "Dichtstebij")
+    }
+  
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+      
+        let headerView = view as UITableViewHeaderFooterView
+        headerView.textLabel.font = UIFont(name: "Aktiv-Light", size: 16.0)
+        headerView.textLabel.textColor = UIColor.whiteColor()
+        headerView.contentView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.7)
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
@@ -126,5 +142,27 @@ class PickerViewController : UITableViewController, UITableViewDelegate, UITable
         
         reload()
     }
+  
+    func textFieldDidBeginEditing(textField: UITextField) {
+      UIView.animateWithDuration(0.2) {
+        self.leftMarginSearchField.constant = -self.pickerTitle.bounds.width
+        self.view.layoutIfNeeded()
+      }
+    }
+  
+    func textFieldDidEndEditing(textField: UITextField) {
+      UIView.animateWithDuration(0.2) {
+        self.leftMarginSearchField.constant = 0
+        self.view.layoutIfNeeded()
+      }
+    }
+  
+    @IBAction func closeButton(sender: AnyObject) {
+      dismissViewControllerAnimated(true, completion: nil)
+    }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+      return UIStatusBarStyle.LightContent
+    }
+  
 }

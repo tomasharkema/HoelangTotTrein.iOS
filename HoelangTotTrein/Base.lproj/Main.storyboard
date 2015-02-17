@@ -17,6 +17,8 @@
             <string>AktivGrotesk-Light</string>
             <string>AktivGrotesk-Light</string>
             <string>AktivGrotesk-Light</string>
+            <string>AktivGrotesk-Light</string>
+            <string>AktivGrotesk-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -35,11 +37,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="tkX-iM-qV8">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FQ1-5b-PMG">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="146"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQ1-5b-PMG">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="142"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z98-f2-3V3">
-                                        <rect key="frame" x="285" y="34" width="30" height="48"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z98-f2-3V3">
+                                        <rect key="frame" x="285" y="34" width="30" height="46"/>
                                         <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="30"/>
                                         <state key="normal">
                                             <color key="titleColor" red="0.32549019610000002" green="0.84705882349999995" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -49,8 +51,8 @@
                                             <action selector="fromButton:" destination="oWt-5Q-I8W" eventType="touchUpInside" id="Mvv-YT-wBR"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymF-Fb-idj">
-                                        <rect key="frame" x="285" y="82" width="30" height="48"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymF-Fb-idj">
+                                        <rect key="frame" x="285" y="80" width="30" height="46"/>
                                         <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="30"/>
                                         <state key="normal">
                                             <color key="titleColor" red="0.32549019610000002" green="0.84705882349999995" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -60,8 +62,8 @@
                                             <action selector="toButton:" destination="oWt-5Q-I8W" eventType="touchUpInside" id="yh6-10-uB5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YqX-YU-ZZT">
-                                        <rect key="frame" x="556" y="34" width="28" height="76.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YqX-YU-ZZT">
+                                        <rect key="frame" x="556" y="34" width="28" height="92"/>
                                         <state key="normal" image="switch"/>
                                         <connections>
                                             <action selector="swapLocations:" destination="oWt-5Q-I8W" eventType="touchUpInside" id="Nju-kG-jWo"/>
@@ -94,14 +96,14 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbh-VW-q5E">
-                                <rect key="frame" x="0.0" y="378" width="300" height="222"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbh-VW-q5E">
+                                <rect key="frame" x="0.0" y="382" width="300" height="217.5"/>
                                 <color key="textColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCu-ae-gf4">
-                                <rect key="frame" x="300" y="378" width="300" height="222"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCu-ae-gf4">
+                                <rect key="frame" x="300" y="382" width="300" height="217.5"/>
                                 <color key="textColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -130,8 +132,8 @@
                                 <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uya-yO-sZK">
-                                <rect key="frame" x="250" y="154" width="100" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uya-yO-sZK">
+                                <rect key="frame" x="251" y="150" width="97" height="29"/>
                                 <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="15"/>
                                 <state key="normal" title="huidige locatie">
                                     <color key="titleColor" red="0.32549019607843138" green="0.84705882352941175" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -141,13 +143,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="+ 3 min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSA-A2-lU1">
-                                <rect key="frame" x="16" y="286" width="71" height="26"/>
-                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="22"/>
+                                <rect key="frame" x="16" y="287" width="71.5" height="25"/>
+                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="18"/>
                                 <color key="textColor" red="1" green="0.42745098039215684" blue="0.3843137254901961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFj-CN-Wwf">
-                                <rect key="frame" x="0.0" y="254" width="600" height="92"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFj-CN-Wwf">
+                                <rect key="frame" x="0.0" y="250" width="600" height="100.5"/>
                                 <fontDescription key="fontDescription" name="AktivGrotesk-Hairline" family="Aktiv Grotesk" pointSize="80"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -170,11 +172,13 @@
                             <constraint firstItem="UrG-iq-ybj" firstAttribute="top" secondItem="iCu-ae-gf4" secondAttribute="bottom" id="Ip2-SB-6im"/>
                             <constraint firstItem="cSA-A2-lU1" firstAttribute="leading" secondItem="ARo-1H-OGj" secondAttribute="leadingMargin" id="JZG-oh-YNZ"/>
                             <constraint firstItem="FQ1-5b-PMG" firstAttribute="top" secondItem="ARo-1H-OGj" secondAttribute="top" id="K6J-Pr-pWK"/>
+                            <constraint firstItem="cSA-A2-lU1" firstAttribute="top" secondItem="EFj-CN-Wwf" secondAttribute="top" id="L8k-Ma-2np"/>
                             <constraint firstItem="CSV-ee-cw2" firstAttribute="leading" secondItem="ARo-1H-OGj" secondAttribute="leadingMargin" constant="-16" id="LFb-HD-R4J"/>
                             <constraint firstAttribute="centerY" secondItem="cSA-A2-lU1" secondAttribute="centerY" id="NgM-3l-V7K"/>
                             <constraint firstItem="EFj-CN-Wwf" firstAttribute="leading" secondItem="ARo-1H-OGj" secondAttribute="leadingMargin" constant="-16" id="PZf-hx-kus"/>
                             <constraint firstItem="UrG-iq-ybj" firstAttribute="top" secondItem="9in-Z6-OlY" secondAttribute="bottom" constant="8" id="QVd-CR-rFY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xKL-pT-1a8" secondAttribute="trailing" constant="-16" id="Qq2-mT-pcm"/>
+                            <constraint firstItem="cSA-A2-lU1" firstAttribute="bottom" secondItem="EFj-CN-Wwf" secondAttribute="bottom" id="ROv-Kx-JEb"/>
                             <constraint firstItem="CSV-ee-cw2" firstAttribute="top" secondItem="9in-Z6-OlY" secondAttribute="bottom" constant="8" id="SRl-8S-Xp9"/>
                             <constraint firstItem="iCu-ae-gf4" firstAttribute="width" secondItem="wbh-VW-q5E" secondAttribute="width" id="TCf-2L-ZLy"/>
                             <constraint firstItem="xKL-pT-1a8" firstAttribute="leading" secondItem="ARo-1H-OGj" secondAttribute="leadingMargin" constant="-16" id="TaQ-P0-Sso"/>
@@ -201,6 +205,7 @@
                                 <exclude reference="SRl-8S-Xp9"/>
                                 <exclude reference="gtO-5J-xtH"/>
                                 <exclude reference="u0v-Ru-paL"/>
+                                <exclude reference="NgM-3l-V7K"/>
                                 <exclude reference="roV-dv-4Un"/>
                                 <exclude reference="ygx-ZV-7cW"/>
                                 <exclude reference="lLP-3k-1ul"/>
@@ -218,80 +223,128 @@
                         <outlet property="toButton" destination="ymF-Fb-idj" id="dUE-Yx-SxL"/>
                         <outlet property="toStationLabel" destination="xKL-pT-1a8" id="x86-UF-gzF"/>
                         <outlet property="vertagingLabel" destination="cSA-A2-lU1" id="HrI-PE-rrO"/>
-                        <segue destination="fa3-6m-sGh" kind="showDetail" identifier="picker" id="0CP-DY-JWe"/>
+                        <segue destination="uig-Bp-2WU" kind="show" identifier="picker" id="u5d-9B-lTA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOj-or-ggn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="608" y="342"/>
+            <point key="canvasLocation" x="563" y="315"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ib5-KD-C5P">
+        <!--Picker View Controller-->
+        <scene sceneID="NWC-gr-06l">
             <objects>
-                <navigationController id="PfE-fH-F4S" sceneMemberID="viewController">
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eAq-o2-Yoy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="fa3-6m-sGh" kind="relationship" relationship="rootViewController" id="u3I-2t-LI9"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="68Q-nu-Kqt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1313" y="-324"/>
-        </scene>
-        <!--Title-->
-        <scene sceneID="xoo-GF-cik">
-            <objects>
-                <tableViewController id="fa3-6m-sGh" customClass="PickerViewController" customModule="HoelangTotTrein" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9DJ-iK-pLj">
+                <viewController id="uig-Bp-2WU" customClass="PickerViewController" customModule="HoelangTotTrein" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nq1-um-N2a"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fo1-W4-ZKs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cCD-Er-kTj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="u8I-Vn-Oe7" customClass="PickerCellView" customModule="HoelangTotTrein" customModuleProvider="target">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u8I-Vn-Oe7" id="vBX-Fb-2rX">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYT-KM-AeN">
-                                            <rect key="frame" x="0.0" y="11" width="600" height="21"/>
-                                            <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="xYT-KM-AeN" secondAttribute="trailing" constant="8" id="9mt-WM-yJ6"/>
-                                        <constraint firstAttribute="centerY" secondItem="xYT-KM-AeN" secondAttribute="centerY" id="WIW-0e-PMH"/>
-                                        <constraint firstItem="xYT-KM-AeN" firstAttribute="leading" secondItem="vBX-Fb-2rX" secondAttribute="leadingMargin" constant="8" id="x1N-wf-g8z"/>
-                                    </constraints>
-                                </tableViewCellContentView>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="63" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Otx-df-NHe">
+                                <rect key="frame" x="0.0" y="69" width="600" height="531"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="531" id="8xM-Zk-NQK"/>
+                                </constraints>
+                                <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="63" id="dnL-4D-t8u" customClass="PickerCellView" customModule="HoelangTotTrein" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dnL-4D-t8u" id="BwR-dB-4dC">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dp-gV-9iG">
+                                                    <rect key="frame" x="20" y="12" width="572" height="39"/>
+                                                    <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="28"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="4dp-gV-9iG" firstAttribute="top" secondItem="BwR-dB-4dC" secondAttribute="topMargin" constant="4" id="8hF-dI-WMh"/>
+                                                <constraint firstItem="4dp-gV-9iG" firstAttribute="leading" secondItem="BwR-dB-4dC" secondAttribute="leadingMargin" constant="12" id="KiS-U9-5Ee"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="4dp-gV-9iG" secondAttribute="bottom" constant="4" id="YoL-eW-2uv"/>
+                                                <constraint firstItem="4dp-gV-9iG" firstAttribute="trailing" secondItem="BwR-dB-4dC" secondAttribute="trailingMargin" id="l0k-b7-BwN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="4dp-gV-9iG" id="MWO-nz-9a0"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sL3-BL-jbb">
+                                <rect key="frame" x="16" y="20" width="92.5" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="Zyd-Ke-zdf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="38"/>
+                                <color key="textColor" red="0.32549019610000002" green="0.84705882349999995" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D03-lx-fTx">
+                                <rect key="frame" x="564" y="28" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="med-4V-dD9"/>
+                                </constraints>
+                                <state key="normal" image="close">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <outlet property="nameLabel" destination="xYT-KM-AeN" id="QMU-mO-M7B"/>
+                                    <action selector="closeButton:" destination="uig-Bp-2WU" eventType="touchUpInside" id="Pp2-yn-3rX"/>
                                 </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="fa3-6m-sGh" id="RMc-0u-efI"/>
-                            <outlet property="delegate" destination="fa3-6m-sGh" id="GEW-Fn-sqC"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="wgJ-7P-IyB"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I8o-MH-eyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zoeken" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="48L-gC-GNF">
+                                <rect key="frame" x="117" y="20" width="439" height="41"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="28"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="D03-lx-fTx" firstAttribute="trailing" secondItem="cCD-Er-kTj" secondAttribute="trailingMargin" id="07d-R3-gV6"/>
+                            <constraint firstItem="48L-gC-GNF" firstAttribute="top" secondItem="nq1-um-N2a" secondAttribute="bottom" id="07j-UG-agy"/>
+                            <constraint firstItem="Fo1-W4-ZKs" firstAttribute="top" secondItem="Otx-df-NHe" secondAttribute="bottom" id="Aqj-yf-boG"/>
+                            <constraint firstItem="48L-gC-GNF" firstAttribute="leading" secondItem="sL3-BL-jbb" secondAttribute="trailing" constant="8" id="EhA-5z-oB0"/>
+                            <constraint firstItem="D03-lx-fTx" firstAttribute="top" secondItem="nq1-um-N2a" secondAttribute="bottom" constant="16" id="Er0-rK-5G4"/>
+                            <constraint firstAttribute="trailing" secondItem="Otx-df-NHe" secondAttribute="trailing" id="EyM-JO-wLm"/>
+                            <constraint firstItem="Otx-df-NHe" firstAttribute="leading" secondItem="cCD-Er-kTj" secondAttribute="leading" id="Fl9-XT-rA5"/>
+                            <constraint firstItem="Otx-df-NHe" firstAttribute="top" secondItem="sL3-BL-jbb" secondAttribute="bottom" constant="8" id="NHR-rE-Pkp"/>
+                            <constraint firstItem="Otx-df-NHe" firstAttribute="top" secondItem="48L-gC-GNF" secondAttribute="bottom" constant="8" id="Vez-R2-xa9"/>
+                            <constraint firstItem="D03-lx-fTx" firstAttribute="leading" secondItem="48L-gC-GNF" secondAttribute="trailing" constant="8" id="XNX-J6-5i7"/>
+                            <constraint firstItem="sL3-BL-jbb" firstAttribute="leading" secondItem="cCD-Er-kTj" secondAttribute="leadingMargin" id="iDY-t4-iPS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sL3-BL-jbb" secondAttribute="trailing" constant="-16" id="k4v-xs-mTI"/>
+                            <constraint firstItem="sL3-BL-jbb" firstAttribute="top" secondItem="nq1-um-N2a" secondAttribute="bottom" id="mGl-1z-abB"/>
+                            <constraint firstItem="Otx-df-NHe" firstAttribute="top" secondItem="sL3-BL-jbb" secondAttribute="bottom" constant="8" id="to4-3z-7fs"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="k4v-xs-mTI"/>
+                                <exclude reference="to4-3z-7fs"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="leftMarginSearchField" destination="EhA-5z-oB0" id="nno-Ns-qnh"/>
+                        <outlet property="pickerTitle" destination="sL3-BL-jbb" id="qhj-Yh-B4p"/>
+                        <outlet property="searchView" destination="48L-gC-GNF" id="ssk-Fv-D1s"/>
+                        <outlet property="tableView" destination="Otx-df-NHe" id="fKu-ld-tCz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GvA-eJ-abI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1313" y="384"/>
+            <point key="canvasLocation" x="1326" y="397"/>
         </scene>
     </scenes>
     <resources>
         <image name="background" width="1080" height="1920"/>
+        <image name="close" width="20" height="20"/>
         <image name="switch" width="28" height="20"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="0CP-DY-JWe"/>
-    </inferredMetricsTieBreakers>
 </document>
