@@ -72,6 +72,9 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
         pickerTitle.text = (mode == StationType.From) ? "Van" : "Naar"
       
         searchView.delegate = self
+        searchView.addTarget(self, action: Selector("textFieldDidChange:"), forControlEvents: UIControlEvents.EditingChanged)
+        //searchView.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"PlaceHolder Text" attributes:@{NSForegroundColorAttributeName: color}];
+        searchView.attributedPlaceholder = NSAttributedString(string: "Zoeken...", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.3)])
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -101,8 +104,10 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
           station = mostUsed[indexPath.row]
         } else if indexPath.section == 1 {
           station = closeStations[indexPath.row]
-        } else {
+        } else if indexPath.section == 2 {
           station = stations[indexPath.row]
+        } else {
+          station = stationsFound()[indexPath.row]
         }
       
         var cell:PickerCellView = self.tableView.dequeueReusableCellWithIdentifier("cell") as PickerCellView
@@ -113,16 +118,18 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return mostUsed.count
+          return !isEditing() ? mostUsed.count : 0
         } else if section == 1 {
-            return closeStations.count
+          return !isEditing() ? closeStations.count : 0
+        } else if section == 2 {
+          return !isEditing() ? stations.count : 0
         } else {
-            return stations.count
+          return isEditing() ? stationsFound().count : 0
         }
     }
     
@@ -132,8 +139,10 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
             cb(mostUsed[indexPath.row])
           } else if indexPath.section == 1 {
             cb(closeStations[indexPath.row])
-          } else {
+          } else if indexPath.section == 2 {
             cb(stations[indexPath.row])
+          } else {
+            cb(stationsFound()[indexPath.row])
           }
         }
         
@@ -142,11 +151,11 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
       if section == 0 {
-        return "Meest gebruikt"
+        return isEditing() ? "" : "Meest gebruikt"
       } else if section == 1 {
-        return "Dichtstebij"
+        return isEditing() ? "" : "Dichtstebij"
       } else {
-        return "A-Z"
+        return isEditing() ? "" : "A-Z"
       }
     }
   
@@ -175,13 +184,32 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   
     func textFieldDidEndEditing(textField: UITextField) {
       UIView.animateWithDuration(0.2) {
-        self.leftMarginSearchField.constant = 0
+        self.leftMarginSearchField.constant = 16
         self.view.layoutIfNeeded()
       }
     }
   
+    func textFieldDidChange(textField:UITextField) {
+      tableView.reloadData()
+    }
+  
+    func stationsFound() -> [Station] {
+      return stations.filter {
+        ($0.name.lang.lowercaseString as NSString).containsString(self.searchView.text.lowercaseString)
+      }
+    }
+  
+    func isEditing() -> Bool {
+      return searchView.text != ""
+    }
+  
     @IBAction func closeButton(sender: AnyObject) {
-      dismissViewControllerAnimated(true, completion: nil)
+      if searchView.isFirstResponder() {
+        searchView.text = ""
+        searchView.endEditing(true)
+      } else {
+        dismissViewControllerAnimated(true, completion: nil)
+      }
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
