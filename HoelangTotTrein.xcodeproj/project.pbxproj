@@ -25,6 +25,8 @@
 		C371CF891A90FD4A004C35A0 /* PickerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371CF881A90FD4A004C35A0 /* PickerCellView.swift */; };
 		C371CF8C1A911E65004C35A0 /* MostUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371CF8B1A911E65004C35A0 /* MostUsed.swift */; };
 		C371CF8E1A912ED2004C35A0 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371CF8D1A912ED2004C35A0 /* Dictionary.swift */; };
+		C3883A1D1A950648002A3CE4 /* Array+HLTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3883A1C1A950648002A3CE4 /* Array+HLTT.swift */; };
+		C3883A1F1A950836002A3CE4 /* NSUserDefaults+HLTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3883A1E1A950836002A3CE4 /* NSUserDefaults+HLTT.swift */; };
 		C3C53D101A8E41C80056DDFC /* XMLParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D0F1A8E41C80056DDFC /* XMLParse.swift */; };
 		C3C53D121A8E44C40056DDFC /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D111A8E44C40056DDFC /* API.swift */; };
 		C3C53D161A8E4B540056DDFC /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D151A8E4B540056DDFC /* Station.swift */; };
@@ -67,6 +69,8 @@
 		C371CF881A90FD4A004C35A0 /* PickerCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerCellView.swift; sourceTree = "<group>"; };
 		C371CF8B1A911E65004C35A0 /* MostUsed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MostUsed.swift; sourceTree = "<group>"; };
 		C371CF8D1A912ED2004C35A0 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		C3883A1C1A950648002A3CE4 /* Array+HLTT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+HLTT.swift"; sourceTree = "<group>"; };
+		C3883A1E1A950836002A3CE4 /* NSUserDefaults+HLTT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserDefaults+HLTT.swift"; sourceTree = "<group>"; };
 		C3C53D0F1A8E41C80056DDFC /* XMLParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParse.swift; sourceTree = "<group>"; };
 		C3C53D111A8E44C40056DDFC /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		C3C53D151A8E4B540056DDFC /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 				C33A03E21A8F98EB004E88F5 /* XML+Format.swift */,
 				C371CF7B1A8FDCA0004C35A0 /* UIColor+HLTT.swift */,
 				C371CF8D1A912ED2004C35A0 /* Dictionary.swift */,
+				C3883A1C1A950648002A3CE4 /* Array+HLTT.swift */,
+				C3883A1E1A950836002A3CE4 /* NSUserDefaults+HLTT.swift */,
 			);
 			name = Extentions;
 			sourceTree = "<group>";
@@ -387,8 +393,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3883A1D1A950648002A3CE4 /* Array+HLTT.swift in Sources */,
 				C36CEFA21A8B3D8300C9F3CC /* AppDelegate.swift in Sources */,
 				C31626C11A8EA72F00410F63 /* NSDate+Format.swift in Sources */,
+				C3883A1F1A950836002A3CE4 /* NSUserDefaults+HLTT.swift in Sources */,
 				C3C53D101A8E41C80056DDFC /* XMLParse.swift in Sources */,
 				C3C53D1A1A8E7F8F0056DDFC /* Advice.swift in Sources */,
 				C371CF8C1A911E65004C35A0 /* MostUsed.swift in Sources */,

@@ -15,8 +15,19 @@ typealias AdviceChangedHandler = (Advice) -> Void
 typealias StationsChangeHandler = (Array<Station>) -> Void
 typealias FromToChanged = (from:Station?, to:Station?) -> Void
 
+enum NotificationNamespace: String {
+  case Station = "Station"
+  
+  static func fromString(namespace: String) -> NotificationNamespace {
+    switch namespace {
+    default:
+      return .Station
+    }
+  }
+}
+
 struct CodeContainer {
-    let namespace:String
+    let namespace:NotificationNamespace
     let code:String
     let deelIndex:Int
     
@@ -26,7 +37,7 @@ struct CodeContainer {
     
     static func getFromString(string:String) -> CodeContainer {
         let components = split(string) {$0 == ":"}
-        return CodeContainer(namespace: components.first!, code: components[1], deelIndex: NSString(string:components.last!).integerValue)
+        return CodeContainer(namespace: NotificationNamespace.fromString(components.first!), code: components[1], deelIndex: NSString(string:components.last!).integerValue)
     }
 }
 
@@ -34,7 +45,15 @@ private var treinTickerSharedInstance:TreinTicker!
 
 class TreinTicker: NSObject, CLLocationManagerDelegate {
     
-    var stations:Array<Station> = []
+    var stations:Array<Station> {
+      set {
+        NSUserDefaults.standardUserDefaults().stations = newValue
+      }
+      get {
+        return NSUserDefaults.standardUserDefaults().stations as [Station]
+      }
+    }
+  
     var heartBeat:NSTimer!
     var minuteTicker:Int = 0
     var advices:Array<Advice> = []
@@ -63,7 +82,15 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
         locationManager.delegate = self
         
         locationManager.requestAlwaysAuthorization()
-        
+      
+        if stations.count > 0 {
+          
+          self.setInitialState()
+          if let cb = stationChangedHandler {
+            cb(stations)
+          }
+        }
+      
         API().getStations { [weak self] stations in
             let s:Array<Station> = stations
             self?.stations = s
@@ -109,47 +136,48 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
     
     var originalFrom:Station! {
         get {
-            return find(stations, NSUserDefaults.standardUserDefaults().stringForKey("originalFromKey")!)
+            return find(stations, NSUserDefaults.standardUserDefaults().originalFrom)
         }
-        set (newOriginalFrom) {
-            NSUserDefaults.standardUserDefaults().setValue(newOriginalFrom.code, forKey: "originalFromKey")
-            NSUserDefaults.standardUserDefaults().synchronize()
+        set {
+            NSUserDefaults.standardUserDefaults().originalFrom = newValue.code
         }
     }
     
     var from:Station! {
-        didSet {
-            //fromButton.setTitle(from.naam.lang, forState: UIControlState.Normal)
-            if (from != nil && to != nil && fromToChanged != nil) {
-                fromToChanged(from: from, to: to)
-                adviceRequest = AdviceRequest(from: from, to: to)
-            }
-            NSUserDefaults.standardUserDefaults().setValue(from.code, forKey: "fromKey")
-            NSUserDefaults.standardUserDefaults().synchronize()
-            
-            MostUsed.addStation(from)
+      set {
+        NSUserDefaults.standardUserDefaults().from = newValue.code
+        if (newValue != nil && to != nil && fromToChanged != nil) {
+          fromToChanged(from: newValue, to: to)
+          adviceRequest = AdviceRequest(from: newValue, to: to)
         }
+        
+        MostUsed.addStation(newValue)
+      }
+      get {
+        return find(stations, NSUserDefaults.standardUserDefaults().from) ?? stations.first
+      }
     }
     var to:Station! {
-        didSet {
-            //toButton.setTitle(to.naam.lang, forState: UIControlState.Normal)
-            if (from != nil && to != nil && fromToChanged != nil) {
-                fromToChanged(from: from, to: to)
-                adviceRequest = AdviceRequest(from: from, to: to)
-            }
-            NSUserDefaults.standardUserDefaults().setValue(to.code, forKey: "toKey")
-            NSUserDefaults.standardUserDefaults().synchronize()
-            
-            MostUsed.addStation(to)
+      set {
+        NSUserDefaults.standardUserDefaults().to = newValue.code
+        if (from != nil && newValue != nil && fromToChanged != nil) {
+            fromToChanged(from: from, to: newValue)
+            adviceRequest = AdviceRequest(from: from, to: newValue)
         }
+        
+        MostUsed.addStation(newValue)
+      }
+      get {
+        return find(stations, NSUserDefaults.standardUserDefaults().to) ?? stations.first
+      }
+      
     }
     
     func setInitialState() {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        from = find(stations, defaults.stringForKey("fromKey")!) ?? stations.first
-        to = find(stations, defaults.stringForKey("toKey")!) ?? stations.first
-        
-        adviceRequest = AdviceRequest(from: from!, to: to!)
+      adviceRequest = AdviceRequest(from: from, to: to)
+      if let cb = fromToChanged {
+        cb(from: from, to: to)
+      }
     }
     
     func start() {

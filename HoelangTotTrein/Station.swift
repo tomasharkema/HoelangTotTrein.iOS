@@ -22,7 +22,7 @@ struct Namen {
 
 let RADIUS:CLLocationDistance = 50
 
-class Station: NSObject {
+class Station: NSObject, NSCoding {
     
     let code:String!
     let type:String!
@@ -43,7 +43,31 @@ class Station: NSObject {
     }
     
     let stationData:ONOXMLDocument
-    
+  
+    required init(coder aDecoder: NSCoder) {
+        self.code = aDecoder.decodeObjectForKey("code") as String?
+        self.type = aDecoder.decodeObjectForKey("type") as String?
+        self.land = aDecoder.decodeObjectForKey("land") as String?
+        self.lat = aDecoder.decodeDoubleForKey("lat")
+        self.long = aDecoder.decodeDoubleForKey("long")
+        self.UICCode = aDecoder.decodeIntegerForKey("UICCode")
+        self.name = Namen(kort: aDecoder.decodeObjectForKey("name.kort") as String!, middel: aDecoder.decodeObjectForKey("name.middel") as String!, lang: aDecoder.decodeObjectForKey("name.lang") as String!)
+        self.stationData = ONOXMLDocument()
+        super.init()
+    }
+  
+    func encodeWithCoder(aCoder: NSCoder) {
+      aCoder.encodeObject(self.code, forKey: "code")
+      aCoder.encodeObject(self.type, forKey: "type")
+      aCoder.encodeObject(self.land, forKey: "land")
+      aCoder.encodeDouble(self.lat, forKey: "lat")
+      aCoder.encodeDouble(self.long, forKey: "long")
+      aCoder.encodeInteger(self.UICCode, forKey: "UICCode")
+      aCoder.encodeObject(self.name.kort, forKey: "name.kort")
+      aCoder.encodeObject(self.name.middel, forKey: "name.middel")
+      aCoder.encodeObject(self.name.lang, forKey: "name.lang")
+    }
+  
     init (obj:ONOXMLElement) {
         stationData = obj.document
 
@@ -68,10 +92,10 @@ class Station: NSObject {
     
     func getRegion(i:Int) -> CLRegion {
         let center = getLocation().coordinate
-        return CLCircularRegion(center: center, radius: RADIUS, identifier: CodeContainer(namespace: "STATION", code: code, deelIndex: i).string())
+        return CLCircularRegion(center: center, radius: RADIUS, identifier: CodeContainer(namespace: .Station, code: code, deelIndex: i).string())
     }
     
-    class func sortStation(stations:Array<Station>, sortableRepresentation:(a:Station) -> Double, sorter:(a:Double, b:Double) -> Bool) -> Array<Station> {
+    class func sortStation(stations:Array<Station>, sortableRepresentation:(a:Station) -> Double, sorter:(a:Double, b:Double) -> Bool, number:Int = -1) -> Array<Station> {
         var dict = Dictionary<NSString, Double>()
         
         for station in stations {
@@ -83,9 +107,10 @@ class Station: NSObject {
         sort(&stationsK) { a, b -> Bool in
             return sorter(a:dict[a]!, b:dict[b]!)
         }
-        return stationsK.map { find(stations, $0)! }
+      
+        return stationsK.reduceNumber(number).map { find(stations, $0)! }
     }
-    
+  
     class func getClosestStation(stations: Array<Station>,loc:CLLocation) -> Station? {
         var currentStation:Station
         var closestDistance:CLLocationDistance = DBL_MAX
@@ -100,11 +125,11 @@ class Station: NSObject {
         }
         return closestStation
     }
-    
-    class func sortStationsOnLocation(stations: Array<Station>, loc:CLLocation, sorter:(a:Double, b:Double) -> Bool) -> Array<Station> {
+  
+    class func sortStationsOnLocation(stations: Array<Station>, loc:CLLocation, sorter:(a:Double, b:Double) -> Bool, number:Int = -1) -> Array<Station> {
         return sortStation(stations, sortableRepresentation: {
-            return $0.getLocation().distanceFromLocation(loc)
-        }, sorter: sorter)
+          return $0.getLocation().distanceFromLocation(loc)
+          }, sorter: sorter, number:number)
     }
 }
 

@@ -34,16 +34,17 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     
     var mostUsed:Array<Station> = []
     var stations:Array<Station> = []
-    
+    var closeStations:Array<Station> = []
+  
     func reload() {
-        self.mostUsed = MostUsed.getListByVisited()
+        self.mostUsed = MostUsed.getListByVisited().reduceNumber(5)
         let stations = TreinTicker.sharedInstance.stations.filter { [weak self] station in
             return (self?.mostUsed.contains(station) != nil)
         }
         if let c = currentLocation {
             let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
             dispatch_async(dispatch_get_global_queue(priority, 0)) { [weak self] _ in
-                self?.stations = Station.sortStationsOnLocation(stations, loc: c, sorter: <)
+                self?.closeStations = Station.sortStationsOnLocation(stations, loc: c, sorter: <, number:5)
                 dispatch_async(dispatch_get_main_queue()) { [weak self] _ in
                     self?.tableView.reloadData()
                     self?.selectRow()
@@ -87,15 +88,23 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
             indexPath = NSIndexPath(forRow: index, inSection: 0)
         } else {
             let index = findIndex(stations, currentStation)
-            indexPath = NSIndexPath(forRow: index!, inSection: 1)
+            indexPath = NSIndexPath(forRow: index!, inSection: 2)
         }
-        
+      
         tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: UITableViewScrollPosition.Middle)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let station = (indexPath.section) == 0 ? mostUsed[indexPath.row] : stations[indexPath.row]
-        
+        var station:Station
+      
+        if indexPath.section == 0 {
+          station = mostUsed[indexPath.row]
+        } else if indexPath.section == 1 {
+          station = closeStations[indexPath.row]
+        } else {
+          station = stations[indexPath.row]
+        }
+      
         var cell:PickerCellView = self.tableView.dequeueReusableCellWithIdentifier("cell") as PickerCellView
         
         cell.station = station
@@ -104,12 +113,14 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return mostUsed.count
+        } else if section == 1 {
+            return closeStations.count
         } else {
             return stations.count
         }
@@ -117,14 +128,26 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let cb = selectStationHandler {
-            cb(indexPath.section == 0 ? mostUsed[indexPath.row] : stations[indexPath.row])
+          if indexPath.section == 0 {
+            cb(mostUsed[indexPath.row])
+          } else if indexPath.section == 1 {
+            cb(closeStations[indexPath.row])
+          } else {
+            cb(stations[indexPath.row])
+          }
         }
         
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "Meest gebruikt" : (currentLocation == nil ? "A-B" : "Dichtstebij")
+      if section == 0 {
+        return "Meest gebruikt"
+      } else if section == 1 {
+        return "Dichtstebij"
+      } else {
+        return "A-Z"
+      }
     }
   
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

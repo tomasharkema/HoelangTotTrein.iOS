@@ -8,8 +8,6 @@
 
 import Foundation
 
-let MOSTUSEDKEY:String = "MostUsedKeyBla"
-
 class StationUsed {
     let station:Station
     var used:Int = 0
@@ -22,21 +20,13 @@ class StationUsed {
 class MostUsed {
     
     class func getList() -> [NSString] {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let arr = defaults.arrayForKey(MOSTUSEDKEY)
-        if let a = arr {
-            return a.map { $0 as NSString }
-        } else {
-            return []
-        }
+        return NSUserDefaults.standardUserDefaults().mostUsed
     }
     
     class func addStation(station:Station) {
         var list = getList()
         list.insert(station.code, atIndex: 0)
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(list, forKey: MOSTUSEDKEY)
-        defaults.synchronize()
+        NSUserDefaults.standardUserDefaults().mostUsed = list
     }
     
     class func getListByVisited() -> Array<Station> {
