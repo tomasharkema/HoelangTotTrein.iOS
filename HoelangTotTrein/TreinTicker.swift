@@ -285,6 +285,7 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
+        locationManager.stopMonitoringForRegion(region)
         let code = CodeContainer.getFromString(region.identifier)
         let arrivedStation = findStationByCode(code)
         println("DID ENTER REGION: \(arrivedStation!.name.lang)")
@@ -301,39 +302,24 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
         var vervolgStationTime:String! = ""
         var vervolgSpoor:String! = ""
         var aankomstStation:String! = ""
-        
-        let sendNotification:(String, String, String) -> Void = { vervolgStationTime, vervolgSpoor, aankomstStation in
+      
+        updateAdvice {
+            println("Nieuw advice")
+            let newStation = $0.firstStop()
+            let vervolgStationTime:String = newStation?.time!.toHHMM().string() ?? ""
+            let vervolgStationToGo:String = newStation?.time?.toMMSSFromNow().string() ?? ""
+            let vervolgSpoor:String = newStation?.spoor ?? ""
+            let aankomstStation = arrivedStation?.name.lang
+          
             let notification = UILocalNotification()
-            let vervolgString = vervolgStationTime + " vanaf spoor " + vervolgSpoor
             
-            notification.alertBody = "Je vervolgtrein vertrekt om " + vervolgString
+            notification.alertBody = "Je vervolgtrein vertrekt over " + vervolgStationToGo + " min (" + vervolgStationTime + "h) vanaf spoor " + vervolgSpoor
             notification.fireDate = NSDate()
-            
+            notification.soundName = UILocalNotificationDefaultSoundName
+          
             UIApplication.sharedApplication().scheduleLocalNotification(notification)
         }
-        
-        if (vervolgStation?.time?.timeIntervalSinceNow < 0 ) {
-            
-            // Advice is veroudert.
-            println("Veroudert")
-            updateAdvice {
-                println("Nieuw advice")
-                let newStation = $0.firstStop()
-                let vervolgStationTime = newStation?.time!.toHHMM().string()
-                let vervolgSpoor = newStation?.spoor
-                let aankomstStation = arrivedStation?.name.lang
-                
-                sendNotification(vervolgStationTime!, vervolgSpoor!, aankomstStation!)
-            }
-            
-        } else {
-            println("Toon Notificatie")
-            vervolgStationTime = vervolgStation?.time!.toHHMM().string()
-            vervolgSpoor = vervolgStation?.spoor
-            aankomstStation = arrivedStation?.name.lang
-            sendNotification(vervolgStationTime, vervolgSpoor, aankomstStation)
-        }
-        
+      
         from = arrivedStation
     }
     

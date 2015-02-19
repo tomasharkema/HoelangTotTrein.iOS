@@ -73,7 +73,6 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
       
         searchView.delegate = self
         searchView.addTarget(self, action: Selector("textFieldDidChange:"), forControlEvents: UIControlEvents.EditingChanged)
-        //searchView.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"PlaceHolder Text" attributes:@{NSForegroundColorAttributeName: color}];
         searchView.attributedPlaceholder = NSAttributedString(string: "Zoeken...", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.3)])
     }
     
@@ -207,6 +206,7 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
       if searchView.isFirstResponder() {
         searchView.text = ""
         searchView.endEditing(true)
+        tableView.reloadData()
       } else {
         dismissViewControllerAnimated(true, completion: nil)
       }
