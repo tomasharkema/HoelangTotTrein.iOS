@@ -14,17 +14,22 @@ let FromKey = "FromKey"
 let ToKey = "ToKey"
 let OriginalFromKey = "OriginalFromKey"
 
+let UserDefaults = NSUserDefaults(suiteName: "group.tomas.hltt")!
+
 extension NSUserDefaults {
   
   var stations:[Station] {
     get {
       if let data = objectForKey(StationsKey) as? NSData {
+        NSKeyedUnarchiver.setClass(Station.classForKeyedUnarchiver(), forClassName: "HoelangTotTrein.Station")
+        NSKeyedUnarchiver.setClass(Station.classForKeyedUnarchiver(), forClassName: "Widget.Station")
         return NSKeyedUnarchiver.unarchiveObjectWithData(data) as [Station]
       }
       return []
     }
     set {
       setObject(NSKeyedArchiver.archivedDataWithRootObject(newValue), forKey: StationsKey)
+      synchronize()
     }
   }
   
@@ -38,12 +43,14 @@ extension NSUserDefaults {
     }
     set {
       setObject(newValue, forKey: MostUsedKey)
+      synchronize()
     }
   }
   
   var from:String {
     set {
       setValue(newValue, forKey: FromKey)
+      synchronize()
     }
     get {
       return objectForKey(FromKey) as? String ?? ""
@@ -53,6 +60,7 @@ extension NSUserDefaults {
   var to:String {
     set {
       setValue(newValue, forKey: ToKey)
+      synchronize()
     }
     get {
       return objectForKey(ToKey) as? String ?? ""
@@ -62,6 +70,7 @@ extension NSUserDefaults {
   var originalFrom:String {
     set {
       setValue(newValue, forKey: OriginalFromKey)
+      synchronize()
     }
     get {
       return objectForKey(OriginalFromKey) as? String ?? ""

@@ -10,7 +10,7 @@ import Foundation
 
 extension Array {
   
-  func reduceNumber(n:Int) -> [T] {
+  func slice(n:Int) -> [T] {
     
     if n == -1 {
       return self

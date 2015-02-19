@@ -42,17 +42,20 @@ struct CodeContainer {
 }
 
 private var treinTickerSharedInstance:TreinTicker!
+private var treinTickerShareExtensiondInstance:TreinTicker!
 
 class TreinTicker: NSObject, CLLocationManagerDelegate {
     
     var stations:Array<Station> {
       set {
-        NSUserDefaults.standardUserDefaults().stations = newValue
+        UserDefaults.stations = newValue
       }
       get {
-        return NSUserDefaults.standardUserDefaults().stations as [Station]
+        return UserDefaults.stations as [Station]
       }
     }
+  
+    var isExtention: Bool = false
   
     var heartBeat:NSTimer!
     var minuteTicker:Int = 0
@@ -75,6 +78,14 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
         }
         return treinTickerSharedInstance
     }
+
+    class var sharedExtensionInstance: TreinTicker {
+      if treinTickerShareExtensiondInstance == nil {
+        treinTickerShareExtensiondInstance = TreinTicker()
+        treinTickerShareExtensiondInstance.isExtention = true
+      }
+      return treinTickerShareExtensiondInstance
+    }
     
     private override init() {
         locationManager = CLLocationManager()
@@ -90,15 +101,16 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
             cb(stations)
           }
         }
-      
-        API().getStations { [weak self] stations in
-            let s:Array<Station> = stations
-            self?.stations = s
-            self?.setInitialState()
-            
-            if let cb = self?.stationChangedHandler {
-                cb(s)
-            }
+        if (!isExtention) {
+          API().getStations { [weak self] stations in
+              let s:Array<Station> = stations
+              self?.stations = s
+              self?.setInitialState()
+              
+              if let cb = self?.stationChangedHandler {
+                  cb(s)
+              }
+          }
         }
     }
     
@@ -136,16 +148,16 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
     
     var originalFrom:Station! {
         get {
-            return find(stations, NSUserDefaults.standardUserDefaults().originalFrom)
+            return find(stations, UserDefaults.originalFrom)
         }
         set {
-            NSUserDefaults.standardUserDefaults().originalFrom = newValue.code
+            UserDefaults.originalFrom = newValue.code
         }
     }
     
     var from:Station! {
       set {
-        NSUserDefaults.standardUserDefaults().from = newValue.code
+        UserDefaults.from = newValue.code
         if (newValue != nil && to != nil && fromToChanged != nil) {
           fromToChanged(from: newValue, to: to)
           adviceRequest = AdviceRequest(from: newValue, to: to)
@@ -154,12 +166,12 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
         MostUsed.addStation(newValue)
       }
       get {
-        return find(stations, NSUserDefaults.standardUserDefaults().from) ?? stations.first
+        return find(stations, UserDefaults.from) ?? stations.first
       }
     }
     var to:Station! {
       set {
-        NSUserDefaults.standardUserDefaults().to = newValue.code
+        UserDefaults.to = newValue.code
         if (from != nil && newValue != nil && fromToChanged != nil) {
             fromToChanged(from: from, to: newValue)
             adviceRequest = AdviceRequest(from: from, to: newValue)
@@ -168,7 +180,7 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
         MostUsed.addStation(newValue)
       }
       get {
-        return find(stations, NSUserDefaults.standardUserDefaults().to) ?? stations.first
+        return find(stations, UserDefaults.to) ?? stations[5]
       }
       
     }
@@ -182,6 +194,17 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
     
     func start() {
         heartBeat = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("timerCallback"), userInfo: nil, repeats: true)
+        if let advice = currentAdivce {
+          if let cb = adviceChangedHandler {
+            cb(advice)
+          }
+        }
+        if from != nil && to != nil {
+          if let cb = fromToChanged {
+            fromToChanged(from: from, to: to)
+          }
+        }
+        timerCallback()
     }
     
     func stop() {
@@ -285,6 +308,7 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
+      
         locationManager.stopMonitoringForRegion(region)
         let code = CodeContainer.getFromString(region.identifier)
         let arrivedStation = findStationByCode(code)
@@ -304,7 +328,6 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
         var aankomstStation:String! = ""
       
         updateAdvice {
-            println("Nieuw advice")
             let newStation = $0.firstStop()
             let vervolgStationTime:String = newStation?.time!.toHHMM().string() ?? ""
             let vervolgStationToGo:String = newStation?.time?.toMMSSFromNow().string() ?? ""
@@ -317,7 +340,7 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
             notification.fireDate = NSDate()
             notification.soundName = UILocalNotificationDefaultSoundName
           
-            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+            NSNotificationCenter.defaultCenter().postNotificationName("showNotification", object: notification)
         }
       
         from = arrivedStation

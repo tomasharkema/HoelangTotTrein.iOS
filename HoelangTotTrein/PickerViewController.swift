@@ -37,7 +37,7 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     var closeStations:Array<Station> = []
   
     func reload() {
-        self.mostUsed = MostUsed.getListByVisited().reduceNumber(5)
+        self.mostUsed = MostUsed.getListByVisited().slice(5)
         let stations = TreinTicker.sharedInstance.stations.filter { [weak self] station in
             return (self?.mostUsed.contains(station) != nil)
         }

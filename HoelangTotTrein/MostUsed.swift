@@ -20,16 +20,16 @@ class StationUsed {
 class MostUsed {
     
     class func getList() -> [NSString] {
-        return NSUserDefaults.standardUserDefaults().mostUsed
+        return UserDefaults.mostUsed
     }
     
     class func addStation(station:Station) {
         var list = getList()
         list.insert(station.code, atIndex: 0)
-        NSUserDefaults.standardUserDefaults().mostUsed = list
+        UserDefaults.mostUsed = list
     }
     
-    class func getListByVisited() -> Array<Station> {
+    class func getListByVisited() -> [Station] {
         let list = getList()
         
         var dict = Dictionary<NSString, Int>()

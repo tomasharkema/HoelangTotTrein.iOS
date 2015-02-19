@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="M4Y-Lb-cyx">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Aktiv-Light.otf">
+            <string>AktivGrotesk-Hairline</string>
+        </mutableArray>
+        <mutableArray key="Aktiv-Thin.otf">
+            <string>AktivGrotesk-Light</string>
+            <string>AktivGrotesk-Light</string>
+            <string>AktivGrotesk-Light</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="Widget" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ft6-oW-KC0"/>
+                        <viewControllerLayoutGuide type="bottom" id="FKl-LY-JtV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="129"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Hello World" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="GcN-lo-r42">
+                                <rect key="frame" x="4" y="8" width="316" height="20"/>
+                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="1wh-LC-Vb5">
+                                <rect key="frame" x="4" y="32" width="316" height="65"/>
+                                <fontDescription key="fontDescription" name="AktivGrotesk-Hairline" family="Aktiv Grotesk" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Hello World" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="Pva-bS-LU5">
+                                <rect key="frame" x="4" y="101" width="316" height="20"/>
+                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="kk2-xk-g1U">
+                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.42745098040000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aY-ci-0oI">
+                                <rect key="frame" x="0.0" y="-6" width="320" height="135"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToAppButton:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="uI8-sW-GTI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Pva-bS-LU5" firstAttribute="leading" secondItem="1wh-LC-Vb5" secondAttribute="leading" id="05c-wz-NVL"/>
+                            <constraint firstItem="1wh-LC-Vb5" firstAttribute="top" secondItem="GcN-lo-r42" secondAttribute="bottom" constant="4" id="2rL-OK-Ak0"/>
+                            <constraint firstItem="Pva-bS-LU5" firstAttribute="trailing" secondItem="1wh-LC-Vb5" secondAttribute="trailing" id="8bQ-Pv-cdJ"/>
+                            <constraint firstItem="Pva-bS-LU5" firstAttribute="trailing" secondItem="GcN-lo-r42" secondAttribute="trailing" id="9nX-iH-34A"/>
+                            <constraint firstItem="4aY-ci-0oI" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="CcP-Tj-cPV"/>
+                            <constraint firstAttribute="trailing" secondItem="GcN-lo-r42" secondAttribute="trailing" id="IZn-PT-iR5"/>
+                            <constraint firstItem="GcN-lo-r42" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="4" id="NqY-9L-hl6"/>
+                            <constraint firstAttribute="centerY" secondItem="kk2-xk-g1U" secondAttribute="centerY" id="Okv-lb-bE5"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="4aY-ci-0oI" secondAttribute="bottom" id="Z4v-Zs-1Te"/>
+                            <constraint firstItem="Pva-bS-LU5" firstAttribute="top" secondItem="1wh-LC-Vb5" secondAttribute="bottom" constant="4" id="jBx-BM-D2H"/>
+                            <constraint firstItem="Pva-bS-LU5" firstAttribute="leading" secondItem="GcN-lo-r42" secondAttribute="leading" id="jVG-HP-ypd"/>
+                            <constraint firstItem="kk2-xk-g1U" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="8" id="lm4-Ux-shZ"/>
+                            <constraint firstItem="4aY-ci-0oI" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" id="qOl-Ya-jNy"/>
+                            <constraint firstItem="GcN-lo-r42" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="tVe-aH-qJj"/>
+                            <constraint firstAttribute="trailing" secondItem="4aY-ci-0oI" secondAttribute="trailing" id="u5v-NF-2Jh"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="Pva-bS-LU5" secondAttribute="bottom" constant="8" id="wnl-xa-R2s"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="129"/>
+                    <connections>
+                        <outlet property="fromLabel" destination="GcN-lo-r42" id="OQM-Bu-cIW"/>
+                        <outlet property="timeLabel" destination="1wh-LC-Vb5" id="DRw-b3-tNZ"/>
+                        <outlet property="toLabel" destination="Pva-bS-LU5" id="Yrj-fS-OxU"/>
+                        <outlet property="vertagingLabel" destination="kk2-xk-g1U" id="D82-ZS-RPK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="516" y="283.5"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
