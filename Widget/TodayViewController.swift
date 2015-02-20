@@ -15,6 +15,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   @IBOutlet weak var timeLabel: UILabel!
   @IBOutlet weak var toLabel: UILabel!
   @IBOutlet weak var vertagingLabel: UILabel!
+  @IBOutlet weak var spoorLabel: UILabel!
   
   var from:Station?
   var to:Station?
@@ -26,34 +27,38 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     let treinTicker = TreinTicker.sharedExtensionInstance
     
     treinTicker.tickerHandler = { [weak self] time in
+      println()
       self?.time = time
       self?.updateUI()
     }
     
     treinTicker.adviceChangedHandler = { [weak self] (advice) in
-      self?.advice = advice
+      println()
       self?.updateUI()
     }
     
     treinTicker.fromToChanged = { [weak self] from, to in
-      self?.from = from!
-      self?.to = to!
+      println()
       self?.updateUI()
     }
     
     treinTicker.start()
+    
+    NSNotificationCenter.defaultCenter().addObserverForName(NSUserDefaultsDidChangeNotification, object: nil, queue: NSOperationQueue.mainQueue()) { _ in
+      self.updateUI()
+    }
   }
   
   func updateUI() {
-    println("updateUI")
     if let t = time {
       self.timeLabel.text = t.string()
     }
     
-    self.fromLabel.text = from?.name.lang ?? ""
-    self.toLabel.text = to?.name.lang ?? ""
+    self.fromLabel.text = TreinTicker.sharedExtensionInstance.from?.name.lang ?? ""
+    self.toLabel.text = TreinTicker.sharedExtensionInstance.to?.name.lang ?? ""
     
-    if let ad = advice {
+    if let ad = TreinTicker.sharedExtensionInstance.currentAdivce {
+      self.spoorLabel.text = ad.firstStop()?.spoor
       if let vertraging = ad.vertrekVertraging {
         self.vertagingLabel.text = vertraging
         self.vertagingLabel.hidden = false
