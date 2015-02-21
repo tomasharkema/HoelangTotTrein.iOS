@@ -59,7 +59,7 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
   
   var heartBeat:NSTimer!
   var minuteTicker:Int = 0
-  var advices:Array<Advice> = []
+  var advices:[Advice] = []
   var currentLocation:CLLocation!
   
   var tickerHandler:TickerHandler!
@@ -186,7 +186,7 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
       MostUsed.addStation(newValue)
     }
     get {
-      return find(stations, UserDefaults.to) ?? stations[5]
+      return find(stations, UserDefaults.to) ?? stations[5] ?? nil
     }
     
   }
@@ -244,9 +244,13 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
   }
   
   func getCurrentAdvice() -> Advice? {
-    return advices.filter {
+    let advicesSorted = sorted(advices) { a,b in
+      a.vertrek.actual.timeIntervalSince1970 < b.vertrek.actual.timeIntervalSince1970
+    }
+    
+    return advicesSorted.filter {
       $0.vertrek.actual.timeIntervalSinceNow > 0
-      }.first
+    }.first
   }
   
   func timerCallback() {
