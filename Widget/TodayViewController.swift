@@ -44,9 +44,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     treinTicker.start()
     
-    NSNotificationCenter.defaultCenter().addObserverForName(NSUserDefaultsDidChangeNotification, object: nil, queue: NSOperationQueue.mainQueue()) { _ in
-      self.updateUI()
-    }
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updateUI"), name: NSUserDefaultsDidChangeNotification, object: nil)
+    
   }
   
   func updateUI() {
@@ -75,6 +74,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   
   override func viewDidDisappear(animated: Bool) {
     super.viewDidDisappear(animated)
+    NSNotificationCenter.defaultCenter().removeObserver(self, name: NSUserDefaultsDidChangeNotification, object: nil)
     println("viewDidDisappear")
     TreinTicker.sharedExtensionInstance.stop()
   }

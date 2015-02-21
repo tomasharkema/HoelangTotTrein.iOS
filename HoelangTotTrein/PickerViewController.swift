@@ -116,16 +116,20 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   
   func selectRow() {
     
-    var indexPath:NSIndexPath
+    var indexPath:NSIndexPath?
     if let station = currentStation {
       if let index = findIndex(mostUsed, station) {
         indexPath = NSIndexPath(forRow: index, inSection: 0)
       } else {
-        let index = findIndex(stations, station)
-        indexPath = NSIndexPath(forRow: index!, inSection: 2)
+        if let index = findIndex(stations, station) {
+          indexPath = NSIndexPath(forRow: index, inSection: 2)
+        }
       }
-      
-      tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: UITableViewScrollPosition.Middle)
+      if let ix = indexPath {
+        if tableView.cellForRowAtIndexPath(ix) != nil {
+          tableView.selectRowAtIndexPath(ix, animated: false, scrollPosition: UITableViewScrollPosition.Middle)
+        }
+      }
     }
   }
   
@@ -176,6 +180,8 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
       } else {
         cb(stationsFound()[indexPath.row])
       }
+      searchView.resignFirstResponder()
+      searchView.text = ""
     }
     
     dismissViewControllerAnimated(true, completion: nil)
@@ -242,6 +248,7 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
       tableView.reloadData()
     } else {
       if let cb = selectStationHandler {
+        searchView.resignFirstResponder()
         cb(currentStation)
       }
     }
