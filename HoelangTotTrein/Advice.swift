@@ -46,8 +46,6 @@ struct ReisDeel {
 
 class Advice: NSObject, NSCoding {
   
-  let obj: ONOXMLElement
-  
   let overstappen:Int
   let vertrek:OVTime
   let aankomst:OVTime
@@ -59,7 +57,6 @@ class Advice: NSObject, NSCoding {
   let vertrekVertraging:String!
   
   init(obj: ONOXMLElement, adviceRequest:AdviceRequest) {
-    self.obj = obj
     self.adviceRequest = adviceRequest
     
     overstappen = (obj.childrenWithTag("AantalOverstappen").first as ONOXMLElement).numberValue().integerValue
@@ -101,17 +98,51 @@ class Advice: NSObject, NSCoding {
     }
   }
   
-  required convenience init(coder aDecoder: NSCoder) {
-    let obj = ONOXMLElement(coder: aDecoder)
-    let from = aDecoder.decodeObjectForKey("from") as Station
-    let to = aDecoder.decodeObjectForKey("to") as Station
-    self.init(obj:obj, adviceRequest:AdviceRequest(from: from, to: to))
+  required init(coder aDecoder: NSCoder) {
+    adviceRequest = AdviceRequest(from: aDecoder.decodeObjectForKey("from") as Station, to: aDecoder.decodeObjectForKey("to") as Station)
+    
+    overstappen = aDecoder.decodeIntegerForKey("overstappen")
+    
+    vertrek = OVTime(planned: NSDate(timeIntervalSinceReferenceDate: aDecoder.decodeDoubleForKey("vertrek.planned")), actual: NSDate(timeIntervalSinceReferenceDate: aDecoder.decodeDoubleForKey("vertrek.actual")))
+    
+    aankomst = OVTime(planned: NSDate(timeIntervalSinceReferenceDate: aDecoder.decodeDoubleForKey("aankomst.planned")), actual: NSDate(timeIntervalSinceReferenceDate: aDecoder.decodeDoubleForKey("aankomst.actual")))
+    
+    reisDeel = (aDecoder.decodeObjectForKey("reisDeel") as [NSData]).map { data in
+      let data = NSKeyedUnarchiver.unarchiveObjectWithData(data) as [AnyObject]
+      let stops:[Stop] = (data[1] as [AnyObject]).map { obj in
+        let data = obj as [AnyObject]
+        return Stop(time: data[0] as? NSDate, spoor: data[1] as? String, name: data[2] as? String ?? "")
+      }
+      return ReisDeel(vervoerder: data[0] as String, stops: stops)
+    }
   }
   
   func encodeWithCoder(aCoder: NSCoder) {
-    obj.encodeWithCoder(aCoder)
     aCoder.encodeObject(adviceRequest.from, forKey: "from")
     aCoder.encodeObject(adviceRequest.to, forKey: "to")
+    
+    aCoder.encodeInteger(overstappen, forKey: "overstappen")
+    
+    aCoder.encodeDouble(aankomst.planned.timeIntervalSinceReferenceDate, forKey: "aankomst.planned")
+    aCoder.encodeDouble(aankomst.actual.timeIntervalSinceReferenceDate, forKey: "aankomst.actual")
+    aCoder.encodeDouble(vertrek.planned.timeIntervalSinceReferenceDate, forKey: "vertrek.planned")
+    aCoder.encodeDouble(vertrek.actual.timeIntervalSinceReferenceDate, forKey: "vertrek.actual")
+    
+    let encodeReisDeel: [NSData] = reisDeel.map { deel in
+      let encodeStops:[[AnyObject]] = deel.stops.map { stop in
+        let arr: [AnyObject] = [stop.time!, stop.spoor ?? "", stop.name]
+        return arr
+      }
+      
+      let encodedData = [
+        deel.vervoerder,
+        encodeStops
+      ]
+      
+      return NSKeyedArchiver.archivedDataWithRootObject(encodedData)
+    }
+    
+    aCoder.encodeObject(encodeReisDeel, forKey: "reisDeel")
   }
   
   func firstStop() -> Stop? {
@@ -148,7 +179,9 @@ func ==(a:Advice, b:Advice) -> Bool {
   return a.vertrek.actual == b.vertrek.actual &&
     a.vertrek.planned == b.vertrek.planned &&
     a.aankomst.actual == b.aankomst.actual &&
-    a.aankomst.planned == b.aankomst.planned
+    a.aankomst.planned == b.aankomst.planned &&
+    a.adviceRequest.from.code == b.adviceRequest.from.code &&
+    a.adviceRequest.to.code == b.adviceRequest.to.code
 }
 
 func !=(a:Advice, b:Advice) -> Bool {

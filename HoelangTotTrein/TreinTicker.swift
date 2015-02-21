@@ -115,10 +115,12 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
   }
   
   var currentAdivce:Advice! {
-    didSet {
-      UserDefaults.currentAdvice = currentAdivce
+    set {
+      UserDefaults.currentAdvice = newValue
+      let currentAdvice = newValue
+      
       if (adviceChangedHandler != nil) {
-        adviceChangedHandler(currentAdivce)
+        adviceChangedHandler(currentAdvice)
       }
       
       for region in locationManager.monitoredRegions.allObjects {
@@ -128,7 +130,7 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
         }
       }
       var i = 0
-      for deel in currentAdivce.reisDeel {
+      for deel in currentAdvice.reisDeel {
         let target = deel.stops.last
         let station = stations.filter {
           $0.name.lang == target?.name
@@ -137,6 +139,9 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
         locationManager.startMonitoringForRegion(station?.getRegion(i))
         i++
       }
+    }
+    get {
+      return UserDefaults.currentAdvice
     }
   }
   
@@ -248,7 +253,7 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
     if (tickerHandler != nil && adviceRequest != nil) {
       if let currentAdv = getCurrentAdvice() {
         if let currentAdvice = self.currentAdivce {
-          if (self.currentAdivce != currentAdv) {
+          if (currentAdvice != currentAdv) {
             self.currentAdivce = currentAdv
           }
         } else {
