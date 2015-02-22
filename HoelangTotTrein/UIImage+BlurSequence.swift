@@ -14,17 +14,11 @@ extension UIImage {
   func generateBlurSequence(steps:Int, maxBlur:Int, reverse:Bool) -> [UIImage] {
     let image = self.copy() as UIImage
     var images:[UIImage] = []
-    let stepsAdjusted = steps / 4
+    let stepsAdjusted = steps / 2
     
     for var index = 0; index < stepsAdjusted; ++index {
-      let blurStep = CGFloat(Float(maxBlur) * (Float(index)/Float(stepsAdjusted)))
-      
-      //let blurredImage = image.applyBlurWithRadius(blurStep, tintColor: nil, saturationDeltaFactor: 2.0, maskImage: nil)
-      let blurEffect = GPUImageGaussianBlurFilter()
-      blurEffect.blurRadiusInPixels = blurStep
-      
-      let blurredImage = GPUImagePicture(image: image)
-      images.append(blurEffect.imageByFilteringImage(image))
+      let blurStep = CGFloat(Float(maxBlur) * pow(Float(index)/Float(stepsAdjusted), 4))
+      images.append(image.blur(blurStep))
     }
     
     if reverse {
@@ -32,6 +26,12 @@ extension UIImage {
     }
     
     return images
+  }
+  
+  func blur(blur:CGFloat) -> UIImage {
+    let blurEffect = GPUImageGaussianBlurFilter()
+    blurEffect.blurRadiusInPixels = blur
+    return blurEffect.imageByFilteringImage(self)
   }
   
 }

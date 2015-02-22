@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6750" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oWt-5Q-I8W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oWt-5Q-I8W">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -167,7 +167,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAC-1s-5Jv">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="From" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAC-1s-5Jv">
                                         <rect key="frame" x="280" y="184" width="40" height="20"/>
                                         <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
                                         <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
@@ -297,6 +297,7 @@
                                     <constraint firstAttribute="bottom" secondItem="sL3-BL-jbb" secondAttribute="bottom" constant="20" id="FPe-tb-ZFA"/>
                                     <constraint firstItem="48L-gC-GNF" firstAttribute="leading" secondItem="BDG-wa-rss" secondAttribute="leading" constant="20" id="dUd-IZ-LVQ"/>
                                     <constraint firstItem="sL3-BL-jbb" firstAttribute="top" secondItem="BDG-wa-rss" secondAttribute="top" constant="20" id="gof-xj-l5v"/>
+                                    <constraint firstItem="48L-gC-GNF" firstAttribute="leading" secondItem="sL3-BL-jbb" secondAttribute="trailing" constant="7" id="k1Q-Bj-MaD"/>
                                     <constraint firstItem="D03-lx-fTx" firstAttribute="leading" secondItem="48L-gC-GNF" secondAttribute="trailing" constant="8" id="oVy-Yv-0gu"/>
                                     <constraint firstItem="48L-gC-GNF" firstAttribute="bottom" secondItem="sL3-BL-jbb" secondAttribute="bottom" id="tPE-k9-Efx"/>
                                     <constraint firstItem="48L-gC-GNF" firstAttribute="top" secondItem="sL3-BL-jbb" secondAttribute="top" id="vaW-1W-NJv"/>
@@ -305,6 +306,7 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="dUd-IZ-LVQ"/>
+                                        <exclude reference="k1Q-Bj-MaD"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -361,7 +363,7 @@
                     </view>
                     <connections>
                         <outlet property="headerView" destination="BDG-wa-rss" id="Aue-CX-t0R"/>
-                        <outlet property="leftMarginSearchField" destination="dUd-IZ-LVQ" id="Upo-zH-a8u"/>
+                        <outlet property="leftMarginSearchField" destination="1rL-Wd-9hK" id="XpD-pF-NgQ"/>
                         <outlet property="pickerTitle" destination="sL3-BL-jbb" id="qhj-Yh-B4p"/>
                         <outlet property="searchView" destination="48L-gC-GNF" id="ssk-Fv-D1s"/>
                         <outlet property="tableView" destination="Otx-df-NHe" id="fKu-ld-tCz"/>

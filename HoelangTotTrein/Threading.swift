@@ -46,4 +46,4 @@ func ~> <R> (
 }
 
 /** Serial dispatch queue used by the ~> operator. */
-private let queue = dispatch_queue_create("serial-worker", DISPATCH_QUEUE_SERIAL)
+let queue = dispatch_queue_create("serial-worker", DISPATCH_QUEUE_SERIAL)
