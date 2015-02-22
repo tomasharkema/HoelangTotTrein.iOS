@@ -14,6 +14,14 @@
 		C301D8B11A99349300FB414D /* Aktiv-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C371CF821A90F7B2004C35A0 /* Aktiv-Light.otf */; };
 		C301D8B21A99349400FB414D /* Aktiv-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = C371CF841A90F838004C35A0 /* Aktiv-Thin.otf */; };
 		C301D8B31A99349400FB414D /* Aktiv-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C371CF821A90F7B2004C35A0 /* Aktiv-Light.otf */; };
+		C30EAB4F1A9A1196000A3176 /* Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30EAB4A1A9A1196000A3176 /* Threading.swift */; };
+		C30EAB501A9A1196000A3176 /* Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30EAB4A1A9A1196000A3176 /* Threading.swift */; };
+		C30EAB511A9A1196000A3176 /* UIImage+BlurSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30EAB4B1A9A1196000A3176 /* UIImage+BlurSequence.swift */; };
+		C30EAB521A9A1196000A3176 /* UIImage+BlurSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30EAB4B1A9A1196000A3176 /* UIImage+BlurSequence.swift */; };
+		C30EAB531A9A1196000A3176 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C30EAB4D1A9A1196000A3176 /* UIImage+ImageEffects.m */; };
+		C30EAB541A9A1196000A3176 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C30EAB4D1A9A1196000A3176 /* UIImage+ImageEffects.m */; };
+		C30EAB551A9A1196000A3176 /* UIView+Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30EAB4E1A9A1196000A3176 /* UIView+Screenshot.swift */; };
+		C30EAB561A9A1196000A3176 /* UIView+Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30EAB4E1A9A1196000A3176 /* UIView+Screenshot.swift */; };
 		C31626C11A8EA72F00410F63 /* NSDate+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31626C01A8EA72F00410F63 /* NSDate+Format.swift */; };
 		C3261C421A992E070046DD81 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3261C411A992E070046DD81 /* InterfaceController.swift */; };
 		C3261C441A992E070046DD81 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3261C431A992E070046DD81 /* NotificationController.swift */; };
@@ -35,6 +43,8 @@
 		C3261C6A1A992EB70046DD81 /* Array+HLTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3883A1C1A950648002A3CE4 /* Array+HLTT.swift */; };
 		C3261C6B1A992EB70046DD81 /* NSUserDefaults+HLTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3883A1E1A950836002A3CE4 /* NSUserDefaults+HLTT.swift */; };
 		C3261C6C1A992EBC0046DD81 /* MostUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371CF8B1A911E65004C35A0 /* MostUsed.swift */; };
+		C32BBF9F1A9A16D5005B596B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE01B4B52BDC71CED562DEBB /* Pods.framework */; };
+		C32BBFA01A9A16D5005B596B /* Pods.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE01B4B52BDC71CED562DEBB /* Pods.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C33A03E31A8F98EB004E88F5 /* XML+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A03E21A8F98EB004E88F5 /* XML+Format.swift */; };
 		C36CEFA21A8B3D8300C9F3CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36CEFA11A8B3D8300C9F3CC /* AppDelegate.swift */; };
 		C36CEFA71A8B3D8300C9F3CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36CEFA51A8B3D8300C9F3CC /* Main.storyboard */; };
@@ -74,7 +84,6 @@
 		C3883A4A1A965AA5002A3CE4 /* Aktiv-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C371CF821A90F7B2004C35A0 /* Aktiv-Light.otf */; };
 		C3883A4C1A96772C002A3CE4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3883A4B1A96772C002A3CE4 /* Alamofire.framework */; };
 		C3883A4E1A96772F002A3CE4 /* Ono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3883A4D1A96772F002A3CE4 /* Ono.framework */; };
-		C3883A4F1A967F51002A3CE4 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE01B4B52BDC71CED562DEBB /* Pods.framework */; };
 		C3C53D101A8E41C80056DDFC /* XMLParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D0F1A8E41C80056DDFC /* XMLParse.swift */; };
 		C3C53D121A8E44C40056DDFC /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D111A8E44C40056DDFC /* API.swift */; };
 		C3C53D161A8E4B540056DDFC /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D151A8E4B540056DDFC /* Station.swift */; };
@@ -113,6 +122,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		C32BBFA11A9A16D5005B596B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C32BBFA01A9A16D5005B596B /* Pods.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3883A391A95D8B3002A3CE4 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -132,6 +152,13 @@
 		AE01B4B52BDC71CED562DEBB /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C301D8AD1A992FE100FB414D /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = "Pods/build/Debug-iphoneos/Pods.framework"; sourceTree = "<group>"; };
 		C301D8AF1A99303700FB414D /* HoelangTotTrein WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "HoelangTotTrein WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		C30EAB471A9A1195000A3176 /* HoelangTotTrein-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HoelangTotTrein-Bridging-Header.h"; sourceTree = "<group>"; };
+		C30EAB481A9A1195000A3176 /* Widget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Widget-Bridging-Header.h"; sourceTree = "<group>"; };
+		C30EAB4A1A9A1196000A3176 /* Threading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Threading.swift; sourceTree = "<group>"; };
+		C30EAB4B1A9A1196000A3176 /* UIImage+BlurSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+BlurSequence.swift"; sourceTree = "<group>"; };
+		C30EAB4C1A9A1196000A3176 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		C30EAB4D1A9A1196000A3176 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		C30EAB4E1A9A1196000A3176 /* UIView+Screenshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Screenshot.swift"; sourceTree = "<group>"; };
 		C31626C01A8EA72F00410F63 /* NSDate+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Format.swift"; sourceTree = "<group>"; };
 		C3261C3C1A992E070046DD81 /* HoelangTotTrein WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HoelangTotTrein WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3261C3F1A992E070046DD81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -199,7 +226,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3883A4F1A967F51002A3CE4 /* Pods.framework in Frameworks */,
+				C32BBF9F1A9A16D5005B596B /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,12 +275,19 @@
 		C31626BF1A8EA71D00410F63 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
+				C30EAB4A1A9A1196000A3176 /* Threading.swift */,
+				C30EAB4B1A9A1196000A3176 /* UIImage+BlurSequence.swift */,
+				C30EAB4C1A9A1196000A3176 /* UIImage+ImageEffects.h */,
+				C30EAB4D1A9A1196000A3176 /* UIImage+ImageEffects.m */,
+				C30EAB4E1A9A1196000A3176 /* UIView+Screenshot.swift */,
 				C31626C01A8EA72F00410F63 /* NSDate+Format.swift */,
 				C33A03E21A8F98EB004E88F5 /* XML+Format.swift */,
 				C371CF7B1A8FDCA0004C35A0 /* UIColor+HLTT.swift */,
 				C371CF8D1A912ED2004C35A0 /* Dictionary.swift */,
 				C3883A1C1A950648002A3CE4 /* Array+HLTT.swift */,
 				C3883A1E1A950836002A3CE4 /* NSUserDefaults+HLTT.swift */,
+				C30EAB471A9A1195000A3176 /* HoelangTotTrein-Bridging-Header.h */,
+				C30EAB481A9A1195000A3176 /* Widget-Bridging-Header.h */,
 			);
 			name = Extentions;
 			sourceTree = "<group>";
@@ -483,6 +517,7 @@
 				2807AEB188D85BAB46137856 /* Copy Pods Resources */,
 				0ABA829F59CFC1352CEBEECF /* Embed Pods Frameworks */,
 				C3883A391A95D8B3002A3CE4 /* Embed App Extensions */,
+				C32BBFA11A9A16D5005B596B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -536,7 +571,7 @@
 		C36CEF941A8B3D8300C9F3CC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "Tomas Harkema";
 				TargetAttributes = {
 					C3261C3B1A992E070046DD81 = {
@@ -727,12 +762,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C30EAB4F1A9A1196000A3176 /* Threading.swift in Sources */,
 				C3883A1D1A950648002A3CE4 /* Array+HLTT.swift in Sources */,
+				C30EAB531A9A1196000A3176 /* UIImage+ImageEffects.m in Sources */,
 				C36CEFA21A8B3D8300C9F3CC /* AppDelegate.swift in Sources */,
+				C30EAB551A9A1196000A3176 /* UIView+Screenshot.swift in Sources */,
 				C31626C11A8EA72F00410F63 /* NSDate+Format.swift in Sources */,
 				C3883A1F1A950836002A3CE4 /* NSUserDefaults+HLTT.swift in Sources */,
 				C3C53D101A8E41C80056DDFC /* XMLParse.swift in Sources */,
 				C3C53D1A1A8E7F8F0056DDFC /* Advice.swift in Sources */,
+				C30EAB511A9A1196000A3176 /* UIImage+BlurSequence.swift in Sources */,
 				C371CF8C1A911E65004C35A0 /* MostUsed.swift in Sources */,
 				C36CEFC31A8B3E8A00C9F3CC /* HomeViewController.swift in Sources */,
 				C33A03E31A8F98EB004E88F5 /* XML+Format.swift in Sources */,
@@ -758,10 +797,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C30EAB541A9A1196000A3176 /* UIImage+ImageEffects.m in Sources */,
 				C3883A441A95DA8C002A3CE4 /* API.swift in Sources */,
 				C3883A451A95DAA0002A3CE4 /* MostUsed.swift in Sources */,
 				C3883A401A95DA64002A3CE4 /* Array+HLTT.swift in Sources */,
 				C3883A421A95DA71002A3CE4 /* Station.swift in Sources */,
+				C30EAB521A9A1196000A3176 /* UIImage+BlurSequence.swift in Sources */,
 				C3883A3D1A95DA5B002A3CE4 /* XML+Format.swift in Sources */,
 				C3883A3A1A95D91B002A3CE4 /* TreinTicker.swift in Sources */,
 				C3883A411A95DA67002A3CE4 /* NSUserDefaults+HLTT.swift in Sources */,
@@ -770,7 +811,9 @@
 				C3883A431A95DA74002A3CE4 /* Advice.swift in Sources */,
 				C3883A461A95DAA5002A3CE4 /* XMLParse.swift in Sources */,
 				C3883A3E1A95DA5E002A3CE4 /* UIColor+HLTT.swift in Sources */,
+				C30EAB501A9A1196000A3176 /* Threading.swift in Sources */,
 				C3883A3F1A95DA61002A3CE4 /* Dictionary.swift in Sources */,
+				C30EAB561A9A1196000A3176 /* UIView+Screenshot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -945,7 +988,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -991,6 +1034,7 @@
 			baseConfigurationReference = 3601E695C84C96385D481886 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HoelangTotTrein/HoelangTotTrein.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -999,6 +1043,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "HoelangTotTrein/HoelangTotTrein-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -1007,6 +1053,7 @@
 			baseConfigurationReference = CD505C2AEB56160ABEC7D50A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HoelangTotTrein/HoelangTotTrein.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1015,6 +1062,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "HoelangTotTrein/HoelangTotTrein-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -1056,6 +1104,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3601E695C84C96385D481886 /* Pods.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1072,6 +1121,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "HoelangTotTrein/Widget-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -1079,6 +1130,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CD505C2AEB56160ABEC7D50A /* Pods.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1091,6 +1143,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "HoelangTotTrein/Widget-Bridging-Header.h";
 			};
 			name = Release;
 		};
