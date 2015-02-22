@@ -11,6 +11,8 @@ import CoreLocation
 
 typealias SelectStationHandler = (Station) -> Void
 
+let PickerAnimationDuration = 0.3
+
 class PickerViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UITextFieldDelegate {
   
   @IBOutlet weak var tableView: UITableView!
@@ -20,7 +22,8 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   
   @IBOutlet weak var headerView: UIView!
   
-  var blurEffectView:UIVisualEffectView!
+  var backdropImageView:UIImageView!
+  var backdrop: UIImage?
   
   var locationManager:CLLocationManager = CLLocationManager()
   
@@ -78,13 +81,12 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     tableView.delegate = self
     tableView.dataSource = self
     
-    let blur = UIBlurEffect(style: .Dark)
-    blurEffectView = UIVisualEffectView(effect: blur)
-    blurEffectView.frame = view.frame
-    blurEffectView.alpha = 0
-    view.insertSubview(blurEffectView, belowSubview: headerView)
+    backdropImageView = UIImageView(frame: view.bounds)
+    backdropImageView.hidden = true
+    view.insertSubview(backdropImageView, belowSubview: headerView)
     
-    setState(false, completion: nil)
+    // set inital state
+    animateMenu()
     
     pickerTitle.text = (mode == StationType.From) ? "Van" : "Naar"
     
@@ -103,15 +105,37 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   
   func setState(state: Bool, completion: ((Bool) -> Void)?) {
     showState = state
-    let animation: () -> Void = {
-      self.blurEffectView.alpha = self.showState ? 1 : 0
-      //self.view.alpha = self.showState ? 1 : 0
-      
-      self.tableView.transform = self.showState ? CGAffineTransformIdentity : CGAffineTransformMakeTranslation(0, self.view.bounds.height)
-      self.headerView.transform = self.showState ? CGAffineTransformIdentity : CGAffineTransformMakeTranslation(0, -self.headerView.bounds.height)
+    if state {
+      self.backdropImageView.image = nil
+      self.backdropImageView.hidden = false
     }
     
-    UIView.animateWithDuration(0.25, animations: animation, completion: completion)
+    { () -> [UIImage] in
+      if let back = self.backdrop {
+        return back.generateBlurSequence(Int(PickerAnimationDuration * 60), maxBlur: 20, reverse:!self.showState)
+      }
+      return []
+      
+      } ~> { images in
+        self.backdropImageView.animationImages = images
+        self.backdropImageView.animationDuration = PickerAnimationDuration
+        self.backdropImageView.image = images.last
+        self.backdropImageView.animationRepeatCount = 1
+        
+        let animation: () -> Void = {
+          self.animateMenu()
+        }
+        self.backdropImageView.startAnimating()
+        UIView.animateWithDuration(PickerAnimationDuration, animations: animation, completion: completion)
+    }
+  }
+  
+  func animateMenu() {
+    
+    let tableViewTransform = CGAffineTransformScale(CGAffineTransformMakeTranslation(0, self.view.bounds.height), 0.75, 0.75)
+    
+    self.tableView.transform = self.showState ? CGAffineTransformIdentity : tableViewTransform
+    self.headerView.transform = self.showState ? CGAffineTransformIdentity : CGAffineTransformMakeTranslation(0, -self.headerView.bounds.height)
   }
   
   func selectRow() {

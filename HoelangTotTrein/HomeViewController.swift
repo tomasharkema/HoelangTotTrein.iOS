@@ -33,6 +33,9 @@ class HomeViewController: UIViewController {
   
   weak var pickerController:PickerViewController?
   
+  @IBOutlet weak var mainView: UIView!
+  
+  
   private var selectionState:StationType = .From {
     didSet {
       if let i:Int = find(TreinTicker.sharedInstance.stations, selectionState == .From ? TreinTicker.sharedInstance.from : TreinTicker.sharedInstance.to) {
@@ -121,10 +124,13 @@ class HomeViewController: UIViewController {
   }
   
   func showPicker() {
+    TreinTicker.sharedInstance.stop()
     pickerContainer.hidden = false
     
+    let image = mainView.screenShot()
+    
     if let picker = pickerController {
-      
+      picker.backdrop = image
       picker.setState(true, completion: nil)
       picker.mode = selectionState
       picker.currentStation = (selectionState == .From) ? TreinTicker.sharedInstance.from : TreinTicker.sharedInstance.to
@@ -138,6 +144,7 @@ class HomeViewController: UIViewController {
           self.pickerContainer.hidden = true
         }
       }
+      TreinTicker.sharedInstance.start()
     }
   }
   
