@@ -16,7 +16,7 @@ class InterfaceController: WKInterfaceController {
   @IBOutlet weak var timer: WKInterfaceTimer!
   @IBOutlet weak var toLabel: WKInterfaceLabel!
   
-  var time:HHMMSS?
+  var time:NSDate?
   
   override func awakeWithContext(context: AnyObject?) {
     super.awakeWithContext(context)
@@ -27,14 +27,16 @@ class InterfaceController: WKInterfaceController {
     // This method is called when watch view controller is about to be visible to user
     let treinTicker = TreinTicker.sharedExtensionInstance
     
-    treinTicker.tickerHandler = { [weak self] time in
-      self?.time = time
-      self?.updateUI()
-    }
-    
     treinTicker.adviceChangedHandler = { [weak self] (advice) in
       println()
       self?.updateUI()
+    }
+    
+    treinTicker.tickerHandler = { [weak self] time in
+      if self?.time != time.date {
+        self?.time = time.date
+        self?.updateUI()
+      }
     }
     
     treinTicker.fromToChanged = { [weak self] from, to in
@@ -44,16 +46,16 @@ class InterfaceController: WKInterfaceController {
     
     treinTicker.start()
     
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("userDefaultsDidChange:"), name:NSUserDefaultsDidChangeNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updateUI"), name:NSUserDefaultsDidChangeNotification, object: nil)
     
     super.willActivate()
   }
   
   func updateUI() {
     if let t = time {
-      self.timer.setDate(t.date)
+      timer.setDate(t)
+      timer.start()
     }
-    
     fromLabel.setText(TreinTicker.sharedExtensionInstance.from?.name.lang ?? "")
     toLabel.setText(TreinTicker.sharedExtensionInstance.to?.name.lang ?? "")
   }
@@ -63,10 +65,6 @@ class InterfaceController: WKInterfaceController {
     TreinTicker.sharedExtensionInstance.stop()
     NSNotificationCenter.defaultCenter().removeObserver(self, name: NSUserDefaultsDidChangeNotification, object: nil)
     super.didDeactivate()
-  }
-  
-  func userDefaultsDidChange(notification:NSNotification) {
-    updateUI()
   }
   
 }
