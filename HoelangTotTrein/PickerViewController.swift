@@ -25,17 +25,10 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   
   var backdropImageView:UIImageView!
   var backdrop: UIImage?
+  var backdropImages: [UIImage]?
   
-  var willDismiss:Bool = false {
-    didSet{
-      println(willDismiss)
-    }
-  }
-  var isDismissing:Bool = false{
-    didSet{
-      println(isDismissing)
-    }
-  }
+  var willDismiss:Bool = false
+  var isDismissing:Bool = false
   
   var locationManager:CLLocationManager = CLLocationManager()
   
@@ -122,35 +115,37 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     if state {
       self.backdropImageView.image = nil
       self.backdropImageView.hidden = false
-    }
-    
-    { () -> [UIImage] in
-      if let back = self.backdrop {
-        return back.generateBlurSequence(Int(PickerAnimationDuration * 60), maxBlur: 20, reverse:!self.showState)
-      }
-      return []
       
+      self.headerView.transform = CGAffineTransformMakeTranslation(0, -self.headerView.bounds.height)
+      self.tableView.transform = CGAffineTransformScale(CGAffineTransformMakeTranslation(0.0, self.view.bounds.height), 0.9, 0.9);
+      
+      { () -> [UIImage] in
+        if let back = self.backdrop {
+          return back.generateBlurSequence(Int(PickerAnimationDuration * 60), maxBlur: 10, reverse:!self.showState)
+        }
+        return []
+        
       } ~> { images in
+        self.backdropImages = images
         self.backdropImageView.animationImages = images
         self.backdropImageView.animationDuration = PickerAnimationDuration
         self.backdropImageView.image = images.last
         self.backdropImageView.animationRepeatCount = 1
-        
         self.animateMenu(true, completion)
-        
         self.backdropImageView.startAnimating()
+      }
+      
+    } else {
+      self.backdropImageView.animationImages = self.backdropImageView.animationImages?.reverse()
+      self.backdropImageView.image = self.backdropImageView.animationImages?.last as UIImage
+      self.animateMenu(true, completion)
+      self.backdropImageView.startAnimating()
     }
   }
   
   func animateMenu(animated:Bool, completion:((Bool) -> Void)?) {
     let show = self.showState
-   
-    // set inital transform
-    if show {
-      self.headerView.transform = CGAffineTransformMakeTranslation(0, -self.headerView.bounds.height)
-      self.tableView.transform = CGAffineTransformScale(CGAffineTransformMakeTranslation(0.0, self.view.bounds.height), 0.9, 0.9)
-      view.layoutIfNeeded()
-    }
+    println("animateMenu")
       
     let fase1:()->() = {
         self.tableView.transform = CGAffineTransformScale(CGAffineTransformMakeTranslation(0.0, 0.0), 0.9, 0.9)
@@ -173,6 +168,12 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
       }, completion: completion)
       UIView.animateWithDuration(PickerAnimationDuration, animations: header) {
         if $0 {
+          if !show {
+            self.headerView.transform = CGAffineTransformMakeTranslation(0, -self.headerView.bounds.height)
+            self.backdropImageView.hidden = true
+          }
+          self.tableView.contentOffset.y = 0
+          self.tableView.transform = CGAffineTransformIdentity
           self.isDismissing = false
         }
       }
@@ -239,19 +240,16 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     if let cb = selectStationHandler {
       if indexPath.section == 0 {
-        cb(mostUsed[indexPath.row])
+        currentStation = mostUsed[indexPath.row]
       } else if indexPath.section == 1 {
-        cb(closeStations[indexPath.row])
+        currentStation = closeStations[indexPath.row]
       } else if indexPath.section == 2 {
-        cb(stations[indexPath.row])
+        currentStation = stations[indexPath.row]
       } else {
-        cb(stationsFound()[indexPath.row])
+        currentStation = stationsFound()[indexPath.row]
       }
     }
-    
-    searchView.text = ""
-    searchView.endEditing(true)
-    searchView.resignFirstResponder()
+    dismissPicker()
   }
   
   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -315,13 +313,18 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   func scrollViewDidScroll(scrollView: UIScrollView) {
     if scrollView.contentOffset.y < 0 && !isDismissing {
       headerView.transform = CGAffineTransformMakeTranslation(0, scrollView.contentOffset.y/2)
-      
-      if scrollView.contentOffset.y < -100 {
+      if scrollView.contentOffset.y < -50 {
         willDismiss = true
         scrollView.transform = CGAffineTransformMakeTranslation(0, 50)
+        if let backdropIM = backdropImages {
+          let progress = min(((-scrollView.contentOffset.y - 50) / 50)/8, 0.5)
+          let index = Int(CGFloat(backdropIM.count-1) * progress)
+          backdropImageView.image = backdropIM.reverse()[index]
+          let scale = 1 - (0.25 * progress)
+          tableView.transform = CGAffineTransformMakeScale(scale, scale)
+        }
       } else {
         willDismiss = false
-        
         scrollView.transform = CGAffineTransformIdentity
       }
     }
@@ -329,10 +332,8 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   
   func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
     if willDismiss {
-      if let cb = selectStationHandler {
-        self.isDismissing = true
-        cb(self.currentStation)
-      }
+      self.isDismissing = true
+      dismissPicker()
     }
   }
   
@@ -344,14 +345,22 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
       searchView.endEditing(true)
       tableView.reloadData()
     } else {
-      if let cb = selectStationHandler {
-        cb(currentStation)
-      }
+      dismissPicker()
     }
   }
   
   override func preferredStatusBarStyle() -> UIStatusBarStyle {
     return UIStatusBarStyle.LightContent
+  }
+  
+  func dismissPicker() {
+    searchView.text = ""
+    searchView.endEditing(true)
+    searchView.resignFirstResponder()
+    
+    if let cb = selectStationHandler {
+      cb(currentStation)
+    }
   }
   
 }
