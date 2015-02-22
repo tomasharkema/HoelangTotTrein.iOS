@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GPUImage
 
 extension UIImage {
   
@@ -19,11 +20,11 @@ extension UIImage {
       let blurStep = CGFloat(Float(maxBlur) * (Float(index)/Float(stepsAdjusted)))
       
       //let blurredImage = image.applyBlurWithRadius(blurStep, tintColor: nil, saturationDeltaFactor: 2.0, maskImage: nil)
-      let blurImage = GPUImageiOSBlurFilter()
+      let blurEffect = GPUImageGaussianBlurFilter()
+      blurEffect.blurRadiusInPixels = blurStep
       
-      let blurredImage = GPUImagePicture(image)
-      
-      images.append(blurredImage)
+      let blurredImage = GPUImagePicture(image: image)
+      images.append(blurEffect.imageByFilteringImage(image))
     }
     
     if reverse {

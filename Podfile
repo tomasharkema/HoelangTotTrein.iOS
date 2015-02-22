@@ -5,3 +5,4 @@ link_with 'Widget'
 
 pod 'Alamofire', '~> 1.1'
 pod 'Ono'
+pod 'GPUImage'
