@@ -20,43 +20,44 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   var from:Station?
   var to:Station?
   var advice:Advice?
-  var time:HHMMSS?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     let treinTicker = TreinTicker.sharedExtensionInstance
     
     treinTicker.tickerHandler = { [weak self] time in
-      println()
-      self?.time = time
       self?.updateUI()
+      return;
     }
     
     treinTicker.adviceChangedHandler = { [weak self] (advice) in
-      println()
       self?.updateUI()
+      return;
     }
     
     treinTicker.fromToChanged = { [weak self] from, to in
-      println()
       self?.updateUI()
+      return;
     }
     
     treinTicker.start()
     
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updateUI"), name: NSUserDefaultsDidChangeNotification, object: nil)
+    //NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updateUI"), name: NSUserDefaultsDidChangeNotification, object: nil)
     
   }
   
   func updateUI() {
-    if let t = time {
-      self.timeLabel.text = t.string()
+    let treinTicker = TreinTicker.sharedExtensionInstance
+    
+      self.timeLabel.text = treinTicker.currentAdivce.vertrek.actual.toMMSSFromNow().string()
+      UIView.animateWithDuration(1.0) {
+        self.timeLabel.textColor = treinTicker.currentAdivce.vertrek.actual.timeIntervalSinceNow < 60 ? UIColor.redThemeColor() : UIColor.whiteColor()
     }
     
     self.fromLabel.text = TreinTicker.sharedExtensionInstance.from?.name.lang ?? ""
     self.toLabel.text = TreinTicker.sharedExtensionInstance.to?.name.lang ?? ""
     
-    if let ad = TreinTicker.sharedExtensionInstance.currentAdivce {
+    if let ad = treinTicker.currentAdivce {
       self.spoorLabel.text = ad.firstStop()?.spoor
       if let vertraging = ad.vertrekVertraging {
         self.vertagingLabel.text = vertraging

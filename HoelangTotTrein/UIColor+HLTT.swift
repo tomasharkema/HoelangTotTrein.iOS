@@ -29,4 +29,8 @@ extension UIColor {
     class func secundaryThemeColor() -> UIColor {
         return UIColor(red: 83/255, green: 216/255, blue: 105/255, alpha: 1)
     }
+  
+    class func redThemeColor() -> UIColor {
+      return UIColor(red: 255/255, green: 109/255, blue: 98/255, alpha: 1.0)
+    }
 }

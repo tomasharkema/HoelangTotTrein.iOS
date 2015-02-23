@@ -11,6 +11,8 @@
         <mutableArray key="Aktiv-Thin.otf">
             <string>AktivGrotesk-Light</string>
             <string>AktivGrotesk-Light</string>
+            <string>AktivGrotesk-Light</string>
+            <string>AktivGrotesk-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -19,9 +21,12 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="HoelangTotTrein_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <group width="1" height="30" alignment="left" id="sPm-6t-wsk">
+                        <label width="1" alignment="left" text="10:10" textAlignment="center" id="gOZ-XH-991">
+                            <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="12"/>
+                        </label>
+                        <group width="1" height="22" alignment="left" id="sPm-6t-wsk">
                             <items>
-                                <label width="1" alignment="left" verticalAlignment="center" text="Label" textAlignment="center" id="YeK-qc-P4F">
+                                <label width="1" alignment="left" verticalAlignment="center" text="Naar" textAlignment="center" id="YeK-qc-P4F">
                                     <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="16"/>
                                 </label>
                             </items>
@@ -36,16 +41,21 @@
                         </group>
                         <group width="1" alignment="left" verticalAlignment="bottom" id="SP8-e2-QOf">
                             <items>
-                                <label width="1" height="30" alignment="left" text="Label" textAlignment="center" id="OgD-zc-iGv">
+                                <label width="1" height="30" alignment="left" text="Van" textAlignment="center" id="OgD-zc-iGv">
                                     <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="16"/>
                                 </label>
                             </items>
                         </group>
+                        <label width="1" alignment="left" verticalAlignment="bottom" text="10:10" textAlignment="center" id="vEf-WY-Fzy">
+                            <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="12"/>
+                        </label>
                     </items>
                     <connections>
                         <outlet property="fromLabel" destination="YeK-qc-P4F" id="kqL-BO-4YH"/>
+                        <outlet property="fromTime" destination="gOZ-XH-991" id="BNB-1W-Krm"/>
                         <outlet property="timer" destination="p84-Rj-IBJ" id="XQJ-0b-u13"/>
                         <outlet property="toLabel" destination="OgD-zc-iGv" id="8pI-qY-Oxb"/>
+                        <outlet property="toTime" destination="vEf-WY-Fzy" id="RwM-Fo-gFo"/>
                     </connections>
                 </controller>
             </objects>

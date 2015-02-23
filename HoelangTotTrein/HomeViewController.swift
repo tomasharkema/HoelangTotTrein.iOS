@@ -60,6 +60,10 @@ class HomeViewController: UIViewController {
     TreinTicker.sharedInstance.tickerHandler = { [weak self] time in
       let timeToGoLabel = time.string()
       self?.timeToGoLabel.text = timeToGoLabel
+      UIView.animateWithDuration(1.0) {
+        self?.timeToGoLabel.textColor = time.date.timeIntervalSinceNow < 60 ? UIColor.redThemeColor() : UIColor.whiteColor()
+        return;
+      }
     };
     
     TreinTicker.sharedInstance.adviceChangedHandler = { [weak self] (advice) in

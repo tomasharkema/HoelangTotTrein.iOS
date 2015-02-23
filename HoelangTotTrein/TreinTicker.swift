@@ -59,7 +59,14 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
   
   var heartBeat:NSTimer!
   var minuteTicker:Int = 0
-  var advices:[Advice] = []
+  var advices:[Advice] {
+    get {
+      return UserDefaults.advices
+    }
+    set {
+      UserDefaults.advices = newValue
+    }
+  }
   var currentLocation:CLLocation!
   
   var tickerHandler:TickerHandler!
@@ -82,8 +89,8 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
   class var sharedExtensionInstance: TreinTicker {
     if treinTickerShareExtensiondInstance == nil {
       treinTickerShareExtensiondInstance = TreinTicker()
-      treinTickerShareExtensiondInstance.isExtention = true
     }
+    treinTickerShareExtensiondInstance.isExtention = true
     return treinTickerShareExtensiondInstance
   }
   
@@ -119,8 +126,12 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
       UserDefaults.currentAdvice = newValue
       let currentAdvice = newValue
       
-      if (adviceChangedHandler != nil) {
+      if (adviceChangedHandler != nil && currentAdvice != nil) {
         adviceChangedHandler(currentAdvice)
+      }
+      
+      if isExtention {
+        return;
       }
       
       for region in locationManager.monitoredRegions.allObjects {
@@ -199,6 +210,13 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
   }
   
   func start() {
+    if (heartBeat != nil) {
+      return;
+    }
+    if (UserDefaults.currentAdvice != nil) {
+      currentAdivce = UserDefaults.currentAdvice
+    }
+    
     heartBeat = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("timerCallback"), userInfo: nil, repeats: true)
     if let advice = currentAdivce {
       if let cb = adviceChangedHandler {
@@ -210,7 +228,6 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
         fromToChanged(from: from, to: to)
       }
     }
-    timerCallback()
   }
   
   func stop() {

@@ -14,8 +14,10 @@ let FromKey = "FromKey"
 let ToKey = "ToKey"
 let OriginalFromKey = "OriginalFromKey"
 let CurrentAdvice = "CurrentAdvice"
+let Advices = "Advices"
 
 let UserDefaults = NSUserDefaults(suiteName: "group.tomas.hltt")!
+let UnsharedUserDefaults = NSUserDefaults.standardUserDefaults()
 
 extension NSUserDefaults {
   
@@ -25,9 +27,9 @@ extension NSUserDefaults {
       synchronize()
     }
     get {
+      NSKeyedUnarchiver.setClass(Station.classForKeyedUnarchiver(), forClassName: "HoelangTotTrein.Station")
+      NSKeyedUnarchiver.setClass(Station.classForKeyedUnarchiver(), forClassName: "Widget.Station")
       if let data = objectForKey(StationsKey) as? NSData {
-        NSKeyedUnarchiver.setClass(Station.classForKeyedUnarchiver(), forClassName: "HoelangTotTrein.Station")
-        NSKeyedUnarchiver.setClass(Station.classForKeyedUnarchiver(), forClassName: "Widget.Station")
         return NSKeyedUnarchiver.unarchiveObjectWithData(data) as [Station]
       }
       return []
@@ -78,15 +80,34 @@ extension NSUserDefaults {
     }
   }
   
-  var currentAdvice:Advice? {
+  var advices:[Advice] {
     set {
-      setObject(NSKeyedArchiver.archivedDataWithRootObject(newValue!), forKey: CurrentAdvice)
+      setObject(NSKeyedArchiver.archivedDataWithRootObject(newValue), forKey: Advices)
       synchronize()
     }
     get {
+      NSKeyedUnarchiver.setClass(Advice.classForKeyedUnarchiver(), forClassName: "HoelangTotTrein.Advice")
+      NSKeyedUnarchiver.setClass(Advice.classForKeyedUnarchiver(), forClassName: "Widget.Advice")
+      if let data = objectForKey(Advices) as? NSData {
+        return NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [Advice] ?? []
+      }
+      return []
+    }
+  }
+  
+  var currentAdvice:Advice? {
+    set {
+      if let advice = newValue {
+        setObject(NSKeyedArchiver.archivedDataWithRootObject(advice), forKey: CurrentAdvice)
+        synchronize()
+        return;
+      }
+      println("currentAdvice PROBLEMEN")
+    }
+    get {
+      NSKeyedUnarchiver.setClass(Advice.classForKeyedUnarchiver(), forClassName: "HoelangTotTrein.Advice")
+      NSKeyedUnarchiver.setClass(Advice.classForKeyedUnarchiver(), forClassName: "Widget.Advice")
       if let data = objectForKey(CurrentAdvice) as? NSData {
-        NSKeyedUnarchiver.setClass(Advice.classForKeyedUnarchiver(), forClassName: "HoelangTotTrein.Advice")
-        NSKeyedUnarchiver.setClass(Advice.classForKeyedUnarchiver(), forClassName: "Widget.Advice")
         return NSKeyedUnarchiver.unarchiveObjectWithData(data) as? Advice
       }
       return nil

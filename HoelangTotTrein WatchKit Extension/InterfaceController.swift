@@ -9,12 +9,13 @@
 import WatchKit
 import Foundation
 
-
 class InterfaceController: WKInterfaceController {
   
   @IBOutlet weak var fromLabel: WKInterfaceLabel!
   @IBOutlet weak var timer: WKInterfaceTimer!
   @IBOutlet weak var toLabel: WKInterfaceLabel!
+  @IBOutlet weak var fromTime: WKInterfaceLabel!
+  @IBOutlet weak var toTime: WKInterfaceLabel!
   
   var time:NSDate?
   
@@ -54,10 +55,15 @@ class InterfaceController: WKInterfaceController {
   func updateUI() {
     if let t = time {
       timer.setDate(t)
+      UIView.animateWithDuration(1.0) {
+        self.timer.setTextColor(t.timeIntervalSinceNow < 60 ? UIColor.redThemeColor() : UIColor.whiteColor())
+      }
       timer.start()
     }
     fromLabel.setText(TreinTicker.sharedExtensionInstance.from?.name.lang ?? "")
     toLabel.setText(TreinTicker.sharedExtensionInstance.to?.name.lang ?? "")
+    fromTime.setText(TreinTicker.sharedExtensionInstance.currentAdivce.vertrek.getFormattedString())
+    toTime.setText(TreinTicker.sharedExtensionInstance.currentAdivce.aankomst.getFormattedString())
   }
   
   override func didDeactivate() {
