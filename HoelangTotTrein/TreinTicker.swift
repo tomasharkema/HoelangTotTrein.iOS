@@ -57,6 +57,8 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
   
   var isExtention: Bool = false
   
+  var adviceOffset:NSDate?
+  
   var heartBeat:NSTimer!
   var minuteTicker:Int = 0
   var advices:[Advice] {
@@ -158,6 +160,7 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
   
   private var adviceRequest:AdviceRequest! {
     didSet {
+      adviceOffset = nil
       changeRequest()
       minuteTicker = 0
     }
@@ -262,14 +265,29 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
     updateCallback = cb
   }
   
-  func getCurrentAdvice() -> Advice? {
+  func getUpcomingAdvices() -> [Advice] {
     let advicesSorted = sorted(advices) { a,b in
       a.vertrek.actual.timeIntervalSince1970 < b.vertrek.actual.timeIntervalSince1970
     }
     
     return advicesSorted.filter {
       $0.vertrek.actual.timeIntervalSinceNow > 0
-    }.first
+    }
+  }
+  
+  func getUpcomingAdvicesWithOffset() -> [Advice] {
+    return getUpcomingAdvices().filter{ $0.vertrek.planned.timeIntervalSince1970 >= self.adviceOffset?.timeIntervalSince1970 }
+  }
+  
+  func getCurrentAdvice() -> Advice? {
+    let adivces = getUpcomingAdvices()
+    
+    // filter advice als er een offset is gezet. Hierdoor kan je een later advies zetten, maar vallen de latere gewoon door tot de eerste.
+    if let adviceOffsetDate = adviceOffset {
+      return getUpcomingAdvicesWithOffset().first
+    } else {
+      return adivces.first
+    }
   }
   
   func timerCallback() {
@@ -277,12 +295,12 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
       if let currentAdv = getCurrentAdvice() {
         if let currentAdvice = self.currentAdivce {
           if (currentAdvice != currentAdv) {
+            println("upcoming advices: \(getUpcomingAdvices().count)")
             self.currentAdivce = currentAdv
           }
         } else {
           self.currentAdivce = currentAdv
         }
-        
         
         tickerHandler(currentAdv.vertrek.actual.toMMSSFromNow())
       }
@@ -295,6 +313,12 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
       minuteTicker = 0
     }
     minuteTicker++;
+  }
+  
+  func skipCurrentAdvice() {
+    let upcoming = getUpcomingAdvicesWithOffset()
+    
+    adviceOffset = upcoming[min(upcoming.count-1, 1)].vertrek.planned
   }
   
   func findStationByCode(code:CodeContainer) -> Station? {

@@ -105,13 +105,13 @@
                                         </variation>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbh-VW-q5E">
-                                        <rect key="frame" x="0.0" y="387" width="300" height="213"/>
+                                        <rect key="frame" x="0.0" y="386" width="300" height="213.5"/>
                                         <color key="textColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCu-ae-gf4">
-                                        <rect key="frame" x="300" y="387" width="300" height="213"/>
+                                        <rect key="frame" x="300" y="386" width="300" height="213.5"/>
                                         <color key="textColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -126,7 +126,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKL-pT-1a8">
-                                        <rect key="frame" x="291" y="359" width="18" height="20"/>
+                                        <rect key="frame" x="291" y="359" width="18" height="19.5"/>
                                         <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
                                         <color key="textColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -148,13 +148,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 3 min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSA-A2-lU1">
-                                        <rect key="frame" x="8" y="250" width="59" height="101"/>
+                                        <rect key="frame" x="8" y="250" width="58.5" height="100.5"/>
                                         <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="18"/>
                                         <color key="textColor" red="1" green="0.42745098039215684" blue="0.3843137254901961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFj-CN-Wwf">
-                                        <rect key="frame" x="199" y="250" width="203" height="101"/>
+                                        <rect key="frame" x="199" y="250" width="202.5" height="100.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="g7h-7j-zI4"/>
                                         </constraints>
@@ -167,12 +167,21 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="From" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAC-1s-5Jv">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAC-1s-5Jv">
                                         <rect key="frame" x="280" y="184" width="40" height="20"/>
                                         <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
                                         <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPp-ev-MjQ">
+                                        <rect key="frame" x="561" y="285" width="31" height="30"/>
+                                        <state key="normal" title="Skip">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="skipAdvice:" destination="oWt-5Q-I8W" eventType="touchUpInside" id="yMk-Xk-76g"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -190,6 +199,7 @@
                                     <constraint firstAttribute="bottom" secondItem="9in-Z6-OlY" secondAttribute="bottom" constant="28" id="Hpd-Su-Bcl"/>
                                     <constraint firstAttribute="centerX" secondItem="EFj-CN-Wwf" secondAttribute="centerX" id="ItL-2w-6Pe"/>
                                     <constraint firstItem="iCu-ae-gf4" firstAttribute="leading" secondItem="wbh-VW-q5E" secondAttribute="trailing" id="Jce-nT-0tN"/>
+                                    <constraint firstAttribute="centerY" secondItem="CPp-ev-MjQ" secondAttribute="centerY" id="VMG-eK-F7X"/>
                                     <constraint firstItem="9in-Z6-OlY" firstAttribute="leading" secondItem="XdA-ld-a6e" secondAttribute="leading" constant="36" id="Wdx-CK-oxN"/>
                                     <constraint firstAttribute="centerX" secondItem="uya-yO-sZK" secondAttribute="centerX" id="Wyf-Ox-Erw"/>
                                     <constraint firstItem="tkX-iM-qV8" firstAttribute="top" secondItem="XdA-ld-a6e" secondAttribute="top" id="YJN-Jl-GKM"/>
@@ -199,6 +209,7 @@
                                     <constraint firstItem="FQ1-5b-PMG" firstAttribute="leading" secondItem="XdA-ld-a6e" secondAttribute="leading" id="d6w-kX-w7h"/>
                                     <constraint firstAttribute="centerY" secondItem="EFj-CN-Wwf" secondAttribute="centerY" id="e4A-eF-OKs"/>
                                     <constraint firstItem="cSA-A2-lU1" firstAttribute="bottom" secondItem="EFj-CN-Wwf" secondAttribute="bottom" id="iFD-lX-DMa"/>
+                                    <constraint firstAttribute="trailing" secondItem="CPp-ev-MjQ" secondAttribute="trailing" constant="8" id="iYE-Ac-cxS"/>
                                     <constraint firstAttribute="trailing" secondItem="FQ1-5b-PMG" secondAttribute="trailing" id="jST-tW-8b1"/>
                                     <constraint firstAttribute="bottom" secondItem="tkX-iM-qV8" secondAttribute="bottom" id="nTW-HJ-9VG"/>
                                     <constraint firstItem="uya-yO-sZK" firstAttribute="top" secondItem="FQ1-5b-PMG" secondAttribute="bottom" constant="8" id="na5-EU-4PZ"/>
@@ -209,8 +220,8 @@
                                     <constraint firstAttribute="bottom" secondItem="iCu-ae-gf4" secondAttribute="bottom" id="zkH-5r-ma1"/>
                                 </constraints>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="omd-KL-I4g">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="omd-KL-I4g">
+                                <rect key="frame" x="0.0" y="600" width="600" height="600"/>
                                 <connections>
                                     <segue destination="uig-Bp-2WU" kind="embed" identifier="picker" id="pPj-qV-2aO"/>
                                 </connections>

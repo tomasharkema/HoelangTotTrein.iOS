@@ -176,6 +176,10 @@ class HomeViewController: UIViewController {
     TreinTicker.sharedInstance.saveOriginalFrom()
   }
   
+  @IBAction func skipAdvice(sender: AnyObject) {
+    TreinTicker.sharedInstance.skipCurrentAdvice()
+  }
+  
   override func preferredStatusBarStyle() -> UIStatusBarStyle {
     return UIStatusBarStyle.LightContent
   }
