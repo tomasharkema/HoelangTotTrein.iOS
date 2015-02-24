@@ -43,9 +43,13 @@ extension NSDate {
     
     let com = NSCalendar.currentCalendar().components(flags, fromDate: NSDate(), toDate: self, options: options)
     
-    let hour:String? = com.hour > 0 ? "\(com.hour)" : .None
-    let minute = com.minute < 10 ? String("0\(com.minute)") : String(com.minute)
-    let second = com.second < 10 ? String("0\(com.second)") : String(com.second)
+    let h = max(com.hour, 0)
+    let m = max(com.minute, 0)
+    let s = max(com.second, 0)
+    
+    let hour:String? = h > 0 ? "\(h)" : .None
+    let minute = m < 10 ? String("0\(m)") : String(m)
+    let second = s < 10 ? String("0\(s)") : String(s)
     
     return HHMMSS(hour: hour, minute: minute, second: second, date:self)
   }
@@ -55,8 +59,11 @@ extension NSDate {
     
     let com = NSCalendar.currentCalendar().components(flags, fromDate: self)
     
-    let hour = com.hour < 10 ? String("0\(com.hour)") : String(com.hour)
-    let minute = com.minute < 10 ? String("0\(com.minute)") : String(com.minute)
+    let h = max(com.hour, 0)
+    let m = max(com.minute, 0)
+    
+    let hour = h < 10 ? String("0\(h)") : String(h)
+    let minute = m < 10 ? String("0\(m)") : String(m)
     
     return HHMM(hour: hour, minute: minute, date:self)
   }

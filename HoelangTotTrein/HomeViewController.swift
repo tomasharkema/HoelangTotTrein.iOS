@@ -148,7 +148,10 @@ class HomeViewController: UIViewController {
           self.pickerContainer.hidden = true
         }
       }
-      TreinTicker.sharedInstance.start()
+      
+      dispatch_async(dispatch_get_main_queue()) {
+        TreinTicker.sharedInstance.start()
+      }
     }
   }
   

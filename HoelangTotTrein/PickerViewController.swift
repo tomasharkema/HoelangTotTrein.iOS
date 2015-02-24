@@ -139,6 +139,7 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     } else {
       self.backdropImageView.animationImages = self.backdropImageView.animationImages?.reverse()
       self.backdropImageView.image = self.backdropImageView.animationImages?.last as UIImage
+      
       self.animateMenu(true, completion)
       self.backdropImageView.startAnimating()
     }
@@ -162,7 +163,9 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     }
     
     if animated {
-      UIView.animateKeyframesWithDuration(PickerAnimationDuration, delay: 0, options: UIViewKeyframeAnimationOptions.CalculationModeCubic | UIViewKeyframeAnimationOptions.AllowUserInteraction, animations: {
+      UIView.animateKeyframesWithDuration(PickerAnimationDuration, delay: 0,
+        options: UIViewKeyframeAnimationOptions.CalculationModeCubic | UIViewKeyframeAnimationOptions.AllowUserInteraction,
+        animations: {
         UIView.addKeyframeWithRelativeStartTime(0.0, relativeDuration: 0.5, animations: fase1)
         UIView.addKeyframeWithRelativeStartTime(0.5, relativeDuration: 0.5, animations: fase2)
       }, completion: completion)
@@ -324,7 +327,7 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
       headerView.transform = CGAffineTransformMakeTranslation(0, scrollView.contentOffset.y/2)
       if scrollView.contentOffset.y < -50 {
         willDismiss = true
-        scrollView.transform = CGAffineTransformMakeTranslation(0, 50)
+        scrollView.transform = CGAffineTransformMakeTranslation(0, 10)
         if let backdropIM = backdropImages {
           let progress = min(((-scrollView.contentOffset.y - 50) / 50)/4, 0.5)
           let index = Int(CGFloat(backdropIM.count-1) * progress)

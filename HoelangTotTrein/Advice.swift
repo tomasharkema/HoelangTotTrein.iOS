@@ -149,6 +149,10 @@ class Advice: NSObject, NSCoding {
     return reisDeel.first?.stops.first
   }
   
+  func lastStop() -> Stop? {
+    return reisDeel.last?.stops.last
+  }
+  
   func legPhraseLeft() -> String {
     if reisDeel.count > 1 {
       return reisDeel.reduce("", { str, deel in
@@ -172,6 +176,19 @@ class Advice: NSObject, NSCoding {
     } else {
       return ""
     }
+  }
+  
+  func notificationPhrase(deelIndex:Int) -> String {
+    let vervolg = self.reisDeel[min(deelIndex + 1, self.reisDeel.count-1)].stops
+    let vervolgStation = vervolg.first?
+    let aankomst = vervolg.last?.name ?? "??"
+    
+    let newStation = self.firstStop()
+    let vervolgStationTime:String = newStation?.time!.toHHMM().string() ?? ""
+    let vervolgStationToGo:String = newStation?.time?.toMMSSFromNow().string() ?? ""
+    let vervolgSpoor:String = newStation?.spoor ?? ""
+    
+    return "De trein naar \(aankomst) vertrekt over " + vervolgStationToGo + " min (" + vervolgStationTime + "u) van spoor " + vervolgSpoor
   }
 }
 

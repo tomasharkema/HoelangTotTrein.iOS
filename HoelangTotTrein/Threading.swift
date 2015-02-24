@@ -22,7 +22,7 @@ func ~> (
   backgroundClosure: () -> (),
   mainClosure:       () -> ())
 {
-  dispatch_async(queue) {
+  dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
     backgroundClosure()
     dispatch_async(dispatch_get_main_queue(), mainClosure)
   }
@@ -37,13 +37,10 @@ func ~> <R> (
   backgroundClosure: () -> R,
   mainClosure:       (result: R) -> ())
 {
-  dispatch_async(queue) {
+  dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
     let result = backgroundClosure()
     dispatch_async(dispatch_get_main_queue(), {
       mainClosure(result: result)
     })
   }
 }
-
-/** Serial dispatch queue used by the ~> operator. */
-let queue = dispatch_queue_create("serial-worker", DISPATCH_QUEUE_SERIAL)

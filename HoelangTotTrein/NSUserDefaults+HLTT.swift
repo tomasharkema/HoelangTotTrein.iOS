@@ -29,6 +29,7 @@ extension NSUserDefaults {
     get {
       NSKeyedUnarchiver.setClass(Station.classForKeyedUnarchiver(), forClassName: "HoelangTotTrein.Station")
       NSKeyedUnarchiver.setClass(Station.classForKeyedUnarchiver(), forClassName: "Widget.Station")
+      NSKeyedUnarchiver.setClass(Station.classForKeyedUnarchiver(), forClassName: "HoelangTotTrein_WatchKit_Extension.Station")
       if let data = objectForKey(StationsKey) as? NSData {
         return NSKeyedUnarchiver.unarchiveObjectWithData(data) as [Station]
       }
@@ -88,6 +89,7 @@ extension NSUserDefaults {
     get {
       NSKeyedUnarchiver.setClass(Advice.classForKeyedUnarchiver(), forClassName: "HoelangTotTrein.Advice")
       NSKeyedUnarchiver.setClass(Advice.classForKeyedUnarchiver(), forClassName: "Widget.Advice")
+      NSKeyedUnarchiver.setClass(Advice.classForKeyedUnarchiver(), forClassName: "HoelangTotTrein_WatchKit_Extension.Advice")
       if let data = objectForKey(Advices) as? NSData {
         return NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [Advice] ?? []
       }
@@ -107,6 +109,7 @@ extension NSUserDefaults {
     get {
       NSKeyedUnarchiver.setClass(Advice.classForKeyedUnarchiver(), forClassName: "HoelangTotTrein.Advice")
       NSKeyedUnarchiver.setClass(Advice.classForKeyedUnarchiver(), forClassName: "Widget.Advice")
+      NSKeyedUnarchiver.setClass(Advice.classForKeyedUnarchiver(), forClassName: "HoelangTotTrein_WatchKit_Extension.Advice")
       if let data = objectForKey(CurrentAdvice) as? NSData {
         return NSKeyedUnarchiver.unarchiveObjectWithData(data) as? Advice
       }

@@ -1,4 +1,4 @@
-//
+ //
 //  XML+Format.swift
 //  HoelangTotTrein
 //
@@ -20,11 +20,17 @@ extension ONOXMLElement {
     }
     
     func int(tagName tag: String) -> Int? {
-        return NSString(string: string(tagName: tag)!).integerValue
+      if let str = string(tagName: tag) {
+        return NSString(string: str).integerValue
+      }
+      return nil
     }
     
     func double(tagName tag: String) -> Double? {
-        return NSString(string: string(tagName: tag)!).doubleValue
+      if let str = string(tagName: tag) {
+        return NSString(string: str).doubleValue
+      }
+      return nil
     }
     
     func date(tagName tag: String) -> NSDate? {

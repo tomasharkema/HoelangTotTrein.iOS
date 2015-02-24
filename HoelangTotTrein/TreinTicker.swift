@@ -240,18 +240,20 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
   func changeRequest() {
     if currentAdviceRequest != nil {
       currentAdviceRequest.cancel()
+      currentAdviceRequest = nil
     }
     
-    currentAdviceRequest = API().getAdvice(adviceRequest) { [weak self] advices in
+    currentAdviceRequest = API().getAdvice(self.adviceRequest) { advices in
       let a:Array<Advice> = advices;
-      self?.advices = a
+      self.advices = a
       
-      if let cb = self?.updateCallback {
-        if let adv = self?.getCurrentAdvice() {
+      if let cb = self.updateCallback {
+        if let adv = self.getCurrentAdvice() {
           cb(adv)
-          self?.updateCallback = nil
+          self.updateCallback = nil
         }
       }
+      
     }
   }
   
@@ -348,22 +350,11 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
       return;
     }
     
-    let vervolgStation = currentAdivce?.reisDeel[code.deelIndex + 1].stops.first?
-    
-    var vervolgStationTime:String! = ""
-    var vervolgSpoor:String! = ""
-    var aankomstStation:String! = ""
-    
     updateAdvice {
-      let newStation = $0.firstStop()
-      let vervolgStationTime:String = newStation?.time!.toHHMM().string() ?? ""
-      let vervolgStationToGo:String = newStation?.time?.toMMSSFromNow().string() ?? ""
-      let vervolgSpoor:String = newStation?.spoor ?? ""
-      let aankomstStation = arrivedStation?.name.lang
+      let notificationBody = $0.notificationPhrase(code.deelIndex)
       
       let notification = UILocalNotification()
-      
-      notification.alertBody = "Je vervolgtrein vertrekt over " + vervolgStationToGo + " min (" + vervolgStationTime + "h) vanaf spoor " + vervolgSpoor
+      notification.alertBody = notificationBody
       notification.fireDate = NSDate()
       notification.soundName = UILocalNotificationDefaultSoundName
       
