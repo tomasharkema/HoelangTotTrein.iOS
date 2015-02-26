@@ -30,8 +30,6 @@ class HomeViewController: UIViewController {
   @IBOutlet weak var pickerContainer: UIView!
   @IBOutlet weak var skipButton: UIButton!
   
-  weak var pickerController:PickerViewController?
-  
   @IBOutlet weak var mainView: UIView!
   
   @IBOutlet weak var advicesIndicator: UIPageControl!
@@ -52,12 +50,14 @@ class HomeViewController: UIViewController {
     }
   }
   
+  deinit {
+    println("deinit")
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     advicesIndicator.transform = CGAffineTransformMakeRotation(CGFloat(M_PI * 90.0/180))
-    
-    pickerContainer.hidden = true
     
     TreinTicker.sharedInstance.tickerHandler = { [weak self] time in
       let timeToGoLabel = time.string()
@@ -115,10 +115,6 @@ class HomeViewController: UIViewController {
     TreinTicker.sharedInstance.start()
   }
   
-  override func viewDidDisappear(animated: Bool) {
-    TreinTicker.sharedInstance.stop()
-  }
-  
   func pick(station:Station) {
     pick(station, state: selectionState)
   }
@@ -128,34 +124,6 @@ class HomeViewController: UIViewController {
       TreinTicker.sharedInstance.from = station
     } else {
       TreinTicker.sharedInstance.to = station
-    }
-  }
-  
-  func showPicker() {
-    TreinTicker.sharedInstance.stop()
-    
-    let image = mainView.screenShot()
-    
-    if let picker = pickerController {
-      picker.backdrop = image
-      picker.setState(true, completion: nil)
-      picker.mode = selectionState
-      picker.currentStation = (selectionState == .From) ? TreinTicker.sharedInstance.from : TreinTicker.sharedInstance.to
-      pickerContainer.hidden = false
-    }
-  }
-  
-  func hidePicker() {
-    if let picker = pickerController {
-      picker.setState(false) {
-        if $0 {
-          self.pickerContainer.hidden = true
-        }
-      }
-      
-      dispatch_async(dispatch_get_main_queue()) {
-        TreinTicker.sharedInstance.start()
-      }
     }
   }
   
@@ -173,13 +141,12 @@ class HomeViewController: UIViewController {
   @IBAction func fromButton(sender: AnyObject) {
     selectionState = .From
     
-    showPicker()
+    performSegueWithIdentifier("picker", sender: self)
   }
   
   @IBAction func toButton(sender: AnyObject) {
     selectionState = .To
-    
-    showPicker()
+    performSegueWithIdentifier("picker", sender: self)
   }
   
   @IBAction func locButton(sender: AnyObject) {
@@ -202,13 +169,22 @@ class HomeViewController: UIViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "picker" {
       let picker:PickerViewController = segue.destinationViewController as PickerViewController
+      
+      let image = mainView.screenShot()
+      
+      picker.backdrop = image
       picker.mode = selectionState
       picker.currentStation = (selectionState == .From) ? TreinTicker.sharedInstance.from : TreinTicker.sharedInstance.to
       picker.selectStationHandler = { [weak self] station in
         self?.pick(station)
-        self?.hidePicker()
+        return;
       }
-      self.pickerController = picker
     }
+  }
+  
+  override func segueForUnwindingToViewController(toViewController: UIViewController, fromViewController: UIViewController, identifier: String?) -> UIStoryboardSegue {
+    let unwindSegue = UnwindPickerSegue()
+    
+    return unwindSegue;
   }
 }

@@ -23,6 +23,7 @@
 		C30EAB551A9A1196000A3176 /* UIView+Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30EAB4E1A9A1196000A3176 /* UIView+Screenshot.swift */; };
 		C30EAB561A9A1196000A3176 /* UIView+Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30EAB4E1A9A1196000A3176 /* UIView+Screenshot.swift */; };
 		C31626C11A8EA72F00410F63 /* NSDate+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31626C01A8EA72F00410F63 /* NSDate+Format.swift */; };
+		C324485F1A9F461E00F6AC15 /* PickerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C324485E1A9F461E00F6AC15 /* PickerSegue.swift */; };
 		C3261C421A992E070046DD81 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3261C411A992E070046DD81 /* InterfaceController.swift */; };
 		C3261C441A992E070046DD81 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3261C431A992E070046DD81 /* NotificationController.swift */; };
 		C3261C461A992E070046DD81 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3261C451A992E070046DD81 /* GlanceController.swift */; };
@@ -160,6 +161,7 @@
 		C30EAB4D1A9A1196000A3176 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		C30EAB4E1A9A1196000A3176 /* UIView+Screenshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Screenshot.swift"; sourceTree = "<group>"; };
 		C31626C01A8EA72F00410F63 /* NSDate+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Format.swift"; sourceTree = "<group>"; };
+		C324485E1A9F461E00F6AC15 /* PickerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerSegue.swift; sourceTree = "<group>"; };
 		C3261C3C1A992E070046DD81 /* HoelangTotTrein WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HoelangTotTrein WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3261C3F1A992E070046DD81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3261C401A992E070046DD81 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
@@ -292,6 +294,14 @@
 			name = Extentions;
 			sourceTree = "<group>";
 		};
+		C32448601A9F462700F6AC15 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				C324485E1A9F461E00F6AC15 /* PickerSegue.swift */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
 		C3261C3D1A992E070046DD81 /* HoelangTotTrein WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +371,7 @@
 		C36CEF9E1A8B3D8300C9F3CC /* HoelangTotTrein */ = {
 			isa = PBXGroup;
 			children = (
+				C32448601A9F462700F6AC15 /* Animations */,
 				C3883A471A962F0C002A3CE4 /* HoelangTotTrein.entitlements */,
 				C371CF8A1A911E51004C35A0 /* Storage */,
 				C371CF811A90F79C004C35A0 /* Fonts */,
@@ -770,6 +781,7 @@
 				C31626C11A8EA72F00410F63 /* NSDate+Format.swift in Sources */,
 				C3883A1F1A950836002A3CE4 /* NSUserDefaults+HLTT.swift in Sources */,
 				C3C53D101A8E41C80056DDFC /* XMLParse.swift in Sources */,
+				C324485F1A9F461E00F6AC15 /* PickerSegue.swift in Sources */,
 				C3C53D1A1A8E7F8F0056DDFC /* Advice.swift in Sources */,
 				C30EAB511A9A1196000A3176 /* UIImage+BlurSequence.swift in Sources */,
 				C371CF8C1A911E65004C35A0 /* MostUsed.swift in Sources */,

@@ -88,11 +88,10 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     tableView.dataSource = self
     
     backdropImageView = UIImageView(frame: view.bounds)
-    backdropImageView.hidden = true
     view.insertSubview(backdropImageView, belowSubview: headerView)
     
     // set inital state
-    animateMenu(false, nil)
+    backdropImageView.image = backdrop
     
     pickerTitle.text = (mode == StationType.From) ? "Van" : "Naar"
     
@@ -104,6 +103,7 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     reload()
+    setState(true, completion: nil)
     locationManager.startUpdatingLocation()
   }
   
@@ -113,6 +113,7 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   
   func setState(state: Bool, completion: ((Bool) -> Void)?) {
     showState = state
+    
     if state {
       self.backdropImageView.image = nil
       self.backdropImageView.hidden = false
@@ -135,6 +136,8 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
         self.animateMenu(true, completion)
         self.backdropImageView.startAnimating()
       }
+      
+      reload()
       
     } else {
       self.backdropImageView.animationImages = self.backdropImageView.animationImages?.reverse()
@@ -377,6 +380,12 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     if let cb = selectStationHandler {
       cb(currentStation)
       willDismiss = false
+    }
+    
+    setState(false) { _ in
+      self.performSegueWithIdentifier("unwindPicker", sender: self)
+      //self.dismissViewControllerAnimated(true, completion: nil)
+      return;
     }
   }
   
