@@ -26,15 +26,15 @@ class HomeViewController: UIViewController {
   @IBOutlet weak var spoorLabel: UILabel!
   @IBOutlet weak var legPhraseLeftTextView: UITextView!
   @IBOutlet weak var legPhraseRightTextView: UITextView!
-  
   @IBOutlet weak var alertTextView: UITextView!
-  
   @IBOutlet weak var pickerContainer: UIView!
+  @IBOutlet weak var skipButton: UIButton!
   
   weak var pickerController:PickerViewController?
   
   @IBOutlet weak var mainView: UIView!
   
+  @IBOutlet weak var advicesIndicator: UIPageControl!
   
   private var selectionState:StationType = .From {
     didSet {
@@ -55,6 +55,8 @@ class HomeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    advicesIndicator.transform = CGAffineTransformMakeRotation(CGFloat(M_PI * 90.0/180))
+    
     pickerContainer.hidden = true
     
     TreinTicker.sharedInstance.tickerHandler = { [weak self] time in
@@ -64,6 +66,8 @@ class HomeViewController: UIViewController {
         self?.timeToGoLabel.textColor = time.date.timeIntervalSinceNow < 60 ? UIColor.redThemeColor() : UIColor.whiteColor()
         return;
       }
+      
+      self?.updateAdviceIndicator()
     };
     
     TreinTicker.sharedInstance.adviceChangedHandler = { [weak self] (advice) in
@@ -153,6 +157,17 @@ class HomeViewController: UIViewController {
         TreinTicker.sharedInstance.start()
       }
     }
+  }
+  
+  func updateAdviceIndicator() {
+    let adviceOffset = indexOf(TreinTicker.sharedInstance.getUpcomingAdvices(), TreinTicker.sharedInstance.currentAdivce)
+    advicesIndicator.currentPage = adviceOffset
+    
+    let numberOfAdvices = TreinTicker.sharedInstance.getUpcomingAdvices().count
+    advicesIndicator.numberOfPages = numberOfAdvices
+    
+    advicesIndicator.hidden = numberOfAdvices <= 1
+    skipButton.hidden = numberOfAdvices <= 1
   }
   
   @IBAction func fromButton(sender: AnyObject) {

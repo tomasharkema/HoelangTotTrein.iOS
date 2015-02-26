@@ -20,7 +20,7 @@ struct Namen {
     }
 }
 
-let RADIUS:CLLocationDistance = 50
+let RADIUS:CLLocationDistance = 150
 
 class Station: NSObject, NSCoding {
     

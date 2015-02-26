@@ -279,6 +279,10 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
     return getUpcomingAdvices().filter{ $0.vertrek.planned.timeIntervalSince1970 >= self.adviceOffset?.timeIntervalSince1970 }
   }
   
+  func getAdviceOffset() -> Int {
+    return indexOf(advices, currentAdivce)
+  }
+  
   func getCurrentAdvice() -> Advice? {
     let adivces = getUpcomingAdvices()
     
@@ -341,7 +345,7 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
   func switchAdviceRequestOriginal() {
     switchAdviceRequest()
     if originalFrom != nil {
-      to = originalFrom!
+      //to = originalFrom!
     }
   }
   
@@ -361,7 +365,6 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
   }
   
   func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
-    
     locationManager.stopMonitoringForRegion(region)
     let code = CodeContainer.getFromString(region.identifier)
     let arrivedStation = findStationByCode(code)
@@ -407,7 +410,6 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
       switchAdviceRequest()
     } else {
       from = closest
-      originalFrom = from
     }
   }
 }

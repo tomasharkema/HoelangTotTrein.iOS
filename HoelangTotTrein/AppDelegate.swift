@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("showNotification:"), name: "showNotification", object: nil)
       
+        TreinTicker.sharedInstance.fromCurrentLocation()
         return true
     }
 
@@ -40,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
       TreinTicker.sharedInstance.start()
+      TreinTicker.sharedInstance.fromCurrentLocation()
     }
 
     func applicationDidBecomeActive(application: UIApplication) {

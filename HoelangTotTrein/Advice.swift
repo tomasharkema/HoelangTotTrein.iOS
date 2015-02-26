@@ -44,7 +44,7 @@ struct ReisDeel {
   }
 }
 
-class Advice: NSObject, NSCoding {
+class Advice: NSObject, NSCoding, Hashable {
   
   let overstappen:Int
   let vertrek:OVTime
@@ -115,6 +115,10 @@ class Advice: NSObject, NSCoding {
       }
       return ReisDeel(vervoerder: data[0] as String, stops: stops)
     }
+    
+    if let m = aDecoder.decodeObjectForKey("melding.id") {
+      melding = Melding(id: aDecoder.decodeObjectForKey("melding.id") as String, ernstig: aDecoder.decodeBoolForKey("melding.ernstig"), text: aDecoder.decodeObjectForKey("melding.text") as String)
+    }
   }
   
   func encodeWithCoder(aCoder: NSCoder) {
@@ -143,6 +147,12 @@ class Advice: NSObject, NSCoding {
     }
     
     aCoder.encodeObject(encodeReisDeel, forKey: "reisDeel")
+    
+    if let m = melding {
+      aCoder.encodeBool(m.ernstig, forKey: "melding.ernstig")
+      aCoder.encodeObject(m.id, forKey: "melding.id")
+      aCoder.encodeObject(m.text, forKey: "melding.text")
+    }
   }
   
   func firstStop() -> Stop? {
@@ -203,4 +213,15 @@ func ==(a:Advice, b:Advice) -> Bool {
 
 func !=(a:Advice, b:Advice) -> Bool {
   return !(a == b)
+}
+
+func indexOf(advices:[Advice], objectToCompare: Advice) -> Int {
+  var index = 0
+  for obj in advices {
+    if obj == objectToCompare {
+      return index
+    }
+    index++
+  }
+  return -1
 }

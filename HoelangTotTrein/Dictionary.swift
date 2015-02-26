@@ -48,9 +48,3 @@ extension Dictionary {
         return results
     }
 }
-
-extension Array {
-    func contains<T : Equatable>(obj: T) -> Bool {
-        return self.filter({$0 as? T == obj}).count > 0
-    }
-}
