@@ -15,6 +15,8 @@ enum StationType {
 
 class HomeViewController: UIViewController {
   
+  @IBOutlet weak var advicesCollectionView: UICollectionView!
+  
   @IBOutlet weak var timeToGoLabel: UILabel!
   @IBOutlet weak var vertagingLabel: UILabel!
   @IBOutlet weak var fromButton: UIButton!
@@ -56,6 +58,11 @@ class HomeViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    advicesCollectionView.delegate = self
+    advicesCollectionView.dataSource = self
+    advicesCollectionView.backgroundView = nil
+    advicesCollectionView.backgroundColor = UIColor.clearColor()
     
     advicesIndicator.transform = CGAffineTransformMakeRotation(CGFloat(M_PI * 90.0/180))
     
@@ -101,6 +108,8 @@ class HomeViewController: UIViewController {
       } else {
         self?.vertagingLabel.hidden = true
       }
+      
+      self?.advicesCollectionView.reloadData()
     }
     
     TreinTicker.sharedInstance.fromToChanged = { [weak self] from, to in
