@@ -41,10 +41,10 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="tkX-iM-qV8">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     </imageView>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FQ1-5b-PMG">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQ1-5b-PMG">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="142"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z98-f2-3V3">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z98-f2-3V3">
                                                 <rect key="frame" x="274" y="34" width="51" height="46"/>
                                                 <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="30"/>
                                                 <state key="normal" title="Van">
@@ -55,7 +55,7 @@
                                                     <action selector="fromButton:" destination="oWt-5Q-I8W" eventType="touchUpInside" id="Mvv-YT-wBR"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymF-Fb-idj">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymF-Fb-idj">
                                                 <rect key="frame" x="268" y="80" width="63" height="46"/>
                                                 <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="30"/>
                                                 <state key="normal" title="Naar">
@@ -66,9 +66,9 @@
                                                     <action selector="toButton:" destination="oWt-5Q-I8W" eventType="touchUpInside" id="yh6-10-uB5"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YqX-YU-ZZT">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YqX-YU-ZZT">
                                                 <rect key="frame" x="556" y="34" width="28" height="92"/>
-                                                <state key="normal" image="switch"/>
+                                                <state key="normal" image="switchIcon"/>
                                                 <connections>
                                                     <action selector="swapLocations:" destination="oWt-5Q-I8W" eventType="touchUpInside" id="Nju-kG-jWo"/>
                                                 </connections>
@@ -126,19 +126,19 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="To" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKL-pT-1a8">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKL-pT-1a8">
                                         <rect key="frame" x="291" y="359" width="18" height="20"/>
                                         <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
                                         <color key="textColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSV-ee-cw2">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSV-ee-cw2">
                                         <rect key="frame" x="291" y="212" width="18" height="34"/>
                                         <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="30"/>
                                         <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uya-yO-sZK">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uya-yO-sZK">
                                         <rect key="frame" x="251" y="150" width="97" height="29"/>
                                         <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="15"/>
                                         <state key="normal" title="huidige locatie">
@@ -148,13 +148,13 @@
                                             <action selector="locButton:" destination="oWt-5Q-I8W" eventType="touchUpInside" id="gqU-j1-hbI"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="+ 3 min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSA-A2-lU1">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 3 min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSA-A2-lU1">
                                         <rect key="frame" x="8" y="250" width="59" height="101"/>
                                         <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="18"/>
                                         <color key="textColor" red="1" green="0.42745098039215684" blue="0.3843137254901961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFj-CN-Wwf">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFj-CN-Wwf">
                                         <rect key="frame" x="199" y="250" width="203" height="101"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="g7h-7j-zI4"/>
@@ -168,7 +168,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="From" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAC-1s-5Jv">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAC-1s-5Jv">
                                         <rect key="frame" x="280" y="184" width="40" height="20"/>
                                         <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
                                         <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
@@ -415,7 +415,7 @@
         <image name="background" width="1080" height="1920"/>
         <image name="close" width="20" height="20"/>
         <image name="pullDown" width="32" height="25"/>
-        <image name="switch" width="28" height="20"/>
+        <image name="switchIcon" width="28" height="20"/>
         <image name="vanTotIcon" width="22" height="68"/>
     </resources>
 </document>

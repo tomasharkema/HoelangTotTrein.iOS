@@ -85,6 +85,7 @@
 		C3883A4A1A965AA5002A3CE4 /* Aktiv-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C371CF821A90F7B2004C35A0 /* Aktiv-Light.otf */; };
 		C3883A4C1A96772C002A3CE4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3883A4B1A96772C002A3CE4 /* Alamofire.framework */; };
 		C3883A4E1A96772F002A3CE4 /* Ono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3883A4D1A96772F002A3CE4 /* Ono.framework */; };
+		C3C1BB861A9F7A1A00789071 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C1BB851A9F7A1A00789071 /* R.generated.swift */; };
 		C3C53D101A8E41C80056DDFC /* XMLParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D0F1A8E41C80056DDFC /* XMLParse.swift */; };
 		C3C53D121A8E44C40056DDFC /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D111A8E44C40056DDFC /* API.swift */; };
 		C3C53D161A8E4B540056DDFC /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D151A8E4B540056DDFC /* Station.swift */; };
@@ -206,6 +207,7 @@
 		C3883A481A96318A002A3CE4 /* Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Widget.entitlements; sourceTree = "<group>"; };
 		C3883A4B1A96772C002A3CE4 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/build/Debug-iphoneos/Pods/Alamofire.framework"; sourceTree = "<group>"; };
 		C3883A4D1A96772F002A3CE4 /* Ono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ono.framework; path = "Pods/build/Debug-iphoneos/Pods/Ono.framework"; sourceTree = "<group>"; };
+		C3C1BB851A9F7A1A00789071 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		C3C53D0F1A8E41C80056DDFC /* XMLParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParse.swift; sourceTree = "<group>"; };
 		C3C53D111A8E44C40056DDFC /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		C3C53D151A8E4B540056DDFC /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 		C36CEF9F1A8B3D8300C9F3CC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C3C1BB851A9F7A1A00789071 /* R.generated.swift */,
 				C36CEFA01A8B3D8300C9F3CC /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -522,6 +525,7 @@
 			buildConfigurationList = C36CEFBB1A8B3D8300C9F3CC /* Build configuration list for PBXNativeTarget "HoelangTotTrein" */;
 			buildPhases = (
 				FEF4AE03628C6FDB69C0C58C /* Check Pods Manifest.lock */,
+				C3C1BB841A9F751A00789071 /* ShellScript */,
 				C36CEF981A8B3D8300C9F3CC /* Sources */,
 				C36CEF991A8B3D8300C9F3CC /* Frameworks */,
 				C36CEF9A1A8B3D8300C9F3CC /* Resources */,
@@ -729,6 +733,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C3C1BB841A9F751A00789071 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$SRCROOT/rswift\" \"$SRCROOT\"";
+		};
 		FEF4AE03628C6FDB69C0C58C /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -782,6 +799,7 @@
 				C3883A1F1A950836002A3CE4 /* NSUserDefaults+HLTT.swift in Sources */,
 				C3C53D101A8E41C80056DDFC /* XMLParse.swift in Sources */,
 				C324485F1A9F461E00F6AC15 /* PickerSegue.swift in Sources */,
+				C3C1BB861A9F7A1A00789071 /* R.generated.swift in Sources */,
 				C3C53D1A1A8E7F8F0056DDFC /* Advice.swift in Sources */,
 				C30EAB511A9A1196000A3176 /* UIImage+BlurSequence.swift in Sources */,
 				C371CF8C1A911E65004C35A0 /* MostUsed.swift in Sources */,
@@ -933,6 +951,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -940,8 +959,10 @@
 				IBSC_MODULE = HoelangTotTrein_WatchKit_Extension;
 				INFOPLIST_FILE = "HoelangTotTrein WatchKit App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
 				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
 			};
@@ -951,10 +972,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COPY_PHASE_STRIP = NO;
 				IBSC_MODULE = HoelangTotTrein_WatchKit_Extension;
 				INFOPLIST_FILE = "HoelangTotTrein WatchKit App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
