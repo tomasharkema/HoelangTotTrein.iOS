@@ -1,16 +1,19 @@
 PODS:
   - Alamofire (1.1.4)
   - GPUImage (0.1.6)
+  - NewRelicAgent (4.186)
   - Ono (1.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 1.1)
   - GPUImage
+  - NewRelicAgent
   - Ono
 
 SPEC CHECKSUMS:
   Alamofire: 524225da382071ee3e6d0badd0ee4b4dc36740de
   GPUImage: cecb0830bb9428f50192042e3c7b53810f51388e
+  NewRelicAgent: 3ad10d9fe34dc0bffa1f2a1d50793d607b62823a
   Ono: 2c9f6c8c50af1b40e988ff85a3f200574ee445cd
 
 COCOAPODS: 0.36.0.beta.2

@@ -57,7 +57,14 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
   
   var isExtention: Bool = false
   
-  var adviceOffset:NSDate?
+  var adviceOffset:NSDate? {
+    get {
+      return UserDefaults.adviceOffset
+    }
+    set {
+      UserDefaults.adviceOffset = newValue
+    }
+  }
   
   var heartBeat:NSTimer!
   var minuteTicker:Int = 0
@@ -295,7 +302,7 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
   }
   
   func timerCallback() {
-    if (tickerHandler != nil && adviceRequest != nil) {
+    if (adviceRequest != nil) {
       if let currentAdv = getCurrentAdvice() {
         if let currentAdvice = self.currentAdivce {
           if (currentAdvice != currentAdv) {
@@ -305,8 +312,9 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
         } else {
           self.currentAdivce = currentAdv
         }
-        
-        tickerHandler(currentAdv.vertrek.actual.toMMSSFromNow())
+        if let th = tickerHandler {
+          th(currentAdv.vertrek.actual.toMMSSFromNow())
+        }
       }
     }
     
@@ -317,12 +325,6 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
       minuteTicker = 0
     }
     minuteTicker++;
-  }
-  
-  func skipCurrentAdvice() {
-    let upcoming = getUpcomingAdvicesWithOffset()
-    
-    adviceOffset = upcoming[min(upcoming.count-1, 1)].vertrek.planned
   }
   
   func findStationByCode(code:CodeContainer) -> Station? {

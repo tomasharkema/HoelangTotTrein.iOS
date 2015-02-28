@@ -15,6 +15,7 @@ let ToKey = "ToKey"
 let OriginalFromKey = "OriginalFromKey"
 let CurrentAdvice = "CurrentAdvice"
 let Advices = "Advices"
+let AdviceOffset = "AdviceOffset"
 
 let UserDefaults = NSUserDefaults(suiteName: "group.tomas.hltt")!
 let UnsharedUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -116,4 +117,13 @@ extension NSUserDefaults {
       return nil
     }
   }
+  
+  var adviceOffset:NSDate? {
+    get {
+      return objectForKey(AdviceOffset) as? NSDate
+    } set {
+      setObject(newValue, forKey: AdviceOffset)
+    }
+  }
+  
 }

@@ -10,7 +10,19 @@ import UIKit
 
 let AdviceReuseIdentifier = "AdviceReuseIdentifier"
 
-extension HomeViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+  
+  //  func updateAdviceIndicator() {
+  //    let adviceOffset = indexOf(TreinTicker.sharedInstance.getUpcomingAdvices(), TreinTicker.sharedInstance.currentAdivce)
+  //    advicesIndicator.currentPage = adviceOffset
+  //
+  //    let numberOfAdvices = TreinTicker.sharedInstance.getUpcomingAdvices().count
+  //    advicesIndicator.numberOfPages = numberOfAdvices
+  //
+  //    advicesIndicator.hidden = numberOfAdvices <= 1
+  //    skipButton.hidden = numberOfAdvices <= 1
+  //  }
+
   
   func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
     return 1
@@ -18,6 +30,7 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
   
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     let count = TreinTicker.sharedInstance.getUpcomingAdvices().count
+    advicesIndicator.numberOfPages = count
     return count
   }
   
@@ -32,11 +45,21 @@ extension HomeViewController : UICollectionViewDataSource, UICollectionViewDeleg
   }
   
   func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-    (cell as AdviceCollectionviewCell).startCounting()
+    let c = cell as AdviceCollectionviewCell
+    c.startCounting()
   }
   
   func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
     (cell as AdviceCollectionviewCell).stopCounting()
+  }
+  
+  func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    let visibleCells = advicesCollectionView.visibleCells()
+    if let cell = visibleCells.first as? AdviceCollectionviewCell {
+      let advice = cell.advice
+      TreinTicker.sharedInstance.adviceOffset = advice?.vertrek.actual
+      advicesIndicator.currentPage = advicesCollectionView.indexPathForCell(cell)?.row ?? 0
+    }
   }
   
 }
@@ -49,13 +72,46 @@ class AdviceCollectionviewCell : UICollectionViewCell {
   @IBOutlet weak var spoor: UILabel!
   @IBOutlet weak var to: UILabel!
   @IBOutlet weak var from: UILabel!
+  @IBOutlet weak var vertagingLabel: UILabel!
+  @IBOutlet weak var alertTextView: UITextView!
+  @IBOutlet weak var legPhraseLeftTextView: UITextView!
+  @IBOutlet weak var legPhraseRightTextView: UITextView!
   
   var advice: Advice? {
     didSet {
+
       timeToGoLabel.text = advice?.vertrek.actual.toMMSSFromNow().string()
       spoor.text = advice?.firstStop()?.spoor
-      from.text = advice?.firstStop()?.name
-      to.text = advice?.lastStop()?.name
+      
+      if let a = advice {
+        let fromTime = a.vertrek.getFormattedString()
+        let toTime = a.aankomst.getFormattedString()
+        from.text = "\(a.firstStop()!.name) - \(fromTime)"
+        to.text = "\(a.lastStop()!.name) - \(toTime)"
+      }
+      
+      legPhraseLeftTextView.text = advice?.legPhraseLeft()
+      legPhraseLeftTextView.textColor = UIColor.secundairGreyColor()
+      legPhraseLeftTextView.textAlignment = NSTextAlignment.Right
+      
+      legPhraseRightTextView.text = advice?.legPhraseRight()
+      legPhraseRightTextView.textColor = UIColor.secundairGreyColor()
+      legPhraseRightTextView.textAlignment = NSTextAlignment.Left
+      
+      if let vertraging = advice?.vertrekVertraging {
+        vertagingLabel.text = vertraging
+        vertagingLabel.hidden = false
+      } else {
+        vertagingLabel.hidden = true
+      }
+      
+      if let melding = advice?.melding {
+        alertTextView.text = melding.text
+        alertTextView.hidden = false
+      } else {
+        alertTextView.insertText("")
+        alertTextView.hidden = true
+      }
     }
   }
   

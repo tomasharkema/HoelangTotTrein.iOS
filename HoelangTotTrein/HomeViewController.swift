@@ -16,6 +16,7 @@ enum StationType {
 class HomeViewController: UIViewController {
   
   @IBOutlet weak var advicesCollectionView: UICollectionView!
+  @IBOutlet weak var headerView: UIView!
   
   @IBOutlet weak var timeToGoLabel: UILabel!
   @IBOutlet weak var vertagingLabel: UILabel!
@@ -66,50 +67,9 @@ class HomeViewController: UIViewController {
     
     advicesIndicator.transform = CGAffineTransformMakeRotation(CGFloat(M_PI * 90.0/180))
     
-    TreinTicker.sharedInstance.tickerHandler = { [weak self] time in
-      let timeToGoLabel = time.string()
-      self?.timeToGoLabel.text = timeToGoLabel
-      UIView.animateWithDuration(1.0) {
-        self?.timeToGoLabel.textColor = time.date.timeIntervalSinceNow < 60 ? UIColor.redThemeColor() : UIColor.whiteColor()
-        return;
-      }
-      
-      self?.updateAdviceIndicator()
-    };
-    
     TreinTicker.sharedInstance.adviceChangedHandler = { [weak self] (advice) in
-      let from = advice.adviceRequest.from.name.lang
-      let to = advice.adviceRequest.to.name.lang
-      let fromTime = advice.vertrek.getFormattedString()
-      let toTime = advice.aankomst.getFormattedString()
-      
-      self?.fromStationLabel.text = "\(from) - \(fromTime)"
-      self?.toStationLabel.text = "\(to) - \(toTime)"
-      self?.spoorLabel.text = advice.firstStop()?.spoor ?? "Spoor onbekend"
-      self?.legPhraseLeftTextView.text = advice.legPhraseLeft()
-      self?.legPhraseLeftTextView.textColor = UIColor.secundairGreyColor()
-      self?.legPhraseLeftTextView.textAlignment = NSTextAlignment.Right
-      
-      self?.legPhraseRightTextView.text = advice.legPhraseRight()
-      self?.legPhraseRightTextView.textColor = UIColor.secundairGreyColor()
-      self?.legPhraseRightTextView.textAlignment = NSTextAlignment.Left
-      
-      if let melding = advice.melding {
-        self?.alertTextView.text = melding.text
-        self?.alertTextView.hidden = false
-      } else {
-        self?.alertTextView.insertText("")
-        self?.alertTextView.hidden = true
-      }
-      
-      if let vertraging = advice.vertrekVertraging {
-        self?.vertagingLabel.text = vertraging
-        self?.vertagingLabel.hidden = false
-      } else {
-        self?.vertagingLabel.hidden = true
-      }
-      
       self?.advicesCollectionView.reloadData()
+      return;
     }
     
     TreinTicker.sharedInstance.fromToChanged = { [weak self] from, to in
@@ -122,6 +82,15 @@ class HomeViewController: UIViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     TreinTicker.sharedInstance.start()
+    
+    headerView.updateConstraints()
+    
+    let effect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+    let blurView = UIVisualEffectView(effect: effect)
+    blurView.frame = headerView.frame
+    headerView.backgroundColor = UIColor.clearColor()
+    headerView.addSubview(blurView)
+    headerView.sendSubviewToBack(blurView)
   }
   
   func pick(station:Station) {
@@ -134,17 +103,6 @@ class HomeViewController: UIViewController {
     } else {
       TreinTicker.sharedInstance.to = station
     }
-  }
-  
-  func updateAdviceIndicator() {
-    let adviceOffset = indexOf(TreinTicker.sharedInstance.getUpcomingAdvices(), TreinTicker.sharedInstance.currentAdivce)
-    advicesIndicator.currentPage = adviceOffset
-    
-    let numberOfAdvices = TreinTicker.sharedInstance.getUpcomingAdvices().count
-    advicesIndicator.numberOfPages = numberOfAdvices
-    
-    advicesIndicator.hidden = numberOfAdvices <= 1
-    skipButton.hidden = numberOfAdvices <= 1
   }
   
   @IBAction func fromButton(sender: AnyObject) {
@@ -165,10 +123,6 @@ class HomeViewController: UIViewController {
   @IBAction func swapLocations(sender: AnyObject) {
     TreinTicker.sharedInstance.switchAdviceRequest()
     TreinTicker.sharedInstance.saveOriginalFrom()
-  }
-  
-  @IBAction func skipAdvice(sender: AnyObject) {
-    TreinTicker.sharedInstance.skipCurrentAdvice()
   }
   
   override func preferredStatusBarStyle() -> UIStatusBarStyle {
