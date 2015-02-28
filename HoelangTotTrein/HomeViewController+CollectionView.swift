@@ -12,18 +12,6 @@ let AdviceReuseIdentifier = "AdviceReuseIdentifier"
 
 extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
   
-  //  func updateAdviceIndicator() {
-  //    let adviceOffset = indexOf(TreinTicker.sharedInstance.getUpcomingAdvices(), TreinTicker.sharedInstance.currentAdivce)
-  //    advicesIndicator.currentPage = adviceOffset
-  //
-  //    let numberOfAdvices = TreinTicker.sharedInstance.getUpcomingAdvices().count
-  //    advicesIndicator.numberOfPages = numberOfAdvices
-  //
-  //    advicesIndicator.hidden = numberOfAdvices <= 1
-  //    skipButton.hidden = numberOfAdvices <= 1
-  //  }
-
-  
   func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
     return 1
   }
@@ -51,6 +39,17 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
   
   func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
     (cell as AdviceCollectionviewCell).stopCounting()
+  }
+  
+  func scrollViewDidScroll(scrollView: UIScrollView) {
+    let cells = advicesCollectionView.visibleCells()
+    println("-----")
+    
+    for cellObj in cells {
+      let cell = cellObj as AdviceCollectionviewCell
+      println(cell.center)
+    }
+    
   }
   
   func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
