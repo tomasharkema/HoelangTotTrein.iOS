@@ -29,7 +29,7 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
   }
   
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-    return CGSize(width: self.advicesCollectionView.bounds.width, height: self.advicesCollectionView.bounds.height - 10)
+    return CGSize(width: self.advicesCollectionView.bounds.width, height: self.advicesCollectionView.bounds.height)
   }
   
   func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
@@ -41,13 +41,24 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
     (cell as AdviceCollectionviewCell).stopCounting()
   }
   
+  func offsetForCell(cell: UICollectionViewCell, contentOffset:Int) -> Int {
+    let indexPath:NSIndexPath = advicesCollectionView.indexPathForCell(cell)!
+    let offset = contentOffset - Int(Int(cell.bounds.height) * Int(indexPath.row))
+    return offset
+  }
+  
   func scrollViewDidScroll(scrollView: UIScrollView) {
     let cells = advicesCollectionView.visibleCells()
-    println("-----")
-    
+    let contentOffset = scrollView.contentOffset
     for cellObj in cells {
-      let cell = cellObj as AdviceCollectionviewCell
-      println(cell.center)
+      let cell = cellObj as UICollectionViewCell
+      let offset = offsetForCell(cell, contentOffset: Int(contentOffset.y))
+      
+      let progress = 1 - abs(CGFloat(offset) / cell.bounds.height)/4
+      
+      let scale = abs(progress)
+      
+      cell.transform = CGAffineTransformMakeScale(scale, scale)
     }
     
   }
