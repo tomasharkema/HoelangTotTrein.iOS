@@ -16,8 +16,6 @@
 		C301D8B31A99349400FB414D /* Aktiv-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C371CF821A90F7B2004C35A0 /* Aktiv-Light.otf */; };
 		C30EAB4F1A9A1196000A3176 /* Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30EAB4A1A9A1196000A3176 /* Threading.swift */; };
 		C30EAB501A9A1196000A3176 /* Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30EAB4A1A9A1196000A3176 /* Threading.swift */; };
-		C30EAB511A9A1196000A3176 /* UIImage+BlurSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30EAB4B1A9A1196000A3176 /* UIImage+BlurSequence.swift */; };
-		C30EAB521A9A1196000A3176 /* UIImage+BlurSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30EAB4B1A9A1196000A3176 /* UIImage+BlurSequence.swift */; };
 		C30EAB531A9A1196000A3176 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C30EAB4D1A9A1196000A3176 /* UIImage+ImageEffects.m */; };
 		C30EAB541A9A1196000A3176 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C30EAB4D1A9A1196000A3176 /* UIImage+ImageEffects.m */; };
 		C30EAB551A9A1196000A3176 /* UIView+Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30EAB4E1A9A1196000A3176 /* UIView+Screenshot.swift */; };
@@ -157,7 +155,6 @@
 		C30EAB471A9A1195000A3176 /* HoelangTotTrein-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HoelangTotTrein-Bridging-Header.h"; sourceTree = "<group>"; };
 		C30EAB481A9A1195000A3176 /* Widget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Widget-Bridging-Header.h"; sourceTree = "<group>"; };
 		C30EAB4A1A9A1196000A3176 /* Threading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Threading.swift; sourceTree = "<group>"; };
-		C30EAB4B1A9A1196000A3176 /* UIImage+BlurSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+BlurSequence.swift"; sourceTree = "<group>"; };
 		C30EAB4C1A9A1196000A3176 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		C30EAB4D1A9A1196000A3176 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		C30EAB4E1A9A1196000A3176 /* UIView+Screenshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Screenshot.swift"; sourceTree = "<group>"; };
@@ -280,7 +277,6 @@
 			isa = PBXGroup;
 			children = (
 				C30EAB4A1A9A1196000A3176 /* Threading.swift */,
-				C30EAB4B1A9A1196000A3176 /* UIImage+BlurSequence.swift */,
 				C30EAB4C1A9A1196000A3176 /* UIImage+ImageEffects.h */,
 				C30EAB4D1A9A1196000A3176 /* UIImage+ImageEffects.m */,
 				C30EAB4E1A9A1196000A3176 /* UIView+Screenshot.swift */,
@@ -802,7 +798,6 @@
 				C3C53D101A8E41C80056DDFC /* XMLParse.swift in Sources */,
 				C324485F1A9F461E00F6AC15 /* PickerSegue.swift in Sources */,
 				C3C53D1A1A8E7F8F0056DDFC /* Advice.swift in Sources */,
-				C30EAB511A9A1196000A3176 /* UIImage+BlurSequence.swift in Sources */,
 				C371CF8C1A911E65004C35A0 /* MostUsed.swift in Sources */,
 				C36CEFC31A8B3E8A00C9F3CC /* HomeViewController.swift in Sources */,
 				C33A03E31A8F98EB004E88F5 /* XML+Format.swift in Sources */,
@@ -833,7 +828,6 @@
 				C3883A451A95DAA0002A3CE4 /* MostUsed.swift in Sources */,
 				C3883A401A95DA64002A3CE4 /* Array+HLTT.swift in Sources */,
 				C3883A421A95DA71002A3CE4 /* Station.swift in Sources */,
-				C30EAB521A9A1196000A3176 /* UIImage+BlurSequence.swift in Sources */,
 				C3883A3D1A95DA5B002A3CE4 /* XML+Format.swift in Sources */,
 				C3883A3A1A95D91B002A3CE4 /* TreinTicker.swift in Sources */,
 				C3883A411A95DA67002A3CE4 /* NSUserDefaults+HLTT.swift in Sources */,
