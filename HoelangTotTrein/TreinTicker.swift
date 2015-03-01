@@ -62,6 +62,9 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
       return UserDefaults.adviceOffset
     }
     set {
+      if isExtention {
+        return;
+      }
       UserDefaults.adviceOffset = newValue
     }
   }

@@ -18,7 +18,6 @@ let Advices = "Advices"
 let AdviceOffset = "AdviceOffset"
 
 let UserDefaults = NSUserDefaults(suiteName: "group.tomas.hltt")!
-let UnsharedUserDefaults = NSUserDefaults.standardUserDefaults()
 
 extension NSUserDefaults {
   
