@@ -122,6 +122,7 @@ extension NSUserDefaults {
       return objectForKey(AdviceOffset) as? NSDate
     } set {
       setObject(newValue, forKey: AdviceOffset)
+      synchronize()
     }
   }
   
