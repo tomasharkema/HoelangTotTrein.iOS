@@ -170,7 +170,6 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
   
   private var adviceRequest:AdviceRequest! {
     didSet {
-      adviceOffset = nil
       changeRequest()
       minuteTicker = 0
     }
