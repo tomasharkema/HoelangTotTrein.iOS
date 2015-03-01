@@ -12,6 +12,58 @@ let AdviceReuseIdentifier = "AdviceReuseIdentifier"
 
 extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
   
+  func reloadCollectionView() {
+    //advicesCollectionView.reloadData()
+    
+    let newAdvicesCollectionList = TreinTicker.sharedInstance.getUpcomingAdvices()
+    
+    if oldAdvicesCollectionList == nil {
+      oldAdvicesCollectionList = newAdvicesCollectionList
+      advicesCollectionView.reloadData()
+      return;
+    }
+    
+    let oldAdvices = oldAdvicesCollectionList!
+    
+    var newlyAdded:[Advice] = newAdvicesCollectionList
+    var oldlyRemoved:[Advice] = oldAdvices
+    
+    advicesCollectionView.performBatchUpdates({
+      
+      for newEl in newAdvicesCollectionList {
+        
+        let indexOld = indexOf(oldAdvices, newEl)
+        let indexNew = indexOf(newAdvicesCollectionList, newEl)
+        
+        if indexNew == indexOld {
+          newlyAdded.removeAtIndex(indexOf(newlyAdded, newEl))
+          oldlyRemoved.removeAtIndex(indexOf(oldlyRemoved, newEl))
+          println("blijft gelijk \(indexNew)")
+        } else if indexOld == -1 && indexNew >= 0{
+          newlyAdded.removeAtIndex(indexOf(newlyAdded, newEl))
+          self.advicesCollectionView.insertItemsAtIndexPaths([NSIndexPath(forRow: indexNew, inSection: 0)])
+        } else if indexOld >= 0 && indexNew >= 0 {
+          newlyAdded.removeAtIndex(indexNew)
+          oldlyRemoved.removeAtIndex(indexOld)
+          self.advicesCollectionView.moveItemAtIndexPath(NSIndexPath(forRow: indexOld, inSection: 0), toIndexPath: NSIndexPath(forRow: indexNew, inSection: 0))
+        }
+        
+      }
+      
+      for oldObj in oldlyRemoved {
+        self.advicesCollectionView.deleteItemsAtIndexPaths([NSIndexPath(forRow: indexOf(oldAdvices, oldObj), inSection: 0)])
+      }
+      
+      for newObk in newlyAdded {
+        self.advicesCollectionView.insertItemsAtIndexPaths([NSIndexPath(forRow: indexOf(newAdvicesCollectionList, newObk), inSection: 0)])
+      }
+      
+      println(newlyAdded)
+      println(oldlyRemoved)
+      println("----")
+    }, completion:nil)
+  }
+  
   func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
     return 1
   }
@@ -63,6 +115,7 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
   }
   
   func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    println("scrollViewDidEndDecelerating \(scrollView)")
     let visibleCells = advicesCollectionView.visibleCells()
     if let cell = visibleCells.first as? AdviceCollectionviewCell {
       let advice = cell.advice

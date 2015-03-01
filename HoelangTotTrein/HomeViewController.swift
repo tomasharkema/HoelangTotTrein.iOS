@@ -37,6 +37,8 @@ class HomeViewController: UIViewController {
   
   @IBOutlet weak var advicesIndicator: UIPageControl!
   
+  var oldAdvicesCollectionList:[Advice]?
+  
   private var selectionState:StationType = .From {
     didSet {
       if let i:Int = find(TreinTicker.sharedInstance.stations, selectionState == .From ? TreinTicker.sharedInstance.from : TreinTicker.sharedInstance.to) {
@@ -68,7 +70,7 @@ class HomeViewController: UIViewController {
     advicesIndicator.transform = CGAffineTransformMakeRotation(CGFloat(M_PI * 90.0/180))
     
     TreinTicker.sharedInstance.adviceChangedHandler = { [weak self] (advice) in
-      self?.advicesCollectionView.reloadData()
+      self?.reloadCollectionView()
       return;
     }
     
