@@ -60,7 +60,6 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
       
       cell.transform = CGAffineTransformMakeScale(scale, scale)
     }
-    
   }
   
   func scrollViewDidEndDecelerating(scrollView: UIScrollView) {

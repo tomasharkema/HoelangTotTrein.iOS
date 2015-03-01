@@ -24,9 +24,10 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   @IBOutlet weak var headerView: UIView!
   @IBOutlet weak var pulldownIcon: UIImageView!
   
+  
+  var screenshotImageView:UIImageView!
   var backdropImageView:UIImageView!
   var backdrop: UIImage?
-  var backdropImages: [UIImage]?
   
   var willDismiss:Bool = false
   var isDismissing:Bool = false
@@ -89,7 +90,8 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     
     backdropImageView = UIImageView(frame: view.bounds)
     view.insertSubview(backdropImageView, belowSubview: headerView)
-    
+    screenshotImageView = UIImageView(frame: view.bounds)
+    view.insertSubview(screenshotImageView, belowSubview: backdropImageView)
     // set inital state
     backdropImageView.image = backdrop
     
@@ -103,7 +105,7 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     reload()
-    setState(true, completion: nil)
+    animateMenu(true, animated: true, completion: nil)
     locationManager.startUpdatingLocation()
   }
   
@@ -111,54 +113,29 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   
   var showState:Bool = false
   
-  func setState(state: Bool, completion: ((Bool) -> Void)?) {
-    showState = state
+  func animateMenu(state:Bool, animated:Bool, completion:((Bool) -> Void)?) {
+    let show = state
     
     if state {
-      self.backdropImageView.image = nil
-      self.backdropImageView.hidden = false
-      
       self.headerView.transform = CGAffineTransformMakeTranslation(0, -self.headerView.bounds.height)
       self.tableView.transform = CGAffineTransformScale(CGAffineTransformMakeTranslation(0.0, self.view.bounds.height), 0.9, 0.9);
+      backdropImageView.alpha = 0
       
-      { () -> [UIImage] in
-        if let back = self.backdrop {
-          return back.generateBlurSequence(Int(PickerAnimationDuration * 60), maxBlur: 20, reverse:!self.showState)
-        }
-        return []
-        
-      } ~> { images in
-        self.backdropImages = images
-        self.backdropImageView.animationImages = images
-        self.backdropImageView.animationDuration = PickerAnimationDuration
-        self.backdropImageView.image = images.last
-        self.backdropImageView.animationRepeatCount = 1
-        self.animateMenu(true, completion)
-        self.backdropImageView.startAnimating()
-      }
-      
-      reload()
-      
-    } else {
-      self.backdropImageView.animationImages = self.backdropImageView.animationImages?.reverse()
-      self.backdropImageView.image = self.backdropImageView.animationImages?.last as UIImage
-      
-      self.animateMenu(true, completion)
-      self.backdropImageView.startAnimating()
+      screenshotImageView.image = backdrop
+      backdropImageView.image = backdrop?.applyBlurWithRadius(20, tintColor: UIColor.clearColor(), saturationDeltaFactor: 1.0, maskImage: nil)
     }
-  }
-  
-  func animateMenu(animated:Bool, completion:((Bool) -> Void)?) {
-    let show = self.showState
-      
+    
     let fase1:()->() = {
-        self.tableView.transform = CGAffineTransformScale(CGAffineTransformMakeTranslation(0.0, 0.0), 0.9, 0.9)
+      self.tableView.transform = CGAffineTransformScale(CGAffineTransformMakeTranslation(0.0, 0.0), 0.9, 0.9)
+      self.backdropImageView.alpha = 0.25
     }
     let fase2:()->() = {
       if show {
         self.tableView.transform = CGAffineTransformScale(CGAffineTransformMakeTranslation(0.0, 0.0), 1.0, 1.0)
+        self.backdropImageView.alpha = 1
       } else {
         self.tableView.transform = CGAffineTransformScale(CGAffineTransformMakeTranslation(0.0, self.view.bounds.height), 0.9, 0.9)
+        self.backdropImageView.alpha = 0
       }
     }
     let header:()->() = {
@@ -187,6 +164,9 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
       header()
       fase1()
       fase2()
+      if let c = completion {
+        c(true)
+      }
     }
   }
   
@@ -331,17 +311,13 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
       if scrollView.contentOffset.y < -50 {
         willDismiss = true
         scrollView.transform = CGAffineTransformMakeTranslation(0, 10)
-        if let backdropIM = backdropImages {
-          let progress = min(((-scrollView.contentOffset.y - 50) / 50)/4, 0.5)
-          let index = Int(CGFloat(backdropIM.count-1) * progress)
-          backdropImageView.image = backdropIM.reverse()[index]
-          let scale = 1 - (0.25 * progress)
-          tableView.transform = CGAffineTransformMakeScale(scale, scale)
-          tableView.alpha = 1 - progress
-          pulldownIcon.alpha = min(progress * 10, 1)
-          let scalePulldown = min(progress * 10, 1)
-          pulldownIcon.transform = CGAffineTransformMakeScale(scalePulldown, scalePulldown)
-        }
+        let progress = min(((-scrollView.contentOffset.y - 50) / 50)/4, 0.5)
+        let scale = 1 - (0.25 * progress)
+        tableView.transform = CGAffineTransformMakeScale(scale, scale)
+        tableView.alpha = 1 - progress
+        pulldownIcon.alpha = min(progress * 10, 1)
+        let scalePulldown = min(progress * 10, 1)
+        pulldownIcon.transform = CGAffineTransformMakeScale(scalePulldown, scalePulldown)
       } else {
         willDismiss = false
         scrollView.transform = CGAffineTransformIdentity
@@ -382,7 +358,7 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
       willDismiss = false
     }
     
-    setState(false) { _ in
+    animateMenu(false, animated: true) { _ in
       self.performSegueWithIdentifier("unwindPicker", sender: self)
       //self.dismissViewControllerAnimated(true, completion: nil)
       return;

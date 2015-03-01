@@ -11,7 +11,10 @@ import UIKit
 class PickerSegue: UIStoryboardSegue {
   
   override func perform() {
-    sourceViewController.presentViewController(destinationViewController as UIViewController, animated: false, completion: nil)
+    let source = sourceViewController as UIViewController
+    let dest = destinationViewController as UIViewController
+    
+    source.presentViewController(dest, animated: false, completion: nil)
   }
   
 }

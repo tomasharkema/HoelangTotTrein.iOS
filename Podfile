@@ -5,5 +5,4 @@ link_with 'Widget', 'HoelangTotTrein WatchKit Extension', 'HLTTKit'
 
 pod 'Alamofire', '~> 1.1'
 pod 'Ono'
-pod 'GPUImage'
 pod 'NewRelicAgent'
