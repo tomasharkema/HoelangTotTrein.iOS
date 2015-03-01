@@ -119,9 +119,18 @@ extension NSUserDefaults {
   
   var adviceOffset:NSDate? {
     get {
-      return objectForKey(AdviceOffset) as? NSDate
-    } set {
-      setObject(newValue, forKey: AdviceOffset)
+      let double = doubleForKey(AdviceOffset)
+      if double == 0 {
+        return nil
+      } else {
+        return NSDate(timeIntervalSince1970:double)
+      }
+    }
+    set {
+      if newValue == nil {
+        println("adviceOffset has been set nil")
+      }
+      setDouble(newValue?.timeIntervalSince1970 ?? 0, forKey: AdviceOffset)
       synchronize()
     }
   }

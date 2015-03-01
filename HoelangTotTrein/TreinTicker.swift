@@ -55,7 +55,7 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
     }
   }
   
-  var isExtention: Bool = false
+  let isExtention: Bool
   
   var adviceOffset:NSDate? {
     get {
@@ -93,20 +93,20 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
   
   class var sharedInstance: TreinTicker {
     if treinTickerSharedInstance == nil {
-      treinTickerSharedInstance = TreinTicker()
+      treinTickerSharedInstance = TreinTicker(isExtention: false)
     }
     return treinTickerSharedInstance
   }
   
   class var sharedExtensionInstance: TreinTicker {
     if treinTickerShareExtensiondInstance == nil {
-      treinTickerShareExtensiondInstance = TreinTicker()
+      treinTickerShareExtensiondInstance = TreinTicker(isExtention: true)
     }
-    treinTickerShareExtensiondInstance.isExtention = true
     return treinTickerShareExtensiondInstance
   }
   
-  private override init() {
+  private init(isExtention:Bool) {
+    self.isExtention = isExtention
     locationManager = CLLocationManager()
     super.init()
     locationManager.delegate = self
