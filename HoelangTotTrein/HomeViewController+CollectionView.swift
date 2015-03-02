@@ -39,6 +39,17 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
   
   func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
     (cell as AdviceCollectionviewCell).stopCounting()
+    
+    let visibleCells = advicesCollectionView.visibleCells()
+    println("CELLS VISIBLE: \(visibleCells.count)")
+    
+    var currentCell = visibleCells.count == 1 ? visibleCells.first : visibleCells[1]
+    
+    if let cell = currentCell as? AdviceCollectionviewCell {
+      let advice = cell.advice
+      TreinTicker.sharedInstance.adviceOffset = advice?.vertrek.actual
+      advicesIndicator.currentPage = advicesCollectionView.indexPathForCell(cell)?.row ?? 0
+    }
   }
   
   func offsetForCell(cell: UICollectionViewCell, contentOffset:Int) -> Int {
@@ -59,15 +70,6 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
       let scale = abs(progress)
       
       cell.transform = CGAffineTransformMakeScale(scale, scale)
-    }
-  }
-  
-  func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-    let visibleCells = advicesCollectionView.visibleCells()
-    if let cell = visibleCells.first as? AdviceCollectionviewCell {
-      let advice = cell.advice
-      TreinTicker.sharedInstance.adviceOffset = advice?.vertrek.actual
-      advicesIndicator.currentPage = advicesCollectionView.indexPathForCell(cell)?.row ?? 0
     }
   }
   

@@ -47,12 +47,18 @@ class InterfaceController: WKInterfaceController {
     
     treinTicker.start()
     
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updateUI"), name:NSUserDefaultsDidChangeNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("userDefaultsDidChange"), name:NSUserDefaultsDidChangeNotification, object: nil)
     
     super.willActivate()
   }
   
+  func userDefaultsDidChange() {
+    println("userDefaultsDidChange")
+    NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updateUI"), userInfo: nil, repeats: false)
+  }
+  
   func updateUI() {
+    let treinTicker = TreinTicker.sharedExtensionInstance
     if let t = time {
       timer.setDate(t)
       UIView.animateWithDuration(1.0) {
@@ -60,10 +66,10 @@ class InterfaceController: WKInterfaceController {
       }
       timer.start()
     }
-    fromLabel.setText(TreinTicker.sharedExtensionInstance.from?.name.lang ?? "")
-    toLabel.setText(TreinTicker.sharedExtensionInstance.to?.name.lang ?? "")
-    fromTime.setText(TreinTicker.sharedExtensionInstance.currentAdivce.vertrek.getFormattedString())
-    toTime.setText(TreinTicker.sharedExtensionInstance.currentAdivce.aankomst.getFormattedString())
+    fromLabel.setText(treinTicker.from?.name.lang ?? "")
+    toLabel.setText(treinTicker.to?.name.lang ?? "")
+    fromTime.setText(treinTicker.currentAdivce.vertrek.getFormattedString() + (treinTicker.currentAdivce.vertrekVertraging ?? ""))
+    toTime.setText(treinTicker.currentAdivce.aankomst.getFormattedString())
   }
   
   override func didDeactivate() {

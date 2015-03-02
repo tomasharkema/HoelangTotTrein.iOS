@@ -56,14 +56,14 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="588" height="407"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sji-sN-jPE">
-                                                            <rect key="frame" x="285" y="112" width="18" height="34"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sji-sN-jPE">
+                                                            <rect key="frame" x="285" y="119" width="18" height="34"/>
                                                             <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="30"/>
                                                             <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GeW-Cx-8vh">
-                                                            <rect key="frame" x="193" y="154" width="203" height="101"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GeW-Cx-8vh">
+                                                            <rect key="frame" x="193" y="153" width="202.5" height="100.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="70" id="MeB-YS-CYn"/>
                                                             </constraints>
@@ -76,41 +76,45 @@
                                                                 </mask>
                                                             </variation>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="From" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-vu-ncM">
-                                                            <rect key="frame" x="275" y="84" width="40" height="20"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-vu-ncM">
+                                                            <rect key="frame" x="274" y="91" width="39.5" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
                                                             <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2m-fH-Zcv">
-                                                            <rect key="frame" x="285" y="262" width="18" height="20"/>
+                                                            <rect key="frame" x="285" y="262" width="18" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
                                                             <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="+ 3 min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTm-f0-VEC">
-                                                            <rect key="frame" x="8" y="194" width="59" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 3 min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTm-f0-VEC">
+                                                            <rect key="frame" x="8" y="193" width="58.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="18"/>
                                                             <color key="textColor" red="1" green="0.42745098040000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOf-UQ-65j">
-                                                            <rect key="frame" x="16" y="289" width="278" height="52"/>
-                                                            <color key="textColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
-                                                        <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="MELDING!" translatesAutoresizingMaskIntoConstraints="NO" id="IQT-Vn-cUf">
-                                                            <rect key="frame" x="20" y="349" width="548" height="58"/>
+                                                        <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="MELDING!" translatesAutoresizingMaskIntoConstraints="NO" id="IQT-Vn-cUf">
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="58" id="E18-ui-7hv"/>
+                                                                <constraint firstAttribute="height" constant="50" id="E18-ui-7hv"/>
+                                                                <constraint firstAttribute="height" constant="58" id="Ni5-5R-ARs"/>
                                                             </constraints>
                                                             <color key="textColor" red="1" green="0.42745098040000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="E18-ui-7hv"/>
+                                                                </mask>
+                                                            </variation>
                                                         </textView>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iI9-p9-VrO">
-                                                            <rect key="frame" x="294" y="289" width="278" height="52"/>
+                                                            <color key="textColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOf-UQ-65j">
+                                                            <rect key="frame" x="16" y="266" width="278" height="141"/>
                                                             <color key="textColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -122,6 +126,7 @@
                                                     <constraint firstItem="u2m-fH-Zcv" firstAttribute="top" secondItem="GeW-Cx-8vh" secondAttribute="bottom" constant="8" id="0Zt-YI-KeT"/>
                                                     <constraint firstItem="iI9-p9-VrO" firstAttribute="bottom" secondItem="oOf-UQ-65j" secondAttribute="bottom" id="1MG-XK-Pa5"/>
                                                     <constraint firstItem="oOf-UQ-65j" firstAttribute="leading" secondItem="hlB-1k-3YJ" secondAttribute="leadingMargin" constant="8" id="38d-T8-gXY"/>
+                                                    <constraint firstItem="iI9-p9-VrO" firstAttribute="top" secondItem="u2m-fH-Zcv" secondAttribute="bottom" constant="8" id="6W5-Fx-YH8"/>
                                                     <constraint firstAttribute="centerY" secondItem="GeW-Cx-8vh" secondAttribute="centerY" id="6iM-IE-hUe"/>
                                                     <constraint firstAttribute="centerX" secondItem="u2m-fH-Zcv" secondAttribute="centerX" id="7JP-j3-Rtr"/>
                                                     <constraint firstItem="IQT-Vn-cUf" firstAttribute="top" secondItem="oOf-UQ-65j" secondAttribute="bottom" constant="8" id="7by-ln-Bc6"/>
@@ -129,6 +134,7 @@
                                                     <constraint firstAttribute="trailingMargin" secondItem="iI9-p9-VrO" secondAttribute="trailing" constant="8" id="EgB-pf-WD1"/>
                                                     <constraint firstItem="iI9-p9-VrO" firstAttribute="width" secondItem="oOf-UQ-65j" secondAttribute="width" id="GqU-V4-y6m"/>
                                                     <constraint firstItem="sji-sN-jPE" firstAttribute="top" secondItem="gaH-vu-ncM" secondAttribute="bottom" constant="8" id="Ht4-2w-oAM"/>
+                                                    <constraint firstItem="IQT-Vn-cUf" firstAttribute="top" secondItem="oOf-UQ-65j" secondAttribute="bottom" id="Ngq-Rh-QZR"/>
                                                     <constraint firstAttribute="trailing" secondItem="IQT-Vn-cUf" secondAttribute="trailing" constant="20" id="Pnq-tc-Buw"/>
                                                     <constraint firstItem="oOf-UQ-65j" firstAttribute="top" secondItem="u2m-fH-Zcv" secondAttribute="bottom" constant="8" id="Tac-bz-gxZ"/>
                                                     <constraint firstAttribute="centerX" secondItem="sji-sN-jPE" secondAttribute="centerX" id="V1q-D3-hYw"/>
@@ -142,6 +148,11 @@
                                                     <constraint firstAttribute="bottom" secondItem="IQT-Vn-cUf" secondAttribute="bottom" id="v9s-Jw-YaO"/>
                                                     <constraint firstItem="GeW-Cx-8vh" firstAttribute="top" secondItem="sji-sN-jPE" secondAttribute="bottom" id="yZy-VV-lQ3"/>
                                                 </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="7by-ln-Bc6"/>
+                                                    </mask>
+                                                </variation>
                                                 <connections>
                                                     <outlet property="alertTextView" destination="IQT-Vn-cUf" id="MqR-r3-wGh"/>
                                                     <outlet property="from" destination="gaH-vu-ncM" id="GtX-jL-5HM"/>
@@ -158,8 +169,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQ1-5b-PMG">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="142"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z98-f2-3V3">
-                                                <rect key="frame" x="46" y="34" width="502" height="46"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z98-f2-3V3">
+                                                <rect key="frame" x="52" y="34" width="496" height="46"/>
                                                 <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="30"/>
                                                 <state key="normal" title="Van">
                                                     <color key="titleColor" red="0.32549019607843138" green="0.84705882352941175" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -169,8 +180,8 @@
                                                     <action selector="fromButton:" destination="oWt-5Q-I8W" eventType="touchUpInside" id="Mvv-YT-wBR"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymF-Fb-idj">
-                                                <rect key="frame" x="46" y="80" width="502" height="46"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymF-Fb-idj">
+                                                <rect key="frame" x="52" y="80" width="496" height="46"/>
                                                 <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="30"/>
                                                 <state key="normal" title="Naar">
                                                     <color key="titleColor" red="0.32549019610000002" green="0.84705882349999995" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -187,8 +198,8 @@
                                                     <action selector="swapLocations:" destination="oWt-5Q-I8W" eventType="touchUpInside" id="Nju-kG-jWo"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="vanTotIcon" translatesAutoresizingMaskIntoConstraints="NO" id="VLg-Ge-ERe">
-                                                <rect key="frame" x="16" y="46" width="22" height="68"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vanTotIcon" translatesAutoresizingMaskIntoConstraints="NO" id="VLg-Ge-ERe">
+                                                <rect key="frame" x="16" y="46" width="28" height="68"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
@@ -292,7 +303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOj-or-ggn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="423" y="266"/>
+            <point key="canvasLocation" x="423" y="289"/>
         </scene>
         <!--Picker View Controller-->
         <scene sceneID="NWC-gr-06l">

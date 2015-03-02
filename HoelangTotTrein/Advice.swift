@@ -54,7 +54,7 @@ class Advice: NSObject, NSCoding, Hashable {
   let reisDeel: [ReisDeel]
   
   let adviceRequest:AdviceRequest
-  let vertrekVertraging:String!
+  let vertrekVertraging:String?
   
   init(obj: ONOXMLElement, adviceRequest:AdviceRequest) {
     self.adviceRequest = adviceRequest

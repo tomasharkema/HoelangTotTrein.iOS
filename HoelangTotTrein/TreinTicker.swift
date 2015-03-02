@@ -109,9 +109,12 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
     self.isExtention = isExtention
     locationManager = CLLocationManager()
     super.init()
-    locationManager.delegate = self
     
-    locationManager.requestAlwaysAuthorization()
+    if !isExtention {
+      locationManager.delegate = self
+      
+      locationManager.requestAlwaysAuthorization()
+    }
     
     if stations.count > 0 {
       
@@ -145,7 +148,7 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
       if isExtention {
         return;
       }
-      
+      minuteTicker = 0
       for region in locationManager.monitoredRegions.allObjects {
         if let r = region as? CLRegion {
           println("STOP OBSERVING FOR \(findStationByCode(CodeContainer.getFromString(r.identifier))!.name.lang)")
