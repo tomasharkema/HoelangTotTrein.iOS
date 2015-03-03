@@ -19,7 +19,6 @@ class API: NSObject {
     
     private func authenticatedRequest(method:Alamofire.Method, url:String, parameters:[String: AnyObject]? = nil) -> Request {
         let request = Alamofire.request(method, url, parameters: parameters).authenticate(user: "tomas@harkema.in", password: "kh8ZilSuswjYn4euawWLtWlgSEPj0-fVbnW0nOlxrHKmp05gSDh-Sw")
-        debugPrintln(request)
         return request
     }
     

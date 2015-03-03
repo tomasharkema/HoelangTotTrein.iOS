@@ -45,6 +45,9 @@
 		C32BBF9F1A9A16D5005B596B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE01B4B52BDC71CED562DEBB /* Pods.framework */; };
 		C32BBFA01A9A16D5005B596B /* Pods.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE01B4B52BDC71CED562DEBB /* Pods.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C33A03E31A8F98EB004E88F5 /* XML+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A03E21A8F98EB004E88F5 /* XML+Format.swift */; };
+		C3621E8D1AA4ADD800CADA71 /* TreinTicker+WatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3621E8B1AA4AC6B00CADA71 /* TreinTicker+WatchHelper.swift */; };
+		C3621E8E1AA4AE0300CADA71 /* TreinTicker+WatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3621E8B1AA4AC6B00CADA71 /* TreinTicker+WatchHelper.swift */; };
+		C3621E8F1AA4AE0400CADA71 /* TreinTicker+WatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3621E8B1AA4AC6B00CADA71 /* TreinTicker+WatchHelper.swift */; };
 		C36CEFA21A8B3D8300C9F3CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36CEFA11A8B3D8300C9F3CC /* AppDelegate.swift */; };
 		C36CEFA71A8B3D8300C9F3CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36CEFA51A8B3D8300C9F3CC /* Main.storyboard */; };
 		C36CEFA91A8B3D8300C9F3CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C36CEFA81A8B3D8300C9F3CC /* Images.xcassets */; };
@@ -172,6 +175,7 @@
 		C3261C531A992E070046DD81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		C3261C551A992E070046DD81 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C33A03E21A8F98EB004E88F5 /* XML+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XML+Format.swift"; sourceTree = "<group>"; };
+		C3621E8B1AA4AC6B00CADA71 /* TreinTicker+WatchHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TreinTicker+WatchHelper.swift"; sourceTree = "<group>"; };
 		C36CEF9C1A8B3D8300C9F3CC /* HoelangTotTrein.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoelangTotTrein.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36CEFA01A8B3D8300C9F3CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C36CEFA11A8B3D8300C9F3CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -422,6 +426,7 @@
 				C371CF861A90FC04004C35A0 /* PickerViewController.swift */,
 				C371CF881A90FD4A004C35A0 /* PickerCellView.swift */,
 				C3D683021A9FB20D00949AFE /* HomeViewController+CollectionView.swift */,
+				C3621E8B1AA4AC6B00CADA71 /* TreinTicker+WatchHelper.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -779,6 +784,7 @@
 				C3261C621A992EAD0046DD81 /* XMLParse.swift in Sources */,
 				C3261C671A992EB70046DD81 /* XML+Format.swift in Sources */,
 				C3261C641A992EB20046DD81 /* Station.swift in Sources */,
+				C3621E8D1AA4ADD800CADA71 /* TreinTicker+WatchHelper.swift in Sources */,
 				C3261C681A992EB70046DD81 /* UIColor+HLTT.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -793,6 +799,7 @@
 				C36CEFA21A8B3D8300C9F3CC /* AppDelegate.swift in Sources */,
 				C3D683031A9FB20D00949AFE /* HomeViewController+CollectionView.swift in Sources */,
 				C30EAB551A9A1196000A3176 /* UIView+Screenshot.swift in Sources */,
+				C3621E8E1AA4AE0300CADA71 /* TreinTicker+WatchHelper.swift in Sources */,
 				C31626C11A8EA72F00410F63 /* NSDate+Format.swift in Sources */,
 				C3883A1F1A950836002A3CE4 /* NSUserDefaults+HLTT.swift in Sources */,
 				C3C53D101A8E41C80056DDFC /* XMLParse.swift in Sources */,
@@ -829,6 +836,7 @@
 				C3883A401A95DA64002A3CE4 /* Array+HLTT.swift in Sources */,
 				C3883A421A95DA71002A3CE4 /* Station.swift in Sources */,
 				C3883A3D1A95DA5B002A3CE4 /* XML+Format.swift in Sources */,
+				C3621E8F1AA4AE0400CADA71 /* TreinTicker+WatchHelper.swift in Sources */,
 				C3883A3A1A95D91B002A3CE4 /* TreinTicker.swift in Sources */,
 				C3883A411A95DA67002A3CE4 /* NSUserDefaults+HLTT.swift in Sources */,
 				C3883A301A95D8B3002A3CE4 /* TodayViewController.swift in Sources */,
@@ -925,8 +933,8 @@
 			baseConfigurationReference = CD505C2AEB56160ABEC7D50A /* Pods.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "HoelangTotTrein WatchKit Extension/HoelangTotTrein WatchKit Extension.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1091,8 +1099,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HoelangTotTrein/HoelangTotTrein.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = HoelangTotTrein/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1168,8 +1176,8 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos/Pods",

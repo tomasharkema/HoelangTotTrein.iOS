@@ -11,22 +11,18 @@ import Foundation
 
 class InterfaceController: WKInterfaceController {
   
-  @IBOutlet weak var fromLabel: WKInterfaceLabel!
   @IBOutlet weak var timer: WKInterfaceTimer!
-  @IBOutlet weak var toLabel: WKInterfaceLabel!
-  @IBOutlet weak var fromTime: WKInterfaceLabel!
-  @IBOutlet weak var toTime: WKInterfaceLabel!
+  
+  @IBOutlet weak var fromButton: WKInterfaceButton!
+  @IBOutlet weak var toButton: WKInterfaceButton!
   
   var time:NSDate?
   
-  override func awakeWithContext(context: AnyObject?) {
-    super.awakeWithContext(context)
-    // Configure interface objects here.
-  }
+  let treinTicker = TreinTicker.sharedExtensionInstance
   
-  override func willActivate() {
-    // This method is called when watch view controller is about to be visible to user
-    let treinTicker = TreinTicker.sharedExtensionInstance
+  override func awakeWithContext(context: AnyObject?) {
+    treinTicker.fromCurrentLocation()
+    // Configure interface objects here.
     
     treinTicker.adviceChangedHandler = { [weak self] (advice) in
       println()
@@ -36,6 +32,7 @@ class InterfaceController: WKInterfaceController {
     treinTicker.tickerHandler = { [weak self] time in
       if self?.time != time.date {
         self?.time = time.date
+        println("setNewTime")
         self?.updateUI()
       }
     }
@@ -45,9 +42,15 @@ class InterfaceController: WKInterfaceController {
       self?.updateUI()
     }
     
+    super.awakeWithContext(context)
+  }
+  
+  override func willActivate() {
+    // This method is called when watch view controller is about to be visible to user
+    
     treinTicker.start()
     
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("userDefaultsDidChange"), name:NSUserDefaultsDidChangeNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updateUI"), name:NSUserDefaultsDidChangeNotification, object: nil)
     
     super.willActivate()
   }
@@ -58,7 +61,6 @@ class InterfaceController: WKInterfaceController {
   }
   
   func updateUI() {
-    let treinTicker = TreinTicker.sharedExtensionInstance
     if let t = time {
       timer.setDate(t)
       UIView.animateWithDuration(1.0) {
@@ -66,15 +68,18 @@ class InterfaceController: WKInterfaceController {
       }
       timer.start()
     }
-    fromLabel.setText(treinTicker.from?.name.lang ?? "")
-    toLabel.setText(treinTicker.to?.name.lang ?? "")
-    fromTime.setText(treinTicker.currentAdivce.vertrek.getFormattedString() + (treinTicker.currentAdivce.vertrekVertraging ?? ""))
-    toTime.setText(treinTicker.currentAdivce.aankomst.getFormattedString())
+    fromButton.setTitle((treinTicker.from?.name.lang ?? "" ) + " " + treinTicker.currentAdivce.vertrek.getFormattedString())
+    toButton.setTitle((treinTicker.to?.name.lang ?? "") + " " + treinTicker.currentAdivce.aankomst.getFormattedString())
+  }
+  
+  @IBAction func fromTapped() {
+    treinTicker.bumpFrom()
+    updateUI()
   }
   
   override func didDeactivate() {
     // This method is called when watch view controller is no longer visible
-    TreinTicker.sharedExtensionInstance.stop()
+    treinTicker.stop()
     NSNotificationCenter.defaultCenter().removeObserver(self, name: NSUserDefaultsDidChangeNotification, object: nil)
     super.didDeactivate()
   }

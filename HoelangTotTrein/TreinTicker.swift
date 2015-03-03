@@ -42,7 +42,7 @@ struct CodeContainer {
 }
 
 private var treinTickerSharedInstance:TreinTicker!
-private var treinTickerShareExtensiondInstance:TreinTicker!
+private var treinTickerShareExtensionInstance:TreinTicker!
 
 class TreinTicker: NSObject, CLLocationManagerDelegate {
   
@@ -62,9 +62,10 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
       return UserDefaults.adviceOffset
     }
     set {
-      if isExtention {
-        return;
-      }
+//      if isExtention {
+//        return;
+//      }
+      println("adviceOffset has been set \(newValue)")
       UserDefaults.adviceOffset = newValue
     }
   }
@@ -79,6 +80,7 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
       UserDefaults.advices = newValue
     }
   }
+  
   var currentLocation:CLLocation!
   
   var tickerHandler:TickerHandler!
@@ -88,6 +90,8 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
   
   var locationManager:CLLocationManager
   var geofences:[CLRegion] = []
+  
+  var closeStations:[Station] = []
   
   var currentAdviceRequest:Request!
   
@@ -99,10 +103,10 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
   }
   
   class var sharedExtensionInstance: TreinTicker {
-    if treinTickerShareExtensiondInstance == nil {
-      treinTickerShareExtensiondInstance = TreinTicker(isExtention: true)
+    if treinTickerShareExtensionInstance == nil {
+      treinTickerShareExtensionInstance = TreinTicker(isExtention: true)
     }
-    return treinTickerShareExtensiondInstance
+    return treinTickerShareExtensionInstance
   }
   
   private init(isExtention:Bool) {
@@ -110,11 +114,9 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
     locationManager = CLLocationManager()
     super.init()
     
-    if !isExtention {
-      locationManager.delegate = self
-      
-      locationManager.requestAlwaysAuthorization()
-    }
+    locationManager.delegate = self
+    
+    locationManager.requestAlwaysAuthorization()
     
     if stations.count > 0 {
       
@@ -123,21 +125,20 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
         cb(stations)
       }
     }
-    if (!isExtention) {
-      API().getStations { [weak self] stations in
-        let s:Array<Station> = stations
-        self?.stations = s
-        self?.setInitialState()
-        
-        if let cb = self?.stationChangedHandler {
-          cb(s)
-        }
+    API().getStations { [weak self] stations in
+      let s:Array<Station> = stations
+      self?.stations = s
+      self?.setInitialState()
+      
+      if let cb = self?.stationChangedHandler {
+        cb(s)
       }
     }
   }
   
   var currentAdivce:Advice! {
     set {
+      println("set currentAdivce")
       UserDefaults.currentAdvice = newValue
       let currentAdvice = newValue
       
@@ -212,7 +213,7 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
       MostUsed.addStation(newValue)
     }
     get {
-      return find(stations, UserDefaults.to) ?? stations[5] ?? nil
+      return find(stations, UserDefaults.to) ?? stations.first
     }
     
   }
@@ -410,13 +411,19 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
     
     shouldUpdate = false
     
-    currentLocation = locations[0] as? CLLocation
+    self.currentLocation = (locations.first as CLLocation).copy() as CLLocation
+    println(currentLocation)
+    
+    self.closeStations =  Station.sortStationsOnLocation(stations, loc: currentLocation!, sorter: <, number:5)
     
     let closest = Station.getClosestStation(stations, loc: currentLocation!)
-    if (closest! == to!) {
-      switchAdviceRequest()
-    } else {
-      from = closest
+    
+    if let toOpt = to {
+      if (closest! == toOpt) {
+        switchAdviceRequest()
+      } else {
+        from = closest
+      }
     }
   }
 }

@@ -39,17 +39,6 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
   
   func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
     (cell as AdviceCollectionviewCell).stopCounting()
-    
-    let visibleCells = advicesCollectionView.visibleCells()
-    println("CELLS VISIBLE: \(visibleCells.count)")
-    
-    var currentCell = visibleCells.count == 1 ? visibleCells.first : visibleCells[1]
-    
-    if let cell = currentCell as? AdviceCollectionviewCell {
-      let advice = cell.advice
-      TreinTicker.sharedInstance.adviceOffset = advice?.vertrek.actual
-      advicesIndicator.currentPage = advicesCollectionView.indexPathForCell(cell)?.row ?? 0
-    }
   }
   
   func offsetForCell(cell: UICollectionViewCell, contentOffset:Int) -> Int {
@@ -62,14 +51,28 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
     let cells = advicesCollectionView.visibleCells()
     let contentOffset = scrollView.contentOffset
     for cellObj in cells {
-      let cell = cellObj as UICollectionViewCell
+      let cell = cellObj as AdviceCollectionviewCell
       let offset = offsetForCell(cell, contentOffset: Int(contentOffset.y))
       
-      let progress = 1 - abs(CGFloat(offset) / cell.bounds.height)/4
+      let progress = 1 - abs(CGFloat(offset) / cell.bounds.height)/2
       
-      let scale = abs(progress)
-      
-      cell.transform = CGAffineTransformMakeScale(scale, scale)
+      cell.progress = progress
+    }
+  }
+  
+  func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    let visibleCells = advicesCollectionView.visibleCells()
+    println("CELLS VISIBLE: \(visibleCells.count)")
+    
+    var currentCell = visibleCells.count == 1 ? visibleCells.first : visibleCells[1]
+    
+    for cellObj in visibleCells {
+      let cell = cellObj as AdviceCollectionviewCell
+      if cell.progress > 0.9 {
+        let advice = cell.advice
+        TreinTicker.sharedInstance.adviceOffset = advice?.vertrek.actual
+        advicesIndicator.currentPage = advicesCollectionView.indexPathForCell(cell)?.row ?? 0
+      }
     }
   }
   
@@ -78,6 +81,13 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
 class AdviceCollectionviewCell : UICollectionViewCell {
   
   var timer:NSTimer?
+  
+  var progress:CGFloat = 0 {
+    didSet {
+      let scale = abs(progress)
+      transform = CGAffineTransformMakeScale(scale, scale)
+    }
+  }
   
   @IBOutlet weak var timeToGoLabel: UILabel!
   @IBOutlet weak var spoor: UILabel!
@@ -136,7 +146,6 @@ class AdviceCollectionviewCell : UICollectionViewCell {
       timer = nil
     }
   }
-  
   
   func updateUI() {
     timeToGoLabel.text = advice?.vertrek.actual.toMMSSFromNow().string()

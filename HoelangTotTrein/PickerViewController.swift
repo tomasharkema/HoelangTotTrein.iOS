@@ -52,23 +52,11 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   
   var mostUsed:Array<Station> = []
   var stations:Array<Station> = []
-  var closeStations:Array<Station> = []
   
   func reload() {
     self.mostUsed = MostUsed.getListByVisited().slice(5)
-    let stations = TreinTicker.sharedInstance.stations.filter { [weak self] station in
+    stations = TreinTicker.sharedInstance.stations.filter { [weak self] station in
       return (self?.mostUsed.contains(station) != nil)
-    }
-    if let c = currentLocation {
-      { [weak self] _ in
-        self?.closeStations = Station.sortStationsOnLocation(stations, loc: c, sorter: <, number:5)
-      } ~> { [weak self] _ in
-          self?.tableView.reloadData()
-          self?.selectRow()
-      }
-      return
-    } else {
-      self.stations = stations
     }
     
     if let tv = tableView {
@@ -197,7 +185,7 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     if indexPath.section == 0 {
       station = mostUsed[indexPath.row]
     } else if indexPath.section == 1 {
-      station = closeStations[indexPath.row]
+      station = TreinTicker.sharedInstance.closeStations[indexPath.row]
     } else if indexPath.section == 2 {
       station = stations[indexPath.row]
     } else {
@@ -207,7 +195,6 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     var cell:PickerCellView = self.tableView.dequeueReusableCellWithIdentifier("cell") as PickerCellView
     
     cell.station = station
-    
     return cell
   }
   
@@ -219,7 +206,7 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     if section == 0 {
       return !isEditing() ? mostUsed.count : 0
     } else if section == 1 {
-      return !isEditing() ? closeStations.count : 0
+      return !isEditing() ? TreinTicker.sharedInstance.closeStations.count : 0
     } else if section == 2 {
       return !isEditing() ? stations.count : 0
     } else {
@@ -232,7 +219,7 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
       if indexPath.section == 0 {
         currentStation = mostUsed[indexPath.row]
       } else if indexPath.section == 1 {
-        currentStation = closeStations[indexPath.row]
+        currentStation = TreinTicker.sharedInstance.closeStations[indexPath.row]
       } else if indexPath.section == 2 {
         currentStation = stations[indexPath.row]
       } else {
@@ -248,7 +235,7 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     if section == 0 {
       return isEditing() ? "" : (mostUsed.count == 0 ? "" : "Meest gebruikt")
     } else if section == 1 {
-      return isEditing() ? "" : (closeStations.count == 0 ? "" : "Dichtstebij")
+      return isEditing() ? "" : (TreinTicker.sharedInstance.closeStations.count == 0 ? "" : "Dichtstebij")
     } else {
       return isEditing() ? "" : (stations.count == 0 ? "" : "A-Z")
     }

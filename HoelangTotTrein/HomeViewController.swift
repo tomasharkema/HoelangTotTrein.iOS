@@ -37,6 +37,8 @@ class HomeViewController: UIViewController {
   
   @IBOutlet weak var advicesIndicator: UIPageControl!
   
+  var cellTimer:NSTimer?
+  
   private var selectionState:StationType = .From {
     didSet {
       if let i:Int = find(TreinTicker.sharedInstance.stations, selectionState == .From ? TreinTicker.sharedInstance.from : TreinTicker.sharedInstance.to) {
@@ -76,6 +78,7 @@ class HomeViewController: UIViewController {
       self?.toButton.setTitle(to?.name.lang, forState: UIControlState.Normal)
       self?.fromButton.setTitle(from?.name.lang, forState: UIControlState.Normal)
       self?.selectRow()
+      self?.advicesCollectionView.reloadData()
     }
   }
   

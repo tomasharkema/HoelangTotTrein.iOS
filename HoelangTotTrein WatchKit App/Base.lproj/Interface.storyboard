@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6750" systemVersion="14D72i" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6750" systemVersion="14D87h" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
@@ -11,8 +11,6 @@
         <mutableArray key="Aktiv-Thin.otf">
             <string>AktivGrotesk-Light</string>
             <string>AktivGrotesk-Light</string>
-            <string>AktivGrotesk-Light</string>
-            <string>AktivGrotesk-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -21,16 +19,13 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="HoelangTotTrein_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <label width="1" alignment="left" text="10:10" textAlignment="center" id="gOZ-XH-991">
-                            <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="12"/>
-                        </label>
-                        <group width="1" height="22" alignment="left" id="sPm-6t-wsk">
-                            <items>
-                                <label width="1" alignment="left" verticalAlignment="center" text="Naar" textAlignment="center" id="YeK-qc-P4F">
-                                    <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="16"/>
-                                </label>
-                            </items>
-                        </group>
+                        <button width="1" alignment="left" title="Button" id="dK5-bu-QhB">
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="10"/>
+                            <connections>
+                                <action selector="fromTapped" destination="AgC-eL-Hgc" id="aHx-AO-fjV"/>
+                            </connections>
+                        </button>
                         <group width="1" alignment="left" verticalAlignment="center" id="Ze0-8T-NYb">
                             <items>
                                 <timer width="1" alignment="left" verticalAlignment="center" textAlignment="center" id="p84-Rj-IBJ">
@@ -39,23 +34,15 @@
                                 </timer>
                             </items>
                         </group>
-                        <group width="1" alignment="left" verticalAlignment="bottom" id="SP8-e2-QOf">
-                            <items>
-                                <label width="1" height="30" alignment="left" text="Van" textAlignment="center" id="OgD-zc-iGv">
-                                    <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="16"/>
-                                </label>
-                            </items>
-                        </group>
-                        <label width="1" alignment="left" verticalAlignment="bottom" text="10:10" textAlignment="center" id="vEf-WY-Fzy">
-                            <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="12"/>
-                        </label>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Button" id="Glr-mg-Xah">
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="10"/>
+                        </button>
                     </items>
                     <connections>
-                        <outlet property="fromLabel" destination="YeK-qc-P4F" id="kqL-BO-4YH"/>
-                        <outlet property="fromTime" destination="gOZ-XH-991" id="BNB-1W-Krm"/>
+                        <outlet property="fromButton" destination="dK5-bu-QhB" id="e4s-b5-b7h"/>
                         <outlet property="timer" destination="p84-Rj-IBJ" id="XQJ-0b-u13"/>
-                        <outlet property="toLabel" destination="OgD-zc-iGv" id="8pI-qY-Oxb"/>
-                        <outlet property="toTime" destination="vEf-WY-Fzy" id="RwM-Fo-gFo"/>
+                        <outlet property="toButton" destination="Glr-mg-Xah" id="Ppd-gX-CuP"/>
                     </connections>
                 </controller>
             </objects>
