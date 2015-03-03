@@ -13,7 +13,7 @@ typealias SelectStationHandler = (Station) -> Void
 
 let PickerAnimationDuration = 0.5
 
-class PickerViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UITextFieldDelegate {
+class PickerViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
   
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var pickerTitle: UILabel!
@@ -32,8 +32,6 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   var willDismiss:Bool = false
   var isDismissing:Bool = false
   
-  var locationManager:CLLocationManager = CLLocationManager()
-  
   var mode:StationType! {
     didSet {
       pickerTitle?.text = (mode == StationType.From) ? "Van" : "Naar"
@@ -47,8 +45,6 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   }
   
   var selectStationHandler:SelectStationHandler!
-  
-  var currentLocation:CLLocation?
   
   var mostUsed:Array<Station> = []
   var stations:Array<Station> = []
@@ -69,8 +65,6 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    locationManager.delegate = self
     tableView.backgroundColor = UIColor.clearColor()
     tableView.backgroundView = nil
     tableView.delegate = self
@@ -94,7 +88,6 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     super.viewWillAppear(animated)
     reload()
     animateMenu(true, animated: true, completion: nil)
-    locationManager.startUpdatingLocation()
   }
   
   /// MARK: Show State Animations
@@ -247,14 +240,6 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     headerView.textLabel.font = UIFont(name: "Aktiv-Light", size: 16.0)
     headerView.textLabel.textColor = UIColor.whiteColor()
     headerView.contentView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.7)
-  }
-  
-  func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-    locationManager.stopUpdatingLocation()
-    
-    currentLocation = locations.first as? CLLocation
-    
-    reload()
   }
   
   func textFieldDidBeginEditing(textField: UITextField) {

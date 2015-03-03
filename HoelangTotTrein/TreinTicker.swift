@@ -62,10 +62,6 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
       return UserDefaults.adviceOffset
     }
     set {
-//      if isExtention {
-//        return;
-//      }
-      println("adviceOffset has been set \(newValue)")
       UserDefaults.adviceOffset = newValue
     }
   }
@@ -92,6 +88,7 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
   var geofences:[CLRegion] = []
   
   var closeStations:[Station] = []
+  var recentStations:[Station] = []
   
   var currentAdviceRequest:Request!
   

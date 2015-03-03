@@ -77,6 +77,11 @@ class InterfaceController: WKInterfaceController {
     updateUI()
   }
   
+  @IBAction func toTapped() {
+    treinTicker.bumpTo()
+    updateUI()
+  }
+  
   override func didDeactivate() {
     // This method is called when watch view controller is no longer visible
     treinTicker.stop()

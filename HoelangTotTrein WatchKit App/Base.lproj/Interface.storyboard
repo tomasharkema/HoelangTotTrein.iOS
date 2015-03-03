@@ -37,6 +37,9 @@
                         <button width="1" alignment="left" verticalAlignment="bottom" title="Button" id="Glr-mg-Xah">
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                             <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="10"/>
+                            <connections>
+                                <action selector="toTapped" destination="AgC-eL-Hgc" id="Mqt-6m-wXp"/>
+                            </connections>
                         </button>
                     </items>
                     <connections>

@@ -10,7 +10,6 @@ import UIKit
 
 extension TreinTicker {
   func bumpFrom() {
-    
     if closeStations.count == 0 {
       return;
     }
@@ -18,7 +17,6 @@ extension TreinTicker {
     let index = findIndex(closeStations, from!)
     
     if let i = index {
-      println("index \(i), \((i+1)), \(closeStations.count), \((closeStations.count - 1) > i)")
       if (closeStations.count - 1) > i {
         from = closeStations[(i+1)]
       } else {
@@ -28,4 +26,27 @@ extension TreinTicker {
       from = closeStations.first
     }
   }
+  
+  func bumpTo() {
+    let mostUsed = MostUsed.getListByVisited().slice(10).filter {
+      return $0.code != self.from.code
+    }
+    
+    if mostUsed.count == 0 {
+      return;
+    }
+    
+    let index = findIndex(mostUsed, to!)
+    
+    if let i = index {
+      if (closeStations.count - 1) > i {
+        to = mostUsed[(i+1)]
+      } else {
+        to = mostUsed.first
+      }
+    } else {
+      to = mostUsed.first
+    }
+  }
+  
 }
