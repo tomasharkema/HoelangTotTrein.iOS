@@ -17,9 +17,6 @@ class HomeViewController: UIViewController {
   
   @IBOutlet weak var advicesCollectionView: UICollectionView!
   @IBOutlet weak var headerView: UIView!
-  
-  @IBOutlet weak var timeToGoLabel: UILabel!
-  @IBOutlet weak var vertagingLabel: UILabel!
   @IBOutlet weak var fromButton: UIButton!
   @IBOutlet weak var toButton: UIButton!
   

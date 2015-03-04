@@ -9,7 +9,7 @@
 import Foundation
 
 let StationsKey = "StationKeys"
-let MostUsedKey = "MostUsedKey"
+let MostUsedKey = "MostUsedAndDateKey"
 let FromKey = "FromKey"
 let ToKey = "ToKey"
 let OriginalFromKey = "OriginalFromKey"
@@ -18,6 +18,7 @@ let Advices = "Advices"
 let AdviceOffset = "AdviceOffset"
 
 let UserDefaults = NSUserDefaults(suiteName: "group.tomas.hltt")!
+let CloudUserService = NSUbiquitousKeyValueStore.defaultStore()
 
 extension NSUserDefaults {
   
@@ -37,10 +38,10 @@ extension NSUserDefaults {
     }
   }
   
-  var mostUsed:[NSString] {
+  var mostUsed:[[NSString:AnyObject]] {
     get {
       if let mostUsedArray = arrayForKey(MostUsedKey) {
-        return mostUsedArray as [NSString]
+        return mostUsedArray as [[NSString:AnyObject]]
       } else {
         return []
       }
@@ -48,6 +49,9 @@ extension NSUserDefaults {
     set {
       setObject(newValue, forKey: MostUsedKey)
       synchronize()
+      
+      CloudUserService.setArray(newValue, forKey: MostUsedKey)
+      CloudUserService.synchronize()
     }
   }
   
@@ -55,6 +59,9 @@ extension NSUserDefaults {
     set {
       setValue(newValue, forKey: FromKey)
       synchronize()
+      
+      CloudUserService.setString(newValue, forKey: FromKey)
+      CloudUserService.synchronize()
     }
     get {
       return objectForKey(FromKey) as? String ?? ""
@@ -65,6 +72,10 @@ extension NSUserDefaults {
     set {
       setValue(newValue, forKey: ToKey)
       synchronize()
+      
+      
+      CloudUserService.setString(newValue, forKey: ToKey)
+      CloudUserService.synchronize()
     }
     get {
       return objectForKey(ToKey) as? String ?? ""
@@ -104,7 +115,6 @@ extension NSUserDefaults {
         synchronize()
         return;
       }
-      println("currentAdvice PROBLEMEN")
     }
     get {
       NSKeyedUnarchiver.setClass(Advice.classForKeyedUnarchiver(), forClassName: "HoelangTotTrein.Advice")
@@ -127,11 +137,11 @@ extension NSUserDefaults {
       }
     }
     set {
-      if newValue == nil {
-        println("adviceOffset has been set nil")
-      }
       setDouble(newValue?.timeIntervalSince1970 ?? 0, forKey: AdviceOffset)
       synchronize()
+      
+      CloudUserService.setDouble(newValue!.timeIntervalSince1970, forKey: AdviceOffset);
+      CloudUserService.synchronize()
     }
   }
   

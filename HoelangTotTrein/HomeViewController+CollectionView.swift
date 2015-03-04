@@ -119,6 +119,8 @@ class AdviceCollectionviewCell : UICollectionViewCell {
       legPhraseRightTextView.textColor = UIColor.secundairGreyColor()
       legPhraseRightTextView.textAlignment = NSTextAlignment.Left
       
+      println(advice?.vertrekVertraging)
+      
       if let vertraging = advice?.vertrekVertraging {
         vertagingLabel.text = vertraging
         vertagingLabel.hidden = false
@@ -149,6 +151,11 @@ class AdviceCollectionviewCell : UICollectionViewCell {
   
   func updateUI() {
     timeToGoLabel.text = advice?.vertrek.actual.toMMSSFromNow().string()
+    UIView.animateWithDuration(1.0) {
+      self.timeToGoLabel.textColor = self.advice?.vertrek.actual.timeIntervalSinceNow < 60 ? UIColor.redThemeColor() : UIColor.whiteColor()
+      return;
+    }
+
   }
   
 }
