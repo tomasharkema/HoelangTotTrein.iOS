@@ -17,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
       NewRelic.startWithApplicationToken("AA37eca143a6cbc43c025498e41838d785d5666a06")
       
+      NSNotificationCenter.defaultCenter().addObserverForName(NSUbiquitousKeyValueStoreDidChangeExternallyNotification, object: NSUbiquitousKeyValueStore.defaultStore(), queue: NSOperationQueue.mainQueue()) { (notification) in
+        let ubiquitousKeyValueStore = notification.object as NSUbiquitousKeyValueStore
+        ubiquitousKeyValueStore.synchronize()
+      }
+      
         // Override point for customization after application launch
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert | UIUserNotificationType.Badge, categories: nil))
       

@@ -45,6 +45,11 @@
 		C32BBF9F1A9A16D5005B596B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE01B4B52BDC71CED562DEBB /* Pods.framework */; };
 		C32BBFA01A9A16D5005B596B /* Pods.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE01B4B52BDC71CED562DEBB /* Pods.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C33A03E31A8F98EB004E88F5 /* XML+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A03E21A8F98EB004E88F5 /* XML+Format.swift */; };
+		C34681E81AA7A477002A7D62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34681E71AA7A477002A7D62 /* AppDelegate.swift */; };
+		C34681EA1AA7A477002A7D62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34681E91AA7A477002A7D62 /* ViewController.swift */; };
+		C34681EC1AA7A477002A7D62 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C34681EB1AA7A477002A7D62 /* Images.xcassets */; };
+		C34681EF1AA7A477002A7D62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C34681ED1AA7A477002A7D62 /* Main.storyboard */; };
+		C34681FB1AA7A478002A7D62 /* HoelangTotTrein_MacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34681FA1AA7A478002A7D62 /* HoelangTotTrein_MacTests.swift */; };
 		C3621E8D1AA4ADD800CADA71 /* TreinTicker+WatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3621E8B1AA4AC6B00CADA71 /* TreinTicker+WatchHelper.swift */; };
 		C3621E8E1AA4AE0300CADA71 /* TreinTicker+WatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3621E8B1AA4AC6B00CADA71 /* TreinTicker+WatchHelper.swift */; };
 		C3621E8F1AA4AE0400CADA71 /* TreinTicker+WatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3621E8B1AA4AC6B00CADA71 /* TreinTicker+WatchHelper.swift */; };
@@ -107,6 +112,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = C3261C3B1A992E070046DD81;
 			remoteInfo = "HoelangTotTrein WatchKit Extension";
+		};
+		C34681F51AA7A478002A7D62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C36CEF941A8B3D8300C9F3CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C34681E21AA7A477002A7D62;
+			remoteInfo = "HoelangTotTrein Mac";
 		};
 		C36CEFB21A8B3D8300C9F3CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -175,6 +187,16 @@
 		C3261C531A992E070046DD81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		C3261C551A992E070046DD81 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C33A03E21A8F98EB004E88F5 /* XML+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XML+Format.swift"; sourceTree = "<group>"; };
+		C34681E31AA7A477002A7D62 /* HoelangTotTrein Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HoelangTotTrein Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C34681E61AA7A477002A7D62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C34681E71AA7A477002A7D62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C34681E91AA7A477002A7D62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C34681EB1AA7A477002A7D62 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C34681EE1AA7A477002A7D62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C34681F41AA7A478002A7D62 /* HoelangTotTrein MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HoelangTotTrein MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C34681F91AA7A478002A7D62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C34681FA1AA7A478002A7D62 /* HoelangTotTrein_MacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoelangTotTrein_MacTests.swift; sourceTree = "<group>"; };
+		C34682021AA7A49A002A7D62 /* HoelangTotTrein Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "HoelangTotTrein Mac.entitlements"; sourceTree = "<group>"; };
 		C3621E8B1AA4AC6B00CADA71 /* TreinTicker+WatchHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TreinTicker+WatchHelper.swift"; sourceTree = "<group>"; };
 		C36CEF9C1A8B3D8300C9F3CC /* HoelangTotTrein.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoelangTotTrein.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36CEFA01A8B3D8300C9F3CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -224,6 +246,20 @@
 				C301D8AE1A992FE100FB414D /* Pods.framework in Frameworks */,
 				C301D8AB1A992FD000FB414D /* Alamofire.framework in Frameworks */,
 				C301D8AC1A992FD500FB414D /* Ono.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C34681E01AA7A477002A7D62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C34681F11AA7A478002A7D62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +380,44 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C34681E41AA7A477002A7D62 /* HoelangTotTrein Mac */ = {
+			isa = PBXGroup;
+			children = (
+				C34682021AA7A49A002A7D62 /* HoelangTotTrein Mac.entitlements */,
+				C34681E71AA7A477002A7D62 /* AppDelegate.swift */,
+				C34681E91AA7A477002A7D62 /* ViewController.swift */,
+				C34681EB1AA7A477002A7D62 /* Images.xcassets */,
+				C34681ED1AA7A477002A7D62 /* Main.storyboard */,
+				C34681E51AA7A477002A7D62 /* Supporting Files */,
+			);
+			path = "HoelangTotTrein Mac";
+			sourceTree = "<group>";
+		};
+		C34681E51AA7A477002A7D62 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C34681E61AA7A477002A7D62 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C34681F71AA7A478002A7D62 /* HoelangTotTrein MacTests */ = {
+			isa = PBXGroup;
+			children = (
+				C34681FA1AA7A478002A7D62 /* HoelangTotTrein_MacTests.swift */,
+				C34681F81AA7A478002A7D62 /* Supporting Files */,
+			);
+			path = "HoelangTotTrein MacTests";
+			sourceTree = "<group>";
+		};
+		C34681F81AA7A478002A7D62 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C34681F91AA7A478002A7D62 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		C36CEF931A8B3D8300C9F3CC = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +426,8 @@
 				C3883A2C1A95D8B3002A3CE4 /* Widget */,
 				C3261C3D1A992E070046DD81 /* HoelangTotTrein WatchKit Extension */,
 				C3261C4F1A992E070046DD81 /* HoelangTotTrein WatchKit App */,
+				C34681E41AA7A477002A7D62 /* HoelangTotTrein Mac */,
+				C34681F71AA7A478002A7D62 /* HoelangTotTrein MacTests */,
 				C36CEF9D1A8B3D8300C9F3CC /* Products */,
 				BC69F6602C9CF502A9E7EA3A /* Pods */,
 				10456456BBBBBDA666D418F9 /* Frameworks */,
@@ -366,6 +442,8 @@
 				C3883A291A95D8B3002A3CE4 /* Widget.appex */,
 				C3261C3C1A992E070046DD81 /* HoelangTotTrein WatchKit Extension.appex */,
 				C3261C4B1A992E070046DD81 /* HoelangTotTrein WatchKit App.app */,
+				C34681E31AA7A477002A7D62 /* HoelangTotTrein Mac.app */,
+				C34681F41AA7A478002A7D62 /* HoelangTotTrein MacTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -521,6 +599,41 @@
 			productReference = C3261C4B1A992E070046DD81 /* HoelangTotTrein WatchKit App.app */;
 			productType = "com.apple.product-type.application.watchapp";
 		};
+		C34681E21AA7A477002A7D62 /* HoelangTotTrein Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C34682001AA7A478002A7D62 /* Build configuration list for PBXNativeTarget "HoelangTotTrein Mac" */;
+			buildPhases = (
+				C34681DF1AA7A477002A7D62 /* Sources */,
+				C34681E01AA7A477002A7D62 /* Frameworks */,
+				C34681E11AA7A477002A7D62 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HoelangTotTrein Mac";
+			productName = "HoelangTotTrein Mac";
+			productReference = C34681E31AA7A477002A7D62 /* HoelangTotTrein Mac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C34681F31AA7A478002A7D62 /* HoelangTotTrein MacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C34682011AA7A478002A7D62 /* Build configuration list for PBXNativeTarget "HoelangTotTrein MacTests" */;
+			buildPhases = (
+				C34681F01AA7A478002A7D62 /* Sources */,
+				C34681F11AA7A478002A7D62 /* Frameworks */,
+				C34681F21AA7A478002A7D62 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C34681F61AA7A478002A7D62 /* PBXTargetDependency */,
+			);
+			name = "HoelangTotTrein MacTests";
+			productName = "HoelangTotTrein MacTests";
+			productReference = C34681F41AA7A478002A7D62 /* HoelangTotTrein MacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C36CEF9B1A8B3D8300C9F3CC /* HoelangTotTrein */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C36CEFBB1A8B3D8300C9F3CC /* Build configuration list for PBXNativeTarget "HoelangTotTrein" */;
@@ -603,6 +716,19 @@
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = RSRVS8D9PW;
 					};
+					C34681E21AA7A477002A7D62 = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 8J6VSUTQNX;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+					C34681F31AA7A478002A7D62 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = C34681E21AA7A477002A7D62;
+					};
 					C36CEF9B1A8B3D8300C9F3CC = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = RSRVS8D9PW;
@@ -645,6 +771,8 @@
 				C3883A281A95D8B3002A3CE4 /* Widget */,
 				C3261C3B1A992E070046DD81 /* HoelangTotTrein WatchKit Extension */,
 				C3261C4A1A992E070046DD81 /* HoelangTotTrein WatchKit App */,
+				C34681E21AA7A477002A7D62 /* HoelangTotTrein Mac */,
+				C34681F31AA7A478002A7D62 /* HoelangTotTrein MacTests */,
 			);
 		};
 /* End PBXProject section */
@@ -669,6 +797,22 @@
 				C301D8B21A99349400FB414D /* Aktiv-Thin.otf in Resources */,
 				C301D8B31A99349400FB414D /* Aktiv-Light.otf in Resources */,
 				C3261C561A992E070046DD81 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C34681E11AA7A477002A7D62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C34681EC1AA7A477002A7D62 /* Images.xcassets in Resources */,
+				C34681EF1AA7A477002A7D62 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C34681F21AA7A478002A7D62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -789,6 +933,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C34681DF1AA7A477002A7D62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C34681EA1AA7A477002A7D62 /* ViewController.swift in Sources */,
+				C34681E81AA7A477002A7D62 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C34681F01AA7A478002A7D62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C34681FB1AA7A478002A7D62 /* HoelangTotTrein_MacTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C36CEF981A8B3D8300C9F3CC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -863,6 +1024,11 @@
 			target = C3261C3B1A992E070046DD81 /* HoelangTotTrein WatchKit Extension */;
 			targetProxy = C3261C571A992E070046DD81 /* PBXContainerItemProxy */;
 		};
+		C34681F61AA7A478002A7D62 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C34681E21AA7A477002A7D62 /* HoelangTotTrein Mac */;
+			targetProxy = C34681F51AA7A478002A7D62 /* PBXContainerItemProxy */;
+		};
 		C36CEFB31A8B3D8300C9F3CC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C36CEF9B1A8B3D8300C9F3CC /* HoelangTotTrein */;
@@ -882,6 +1048,14 @@
 				C3261C531A992E070046DD81 /* Base */,
 			);
 			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+		C34681ED1AA7A477002A7D62 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C34681EE1AA7A477002A7D62 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		C36CEFA51A8B3D8300C9F3CC /* Main.storyboard */ = {
@@ -991,6 +1165,89 @@
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
+		C34681FC1AA7A478002A7D62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "HoelangTotTrein Mac/HoelangTotTrein Mac.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "HoelangTotTrein Mac/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C34681FD1AA7A478002A7D62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "HoelangTotTrein Mac/HoelangTotTrein Mac.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = "HoelangTotTrein Mac/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C34681FE1AA7A478002A7D62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "HoelangTotTrein MacTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HoelangTotTrein Mac.app/Contents/MacOS/HoelangTotTrein Mac";
+			};
+			name = Debug;
+		};
+		C34681FF1AA7A478002A7D62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "HoelangTotTrein MacTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HoelangTotTrein Mac.app/Contents/MacOS/HoelangTotTrein Mac";
 			};
 			name = Release;
 		};
@@ -1211,6 +1468,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		C34682001AA7A478002A7D62 /* Build configuration list for PBXNativeTarget "HoelangTotTrein Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C34681FC1AA7A478002A7D62 /* Debug */,
+				C34681FD1AA7A478002A7D62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C34682011AA7A478002A7D62 /* Build configuration list for PBXNativeTarget "HoelangTotTrein MacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C34681FE1AA7A478002A7D62 /* Debug */,
+				C34681FF1AA7A478002A7D62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		C36CEF971A8B3D8300C9F3CC /* Build configuration list for PBXProject "HoelangTotTrein" */ = {
 			isa = XCConfigurationList;
