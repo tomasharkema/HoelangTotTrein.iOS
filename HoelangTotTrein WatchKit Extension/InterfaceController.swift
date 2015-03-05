@@ -25,21 +25,20 @@ class InterfaceController: WKInterfaceController {
     // Configure interface objects here.
     
     treinTicker.adviceChangedHandler = { [weak self] (advice) in
-      println()
       self?.updateUI()
+      return;
     }
     
     treinTicker.tickerHandler = { [weak self] time in
       if self?.time != time.date {
         self?.time = time.date
-        println("setNewTime")
         self?.updateUI()
       }
     }
     
     treinTicker.fromToChanged = { [weak self] from, to in
-      println()
       self?.updateUI()
+      return;
     }
     
     super.awakeWithContext(context)
@@ -56,7 +55,6 @@ class InterfaceController: WKInterfaceController {
   }
   
   func userDefaultsDidChange() {
-    println("userDefaultsDidChange")
     NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updateUI"), userInfo: nil, repeats: false)
   }
   

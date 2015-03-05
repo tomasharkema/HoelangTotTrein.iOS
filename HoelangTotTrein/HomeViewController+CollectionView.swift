@@ -62,7 +62,6 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
   
   func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
     let visibleCells = advicesCollectionView.visibleCells()
-    println("CELLS VISIBLE: \(visibleCells.count)")
     
     var currentCell = visibleCells.count == 1 ? visibleCells.first : visibleCells[1]
     

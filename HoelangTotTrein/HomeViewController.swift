@@ -52,10 +52,6 @@ class HomeViewController: UIViewController {
     }
   }
   
-  deinit {
-    println("deinit")
-  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     

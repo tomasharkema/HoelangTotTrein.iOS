@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       NSNotificationCenter.defaultCenter().addObserverForName(NSUbiquitousKeyValueStoreDidChangeExternallyNotification, object: NSUbiquitousKeyValueStore.defaultStore(), queue: NSOperationQueue.mainQueue()) { (notification) in
         let ubiquitousKeyValueStore = notification.object as NSUbiquitousKeyValueStore
         ubiquitousKeyValueStore.synchronize()
+        
+        println("FROM: \(ubiquitousKeyValueStore.stringForKey(FromKey))")
+        
       }
       
         // Override point for customization after application launch

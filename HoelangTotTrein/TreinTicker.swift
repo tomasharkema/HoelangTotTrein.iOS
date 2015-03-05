@@ -135,7 +135,6 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
   
   var currentAdivce:Advice! {
     set {
-      println("set currentAdivce")
       UserDefaults.currentAdvice = newValue
       let currentAdvice = newValue
       
@@ -149,7 +148,6 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
       minuteTicker = 0
       for region in locationManager.monitoredRegions.allObjects {
         if let r = region as? CLRegion {
-          println("STOP OBSERVING FOR \(findStationByCode(CodeContainer.getFromString(r.identifier))!.name.lang)")
           locationManager.stopMonitoringForRegion(r)
         }
       }
@@ -309,7 +307,6 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
       if let currentAdv = getCurrentAdvice() {
         if let currentAdvice = self.currentAdivce {
           if (currentAdvice != currentAdv) {
-            println("upcoming advices: \(getUpcomingAdvices().count)")
             self.currentAdivce = currentAdv
           }
         } else {
@@ -361,10 +358,6 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
     locationManager.startUpdatingLocation()
   }
   
-  func locationManager(manager: CLLocationManager!, didStartMonitoringForRegion region: CLRegion!) {
-    println("START OBSERVING FOR \(findStationByCode(CodeContainer.getFromString(region.identifier))!.name.lang)")
-  }
-  
   func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
     println("ERROR! \(error.description)")
   }
@@ -373,7 +366,6 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
     locationManager.stopMonitoringForRegion(region)
     let code = CodeContainer.getFromString(region.identifier)
     let arrivedStation = findStationByCode(code)
-    println("DID ENTER REGION: \(arrivedStation!.name.lang)")
     
     if (currentAdivce?.reisDeel.count <= (code.deelIndex + 1)) {
       // final destination
@@ -396,10 +388,6 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
     from = arrivedStation
   }
   
-  func locationManager(manager: CLLocationManager!, didExitRegion region: CLRegion!) {
-    println("DID LEAVE REGION: \(region.identifier)")
-  }
-  
   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
     manager.stopUpdatingLocation()
     if (!shouldUpdate) {
@@ -409,7 +397,6 @@ class TreinTicker: NSObject, CLLocationManagerDelegate {
     shouldUpdate = false
     
     self.currentLocation = (locations.first as CLLocation).copy() as CLLocation
-    println(currentLocation)
     
     self.closeStations =  Station.sortStationsOnLocation(stations, loc: currentLocation!, sorter: <, number:5)
     

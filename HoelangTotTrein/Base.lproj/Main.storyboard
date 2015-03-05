@@ -94,7 +94,8 @@
                                                             <color key="textColor" red="1" green="0.42745098040000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="MELDING!" translatesAutoresizingMaskIntoConstraints="NO" id="IQT-Vn-cUf">
+                                                        <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="MELDING!" translatesAutoresizingMaskIntoConstraints="NO" id="IQT-Vn-cUf">
+                                                            <rect key="frame" x="20" y="349" width="548" height="58"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="E18-ui-7hv"/>
                                                                 <constraint firstAttribute="height" constant="58" id="Ni5-5R-ARs"/>
@@ -108,13 +109,14 @@
                                                                 </mask>
                                                             </variation>
                                                         </textView>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iI9-p9-VrO">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iI9-p9-VrO">
+                                                            <rect key="frame" x="294" y="289.5" width="278" height="59.5"/>
                                                             <color key="textColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOf-UQ-65j">
-                                                            <rect key="frame" x="16" y="266" width="278" height="141"/>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOf-UQ-65j">
+                                                            <rect key="frame" x="16" y="289.5" width="278" height="59.5"/>
                                                             <color key="textColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

@@ -11,17 +11,16 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
-
   func applicationDidFinishLaunching(aNotification: NSNotification) {
     // Insert code here to initialize your application
     
     NSNotificationCenter.defaultCenter().addObserverForName(NSUbiquitousKeyValueStoreDidChangeExternallyNotification, object: NSUbiquitousKeyValueStore.defaultStore(), queue: NSOperationQueue.mainQueue()) { (notification) in
       let ubiquitousKeyValueStore = notification.object as NSUbiquitousKeyValueStore
       ubiquitousKeyValueStore.synchronize()
+      
+      
+      println("FROM: \(ubiquitousKeyValueStore.stringForKey(FromKey))")
     }
-    
-    
     
   }
 
