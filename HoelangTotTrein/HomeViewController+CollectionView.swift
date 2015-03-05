@@ -12,6 +12,24 @@ let AdviceReuseIdentifier = "AdviceReuseIdentifier"
 
 extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
   
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+    startTimerForMiddleVisibleCell()
+  }
+  
+  override func viewDidDisappear(animated: Bool) {
+    super.viewDidDisappear(animated)
+    if let timer = cellTimer {
+      timer.invalidate()
+      cellTimer = nil
+    }
+  }
+  
+  func reload() {
+    advicesCollectionView.reloadData()
+    startTimerForMiddleVisibleCell()
+  }
+  
   func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
     return 1
   }
@@ -30,15 +48,6 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
   
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
     return CGSize(width: self.advicesCollectionView.bounds.width, height: self.advicesCollectionView.bounds.height)
-  }
-  
-  func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-    let c = cell as AdviceCollectionviewCell
-    c.startCounting()
-  }
-  
-  func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-    (cell as AdviceCollectionviewCell).stopCounting()
   }
   
   func offsetForCell(cell: UICollectionViewCell, contentOffset:Int) -> Int {
@@ -61,28 +70,42 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
   }
   
   func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    if let cell = getMiddleVisibleCell() {
+      let advice = cell.advice
+      TreinTicker.sharedInstance.adviceOffset = advice?.vertrek.actual
+      advicesIndicator.currentPage = advicesCollectionView.indexPathForCell(cell)?.row ?? 0
+    }
+    
+    startTimerForMiddleVisibleCell()
+  }
+  
+  func getMiddleVisibleCell() -> AdviceCollectionviewCell? {
     let visibleCells = advicesCollectionView.visibleCells()
-    println("CELLS VISIBLE: \(visibleCells.count)")
-    
-    var currentCell = visibleCells.count == 1 ? visibleCells.first : visibleCells[1]
-    
     for cellObj in visibleCells {
       let cell = cellObj as AdviceCollectionviewCell
       if cell.progress > 0.9 {
-        let advice = cell.advice
-        TreinTicker.sharedInstance.adviceOffset = advice?.vertrek.actual
-        advicesIndicator.currentPage = advicesCollectionView.indexPathForCell(cell)?.row ?? 0
+        return cell
       }
     }
+    return nil;
   }
   
+  func startTimerForMiddleVisibleCell() {
+    if let cell = getMiddleVisibleCell() {
+      if cellTimer != nil {
+        cellTimer?.invalidate()
+        cellTimer = nil
+      }
+      cellTimer = cell.startCounting()
+    }
+  }
 }
 
 class AdviceCollectionviewCell : UICollectionViewCell {
   
   var timer:NSTimer?
   
-  var progress:CGFloat = 0 {
+  var progress:CGFloat = 1 {
     didSet {
       let scale = abs(progress)
       transform = CGAffineTransformMakeScale(scale, scale)
@@ -138,8 +161,8 @@ class AdviceCollectionviewCell : UICollectionViewCell {
     }
   }
   
-  func startCounting() {
-    timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("updateUI"), userInfo: nil, repeats: true)
+  func startCounting() -> NSTimer {
+    return NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("updateUI"), userInfo: nil, repeats: true)
   }
   
   func stopCounting() {

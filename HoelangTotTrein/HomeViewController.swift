@@ -67,7 +67,7 @@ class HomeViewController: UIViewController {
     advicesIndicator.transform = CGAffineTransformMakeRotation(CGFloat(M_PI * 90.0/180))
     
     TreinTicker.sharedInstance.adviceChangedHandler = { [weak self] (advice) in
-      self?.advicesCollectionView.reloadData()
+      self?.reload()
       return;
     }
     
@@ -75,7 +75,7 @@ class HomeViewController: UIViewController {
       self?.toButton.setTitle(to?.name.lang, forState: UIControlState.Normal)
       self?.fromButton.setTitle(from?.name.lang, forState: UIControlState.Normal)
       self?.selectRow()
-      self?.advicesCollectionView.reloadData()
+      self?.reload()
     }
   }
   
