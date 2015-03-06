@@ -26,7 +26,11 @@ class UnwindPickerSegue: UIStoryboardSegue {
     let source = sourceViewController as UIViewController
     let dest = destinationViewController as UIViewController
     
-    source.dismissViewControllerAnimated(false, completion:nil)
+    source.view.addSubview(dest.view)
+    
+    source.dismissViewControllerAnimated(false, completion:{
+      dest.view.removeFromSuperview()
+    })
   }
   
 }
