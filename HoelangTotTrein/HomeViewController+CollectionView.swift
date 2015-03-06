@@ -174,11 +174,7 @@ class AdviceCollectionviewCell : UICollectionViewCell {
   
   func updateUI() {
     timeToGoLabel.text = advice?.vertrek.actual.toMMSSFromNow().string()
-    UIView.animateWithDuration(1.0) {
-      self.timeToGoLabel.textColor = self.advice?.vertrek.actual.timeIntervalSinceNow < 60 ? UIColor.redThemeColor() : UIColor.whiteColor()
-      return;
-    }
-
+    timeToGoLabel.textColor = self.advice?.vertrek.actual.timeIntervalSinceNow < 60 ? UIColor.redThemeColor() : UIColor.whiteColor()
   }
   
 }
