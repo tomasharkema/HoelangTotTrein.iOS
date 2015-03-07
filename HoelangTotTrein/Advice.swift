@@ -44,6 +44,16 @@ struct ReisDeel {
   }
 }
 
+enum Status : String {
+  case NoStatus = "nostatus"
+  case VolgensPlan = "VOLGENS-PLAN"
+  case NietMogelijk = "NIET-MOGELIJK"
+  case Vertraagd = "VERTRAAGD"
+  case Gewijzigd = "GEWIJZIGD"
+  case Nieuw = "NIEUW"
+  case PlanGewijzigd = "PLAN-GEWIJZIGD"
+}
+
 class Advice: NSObject, NSCoding, Hashable {
   
   let overstappen:Int
@@ -55,6 +65,8 @@ class Advice: NSObject, NSCoding, Hashable {
   
   let adviceRequest:AdviceRequest
   let vertrekVertraging:String?
+  
+  let status:Status
   
   init(obj: ONOXMLElement, adviceRequest:AdviceRequest) {
     self.adviceRequest = adviceRequest
@@ -96,6 +108,12 @@ class Advice: NSObject, NSCoding, Hashable {
     if let vertraging = obj.string(tagName: "VertrekVertraging") {
       vertrekVertraging = vertraging
     }
+    
+    if let status = obj.string(tagName: "Status") {
+      self.status = Status(rawValue: status)!
+    } else {
+      self.status = .NoStatus
+    }
   }
   
   required init(coder aDecoder: NSCoder) {
@@ -118,6 +136,12 @@ class Advice: NSObject, NSCoding, Hashable {
     
     if let m = aDecoder.decodeObjectForKey("melding.id") {
       melding = Melding(id: aDecoder.decodeObjectForKey("melding.id") as String, ernstig: aDecoder.decodeBoolForKey("melding.ernstig"), text: aDecoder.decodeObjectForKey("melding.text") as String)
+    }
+    
+    if let status = aDecoder.decodeObjectForKey("status") as? String {
+      self.status = Status(rawValue: status)!
+    } else {
+      self.status = .NoStatus
     }
   }
   
@@ -153,6 +177,8 @@ class Advice: NSObject, NSCoding, Hashable {
       aCoder.encodeObject(m.id, forKey: "melding.id")
       aCoder.encodeObject(m.text, forKey: "melding.text")
     }
+    
+    aCoder.encodeObject(status.rawValue, forKey: "status")
   }
   
   func firstStop() -> Stop? {

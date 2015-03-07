@@ -85,6 +85,9 @@
 		C3883A4A1A965AA5002A3CE4 /* Aktiv-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C371CF821A90F7B2004C35A0 /* Aktiv-Light.otf */; };
 		C3883A4C1A96772C002A3CE4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3883A4B1A96772C002A3CE4 /* Alamofire.framework */; };
 		C3883A4E1A96772F002A3CE4 /* Ono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3883A4D1A96772F002A3CE4 /* Ono.framework */; };
+		C38F06DD1AA8A78B00597F67 /* TreinTicker+Visits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F06DC1AA8A78B00597F67 /* TreinTicker+Visits.swift */; };
+		C38F06DE1AA8A78B00597F67 /* TreinTicker+Visits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F06DC1AA8A78B00597F67 /* TreinTicker+Visits.swift */; };
+		C38F06DF1AA8A78B00597F67 /* TreinTicker+Visits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F06DC1AA8A78B00597F67 /* TreinTicker+Visits.swift */; };
 		C3C53D101A8E41C80056DDFC /* XMLParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D0F1A8E41C80056DDFC /* XMLParse.swift */; };
 		C3C53D121A8E44C40056DDFC /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D111A8E44C40056DDFC /* API.swift */; };
 		C3C53D161A8E4B540056DDFC /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D151A8E4B540056DDFC /* Station.swift */; };
@@ -199,6 +202,7 @@
 		C3883A481A96318A002A3CE4 /* Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Widget.entitlements; sourceTree = "<group>"; };
 		C3883A4B1A96772C002A3CE4 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/build/Debug-iphoneos/Pods/Alamofire.framework"; sourceTree = "<group>"; };
 		C3883A4D1A96772F002A3CE4 /* Ono.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ono.framework; path = "Pods/build/Debug-iphoneos/Pods/Ono.framework"; sourceTree = "<group>"; };
+		C38F06DC1AA8A78B00597F67 /* TreinTicker+Visits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TreinTicker+Visits.swift"; sourceTree = "<group>"; };
 		C3C53D0F1A8E41C80056DDFC /* XMLParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParse.swift; sourceTree = "<group>"; };
 		C3C53D111A8E44C40056DDFC /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		C3C53D151A8E4B540056DDFC /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
@@ -414,6 +418,7 @@
 			children = (
 				C36CEFC21A8B3E8A00C9F3CC /* HomeViewController.swift */,
 				C36CEFC41A8B3FDC00C9F3CC /* TreinTicker.swift */,
+				C38F06DC1AA8A78B00597F67 /* TreinTicker+Visits.swift */,
 				C371CF861A90FC04004C35A0 /* PickerViewController.swift */,
 				C371CF881A90FD4A004C35A0 /* PickerCellView.swift */,
 				C3D683021A9FB20D00949AFE /* HomeViewController+CollectionView.swift */,
@@ -771,6 +776,7 @@
 				C3261C421A992E070046DD81 /* InterfaceController.swift in Sources */,
 				C3261C651A992EB20046DD81 /* Advice.swift in Sources */,
 				C3261C461A992E070046DD81 /* GlanceController.swift in Sources */,
+				C38F06DF1AA8A78B00597F67 /* TreinTicker+Visits.swift in Sources */,
 				C3261C691A992EB70046DD81 /* Dictionary.swift in Sources */,
 				C3261C661A992EB70046DD81 /* NSDate+Format.swift in Sources */,
 				C3261C631A992EAD0046DD81 /* API.swift in Sources */,
@@ -805,6 +811,7 @@
 				C371CF871A90FC04004C35A0 /* PickerViewController.swift in Sources */,
 				C371CF891A90FD4A004C35A0 /* PickerCellView.swift in Sources */,
 				C3C53D161A8E4B540056DDFC /* Station.swift in Sources */,
+				C38F06DD1AA8A78B00597F67 /* TreinTicker+Visits.swift in Sources */,
 				C371CF8E1A912ED2004C35A0 /* Dictionary.swift in Sources */,
 				C3C53D121A8E44C40056DDFC /* API.swift in Sources */,
 				C371CF7C1A8FDCA0004C35A0 /* UIColor+HLTT.swift in Sources */,
@@ -835,6 +842,7 @@
 				C3883A301A95D8B3002A3CE4 /* TodayViewController.swift in Sources */,
 				C3883A3C1A95DA58002A3CE4 /* NSDate+Format.swift in Sources */,
 				C3883A431A95DA74002A3CE4 /* Advice.swift in Sources */,
+				C38F06DE1AA8A78B00597F67 /* TreinTicker+Visits.swift in Sources */,
 				C3883A461A95DAA5002A3CE4 /* XMLParse.swift in Sources */,
 				C3883A3E1A95DA5E002A3CE4 /* UIColor+HLTT.swift in Sources */,
 				C30EAB501A9A1196000A3176 /* Threading.swift in Sources */,
