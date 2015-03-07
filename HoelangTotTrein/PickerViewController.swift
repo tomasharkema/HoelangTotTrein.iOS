@@ -87,7 +87,7 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     reload()
-    animateMenu(true, animated: true, completion: nil)
+    //animateMenu(true, animated: true, completion: nil)
   }
   
   /// MARK: Show State Animations
