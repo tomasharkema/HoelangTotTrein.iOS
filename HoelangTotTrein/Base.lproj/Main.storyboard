@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6750" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oWt-5Q-I8W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oWt-5Q-I8W">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -43,7 +43,7 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eWd-OC-jgv">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="D3c-MN-6Hd">
-                                            <size key="itemSize" width="588" height="407"/>
+                                            <size key="itemSize" width="588" height="598"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -53,17 +53,17 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="588" height="407"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="588" height="598"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sji-sN-jPE">
-                                                            <rect key="frame" x="285" y="119" width="18" height="34"/>
+                                                            <rect key="frame" x="285" y="215" width="18" height="34"/>
                                                             <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="30"/>
                                                             <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GeW-Cx-8vh">
-                                                            <rect key="frame" x="193" y="153" width="202.5" height="100.5"/>
+                                                            <rect key="frame" x="193" y="249" width="203" height="101"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="70" id="MeB-YS-CYn"/>
                                                             </constraints>
@@ -77,44 +77,31 @@
                                                             </variation>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-vu-ncM">
-                                                            <rect key="frame" x="274" y="91" width="39.5" height="19.5"/>
+                                                            <rect key="frame" x="274" y="187" width="40" height="20"/>
                                                             <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
                                                             <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2m-fH-Zcv">
-                                                            <rect key="frame" x="285" y="262" width="18" height="19.5"/>
+                                                            <rect key="frame" x="285" y="358" width="18" height="20"/>
                                                             <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
                                                             <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 3 min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTm-f0-VEC">
-                                                            <rect key="frame" x="8" y="193" width="58.5" height="20.5"/>
+                                                            <rect key="frame" x="8" y="289" width="59" height="21"/>
                                                             <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="18"/>
                                                             <color key="textColor" red="1" green="0.42745098040000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="MELDING!" translatesAutoresizingMaskIntoConstraints="NO" id="IQT-Vn-cUf">
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="50" id="E18-ui-7hv"/>
-                                                                <constraint firstAttribute="height" constant="58" id="Ni5-5R-ARs"/>
-                                                            </constraints>
-                                                            <color key="textColor" red="1" green="0.42745098040000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                            <variation key="default">
-                                                                <mask key="constraints">
-                                                                    <exclude reference="E18-ui-7hv"/>
-                                                                </mask>
-                                                            </variation>
-                                                        </textView>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iI9-p9-VrO">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iI9-p9-VrO">
+                                                            <rect key="frame" x="294" y="386" width="278" height="196"/>
                                                             <color key="textColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOf-UQ-65j">
-                                                            <rect key="frame" x="16" y="266" width="278" height="141"/>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOf-UQ-65j">
+                                                            <rect key="frame" x="16" y="386" width="278" height="196"/>
                                                             <color key="textColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -129,32 +116,22 @@
                                                     <constraint firstItem="iI9-p9-VrO" firstAttribute="top" secondItem="u2m-fH-Zcv" secondAttribute="bottom" constant="8" id="6W5-Fx-YH8"/>
                                                     <constraint firstAttribute="centerY" secondItem="GeW-Cx-8vh" secondAttribute="centerY" id="6iM-IE-hUe"/>
                                                     <constraint firstAttribute="centerX" secondItem="u2m-fH-Zcv" secondAttribute="centerX" id="7JP-j3-Rtr"/>
-                                                    <constraint firstItem="IQT-Vn-cUf" firstAttribute="top" secondItem="oOf-UQ-65j" secondAttribute="bottom" constant="8" id="7by-ln-Bc6"/>
                                                     <constraint firstItem="iI9-p9-VrO" firstAttribute="top" secondItem="oOf-UQ-65j" secondAttribute="top" id="9Qy-7m-trf"/>
                                                     <constraint firstAttribute="trailingMargin" secondItem="iI9-p9-VrO" secondAttribute="trailing" constant="8" id="EgB-pf-WD1"/>
                                                     <constraint firstItem="iI9-p9-VrO" firstAttribute="width" secondItem="oOf-UQ-65j" secondAttribute="width" id="GqU-V4-y6m"/>
                                                     <constraint firstItem="sji-sN-jPE" firstAttribute="top" secondItem="gaH-vu-ncM" secondAttribute="bottom" constant="8" id="Ht4-2w-oAM"/>
-                                                    <constraint firstItem="IQT-Vn-cUf" firstAttribute="top" secondItem="oOf-UQ-65j" secondAttribute="bottom" id="Ngq-Rh-QZR"/>
-                                                    <constraint firstAttribute="trailing" secondItem="IQT-Vn-cUf" secondAttribute="trailing" constant="20" id="Pnq-tc-Buw"/>
                                                     <constraint firstItem="oOf-UQ-65j" firstAttribute="top" secondItem="u2m-fH-Zcv" secondAttribute="bottom" constant="8" id="Tac-bz-gxZ"/>
                                                     <constraint firstAttribute="centerX" secondItem="sji-sN-jPE" secondAttribute="centerX" id="V1q-D3-hYw"/>
                                                     <constraint firstAttribute="centerX" secondItem="gaH-vu-ncM" secondAttribute="centerX" id="aCN-Xd-rLM"/>
                                                     <constraint firstItem="iI9-p9-VrO" firstAttribute="leading" secondItem="oOf-UQ-65j" secondAttribute="trailing" id="dgh-zW-VK6"/>
                                                     <constraint firstAttribute="centerY" secondItem="RTm-f0-VEC" secondAttribute="centerY" id="iPy-P1-zTk"/>
                                                     <constraint firstItem="iI9-p9-VrO" firstAttribute="height" secondItem="oOf-UQ-65j" secondAttribute="height" id="iVU-28-GyS"/>
-                                                    <constraint firstItem="IQT-Vn-cUf" firstAttribute="leading" secondItem="hlB-1k-3YJ" secondAttribute="leading" constant="20" id="pKo-pS-ja1"/>
+                                                    <constraint firstAttribute="bottomMargin" secondItem="oOf-UQ-65j" secondAttribute="bottom" constant="8" id="iep-Ft-2XI"/>
                                                     <constraint firstAttribute="centerX" secondItem="GeW-Cx-8vh" secondAttribute="centerX" id="pqO-vZ-QiT"/>
                                                     <constraint firstItem="RTm-f0-VEC" firstAttribute="leading" secondItem="hlB-1k-3YJ" secondAttribute="leadingMargin" id="sBA-xp-Mip"/>
-                                                    <constraint firstAttribute="bottom" secondItem="IQT-Vn-cUf" secondAttribute="bottom" id="v9s-Jw-YaO"/>
                                                     <constraint firstItem="GeW-Cx-8vh" firstAttribute="top" secondItem="sji-sN-jPE" secondAttribute="bottom" id="yZy-VV-lQ3"/>
                                                 </constraints>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="7by-ln-Bc6"/>
-                                                    </mask>
-                                                </variation>
                                                 <connections>
-                                                    <outlet property="alertTextView" destination="IQT-Vn-cUf" id="MqR-r3-wGh"/>
                                                     <outlet property="from" destination="gaH-vu-ncM" id="GtX-jL-5HM"/>
                                                     <outlet property="legPhraseLeftTextView" destination="oOf-UQ-65j" id="tBS-Hb-uY6"/>
                                                     <outlet property="legPhraseRightTextView" destination="iI9-p9-VrO" id="jbs-uS-dML"/>

@@ -50,6 +50,18 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
     return CGSize(width: self.advicesCollectionView.bounds.width, height: self.advicesCollectionView.bounds.height)
   }
   
+  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+  }
+  
+  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    return 0
+  }
+  
+  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    return 0
+  }
+  
   func offsetForCell(cell: UICollectionViewCell, contentOffset:Int) -> Int {
     let indexPath:NSIndexPath = advicesCollectionView.indexPathForCell(cell)!
     let offset = contentOffset - Int(Int(cell.bounds.height) * Int(indexPath.row))
@@ -151,13 +163,13 @@ class AdviceCollectionviewCell : UICollectionViewCell {
         vertagingLabel.hidden = true
       }
       
-      if let melding = advice?.melding {
-        alertTextView.text = melding.text
-        alertTextView.hidden = false
-      } else {
-        alertTextView.insertText("")
-        alertTextView.hidden = true
-      }
+//      if let melding = advice?.melding {
+//        alertTextView.text = melding.text
+//        alertTextView.hidden = false
+//      } else {
+//        alertTextView.insertText("")
+//        alertTextView.hidden = true
+//      }
     }
   }
   

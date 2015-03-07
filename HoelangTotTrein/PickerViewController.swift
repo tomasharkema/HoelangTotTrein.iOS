@@ -107,7 +107,8 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
       backdropImageView.alpha = 0
       
       screenshotImageView.image = backdrop
-      backdropImageView.image = backdrop?.applyBlurWithRadius(20, tintColor: UIColor.clearColor(), saturationDeltaFactor: 1.0, maskImage: nil)
+      let blurImg = backdrop?.applyBlurWithRadius(20, tintColor: UIColor.clearColor(), saturationDeltaFactor: 1.0, maskImage: nil)
+      backdropImageView.image = blurImg
     }
     
     let fase1:()->() = {
