@@ -29,7 +29,6 @@
 		C3261C4C1A992E070046DD81 /* HoelangTotTrein WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = C3261C4B1A992E070046DD81 /* HoelangTotTrein WatchKit App.app */; };
 		C3261C541A992E070046DD81 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3261C521A992E070046DD81 /* Interface.storyboard */; };
 		C3261C561A992E070046DD81 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3261C551A992E070046DD81 /* Images.xcassets */; };
-		C3261C591A992E070046DD81 /* HoelangTotTrein WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C3261C3C1A992E070046DD81 /* HoelangTotTrein WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C3261C611A992EA70046DD81 /* TreinTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36CEFC41A8B3FDC00C9F3CC /* TreinTicker.swift */; };
 		C3261C621A992EAD0046DD81 /* XMLParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D0F1A8E41C80056DDFC /* XMLParse.swift */; };
 		C3261C631A992EAD0046DD81 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D111A8E44C40056DDFC /* API.swift */; };
@@ -101,13 +100,6 @@
 			remoteGlobalIDString = C3261C4A1A992E070046DD81;
 			remoteInfo = "HoelangTotTrein WatchKit App";
 		};
-		C3261C571A992E070046DD81 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C36CEF941A8B3D8300C9F3CC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C3261C3B1A992E070046DD81;
-			remoteInfo = "HoelangTotTrein WatchKit Extension";
-		};
 		C36CEFB21A8B3D8300C9F3CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C36CEF941A8B3D8300C9F3CC /* Project object */;
@@ -115,7 +107,7 @@
 			remoteGlobalIDString = C36CEF9B1A8B3D8300C9F3CC;
 			remoteInfo = HoelangTotTrein;
 		};
-		C3883A331A95D8B3002A3CE4 /* PBXContainerItemProxy */ = {
+		C3CCC5FF1AAB1D1A00A0F1E9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C36CEF941A8B3D8300C9F3CC /* Project object */;
 			proxyType = 1;
@@ -143,7 +135,6 @@
 			dstSubfolderSpec = 13;
 			files = (
 				C3883A351A95D8B3002A3CE4 /* Widget.appex in Embed App Extensions */,
-				C3261C591A992E070046DD81 /* HoelangTotTrein WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -538,8 +529,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				C3883A341A95D8B3002A3CE4 /* PBXTargetDependency */,
-				C3261C581A992E070046DD81 /* PBXTargetDependency */,
+				C3CCC6001AAB1D1A00A0F1E9 /* PBXTargetDependency */,
 			);
 			name = HoelangTotTrein;
 			productName = HoelangTotTrein;
@@ -861,20 +851,15 @@
 			target = C3261C4A1A992E070046DD81 /* HoelangTotTrein WatchKit App */;
 			targetProxy = C3261C4D1A992E070046DD81 /* PBXContainerItemProxy */;
 		};
-		C3261C581A992E070046DD81 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C3261C3B1A992E070046DD81 /* HoelangTotTrein WatchKit Extension */;
-			targetProxy = C3261C571A992E070046DD81 /* PBXContainerItemProxy */;
-		};
 		C36CEFB31A8B3D8300C9F3CC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C36CEF9B1A8B3D8300C9F3CC /* HoelangTotTrein */;
 			targetProxy = C36CEFB21A8B3D8300C9F3CC /* PBXContainerItemProxy */;
 		};
-		C3883A341A95D8B3002A3CE4 /* PBXTargetDependency */ = {
+		C3CCC6001AAB1D1A00A0F1E9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C3883A281A95D8B3002A3CE4 /* Widget */;
-			targetProxy = C3883A331A95D8B3002A3CE4 /* PBXContainerItemProxy */;
+			targetProxy = C3CCC5FF1AAB1D1A00A0F1E9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -923,7 +908,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "HoelangTotTrein WatchKit Extension/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
@@ -945,7 +930,7 @@
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "HoelangTotTrein WatchKit Extension/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "";
@@ -966,7 +951,7 @@
 				);
 				IBSC_MODULE = HoelangTotTrein_WatchKit_Extension;
 				INFOPLIST_FILE = "HoelangTotTrein WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -987,7 +972,7 @@
 				COPY_PHASE_STRIP = NO;
 				IBSC_MODULE = HoelangTotTrein_WatchKit_Extension;
 				INFOPLIST_FILE = "HoelangTotTrein WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

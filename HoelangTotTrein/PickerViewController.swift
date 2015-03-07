@@ -82,12 +82,16 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     searchView.delegate = self
     searchView.addTarget(self, action: Selector("textFieldDidChange:"), forControlEvents: UIControlEvents.EditingChanged)
     searchView.attributedPlaceholder = NSAttributedString(string: "Zoeken...", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.3)])
+    
+    self.headerView.transform = CGAffineTransformMakeTranslation(0, -self.headerView.bounds.height)
+    self.tableView.transform = CGAffineTransformScale(CGAffineTransformMakeTranslation(0.0, self.view.bounds.height), 0.9, 0.9);
+    backdropImageView.alpha = 0
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     reload()
-    //animateMenu(true, animated: true, completion: nil)
+    animateMenu(true, animated: true, completion: nil)
   }
   
   /// MARK: Show State Animations
@@ -136,8 +140,6 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
             self.headerView.transform = CGAffineTransformMakeTranslation(0, -self.headerView.bounds.height)
             self.backdropImageView.hidden = true
           }
-          self.tableView.contentOffset.y = 0
-          self.tableView.transform = CGAffineTransformIdentity
           self.isDismissing = false
         }
       }
@@ -331,7 +333,9 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     }
     
     animateMenu(false, animated: true) { _ in
-      self.performSegueWithIdentifier("unwindPicker", sender: self)
+      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        self.performSegueWithIdentifier("unwindPicker", sender: self)
+      }
       //self.dismissViewControllerAnimated(true, completion: nil)
       return;
     }
