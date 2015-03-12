@@ -355,7 +355,7 @@ class TreinTicker: NSObject {
   func findStationByCode(code:CodeContainer) -> Station? {
     return stations.filter {
       $0.code == code.code
-      }.first
+    }.first
   }
   
   func saveOriginalFrom() {

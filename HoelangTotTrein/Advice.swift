@@ -125,6 +125,8 @@ class Advice: NSObject, NSCoding, Hashable {
       return ReisDeel(vervoerder: data[0] as String, stops: stops)
     }
     
+    vertrekVertraging = aDecoder.decodeObjectForKey("vertrekVertraging") as? String ?? ""
+    
     if let m = aDecoder.decodeObjectForKey("melding.id") {
       melding = Melding(id: aDecoder.decodeObjectForKey("melding.id") as String, ernstig: aDecoder.decodeBoolForKey("melding.ernstig"), text: aDecoder.decodeObjectForKey("melding.text") as String)
     }
@@ -168,6 +170,8 @@ class Advice: NSObject, NSCoding, Hashable {
       aCoder.encodeObject(m.id, forKey: "melding.id")
       aCoder.encodeObject(m.text, forKey: "melding.text")
     }
+    
+    aCoder.encodeObject(vertrekVertraging, forKey: "vertrekVertraging")
     
     aCoder.encodeObject(status.rawValue, forKey: "status")
   }

@@ -182,7 +182,8 @@ class AdviceCollectionviewCell : UICollectionViewCell, UITableViewDataSource, UI
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return advice?.reisDeel.count ?? 0
+    let count = advice?.reisDeel.count ?? 0
+    return count == 1 ? 0 : count
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -224,6 +225,4 @@ class LegDetailCell : UITableViewCell {
       }
     }
   }
-  
 }
-
