@@ -185,32 +185,52 @@ class TreinTicker: NSObject {
     }
   }
   
+  private var _from:Station!
   var from:Station! {
     set {
+      _from = newValue
       UserDefaults.from = newValue.code
       if (newValue != nil && to != nil && fromToChanged != nil) {
-        fromToChanged(from: newValue, to: to)
+        dispatch_async(dispatch_get_main_queue()) {
+          self.fromToChanged(from: newValue, to: self.to)
+        }
         adviceRequest = AdviceRequest(from: newValue, to: to)
       }
-      
       MostUsed.addStation(newValue)
     }
     get {
-      return find(stations, UserDefaults.from) ?? stations.first
+      if _from == nil {
+        let newFrom = find(stations, UserDefaults.from) ?? stations.first
+        _from = newFrom
+        return newFrom
+      } else {
+        return _from
+      }
     }
   }
+  
+  private var _to:Station!
   var to:Station! {
     set {
+      _to = newValue
       UserDefaults.to = newValue.code
       if (from != nil && newValue != nil && fromToChanged != nil) {
-        fromToChanged(from: from, to: newValue)
+        dispatch_async(dispatch_get_main_queue()) {
+          self.fromToChanged(from: self.from, to: newValue)
+        }
         adviceRequest = AdviceRequest(from: from, to: newValue)
       }
       
       MostUsed.addStation(newValue)
     }
     get {
-      return find(stations, UserDefaults.to) ?? stations.first
+      if _to == nil {
+        let newTo = find(stations, UserDefaults.to) ?? stations.first
+        _to = newTo
+        return newTo
+      } else {
+        return _to
+      }
     }
     
   }

@@ -51,6 +51,7 @@ enum Status : String {
   case Gewijzigd = "GEWIJZIGD"
   case Nieuw = "NIEUW"
   case PlanGewijzigd = "PLAN-GEWIJZIGD"
+  case NietOptimaal = "NIET-OPTIMAAL"
 }
 
 class Advice: NSObject, NSCoding, Hashable {

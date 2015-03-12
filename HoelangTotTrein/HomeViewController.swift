@@ -34,6 +34,8 @@ class HomeViewController: UIViewController {
   
   @IBOutlet weak var advicesIndicator: UIPageControl!
   
+  var blurView: UIVisualEffectView?
+  
   var cellTimer:NSTimer?
   
   private var selectionState:StationType = .From {
@@ -50,10 +52,6 @@ class HomeViewController: UIViewController {
     if let i = find(TreinTicker.sharedInstance.stations, selectionState == .From ? TreinTicker.sharedInstance.from : TreinTicker.sharedInstance.to!) {
       //stationPicker.selectRow(i, inComponent: 0, animated: true)
     }
-  }
-  
-  deinit {
-    println("deinit")
   }
   
   override func viewDidLoad() {
@@ -85,12 +83,19 @@ class HomeViewController: UIViewController {
     
     headerView.updateConstraints()
     
-    let effect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
-    let blurView = UIVisualEffectView(effect: effect)
-    blurView.frame = headerView.frame
-    headerView.backgroundColor = UIColor.clearColor()
-    headerView.addSubview(blurView)
-    headerView.sendSubviewToBack(blurView)
+    if blurView == nil {
+      let effect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+      let blurView = UIVisualEffectView(effect: effect)
+      var frame = headerView.frame
+      frame.size.width = view.frame.width
+      blurView.frame = frame
+      
+      headerView.backgroundColor = UIColor.clearColor()
+      headerView.addSubview(blurView)
+      headerView.sendSubviewToBack(blurView)
+      
+      self.blurView = blurView
+    }
   }
   
   func pick(station:Station) {
@@ -121,8 +126,10 @@ class HomeViewController: UIViewController {
   }
   
   @IBAction func swapLocations(sender: AnyObject) {
-    TreinTicker.sharedInstance.switchAdviceRequest()
-    TreinTicker.sharedInstance.saveOriginalFrom()
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+      TreinTicker.sharedInstance.switchAdviceRequest()
+      TreinTicker.sharedInstance.saveOriginalFrom()
+    }
   }
   
   override func preferredStatusBarStyle() -> UIStatusBarStyle {

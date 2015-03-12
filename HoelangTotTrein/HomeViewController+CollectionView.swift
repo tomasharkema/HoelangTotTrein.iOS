@@ -150,14 +150,14 @@ class AdviceCollectionviewCell : UICollectionViewCell, UITableViewDataSource, UI
         adviceDetailTableView.reloadData()
       }
       
-      println(advice?.vertrekVertraging)
-      
       if let vertraging = advice?.vertrekVertraging {
         vertagingLabel.text = vertraging
         vertagingLabel.hidden = false
       } else {
         vertagingLabel.hidden = true
       }
+      
+      updateUI()
     }
   }
   
@@ -188,6 +188,8 @@ class AdviceCollectionviewCell : UICollectionViewCell, UITableViewDataSource, UI
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     var cell:LegDetailCell = tableView.dequeueReusableCellWithIdentifier("legCell") as LegDetailCell
     cell.reisDeel = advice?.reisDeel[indexPath.row]
+    cell.backgroundColor = UIColor.clearColor()
+    cell.backgroundView = nil
     return cell
   }
   

@@ -24,8 +24,9 @@ extension NSUserDefaults {
   
   var stations:[Station] {
     set {
-      setObject(NSKeyedArchiver.archivedDataWithRootObject(newValue), forKey: StationsKey)
-      synchronize()
+      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        self.setObject(NSKeyedArchiver.archivedDataWithRootObject(newValue), forKey: StationsKey)
+      }
     }
     get {
       NSKeyedUnarchiver.setClass(Station.classForKeyedUnarchiver(), forClassName: "HoelangTotTrein.Station")
@@ -47,21 +48,21 @@ extension NSUserDefaults {
       }
     }
     set {
-      setObject(newValue, forKey: MostUsedKey)
-      synchronize()
-      
-      CloudUserService.setArray(newValue, forKey: MostUsedKey)
-      CloudUserService.synchronize()
+      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        self.setObject(newValue, forKey: MostUsedKey)
+        
+        CloudUserService.setArray(newValue, forKey: MostUsedKey)
+      }
     }
   }
   
   var from:String {
     set {
-      setValue(newValue, forKey: FromKey)
-      synchronize()
-      
-      CloudUserService.setString(newValue, forKey: FromKey)
-      CloudUserService.synchronize()
+      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        self.setValue(newValue, forKey: FromKey)
+        
+        CloudUserService.setString(newValue, forKey: FromKey)
+      }
     }
     get {
       return objectForKey(FromKey) as? String ?? ""
@@ -70,12 +71,11 @@ extension NSUserDefaults {
   
   var to:String {
     set {
-      setValue(newValue, forKey: ToKey)
-      synchronize()
-      
-      
-      CloudUserService.setString(newValue, forKey: ToKey)
-      CloudUserService.synchronize()
+      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        self.setValue(newValue, forKey: ToKey)
+        
+        CloudUserService.setString(newValue, forKey: ToKey)
+      }
     }
     get {
       return objectForKey(ToKey) as? String ?? ""
@@ -84,8 +84,9 @@ extension NSUserDefaults {
   
   var originalFrom:String {
     set {
-      setValue(newValue, forKey: OriginalFromKey)
-      synchronize()
+      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        self.setValue(newValue, forKey: OriginalFromKey)
+      }
     }
     get {
       return objectForKey(OriginalFromKey) as? String ?? ""
@@ -94,8 +95,9 @@ extension NSUserDefaults {
   
   var advices:[Advice] {
     set {
-      setObject(NSKeyedArchiver.archivedDataWithRootObject(newValue), forKey: Advices)
-      synchronize()
+      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        self.setObject(NSKeyedArchiver.archivedDataWithRootObject(newValue), forKey: Advices)
+      }
     }
     get {
       NSKeyedUnarchiver.setClass(Advice.classForKeyedUnarchiver(), forClassName: "HoelangTotTrein.Advice")
@@ -111,8 +113,9 @@ extension NSUserDefaults {
   var currentAdvice:Advice? {
     set {
       if let advice = newValue {
-        setObject(NSKeyedArchiver.archivedDataWithRootObject(advice), forKey: CurrentAdvice)
-        synchronize()
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+          self.setObject(NSKeyedArchiver.archivedDataWithRootObject(advice), forKey: CurrentAdvice)
+        }
         return;
       }
     }
@@ -137,11 +140,11 @@ extension NSUserDefaults {
       }
     }
     set {
-      setDouble(newValue?.timeIntervalSince1970 ?? 0, forKey: AdviceOffset)
-      synchronize()
+      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        self.setDouble(newValue?.timeIntervalSince1970 ?? 0, forKey: AdviceOffset)
       
-      CloudUserService.setDouble(newValue!.timeIntervalSince1970, forKey: AdviceOffset);
-      CloudUserService.synchronize()
+        CloudUserService.setDouble(newValue!.timeIntervalSince1970, forKey: AdviceOffset);
+      }
     }
   }
   
