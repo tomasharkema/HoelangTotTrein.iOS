@@ -49,10 +49,8 @@ public class AEXMLElement {
   }
   public var dateValue: NSDate? {
     let formatter = NSDateFormatter()
-    println(stringValue)
     formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
     formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-    println(formatter.dateFromString(stringValue))
     return formatter.dateFromString(stringValue)
   }
   
