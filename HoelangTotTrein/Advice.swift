@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Ono
 import CoreLocation
 
 struct OVTime {
@@ -68,49 +67,40 @@ class Advice: NSObject, NSCoding, Hashable {
   
   let status:Status
   
-  init(obj: ONOXMLElement, adviceRequest:AdviceRequest) {
+  init(obj: AEXMLElement, adviceRequest:AdviceRequest) {
     self.adviceRequest = adviceRequest
     
-    overstappen = (obj.childrenWithTag("AantalOverstappen").first as ONOXMLElement).numberValue().integerValue
+    overstappen = obj["AantalOverstappen"]?.intValue ?? 0
     
-    let geplandeVertrekTijd = (obj.childrenWithTag("GeplandeVertrekTijd").first as ONOXMLElement)
-    vertrek = OVTime(planned:geplandeVertrekTijd.dateValue(),
-      actual: (obj.childrenWithTag("ActueleVertrekTijd").first as? ONOXMLElement ?? geplandeVertrekTijd).dateValue())
+    vertrek = OVTime(planned:obj["GeplandeVertrekTijd"]?.dateValue ?? NSDate(),
+      actual: obj["ActueleVertrekTijd"]?.dateValue ?? NSDate())
     
-    let geplandeAankomstTijd = (obj.childrenWithTag("GeplandeAankomstTijd").first as ONOXMLElement)
-    aankomst = OVTime(planned:geplandeAankomstTijd.dateValue(),
-      actual: (obj.childrenWithTag("ActueleAankomstTijd").first as? ONOXMLElement ?? geplandeAankomstTijd).dateValue())
+    aankomst = OVTime(planned:obj["GeplandeAankomstTijd"]?.dateValue ?? NSDate(),
+      actual: obj["ActueleAankomstTijd"]?.dateValue ?? NSDate())
     
-    reisDeel = obj.childrenWithTag("ReisDeel").map { reisDeelObj in
-      let reisDeel:ONOXMLElement = reisDeelObj as ONOXMLElement
+    reisDeel = obj["ReisDeel"]!.all!.map { reisDeel in
       let vervoerder = "NS"
       
-      let stopDelen = reisDeel.childrenWithTag("ReisStop")
-      let stopElements = stopDelen.map { el in
-        el as ONOXMLElement
-      }
-      
-      let stops:Array<Stop> = stopElements.map { stopEl in
-        let stop = stopEl as ONOXMLElement
-        let spoor = (stop.childrenWithTag("Spoor").first as? ONOXMLElement)?.stringValue()
-        let time = (stop.childrenWithTag("Tijd").first as ONOXMLElement).dateValue()
-        let naam = (stop.childrenWithTag("Naam").first as ONOXMLElement).stringValue()
+      let stops:[Stop] = reisDeel["ReisStop"]!.all!.map { stop in
+        let spoor = stop["Spoor"]?.stringValue ?? ""
+        let time = stop["Tijd"]?.dateValue ?? NSDate()
+        let naam = stop["Naam"]?.stringValue ?? ""
         return Stop(time: time, spoor: spoor, name: naam)
       }
       
       return ReisDeel(vervoerder: vervoerder, stops: stops)
     }
     
-    if let mel = obj.getElement("Melding") {
-      melding = Melding(id: mel.string(tagName: "Id")!, ernstig: false, text: mel.string(tagName: "Text")!)
+    if let mel = obj["Melding"] {
+      melding = Melding(id: mel["Id"]?.stringValue ?? "", ernstig: false, text: mel["Text"]?.stringValue ?? "")
     }
     
-    if let vertraging = obj.string(tagName: "VertrekVertraging") {
-      vertrekVertraging = vertraging
+    if let vertraging = obj["VertrekVertraging"] {
+      vertrekVertraging = vertraging.stringValue
     }
     
-    if let status = obj.string(tagName: "Status") {
-      self.status = Status(rawValue: status)!
+    if let status = obj["Status"] {
+      self.status = Status(rawValue: status.stringValue)!
     } else {
       self.status = .NoStatus
     }

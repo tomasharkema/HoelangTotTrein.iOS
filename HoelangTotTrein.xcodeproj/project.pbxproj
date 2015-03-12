@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C301D8AB1A992FD000FB414D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3883A4B1A96772C002A3CE4 /* Alamofire.framework */; };
-		C301D8AC1A992FD500FB414D /* Ono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3883A4D1A96772F002A3CE4 /* Ono.framework */; };
 		C301D8AE1A992FE100FB414D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C301D8AD1A992FE100FB414D /* Pods.framework */; };
 		C301D8B01A99349300FB414D /* Aktiv-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = C371CF841A90F838004C35A0 /* Aktiv-Thin.otf */; };
 		C301D8B11A99349300FB414D /* Aktiv-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C371CF821A90F7B2004C35A0 /* Aktiv-Light.otf */; };
@@ -43,6 +42,7 @@
 		C3261C6C1A992EBC0046DD81 /* MostUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371CF8B1A911E65004C35A0 /* MostUsed.swift */; };
 		C32BBF9F1A9A16D5005B596B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE01B4B52BDC71CED562DEBB /* Pods.framework */; };
 		C32BBFA01A9A16D5005B596B /* Pods.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE01B4B52BDC71CED562DEBB /* Pods.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C3348D211AAD8C1C00503067 /* AEXML.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3348D201AAD8C1C00503067 /* AEXML.swift */; };
 		C33A03E31A8F98EB004E88F5 /* XML+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A03E21A8F98EB004E88F5 /* XML+Format.swift */; };
 		C3621E8D1AA4ADD800CADA71 /* TreinTicker+WatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3621E8B1AA4AC6B00CADA71 /* TreinTicker+WatchHelper.swift */; };
 		C3621E8E1AA4AE0300CADA71 /* TreinTicker+WatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3621E8B1AA4AC6B00CADA71 /* TreinTicker+WatchHelper.swift */; };
@@ -84,7 +84,6 @@
 		C3883A491A965AA5002A3CE4 /* Aktiv-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = C371CF841A90F838004C35A0 /* Aktiv-Thin.otf */; };
 		C3883A4A1A965AA5002A3CE4 /* Aktiv-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C371CF821A90F7B2004C35A0 /* Aktiv-Light.otf */; };
 		C3883A4C1A96772C002A3CE4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3883A4B1A96772C002A3CE4 /* Alamofire.framework */; };
-		C3883A4E1A96772F002A3CE4 /* Ono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3883A4D1A96772F002A3CE4 /* Ono.framework */; };
 		C38F06DD1AA8A78B00597F67 /* TreinTicker+Visits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F06DC1AA8A78B00597F67 /* TreinTicker+Visits.swift */; };
 		C38F06DE1AA8A78B00597F67 /* TreinTicker+Visits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F06DC1AA8A78B00597F67 /* TreinTicker+Visits.swift */; };
 		C38F06DF1AA8A78B00597F67 /* TreinTicker+Visits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F06DC1AA8A78B00597F67 /* TreinTicker+Visits.swift */; };
@@ -93,6 +92,8 @@
 		C3C53D161A8E4B540056DDFC /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D151A8E4B540056DDFC /* Station.swift */; };
 		C3C53D1A1A8E7F8F0056DDFC /* Advice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D191A8E7F8F0056DDFC /* Advice.swift */; };
 		C3D683031A9FB20D00949AFE /* HomeViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D683021A9FB20D00949AFE /* HomeViewController+CollectionView.swift */; };
+		C3E729721AAE29F900CE93B5 /* AEXML.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3348D201AAD8C1C00503067 /* AEXML.swift */; };
+		C3E729731AAE29FA00CE93B5 /* AEXML.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3348D201AAD8C1C00503067 /* AEXML.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = C36CEF9B1A8B3D8300C9F3CC;
 			remoteInfo = HoelangTotTrein;
+		};
+		C371BA131AAF272400D010DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C36CEF941A8B3D8300C9F3CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3261C3B1A992E070046DD81;
+			remoteInfo = "HoelangTotTrein WatchKit Extension";
 		};
 		C3CCC5FF1AAB1D1A00A0F1E9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -168,6 +176,7 @@
 		C3261C511A992E070046DD81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3261C531A992E070046DD81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		C3261C551A992E070046DD81 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C3348D201AAD8C1C00503067 /* AEXML.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AEXML.swift; sourceTree = "<group>"; };
 		C33A03E21A8F98EB004E88F5 /* XML+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XML+Format.swift"; sourceTree = "<group>"; };
 		C3621E8B1AA4AC6B00CADA71 /* TreinTicker+WatchHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TreinTicker+WatchHelper.swift"; sourceTree = "<group>"; };
 		C36CEF9C1A8B3D8300C9F3CC /* HoelangTotTrein.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoelangTotTrein.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,7 +227,6 @@
 			files = (
 				C301D8AE1A992FE100FB414D /* Pods.framework in Frameworks */,
 				C301D8AB1A992FD000FB414D /* Alamofire.framework in Frameworks */,
-				C301D8AC1A992FD500FB414D /* Ono.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +249,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3883A4E1A96772F002A3CE4 /* Ono.framework in Frameworks */,
 				C3883A4C1A96772C002A3CE4 /* Alamofire.framework in Frameworks */,
 				C3883A3B1A95D9DD002A3CE4 /* Pods.framework in Frameworks */,
 				C3883A2B1A95D8B3002A3CE4 /* NotificationCenter.framework in Frameworks */,
@@ -287,6 +294,7 @@
 				C3883A1E1A950836002A3CE4 /* NSUserDefaults+HLTT.swift */,
 				C30EAB471A9A1195000A3176 /* HoelangTotTrein-Bridging-Header.h */,
 				C30EAB481A9A1195000A3176 /* Widget-Bridging-Header.h */,
+				C3348D201AAD8C1C00503067 /* AEXML.swift */,
 			);
 			name = Extentions;
 			sourceTree = "<group>";
@@ -529,11 +537,11 @@
 				0ABA829F59CFC1352CEBEECF /* Embed Pods Frameworks */,
 				C3883A391A95D8B3002A3CE4 /* Embed App Extensions */,
 				C32BBFA11A9A16D5005B596B /* Embed Frameworks */,
-				C37766961AA1150B0024FC61 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C371BA141AAF272400D010DB /* PBXTargetDependency */,
 				C3CCC6001AAB1D1A00A0F1E9 /* PBXTargetDependency */,
 			);
 			name = HoelangTotTrein;
@@ -733,19 +741,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C37766961AA1150B0024FC61 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "SCRIPT=`/usr/bin/find \"${SRCROOT}\" -name newrelic_postbuild.sh | head -n 1`\n\n/bin/sh \"${SCRIPT}\" \"AA37eca143a6cbc43c025498e41838d785d5666a06\"";
-		};
 		FEF4AE03628C6FDB69C0C58C /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -775,6 +770,7 @@
 				C3261C6A1A992EB70046DD81 /* Array+HLTT.swift in Sources */,
 				C3261C421A992E070046DD81 /* InterfaceController.swift in Sources */,
 				C3261C651A992EB20046DD81 /* Advice.swift in Sources */,
+				C3E729731AAE29FA00CE93B5 /* AEXML.swift in Sources */,
 				C3261C461A992E070046DD81 /* GlanceController.swift in Sources */,
 				C38F06DF1AA8A78B00597F67 /* TreinTicker+Visits.swift in Sources */,
 				C3261C691A992EB70046DD81 /* Dictionary.swift in Sources */,
@@ -805,6 +801,7 @@
 				C324485F1A9F461E00F6AC15 /* PickerSegue.swift in Sources */,
 				C3C53D1A1A8E7F8F0056DDFC /* Advice.swift in Sources */,
 				C371CF8C1A911E65004C35A0 /* MostUsed.swift in Sources */,
+				C3348D211AAD8C1C00503067 /* AEXML.swift in Sources */,
 				C36CEFC31A8B3E8A00C9F3CC /* HomeViewController.swift in Sources */,
 				C33A03E31A8F98EB004E88F5 /* XML+Format.swift in Sources */,
 				C36CEFC51A8B3FDC00C9F3CC /* TreinTicker.swift in Sources */,
@@ -844,6 +841,7 @@
 				C3883A431A95DA74002A3CE4 /* Advice.swift in Sources */,
 				C38F06DE1AA8A78B00597F67 /* TreinTicker+Visits.swift in Sources */,
 				C3883A461A95DAA5002A3CE4 /* XMLParse.swift in Sources */,
+				C3E729721AAE29F900CE93B5 /* AEXML.swift in Sources */,
 				C3883A3E1A95DA5E002A3CE4 /* UIColor+HLTT.swift in Sources */,
 				C30EAB501A9A1196000A3176 /* Threading.swift in Sources */,
 				C3883A3F1A95DA61002A3CE4 /* Dictionary.swift in Sources */,
@@ -863,6 +861,11 @@
 			isa = PBXTargetDependency;
 			target = C36CEF9B1A8B3D8300C9F3CC /* HoelangTotTrein */;
 			targetProxy = C36CEFB21A8B3D8300C9F3CC /* PBXContainerItemProxy */;
+		};
+		C371BA141AAF272400D010DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3261C3B1A992E070046DD81 /* HoelangTotTrein WatchKit Extension */;
+			targetProxy = C371BA131AAF272400D010DB /* PBXContainerItemProxy */;
 		};
 		C3CCC6001AAB1D1A00A0F1E9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

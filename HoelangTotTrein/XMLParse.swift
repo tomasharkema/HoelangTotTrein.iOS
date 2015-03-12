@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import Ono
 
 extension Request {
     class func XMLResponseSerializer() -> Serializer {
@@ -17,17 +16,18 @@ extension Request {
                 return (nil, nil)
             }
             
-            var XMLSerializationError: NSError?
-            let XML = ONOXMLDocument(data: data, error:&XMLSerializationError)
-            
-            return (XML, XMLSerializationError)
+            var error: NSError?
+          
+            let XML = AEXMLDocument(xmlData: data!, error: &error)
+          
+            return (XML, error)
         }
     }
     
-    func responseXMLDocument(completionHandler: (NSURLRequest, NSHTTPURLResponse?, ONOXMLDocument?, NSError?) -> Void) -> Self {
+    func responseXMLDocument(completionHandler: (NSURLRequest, NSHTTPURLResponse?, AEXMLDocument?, NSError?) -> Void) -> Self {
         return response(serializer: Request.XMLResponseSerializer(), completionHandler: { (request, response, XML, error) in
-            if let x = XML {
-                completionHandler(request, response, x as ONOXMLDocument, error)
+            if let x = XML as? AEXMLDocument {
+                completionHandler(request, response, x as AEXMLDocument, error)
             } else {
                 println(response, error)
             }

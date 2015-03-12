@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Ono
 import CoreLocation
 
 struct Namen {
@@ -42,7 +41,7 @@ class Station: NSObject, NSCoding {
         return self.code.toInt()!
     }
     
-    let stationData:ONOXMLDocument
+    let stationData:AEXMLElement
   
     required init(coder aDecoder: NSCoder) {
         self.code = aDecoder.decodeObjectForKey("code") as String?
@@ -52,7 +51,7 @@ class Station: NSObject, NSCoding {
         self.long = aDecoder.decodeDoubleForKey("long")
         self.UICCode = aDecoder.decodeIntegerForKey("UICCode")
         self.name = Namen(kort: aDecoder.decodeObjectForKey("name.kort") as String!, middel: aDecoder.decodeObjectForKey("name.middel") as String!, lang: aDecoder.decodeObjectForKey("name.lang") as String!)
-        self.stationData = ONOXMLDocument()
+        self.stationData = AEXMLDocument()
         super.init()
     }
   
@@ -68,22 +67,23 @@ class Station: NSObject, NSCoding {
       aCoder.encodeObject(self.name.lang, forKey: "name.lang")
     }
   
-    init (obj:ONOXMLElement) {
-        stationData = obj.document
-
-        code    = obj.string(tagName: "Code")
-        type    = obj.string(tagName: "Type")
-        land    = obj.string(tagName: "Land")
-        lat     = obj.double(tagName: "Lat")
-        long    = obj.double(tagName: "Lon")
-        UICCode = obj.int(tagName: "UICCode")!
-        
-        let el:ONOXMLElement = (obj.childrenWithTag("Namen")[0] as? ONOXMLElement)!
-        
-        name = Namen(
-            kort: (el.childrenWithTag("Kort").first as ONOXMLElement).stringValue(),
-            middel: (el.childrenWithTag("Middel").first as ONOXMLElement).stringValue(),
-            lang: (el.childrenWithTag("Lang").first as ONOXMLElement).stringValue())
+    init (obj:AEXMLElement) {
+      stationData = obj
+      code    = obj["Code"]?.stringValue
+      type    = obj["Type"]?.stringValue
+      land    = obj["Land"]?.stringValue
+      lat     = obj["Lat"]?.doubleValue
+      long    = obj["Lon"]?.doubleValue
+      UICCode = obj["UICCode"]?.intValue ?? 0;
+      
+      
+      let namen: AEXMLElement = obj["Namen"]!
+      
+      let kort = namen["Kort"];
+      let middel = namen["Middel"];
+      let lang = namen["Lang"];
+      
+      name = Namen(kort: kort?.stringValue ?? "", middel: middel?.stringValue ?? "", lang: lang?.stringValue ?? "")
     }
     
     func getLocation() -> CLLocation {
