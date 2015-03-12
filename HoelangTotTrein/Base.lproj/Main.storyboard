@@ -19,6 +19,13 @@
             <string>AktivGrotesk-Light</string>
             <string>AktivGrotesk-Light</string>
             <string>AktivGrotesk-Light</string>
+            <string>AktivGrotesk-Light</string>
+            <string>AktivGrotesk-Light</string>
+            <string>AktivGrotesk-Light</string>
+            <string>AktivGrotesk-Light</string>
+            <string>AktivGrotesk-Light</string>
+            <string>AktivGrotesk-Light</string>
+            <string>AktivGrotesk-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -94,47 +101,133 @@
                                                             <color key="textColor" red="1" green="0.42745098040000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iI9-p9-VrO">
-                                                            <rect key="frame" x="294" y="386" width="278" height="196"/>
-                                                            <color key="textColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOf-UQ-65j">
-                                                            <rect key="frame" x="16" y="386" width="278" height="196"/>
-                                                            <color key="textColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
+                                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="32" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="g5X-iN-mDp">
+                                                            <rect key="frame" x="8" y="386" width="572" height="204"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="204" id="JnM-7R-PPq"/>
+                                                            </constraints>
+                                                            <color key="sectionIndexBackgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <color key="sectionIndexTrackingBackgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <prototypes>
+                                                                <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="legCell" rowHeight="32" id="bBk-BX-VZh" customClass="LegDetailCell" customModule="HoelangTotTrein" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="572" height="44"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bBk-BX-VZh" id="gaZ-aW-kJS">
+                                                                        <autoresizingMask key="autoresizingMask"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Koog Bloemwijk" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X32-Wm-7Rk">
+                                                                                <rect key="frame" x="8" y="14" width="218" height="16"/>
+                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="14"/>
+                                                                                <color key="textColor" red="0.46708521929054864" green="0.46690111484317903" blue="0.51019965277777768" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Koog Bloemwijk" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6r-CB-CTV">
+                                                                                <rect key="frame" x="319" y="14" width="214" height="16"/>
+                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="14"/>
+                                                                                <color key="textColor" red="0.46708521929054864" green="0.46690111484317903" blue="0.51019965277777768" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="7-8" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBX-Gu-PgZ">
+                                                                                <rect key="frame" x="541" y="14" width="23" height="16"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="20" id="gi6-iU-Heg"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="14"/>
+                                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="2a" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbC-CA-erq">
+                                                                                <rect key="frame" x="234" y="14" width="20" height="16"/>
+                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="14"/>
+                                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&gt;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECC-gY-PIk">
+                                                                                <rect key="frame" x="262" y="14" width="7" height="16"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="7" id="BUm-Sr-aCB"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="14"/>
+                                                                                <color key="textColor" red="0.46708521929054864" green="0.46690111484317903" blue="0.51019965277777768" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SPR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxZ-Sg-MwT">
+                                                                                <rect key="frame" x="269" y="14" width="35" height="16"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="35" id="jel-L8-UYm"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="14"/>
+                                                                                <color key="textColor" red="0.46708521929054864" green="0.46690111484317903" blue="0.51019965277777768" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&gt;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wy4-nk-5B3">
+                                                                                <rect key="frame" x="304" y="14" width="7" height="16"/>
+                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="14"/>
+                                                                                <color key="textColor" red="0.46708521929054864" green="0.46690111484317903" blue="0.51019965277777768" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                        <constraints>
+                                                                            <constraint firstItem="wy4-nk-5B3" firstAttribute="leading" secondItem="zxZ-Sg-MwT" secondAttribute="trailing" id="2dt-i4-xHZ"/>
+                                                                            <constraint firstAttribute="centerY" secondItem="SBX-Gu-PgZ" secondAttribute="centerY" id="6nd-dx-Ufy"/>
+                                                                            <constraint firstAttribute="trailingMargin" secondItem="SBX-Gu-PgZ" secondAttribute="trailing" id="9qx-gn-uzS"/>
+                                                                            <constraint firstItem="X32-Wm-7Rk" firstAttribute="leading" secondItem="gaZ-aW-kJS" secondAttribute="leading" constant="8" id="Bsh-J4-mNa"/>
+                                                                            <constraint firstAttribute="centerY" secondItem="ECC-gY-PIk" secondAttribute="centerY" id="DNZ-8X-ZrY"/>
+                                                                            <constraint firstItem="ECC-gY-PIk" firstAttribute="width" secondItem="wy4-nk-5B3" secondAttribute="width" id="DPc-UC-cSu"/>
+                                                                            <constraint firstItem="S6r-CB-CTV" firstAttribute="leading" secondItem="wy4-nk-5B3" secondAttribute="trailing" constant="8" id="De6-aG-Jxo"/>
+                                                                            <constraint firstItem="zxZ-Sg-MwT" firstAttribute="leading" secondItem="ECC-gY-PIk" secondAttribute="trailing" id="Q1Z-fa-cpg"/>
+                                                                            <constraint firstItem="ECC-gY-PIk" firstAttribute="leading" secondItem="tbC-CA-erq" secondAttribute="trailing" constant="8" id="Rmm-d9-qzn"/>
+                                                                            <constraint firstItem="tbC-CA-erq" firstAttribute="width" secondItem="SBX-Gu-PgZ" secondAttribute="width" id="cTL-YU-ReE"/>
+                                                                            <constraint firstItem="tbC-CA-erq" firstAttribute="leading" secondItem="X32-Wm-7Rk" secondAttribute="trailing" constant="8" id="f5L-xc-mnQ"/>
+                                                                            <constraint firstAttribute="centerY" secondItem="X32-Wm-7Rk" secondAttribute="centerY" id="fSa-AS-kIe"/>
+                                                                            <constraint firstAttribute="centerY" secondItem="zxZ-Sg-MwT" secondAttribute="centerY" id="hRl-NZ-25o"/>
+                                                                            <constraint firstAttribute="centerY" secondItem="wy4-nk-5B3" secondAttribute="centerY" id="hrP-if-1ma"/>
+                                                                            <constraint firstItem="SBX-Gu-PgZ" firstAttribute="leading" secondItem="S6r-CB-CTV" secondAttribute="trailing" constant="8" id="hyj-1F-sKk"/>
+                                                                            <constraint firstAttribute="centerY" secondItem="tbC-CA-erq" secondAttribute="centerY" id="nhg-PH-XO9"/>
+                                                                            <constraint firstAttribute="centerY" secondItem="S6r-CB-CTV" secondAttribute="centerY" id="vLw-wZ-F3I"/>
+                                                                            <constraint firstAttribute="centerX" secondItem="zxZ-Sg-MwT" secondAttribute="centerX" id="yjN-2n-i6y"/>
+                                                                        </constraints>
+                                                                        <variation key="default">
+                                                                            <mask key="constraints">
+                                                                                <exclude reference="cTL-YU-ReE"/>
+                                                                            </mask>
+                                                                        </variation>
+                                                                    </tableViewCellContentView>
+                                                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                    <connections>
+                                                                        <outlet property="fromPlatform" destination="tbC-CA-erq" id="PVy-z1-z09"/>
+                                                                        <outlet property="fromStation" destination="X32-Wm-7Rk" id="LjV-bP-hhy"/>
+                                                                        <outlet property="toPlatform" destination="SBX-Gu-PgZ" id="AOv-Aj-mXp"/>
+                                                                        <outlet property="toStation" destination="S6r-CB-CTV" id="taa-Be-N2U"/>
+                                                                        <outlet property="trainType" destination="zxZ-Sg-MwT" id="DdG-Yz-Zwv"/>
+                                                                    </connections>
+                                                                </tableViewCell>
+                                                            </prototypes>
+                                                        </tableView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <constraints>
                                                     <constraint firstItem="u2m-fH-Zcv" firstAttribute="top" secondItem="GeW-Cx-8vh" secondAttribute="bottom" constant="8" id="0Zt-YI-KeT"/>
-                                                    <constraint firstItem="iI9-p9-VrO" firstAttribute="bottom" secondItem="oOf-UQ-65j" secondAttribute="bottom" id="1MG-XK-Pa5"/>
-                                                    <constraint firstItem="oOf-UQ-65j" firstAttribute="leading" secondItem="hlB-1k-3YJ" secondAttribute="leadingMargin" constant="8" id="38d-T8-gXY"/>
-                                                    <constraint firstItem="iI9-p9-VrO" firstAttribute="top" secondItem="u2m-fH-Zcv" secondAttribute="bottom" constant="8" id="6W5-Fx-YH8"/>
                                                     <constraint firstAttribute="centerY" secondItem="GeW-Cx-8vh" secondAttribute="centerY" id="6iM-IE-hUe"/>
                                                     <constraint firstAttribute="centerX" secondItem="u2m-fH-Zcv" secondAttribute="centerX" id="7JP-j3-Rtr"/>
-                                                    <constraint firstItem="iI9-p9-VrO" firstAttribute="top" secondItem="oOf-UQ-65j" secondAttribute="top" id="9Qy-7m-trf"/>
-                                                    <constraint firstAttribute="trailingMargin" secondItem="iI9-p9-VrO" secondAttribute="trailing" constant="8" id="EgB-pf-WD1"/>
-                                                    <constraint firstItem="iI9-p9-VrO" firstAttribute="width" secondItem="oOf-UQ-65j" secondAttribute="width" id="GqU-V4-y6m"/>
+                                                    <constraint firstItem="g5X-iN-mDp" firstAttribute="top" secondItem="u2m-fH-Zcv" secondAttribute="bottom" constant="8" id="8Z7-nE-T8k"/>
+                                                    <constraint firstItem="g5X-iN-mDp" firstAttribute="bottom" secondItem="hlB-1k-3YJ" secondAttribute="bottomMargin" id="GVs-xZ-tVu"/>
                                                     <constraint firstItem="sji-sN-jPE" firstAttribute="top" secondItem="gaH-vu-ncM" secondAttribute="bottom" constant="8" id="Ht4-2w-oAM"/>
-                                                    <constraint firstItem="oOf-UQ-65j" firstAttribute="top" secondItem="u2m-fH-Zcv" secondAttribute="bottom" constant="8" id="Tac-bz-gxZ"/>
+                                                    <constraint firstItem="g5X-iN-mDp" firstAttribute="trailing" secondItem="hlB-1k-3YJ" secondAttribute="trailingMargin" id="HvE-W8-5wX"/>
                                                     <constraint firstAttribute="centerX" secondItem="sji-sN-jPE" secondAttribute="centerX" id="V1q-D3-hYw"/>
                                                     <constraint firstAttribute="centerX" secondItem="gaH-vu-ncM" secondAttribute="centerX" id="aCN-Xd-rLM"/>
-                                                    <constraint firstItem="iI9-p9-VrO" firstAttribute="leading" secondItem="oOf-UQ-65j" secondAttribute="trailing" id="dgh-zW-VK6"/>
                                                     <constraint firstAttribute="centerY" secondItem="RTm-f0-VEC" secondAttribute="centerY" id="iPy-P1-zTk"/>
-                                                    <constraint firstItem="iI9-p9-VrO" firstAttribute="height" secondItem="oOf-UQ-65j" secondAttribute="height" id="iVU-28-GyS"/>
-                                                    <constraint firstAttribute="bottomMargin" secondItem="oOf-UQ-65j" secondAttribute="bottom" constant="8" id="iep-Ft-2XI"/>
                                                     <constraint firstAttribute="centerX" secondItem="GeW-Cx-8vh" secondAttribute="centerX" id="pqO-vZ-QiT"/>
+                                                    <constraint firstItem="g5X-iN-mDp" firstAttribute="leading" secondItem="hlB-1k-3YJ" secondAttribute="leadingMargin" id="rd9-nF-pHw"/>
                                                     <constraint firstItem="RTm-f0-VEC" firstAttribute="leading" secondItem="hlB-1k-3YJ" secondAttribute="leadingMargin" id="sBA-xp-Mip"/>
                                                     <constraint firstItem="GeW-Cx-8vh" firstAttribute="top" secondItem="sji-sN-jPE" secondAttribute="bottom" id="yZy-VV-lQ3"/>
                                                 </constraints>
                                                 <connections>
+                                                    <outlet property="adviceDetailTableView" destination="g5X-iN-mDp" id="ZGJ-J8-Ddq"/>
                                                     <outlet property="from" destination="gaH-vu-ncM" id="GtX-jL-5HM"/>
-                                                    <outlet property="legPhraseLeftTextView" destination="oOf-UQ-65j" id="tBS-Hb-uY6"/>
-                                                    <outlet property="legPhraseRightTextView" destination="iI9-p9-VrO" id="jbs-uS-dML"/>
                                                     <outlet property="spoor" destination="sji-sN-jPE" id="yQe-3N-YBP"/>
                                                     <outlet property="timeToGoLabel" destination="GeW-Cx-8vh" id="ZzN-3I-Dii"/>
                                                     <outlet property="to" destination="u2m-fH-Zcv" id="Zs5-En-eUq"/>
@@ -280,7 +373,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOj-or-ggn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="423" y="289"/>
+            <point key="canvasLocation" x="423" y="283"/>
         </scene>
         <!--Picker View Controller-->
         <scene sceneID="NWC-gr-06l">
