@@ -113,7 +113,7 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
   }
 }
 
-class AdviceCollectionviewCell : UICollectionViewCell {
+class AdviceCollectionviewCell : UICollectionViewCell, UITableViewDataSource, UITableViewDelegate {
   
   var timer:NSTimer?
   
@@ -129,9 +129,7 @@ class AdviceCollectionviewCell : UICollectionViewCell {
   @IBOutlet weak var to: UILabel!
   @IBOutlet weak var from: UILabel!
   @IBOutlet weak var vertagingLabel: UILabel!
-  @IBOutlet weak var alertTextView: UITextView!
-  @IBOutlet weak var legPhraseLeftTextView: UITextView!
-  @IBOutlet weak var legPhraseRightTextView: UITextView!
+  @IBOutlet weak var adviceDetailTableView: UITableView!
   
   var advice: Advice? {
     didSet {
@@ -144,15 +142,13 @@ class AdviceCollectionviewCell : UICollectionViewCell {
         let toTime = a.aankomst.getFormattedString()
         from.text = "\(a.firstStop()!.name) - \(fromTime)"
         to.text = "\(a.lastStop()!.name) - \(toTime)"
+    
+        adviceDetailTableView.delegate = self
+        adviceDetailTableView.dataSource = self
+        adviceDetailTableView.backgroundView = nil
+        adviceDetailTableView.backgroundColor = UIColor.clearColor()
+        adviceDetailTableView.reloadData()
       }
-      
-      legPhraseLeftTextView.text = advice?.legPhraseLeft()
-      legPhraseLeftTextView.textColor = UIColor.secundairGreyColor()
-      legPhraseLeftTextView.textAlignment = NSTextAlignment.Right
-      
-      legPhraseRightTextView.text = advice?.legPhraseRight()
-      legPhraseRightTextView.textColor = UIColor.secundairGreyColor()
-      legPhraseRightTextView.textAlignment = NSTextAlignment.Left
       
       println(advice?.vertrekVertraging)
       
@@ -162,14 +158,6 @@ class AdviceCollectionviewCell : UICollectionViewCell {
       } else {
         vertagingLabel.hidden = true
       }
-      
-//      if let melding = advice?.melding {
-//        alertTextView.text = melding.text
-//        alertTextView.hidden = false
-//      } else {
-//        alertTextView.insertText("")
-//        alertTextView.hidden = true
-//      }
     }
   }
   
@@ -189,4 +177,51 @@ class AdviceCollectionviewCell : UICollectionViewCell {
     timeToGoLabel.textColor = self.advice?.vertrek.actual.timeIntervalSinceNow < 60 ? UIColor.redThemeColor() : UIColor.whiteColor()
   }
   
+  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    return 1
+  }
+  
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return advice?.reisDeel.count ?? 0
+  }
+  
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    var cell:LegDetailCell = tableView.dequeueReusableCellWithIdentifier("legCell") as LegDetailCell
+    cell.reisDeel = advice?.reisDeel[indexPath.row]
+    return cell
+  }
+  
 }
+
+class LegDetailCell : UITableViewCell {
+  
+  @IBOutlet weak var fromStation: UILabel!
+  @IBOutlet weak var toStation: UILabel!
+  @IBOutlet weak var toPlatform: UILabel!
+  @IBOutlet weak var fromPlatform: UILabel!
+  @IBOutlet weak var trainType: UILabel!
+  
+  required init(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    selectionStyle = UITableViewCellSelectionStyle.None
+    backgroundView = nil
+    backgroundColor = UIColor.clearColor()
+  }
+  
+  var reisDeel:ReisDeel? {
+    didSet {
+      if let deel = reisDeel {
+        let from = deel.stops.first
+        let to = deel.stops.last
+        
+        fromStation.text = from?.name ?? ""
+        fromPlatform.text = from?.spoor
+        
+        toStation.text = to?.name
+        toPlatform.text = to?.spoor
+      }
+    }
+  }
+  
+}
+
