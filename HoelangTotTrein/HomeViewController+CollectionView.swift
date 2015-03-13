@@ -27,7 +27,13 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
   
   func reload() {
     advicesCollectionView.reloadData()
-    startTimerForMiddleVisibleCell()
+    let index = TreinTicker.sharedInstance.getAdviceOffset()
+    if index > -1 {
+      //advicesCollectionView.scrollToItemAtIndexPath(NSIndexPath(forRow: index, inSection: 0), atScrollPosition: UICollectionViewScrollPosition.CenteredVertically, animated: true)
+    }
+    dispatch_after(2, dispatch_get_main_queue()) {
+      self.startTimerForMiddleVisibleCell()
+    }
   }
   
   func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -37,6 +43,7 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     let count = TreinTicker.sharedInstance.getUpcomingAdvices().count
     advicesIndicator.numberOfPages = count
+    activityIndicator.hidden = count != 0
     return count
   }
   
@@ -111,6 +118,10 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
       cellTimer = cell.startCounting()
     }
   }
+  
+  func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    startTimerForMiddleVisibleCell()
+  }
 }
 
 class AdviceCollectionviewCell : UICollectionViewCell, UITableViewDataSource, UITableViewDelegate {
@@ -135,7 +146,7 @@ class AdviceCollectionviewCell : UICollectionViewCell, UITableViewDataSource, UI
     didSet {
 
       timeToGoLabel.text = advice?.vertrek.actual.toMMSSFromNow().string()
-      spoor.text = advice?.firstStop()?.spoor
+      spoor.text = advice?.fromPlatform ?? ""
       
       if let a = advice {
         let fromTime = a.vertrek.getFormattedString()

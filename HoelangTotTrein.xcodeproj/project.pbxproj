@@ -111,13 +111,6 @@
 			remoteGlobalIDString = C36CEF9B1A8B3D8300C9F3CC;
 			remoteInfo = HoelangTotTrein;
 		};
-		C371BA131AAF272400D010DB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C36CEF941A8B3D8300C9F3CC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C3261C3B1A992E070046DD81;
-			remoteInfo = "HoelangTotTrein WatchKit Extension";
-		};
 		C3CCC5FF1AAB1D1A00A0F1E9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C36CEF941A8B3D8300C9F3CC /* Project object */;
@@ -541,7 +534,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				C371BA141AAF272400D010DB /* PBXTargetDependency */,
 				C3CCC6001AAB1D1A00A0F1E9 /* PBXTargetDependency */,
 			);
 			name = HoelangTotTrein;
@@ -600,6 +592,9 @@
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
 						};
 					};
 					C3261C4A1A992E070046DD81 = {
@@ -611,6 +606,9 @@
 						DevelopmentTeam = RSRVS8D9PW;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
@@ -861,11 +859,6 @@
 			isa = PBXTargetDependency;
 			target = C36CEF9B1A8B3D8300C9F3CC /* HoelangTotTrein */;
 			targetProxy = C36CEFB21A8B3D8300C9F3CC /* PBXContainerItemProxy */;
-		};
-		C371BA141AAF272400D010DB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C3261C3B1A992E070046DD81 /* HoelangTotTrein WatchKit Extension */;
-			targetProxy = C371BA131AAF272400D010DB /* PBXContainerItemProxy */;
 		};
 		C3CCC6001AAB1D1A00A0F1E9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

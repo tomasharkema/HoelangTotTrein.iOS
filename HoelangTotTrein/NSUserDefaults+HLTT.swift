@@ -24,9 +24,7 @@ extension NSUserDefaults {
   
   var stations:[Station] {
     set {
-      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-        self.setObject(NSKeyedArchiver.archivedDataWithRootObject(newValue), forKey: StationsKey)
-      }
+      self.setObject(NSKeyedArchiver.archivedDataWithRootObject(newValue), forKey: StationsKey)
     }
     get {
       NSKeyedUnarchiver.setClass(Station.classForKeyedUnarchiver(), forClassName: "HoelangTotTrein.Station")
@@ -113,9 +111,7 @@ extension NSUserDefaults {
   var currentAdvice:Advice? {
     set {
       if let advice = newValue {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-          self.setObject(NSKeyedArchiver.archivedDataWithRootObject(advice), forKey: CurrentAdvice)
-        }
+        self.setObject(NSKeyedArchiver.archivedDataWithRootObject(advice), forKey: CurrentAdvice)
         return;
       }
     }

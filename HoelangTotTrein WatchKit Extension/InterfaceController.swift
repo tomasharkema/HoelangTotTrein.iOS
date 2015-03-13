@@ -15,6 +15,7 @@ class InterfaceController: WKInterfaceController {
   
   @IBOutlet weak var fromButton: WKInterfaceButton!
   @IBOutlet weak var toButton: WKInterfaceButton!
+  @IBOutlet weak var spoorLabel: WKInterfaceLabel!
   
   var time:NSDate?
   
@@ -37,8 +38,8 @@ class InterfaceController: WKInterfaceController {
       }
     }
     
-    treinTicker.fromToChanged = { [weak self] from, to in
-      println()
+    treinTicker.fromToChanged = { [weak self] _ in
+      println("fromToChanged")
       self?.updateUI()
     }
     
@@ -50,7 +51,7 @@ class InterfaceController: WKInterfaceController {
     
     treinTicker.start()
     
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updateUI"), name:NSUserDefaultsDidChangeNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("userDefaultsDidChange"), name:NSUserDefaultsDidChangeNotification, object: nil)
     
     super.willActivate()
   }
@@ -68,18 +69,17 @@ class InterfaceController: WKInterfaceController {
       }
       timer.start()
     }
-    fromButton.setTitle((treinTicker.from?.name.lang ?? "" ) + " " + treinTicker.currentAdivce.vertrek.getFormattedString())
-    toButton.setTitle((treinTicker.to?.name.lang ?? "") + " " + treinTicker.currentAdivce.aankomst.getFormattedString())
+    fromButton.setTitle((treinTicker.from?.name.lang ?? "" ) + " - " + treinTicker.currentAdivce.vertrek.getFormattedString())
+    toButton.setTitle((treinTicker.to?.name.lang ?? "") + " - " + treinTicker.currentAdivce.aankomst.getFormattedString())
+    spoorLabel.setText(treinTicker.currentAdivce.fromPlatform ?? "")
   }
   
   @IBAction func fromTapped() {
     treinTicker.bumpFrom()
-    updateUI()
   }
   
   @IBAction func toTapped() {
     treinTicker.bumpTo()
-    updateUI()
   }
   
   override func didDeactivate() {

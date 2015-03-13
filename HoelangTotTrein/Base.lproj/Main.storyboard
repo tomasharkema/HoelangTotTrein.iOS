@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D87h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oWt-5Q-I8W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D98g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oWt-5Q-I8W">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -101,7 +101,7 @@
                                                             <color key="textColor" red="1" green="0.42745098040000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="32" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="g5X-iN-mDp">
+                                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="25" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="g5X-iN-mDp">
                                                             <rect key="frame" x="8" y="386" width="572" height="204"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
@@ -110,7 +110,7 @@
                                                             <color key="sectionIndexBackgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <color key="sectionIndexTrackingBackgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <prototypes>
-                                                                <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="legCell" rowHeight="32" id="bBk-BX-VZh" customClass="LegDetailCell" customModule="HoelangTotTrein" customModuleProvider="target">
+                                                                <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="legCell" rowHeight="25" id="bBk-BX-VZh" customClass="LegDetailCell" customModule="HoelangTotTrein" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="572" height="44"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bBk-BX-VZh" id="gaZ-aW-kJS">
@@ -118,14 +118,14 @@
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Koog Bloemwijk" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X32-Wm-7Rk">
                                                                                 <rect key="frame" x="8" y="14" width="218" height="16"/>
-                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="14"/>
-                                                                                <color key="textColor" red="0.46708521929054864" green="0.46690111484317903" blue="0.51019965277777768" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="13"/>
+                                                                                <color key="textColor" red="0.64172170510000004" green="0.63824700320000005" blue="0.69894139" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Koog Bloemwijk" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6r-CB-CTV">
                                                                                 <rect key="frame" x="319" y="14" width="214" height="16"/>
-                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="14"/>
-                                                                                <color key="textColor" red="0.46708521929054864" green="0.46690111484317903" blue="0.51019965277777768" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="13"/>
+                                                                                <color key="textColor" red="0.64172170510000004" green="0.63824700320000005" blue="0.69894139" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="7-8" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBX-Gu-PgZ">
@@ -133,13 +133,13 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="20" id="gi6-iU-Heg"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="14"/>
+                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="13"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="2a" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbC-CA-erq">
                                                                                 <rect key="frame" x="234" y="14" width="20" height="16"/>
-                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="14"/>
+                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="13"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -148,8 +148,8 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="7" id="BUm-Sr-aCB"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="14"/>
-                                                                                <color key="textColor" red="0.46708521929054864" green="0.46690111484317903" blue="0.51019965277777768" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="13"/>
+                                                                                <color key="textColor" red="0.64172170510000004" green="0.63824700320000005" blue="0.69894139" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SPR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxZ-Sg-MwT">
@@ -157,14 +157,14 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="35" id="jel-L8-UYm"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="14"/>
-                                                                                <color key="textColor" red="0.46708521929054864" green="0.46690111484317903" blue="0.51019965277777768" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="13"/>
+                                                                                <color key="textColor" red="0.64172170510000004" green="0.63824700320000005" blue="0.69894139" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&gt;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wy4-nk-5B3">
                                                                                 <rect key="frame" x="304" y="14" width="7" height="16"/>
-                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="14"/>
-                                                                                <color key="textColor" red="0.46708521929054864" green="0.46690111484317903" blue="0.51019965277777768" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="13"/>
+                                                                                <color key="textColor" red="0.64172170506931703" green="0.63824700319385108" blue="0.69894139000297084" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
@@ -184,7 +184,7 @@
                                                                             <constraint firstAttribute="centerY" secondItem="X32-Wm-7Rk" secondAttribute="centerY" id="fSa-AS-kIe"/>
                                                                             <constraint firstAttribute="centerY" secondItem="zxZ-Sg-MwT" secondAttribute="centerY" id="hRl-NZ-25o"/>
                                                                             <constraint firstAttribute="centerY" secondItem="wy4-nk-5B3" secondAttribute="centerY" id="hrP-if-1ma"/>
-                                                                            <constraint firstItem="SBX-Gu-PgZ" firstAttribute="leading" secondItem="S6r-CB-CTV" secondAttribute="trailing" constant="8" id="hyj-1F-sKk"/>
+                                                                            <constraint firstItem="SBX-Gu-PgZ" firstAttribute="leading" secondItem="S6r-CB-CTV" secondAttribute="trailing" id="hyj-1F-sKk"/>
                                                                             <constraint firstAttribute="centerY" secondItem="tbC-CA-erq" secondAttribute="centerY" id="nhg-PH-XO9"/>
                                                                             <constraint firstAttribute="centerY" secondItem="S6r-CB-CTV" secondAttribute="centerY" id="vLw-wZ-F3I"/>
                                                                             <constraint firstAttribute="centerX" secondItem="zxZ-Sg-MwT" secondAttribute="centerX" id="yjN-2n-i6y"/>
@@ -329,17 +329,22 @@
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="fullscreen-open" translatesAutoresizingMaskIntoConstraints="NO" id="mNh-ip-lIq">
                                         <rect key="frame" x="350" y="465" width="240" height="128"/>
                                     </imageView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="O1F-b1-oF6">
+                                        <rect key="frame" x="282" y="282" width="37" height="37"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="mNh-ip-lIq" secondAttribute="trailing" constant="10" id="1Fc-Zj-Gnd"/>
                                     <constraint firstAttribute="bottom" secondItem="mNh-ip-lIq" secondAttribute="bottom" constant="10" id="2KN-yj-qPR"/>
+                                    <constraint firstAttribute="centerY" secondItem="O1F-b1-oF6" secondAttribute="centerY" id="4Ni-Th-k57"/>
                                     <constraint firstItem="eWd-OC-jgv" firstAttribute="leading" secondItem="XdA-ld-a6e" secondAttribute="leading" id="6am-21-chZ"/>
                                     <constraint firstItem="tkX-iM-qV8" firstAttribute="leading" secondItem="XdA-ld-a6e" secondAttribute="leading" id="6wp-Qr-bAW"/>
                                     <constraint firstItem="FQ1-5b-PMG" firstAttribute="top" secondItem="XdA-ld-a6e" secondAttribute="top" id="AsF-uX-ZwF"/>
                                     <constraint firstItem="eWd-OC-jgv" firstAttribute="top" secondItem="XdA-ld-a6e" secondAttribute="top" id="Nrl-M1-2EO"/>
                                     <constraint firstAttribute="centerX" secondItem="uya-yO-sZK" secondAttribute="centerX" id="Wyf-Ox-Erw"/>
                                     <constraint firstItem="tkX-iM-qV8" firstAttribute="top" secondItem="XdA-ld-a6e" secondAttribute="top" id="YJN-Jl-GKM"/>
+                                    <constraint firstAttribute="centerX" secondItem="O1F-b1-oF6" secondAttribute="centerX" id="aTg-Y1-fXr"/>
                                     <constraint firstAttribute="trailing" secondItem="tkX-iM-qV8" secondAttribute="trailing" id="asq-Wo-BNx"/>
                                     <constraint firstItem="FQ1-5b-PMG" firstAttribute="leading" secondItem="XdA-ld-a6e" secondAttribute="leading" id="d6w-kX-w7h"/>
                                     <constraint firstAttribute="trailing" secondItem="lWS-R8-8Sb" secondAttribute="trailing" constant="8" id="eNi-J9-vbw"/>
@@ -367,6 +372,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="O1F-b1-oF6" id="cZd-1C-lte"/>
                         <outlet property="advicesCollectionView" destination="eWd-OC-jgv" id="RZy-lJ-OFq"/>
                         <outlet property="advicesIndicator" destination="lWS-R8-8Sb" id="8mD-I9-thJ"/>
                         <outlet property="fromButton" destination="z98-f2-3V3" id="3X6-Ao-EjV"/>

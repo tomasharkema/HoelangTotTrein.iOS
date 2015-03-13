@@ -68,11 +68,20 @@ class TreinTicker: NSObject {
   
   var heartBeat:NSTimer!
   var minuteTicker:Int = 0
+  
+  var _advices:[Advice]?
   var advices:[Advice] {
     get {
-      return UserDefaults.advices
+      if _advices == nil {
+        let advices = UserDefaults.advices
+        _advices = advices
+        return advices
+      } else {
+        return _advices!
+      }
     }
     set {
+      _advices = newValue
       UserDefaults.advices = newValue
     }
   }
@@ -133,14 +142,16 @@ class TreinTicker: NSObject {
     }
   }
   
-  var currentAdivce:Advice! {
+  var currentAdivce:Advice? {
     set {
       println("set currentAdivce")
       UserDefaults.currentAdvice = newValue
       let currentAdvice = newValue
       
       if (adviceChangedHandler != nil && currentAdvice != nil) {
-        adviceChangedHandler(currentAdvice)
+        dispatch_async(dispatch_get_main_queue()) {
+          self.adviceChangedHandler(currentAdvice!)
+        }
       }
       
       if isExtention {
@@ -154,7 +165,7 @@ class TreinTicker: NSObject {
         }
       }
       var i = 0
-      for deel in currentAdvice.reisDeel {
+      for deel in currentAdvice!.reisDeel {
         let target = deel.stops.last
         let station = stations.filter {
           $0.name.lang == target?.name
@@ -185,21 +196,21 @@ class TreinTicker: NSObject {
     }
   }
   
-  private var _from:Station!
+  private var _from:Station?
   var from:Station! {
     set {
       _from = newValue
       UserDefaults.from = newValue.code
       if (newValue != nil && to != nil && fromToChanged != nil) {
+        adviceRequest = AdviceRequest(from: newValue, to: to)
         dispatch_async(dispatch_get_main_queue()) {
           self.fromToChanged(from: newValue, to: self.to)
         }
-        adviceRequest = AdviceRequest(from: newValue, to: to)
       }
       MostUsed.addStation(newValue)
     }
     get {
-      if _from == nil {
+      if _from == nil || _from != UserDefaults.from {
         let newFrom = find(stations, UserDefaults.from) ?? stations.first
         _from = newFrom
         return newFrom
@@ -209,22 +220,23 @@ class TreinTicker: NSObject {
     }
   }
   
-  private var _to:Station!
+  private var _to:Station?
   var to:Station! {
     set {
       _to = newValue
       UserDefaults.to = newValue.code
       if (from != nil && newValue != nil && fromToChanged != nil) {
+        adviceRequest = AdviceRequest(from: from, to: newValue)
+        
         dispatch_async(dispatch_get_main_queue()) {
           self.fromToChanged(from: self.from, to: newValue)
         }
-        adviceRequest = AdviceRequest(from: from, to: newValue)
       }
       
       MostUsed.addStation(newValue)
     }
     get {
-      if _to == nil {
+      if _to == nil || _to!.code != UserDefaults.to {
         let newTo = find(stations, UserDefaults.to) ?? stations.first
         _to = newTo
         return newTo
@@ -312,7 +324,10 @@ class TreinTicker: NSObject {
   }
   
   func getAdviceOffset() -> Int {
-    return indexOf(advices, currentAdivce)
+    if let c = currentAdivce {
+      return indexOf(getUpcomingAdvices(), c)
+    }
+    return -1
   }
   
   func getCurrentAdvice() -> Advice? {

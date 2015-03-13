@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6750" systemVersion="14D87h" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6751" systemVersion="14D98g" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -9,6 +9,7 @@
             <string>AktivGrotesk-Hairline</string>
         </mutableArray>
         <mutableArray key="Aktiv-Thin.otf">
+            <string>AktivGrotesk-Light</string>
             <string>AktivGrotesk-Light</string>
             <string>AktivGrotesk-Light</string>
         </mutableArray>
@@ -19,22 +20,25 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="HoelangTotTrein_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <button width="1" alignment="left" title="Button" id="dK5-bu-QhB">
+                        <button width="1" height="30" alignment="left" title="Button" id="dK5-bu-QhB">
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                             <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="10"/>
                             <connections>
                                 <action selector="fromTapped" destination="AgC-eL-Hgc" id="aHx-AO-fjV"/>
                             </connections>
                         </button>
-                        <group width="1" alignment="left" verticalAlignment="center" id="Ze0-8T-NYb">
+                        <label alignment="center" text="1" textAlignment="center" id="QiF-o1-hKb">
+                            <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="13"/>
+                        </label>
+                        <group width="1" height="53" alignment="center" verticalAlignment="center" backgroundImage="uitsnede" contentMode="center" id="Ze0-8T-NYb">
                             <items>
-                                <timer width="1" alignment="left" verticalAlignment="center" textAlignment="center" id="p84-Rj-IBJ">
-                                    <fontDescription key="font" name="AktivGrotesk-Hairline" family="Aktiv Grotesk" pointSize="44"/>
+                                <timer alignment="center" verticalAlignment="center" textAlignment="center" id="p84-Rj-IBJ">
+                                    <fontDescription key="font" name="AktivGrotesk-Hairline" family="Aktiv Grotesk" pointSize="34"/>
                                     <calendarUnit key="units" minute="YES" second="YES"/>
                                 </timer>
                             </items>
                         </group>
-                        <button width="1" alignment="left" verticalAlignment="bottom" title="Button" id="Glr-mg-Xah">
+                        <button width="1" height="30" alignment="left" verticalAlignment="bottom" title="Button" id="Glr-mg-Xah">
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                             <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="10"/>
                             <connections>
@@ -44,12 +48,13 @@
                     </items>
                     <connections>
                         <outlet property="fromButton" destination="dK5-bu-QhB" id="e4s-b5-b7h"/>
+                        <outlet property="spoorLabel" destination="QiF-o1-hKb" id="DUt-oJ-taz"/>
                         <outlet property="timer" destination="p84-Rj-IBJ" id="XQJ-0b-u13"/>
                         <outlet property="toButton" destination="Glr-mg-Xah" id="Ppd-gX-CuP"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="235" y="347"/>
+            <point key="canvasLocation" x="235" y="373.5"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="BOz-TT-tkC">

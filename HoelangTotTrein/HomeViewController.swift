@@ -29,6 +29,7 @@ class HomeViewController: UIViewController {
   @IBOutlet weak var alertTextView: UITextView!
   @IBOutlet weak var pickerContainer: UIView!
   @IBOutlet weak var skipButton: UIButton!
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
   @IBOutlet weak var mainView: UIView!
   
@@ -64,6 +65,8 @@ class HomeViewController: UIViewController {
     
     advicesIndicator.transform = CGAffineTransformMakeRotation(CGFloat(M_PI * 90.0/180))
     
+    activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+    
     TreinTicker.sharedInstance.adviceChangedHandler = { [weak self] (advice) in
       self?.reload()
       return;
@@ -72,7 +75,6 @@ class HomeViewController: UIViewController {
     TreinTicker.sharedInstance.fromToChanged = { [weak self] from, to in
       self?.toButton.setTitle(to?.name.lang, forState: UIControlState.Normal)
       self?.fromButton.setTitle(from?.name.lang, forState: UIControlState.Normal)
-      self?.selectRow()
       self?.reload()
     }
   }

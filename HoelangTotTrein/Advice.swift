@@ -35,6 +35,8 @@ struct ReisDeel {
   let vervoerder:String
   let stops:Array<Stop>
   
+  let vervoerType:String
+  
   func getRegion() -> CLRegion {
     
     let target = stops.last!
@@ -68,6 +70,10 @@ class Advice: NSObject, NSCoding, Hashable {
   
   let status:Status
   
+  var fromPlatform:String? {
+    return firstStop()?.spoor
+  }
+  
   init(obj: AEXMLElement, adviceRequest:AdviceRequest) {
     self.adviceRequest = adviceRequest
     
@@ -80,7 +86,8 @@ class Advice: NSObject, NSCoding, Hashable {
       actual: obj["ActueleAankomstTijd"]?.dateValue ?? NSDate())
     
     reisDeel = obj["ReisDeel"]!.all!.map { reisDeel in
-      let vervoerder = "NS"
+      let vervoerder = reisDeel["Vervoerder"]?.stringValue ?? ""
+      let vervoerType = reisDeel["VervoerType"]?.stringValue ?? ""
       
       let stops:[Stop] = reisDeel["ReisStop"]!.all!.map { stop in
         let spoor = stop["Spoor"]?.stringValue ?? ""
@@ -89,7 +96,7 @@ class Advice: NSObject, NSCoding, Hashable {
         return Stop(time: time, spoor: spoor, name: naam)
       }
       
-      return ReisDeel(vervoerder: vervoerder, stops: stops)
+      return ReisDeel(vervoerder: vervoerder, stops: stops, vervoerType:vervoerType)
     }
     
     if let mel = obj["Melding"] {
@@ -122,7 +129,7 @@ class Advice: NSObject, NSCoding, Hashable {
         let data = obj as [AnyObject]
         return Stop(time: data[0] as? NSDate, spoor: data[1] as? String, name: data[2] as? String ?? "")
       }
-      return ReisDeel(vervoerder: data[0] as String, stops: stops)
+      return ReisDeel(vervoerder: data[0] as String, stops: stops, vervoerType: data[2] as String)
     }
     
     vertrekVertraging = aDecoder.decodeObjectForKey("vertrekVertraging") as? String ?? ""
@@ -157,7 +164,8 @@ class Advice: NSObject, NSCoding, Hashable {
       
       let encodedData = [
         deel.vervoerder,
-        encodeStops
+        encodeStops,
+        deel.vervoerType
       ]
       
       return NSKeyedArchiver.archivedDataWithRootObject(encodedData)

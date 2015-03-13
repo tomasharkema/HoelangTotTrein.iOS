@@ -25,10 +25,9 @@ class API: NSObject {
         let request = authenticatedRequest(Alamofire.Method.GET, url:"http://webservices.ns.nl/ns-api-stations-v2")
             .responseXMLDocument { (_, _, string, _) in
                 if let object = string {
-                  if let stationsData = object.all {
-                    let stations:[Station] = stationsData.map { Station(obj: $0) }.filter { $0.land == "NL"}
-                    aHandler(stations)
-                  }
+                  let stationsData = object.root.children
+                  let stations:[Station] = stationsData.map { Station(obj: $0) }.filter { $0.land == "NL"}
+                  aHandler(stations)
                 }
         }
         

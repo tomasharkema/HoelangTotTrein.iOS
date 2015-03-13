@@ -19,7 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
       // Override point for customization after application launch
       application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert | UIUserNotificationType.Badge, categories: nil))
-    
+      
+      NSNotificationCenter.defaultCenter().addObserverForName(NSUbiquitousKeyValueStoreDidChangeExternallyNotification, object: NSUbiquitousKeyValueStore.defaultStore(), queue: NSOperationQueue.mainQueue()) { (notification) in
+        let ubiquitousKeyValueStore = notification.object as NSUbiquitousKeyValueStore
+        ubiquitousKeyValueStore.synchronize()
+        println("FROM: \(ubiquitousKeyValueStore.objectForKey(FromKey))")
+        
+        println("TO: \(ubiquitousKeyValueStore.objectForKey(ToKey))")
+      }
+      
       NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("showNotification:"), name: "showNotification", object: nil)
     
       TreinTicker.sharedInstance.fromCurrentLocation()

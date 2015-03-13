@@ -39,7 +39,7 @@ extension TreinTicker {
     let index = findIndex(mostUsed, to!)
     
     if let i = index {
-      if (closeStations.count - 1) > i {
+      if (mostUsed.count - 1) > i {
         to = mostUsed[(i+1)]
       } else {
         to = mostUsed.first

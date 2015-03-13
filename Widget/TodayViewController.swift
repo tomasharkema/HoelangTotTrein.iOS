@@ -49,9 +49,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   func updateUI() {
     let treinTicker = TreinTicker.sharedExtensionInstance
     
-      self.timeLabel.text = treinTicker.currentAdivce.vertrek.actual.toMMSSFromNow().string()
+      self.timeLabel.text = treinTicker.currentAdivce?.vertrek.actual.toMMSSFromNow().string() ?? ""
       UIView.animateWithDuration(1.0) {
-        self.timeLabel.textColor = treinTicker.currentAdivce.vertrek.actual.timeIntervalSinceNow < 60 ? UIColor.redThemeColor() : UIColor.whiteColor()
+        self.timeLabel.textColor = treinTicker.currentAdivce?.vertrek.actual.timeIntervalSinceNow < 60 ? UIColor.redThemeColor() : UIColor.whiteColor()
     }
     
     self.fromLabel.text = TreinTicker.sharedExtensionInstance.from?.name.lang ?? ""
