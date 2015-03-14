@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D98g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oWt-5Q-I8W">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -314,12 +315,17 @@
                                             <action selector="locButton:" destination="oWt-5Q-I8W" eventType="touchUpInside" id="gqU-j1-hbI"/>
                                         </connections>
                                     </button>
-                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="lWS-R8-8Sb">
-                                        <rect key="frame" x="553" y="281" width="39" height="37"/>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="lWS-R8-8Sb">
+                                        <rect key="frame" x="565" y="281" width="39" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="37" id="SsV-mm-dZd"/>
                                         </constraints>
                                         <color key="currentPageIndicatorTintColor" red="0.32549019610000002" green="0.84705882349999995" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.transform.rotation.x">
+                                                <real key="value" value="1.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="SsV-mm-dZd"/>
@@ -349,16 +355,20 @@
                                     <constraint firstItem="FQ1-5b-PMG" firstAttribute="leading" secondItem="XdA-ld-a6e" secondAttribute="leading" id="d6w-kX-w7h"/>
                                     <constraint firstAttribute="trailing" secondItem="lWS-R8-8Sb" secondAttribute="trailing" constant="8" id="eNi-J9-vbw"/>
                                     <constraint firstAttribute="centerY" secondItem="lWS-R8-8Sb" secondAttribute="centerY" id="eqc-Hj-ovO"/>
+                                    <constraint firstAttribute="trailing" secondItem="lWS-R8-8Sb" secondAttribute="centerX" constant="16" id="iCF-nM-fit"/>
                                     <constraint firstAttribute="trailing" secondItem="FQ1-5b-PMG" secondAttribute="trailing" id="jST-tW-8b1"/>
                                     <constraint firstAttribute="bottom" secondItem="tkX-iM-qV8" secondAttribute="bottom" id="nTW-HJ-9VG"/>
                                     <constraint firstItem="uya-yO-sZK" firstAttribute="top" secondItem="FQ1-5b-PMG" secondAttribute="bottom" constant="8" id="na5-EU-4PZ"/>
                                     <constraint firstAttribute="bottom" secondItem="eWd-OC-jgv" secondAttribute="bottom" id="oDo-7O-eoO"/>
+                                    <constraint firstAttribute="centerY" secondItem="lWS-R8-8Sb" secondAttribute="centerY" id="qWY-19-mSl"/>
                                     <constraint firstItem="eWd-OC-jgv" firstAttribute="top" secondItem="FQ1-5b-PMG" secondAttribute="bottom" id="tWg-ic-kqp"/>
                                     <constraint firstAttribute="trailing" secondItem="eWd-OC-jgv" secondAttribute="trailing" id="tqS-TB-XR5"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="tWg-ic-kqp"/>
+                                        <exclude reference="eNi-J9-vbw"/>
+                                        <exclude reference="eqc-Hj-ovO"/>
                                     </mask>
                                 </variation>
                             </view>

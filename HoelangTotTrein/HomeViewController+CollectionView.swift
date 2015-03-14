@@ -233,6 +233,20 @@ class LegDetailCell : UITableViewCell {
         
         toStation.text = to?.name
         toPlatform.text = to?.spoor
+        
+        var vervoerType = ""
+        println(deel.vervoerType)
+        if deel.vervoerType == "Sprinter" {
+          vervoerType = "SPR"
+        } else if deel.vervoerType == "Intercity" {
+          vervoerType = "IC"
+        } else if deel.vervoerType == "Intercity direct" {
+          vervoerType = "ICD"
+        } else if deel.vervoerType == "Thalys" {
+          vervoerType = "TLY"
+        }
+        
+        trainType.text = vervoerType
       }
     }
   }
