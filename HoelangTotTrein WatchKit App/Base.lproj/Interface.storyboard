@@ -12,6 +12,7 @@
             <string>AktivGrotesk-Light</string>
             <string>AktivGrotesk-Light</string>
             <string>AktivGrotesk-Light</string>
+            <string>AktivGrotesk-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -30,7 +31,7 @@
                         <label alignment="center" text="1" textAlignment="center" id="QiF-o1-hKb">
                             <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="13"/>
                         </label>
-                        <group width="1" height="53" alignment="center" verticalAlignment="center" backgroundImage="uitsnede" contentMode="center" id="Ze0-8T-NYb">
+                        <group width="1" height="53" alignment="center" verticalAlignment="center" contentMode="center" id="Ze0-8T-NYb">
                             <items>
                                 <timer alignment="center" verticalAlignment="center" textAlignment="center" id="p84-Rj-IBJ">
                                     <fontDescription key="font" name="AktivGrotesk-Hairline" family="Aktiv Grotesk" pointSize="34"/>
@@ -46,6 +47,12 @@
                             </connections>
                         </button>
                     </items>
+                    <menu key="menu" id="9Ob-J8-b64">
+                        <items>
+                            <menuItem title="Van" icon="add" id="Csl-8o-XYf"/>
+                            <menuItem title="Naar" icon="accept" id="gOD-9t-QX5"/>
+                        </items>
+                    </menu>
                     <connections>
                         <outlet property="fromButton" destination="dK5-bu-QhB" id="e4s-b5-b7h"/>
                         <outlet property="spoorLabel" destination="QiF-o1-hKb" id="DUt-oJ-taz"/>
@@ -54,7 +61,30 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="235" y="373.5"/>
+            <point key="canvasLocation" x="222" y="373"/>
+        </scene>
+        <!--map-->
+        <scene sceneID="VDe-hV-Uhz">
+            <objects>
+                <controller identifier="mapController" title="map" id="FaY-nq-qI9" customClass="MapController" customModule="HoelangTotTrein_WatchKit_Extension">
+                    <items>
+                        <group alignment="left" layout="vertical" id="Y5x-bT-XUj">
+                            <items>
+                                <map height="100" alignment="left" id="3Gq-Ep-ytd"/>
+                                <timer alignment="center" textAlignment="center" id="AZP-a3-796">
+                                    <color key="textColor" red="0.32549019610000002" green="0.84705882349999995" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="27"/>
+                                    <calendarUnit key="units" minute="YES" second="YES"/>
+                                </timer>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="map" destination="3Gq-Ep-ytd" id="sYH-aa-bBI"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="464" y="374.25"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="BOz-TT-tkC">
@@ -67,7 +97,7 @@
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
                 </glanceController>
             </objects>
-            <point key="canvasLocation" x="235" y="672"/>
+            <point key="canvasLocation" x="222" y="673"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -83,7 +113,7 @@
                     </connections>
                 </notificationController>
             </objects>
-            <point key="canvasLocation" x="235" y="1001"/>
+            <point key="canvasLocation" x="222" y="1001"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="KIl-fV-djm">

@@ -34,7 +34,6 @@ struct Stop {
 struct ReisDeel {
   let vervoerder:String
   let stops:Array<Stop>
-  
   let vervoerType:String
   
   func getRegion() -> CLRegion {
@@ -129,7 +128,7 @@ class Advice: NSObject, NSCoding, Hashable {
         let data = obj as [AnyObject]
         return Stop(time: data[0] as? NSDate, spoor: data[1] as? String, name: data[2] as? String ?? "")
       }
-      return ReisDeel(vervoerder: data[0] as String, stops: stops, vervoerType: data[2] as String)
+      return ReisDeel(vervoerder: data[0] as String, stops: stops, vervoerType: data[2] as? String ?? "")
     }
     
     vertrekVertraging = aDecoder.decodeObjectForKey("vertrekVertraging") as? String ?? ""

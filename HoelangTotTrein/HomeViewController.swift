@@ -67,6 +67,9 @@ class HomeViewController: UIViewController {
     
     activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
     
+    fromButton.titleLabel?.adjustsFontSizeToFitWidth = true
+    toButton.titleLabel?.adjustsFontSizeToFitWidth = true
+    
     TreinTicker.sharedInstance.adviceChangedHandler = { [weak self] (advice) in
       self?.reload()
       return;

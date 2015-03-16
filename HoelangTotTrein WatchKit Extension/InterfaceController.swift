@@ -52,6 +52,7 @@ class InterfaceController: WKInterfaceController {
     treinTicker.start()
     
     NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("userDefaultsDidChange"), name:NSUserDefaultsDidChangeNotification, object: nil)
+
     
     super.willActivate()
   }
@@ -69,9 +70,10 @@ class InterfaceController: WKInterfaceController {
       }
       timer.start()
     }
-    fromButton.setTitle((treinTicker.from?.name.lang ?? "" ) + " - " + treinTicker.currentAdivce.vertrek.getFormattedString())
-    toButton.setTitle((treinTicker.to?.name.lang ?? "") + " - " + treinTicker.currentAdivce.aankomst.getFormattedString())
-    spoorLabel.setText(treinTicker.currentAdivce.fromPlatform ?? "")
+    
+    fromButton.setTitle((treinTicker.from?.name.lang ?? "" ) + " - " + treinTicker.currentAdivce!.vertrek.getFormattedString() ?? "")
+    toButton.setTitle((treinTicker.to?.name.lang ?? "") + " - " + treinTicker.currentAdivce!.aankomst.getFormattedString() ?? "")
+    spoorLabel.setText(treinTicker.currentAdivce!.fromPlatform ?? "")
   }
   
   @IBAction func fromTapped() {
@@ -88,5 +90,6 @@ class InterfaceController: WKInterfaceController {
     NSNotificationCenter.defaultCenter().removeObserver(self, name: NSUserDefaultsDidChangeNotification, object: nil)
     super.didDeactivate()
   }
+  
   
 }
