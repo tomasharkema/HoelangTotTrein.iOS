@@ -27,7 +27,7 @@ class MapController : WKInterfaceController, CLLocationManagerDelegate {
   
   override func willActivate() {
     super.willActivate()
-    let from = TreinTicker.sharedExtensionInstance.from.getLocation()
+    let from = TreinTicker.sharedExtensionInstance.from?.getLocation()
   }
   
   func regionForLocations(locations:[CLLocationCoordinate2D]) -> MKCoordinateRegion {
@@ -59,13 +59,14 @@ class MapController : WKInterfaceController, CLLocationManagerDelegate {
 //    map.removeAllAnnotations()
     
     let currentLocation = location.coordinate
-    let travelToLocation = TreinTicker.sharedExtensionInstance.from.getLocation().coordinate
+    if let travelToLocation = TreinTicker.sharedExtensionInstance.from?.getLocation().coordinate {
     
-    let rect = regionForLocations([currentLocation, travelToLocation])
-    
-    map.setRegion(rect)
-    map.addAnnotation(currentLocation, withPinColor: .Green)
-    map.addAnnotation(travelToLocation, withPinColor: .Red)
+      let rect = regionForLocations([currentLocation, travelToLocation])
+      
+      map.setRegion(rect)
+      map.addAnnotation(currentLocation, withPinColor: .Green)
+      map.addAnnotation(travelToLocation, withPinColor: .Red)
+    }
   }
   
   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {

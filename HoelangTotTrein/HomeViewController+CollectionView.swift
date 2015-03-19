@@ -135,25 +135,34 @@ class AdviceCollectionviewCell : UICollectionViewCell, UITableViewDataSource, UI
     }
   }
   
-  @IBOutlet weak var timeToGoLabel: UILabel!
+  @IBOutlet weak var minutesToGoLabel: UILabel!
+  @IBOutlet weak var secondsToGoLabel: UILabel!
   @IBOutlet weak var spoor: UILabel!
   @IBOutlet weak var to: UILabel!
   @IBOutlet weak var from: UILabel!
+  
+  @IBOutlet weak var fromTime: UILabel!
+  @IBOutlet weak var toTime: UILabel!
+  
   @IBOutlet weak var vertagingLabel: UILabel!
   @IBOutlet weak var adviceDetailTableView: UITableView!
   
   var advice: Advice? {
     didSet {
-
-      timeToGoLabel.text = advice?.vertrek.actual.toMMSSFromNow().string()
+      minutesToGoLabel.text = advice?.vertrek.actual.toMMSSFromNow().minute
+      secondsToGoLabel.text = advice?.vertrek.actual.toMMSSFromNow().second
+      
       spoor.text = advice?.fromPlatform ?? ""
       
       if let a = advice {
         let fromTime = a.vertrek.getFormattedString()
         let toTime = a.aankomst.getFormattedString()
-        from.text = "\(a.firstStop()!.name) - \(fromTime)"
-        to.text = "\(a.lastStop()!.name) - \(toTime)"
-    
+        from.text = "\(a.firstStop()!.name)"
+        to.text = "\(a.lastStop()!.name)"
+        
+        self.toTime.text = toTime
+        self.fromTime.text = fromTime
+        
         adviceDetailTableView.delegate = self
         adviceDetailTableView.dataSource = self
         adviceDetailTableView.backgroundView = nil
@@ -184,8 +193,23 @@ class AdviceCollectionviewCell : UICollectionViewCell, UITableViewDataSource, UI
   }
   
   func updateUI() {
-    timeToGoLabel.text = advice?.vertrek.actual.toMMSSFromNow().string()
-    timeToGoLabel.textColor = self.advice?.vertrek.actual.timeIntervalSinceNow < 60 ? UIColor.redThemeColor() : UIColor.whiteColor()
+    let endDate = advice?.vertrek.actual ?? NSDate()
+    if endDate.timeIntervalSinceNow < 60 {
+      minutesToGoLabel.text = endDate.toMMSSFromNow().second
+      secondsToGoLabel.text = ""
+      minutesToGoLabel.textColor = UIColor.redThemeColor()
+    } else {
+      
+      var hourString = ""
+      if let hour = endDate.toMMSSFromNow().hour {
+        hourString = hour == "0" ? "" : hour + ":"
+      }
+      
+      minutesToGoLabel.text = hourString + "" + endDate.toMMSSFromNow().minute
+      secondsToGoLabel.text = endDate.toMMSSFromNow().second
+      secondsToGoLabel.textColor = UIColor.whiteColor()
+      minutesToGoLabel.textColor = UIColor.whiteColor()
+    }
   }
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -194,12 +218,13 @@ class AdviceCollectionviewCell : UICollectionViewCell, UITableViewDataSource, UI
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     let count = advice?.reisDeel.count ?? 0
-    return count == 1 ? 0 : count
+    return count + 1
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     var cell:LegDetailCell = tableView.dequeueReusableCellWithIdentifier("legCell") as LegDetailCell
-    cell.reisDeel = advice?.reisDeel[indexPath.row]
+    cell.stop = advice?.reisDeel.count == indexPath.row ? advice?.reisDeel[indexPath.row-1].stops.last : advice?.reisDeel[indexPath.row].stops.first
+    cell.isTussenstop = !(indexPath.row == 0 || advice?.reisDeel.count == indexPath.row)
     cell.backgroundColor = UIColor.clearColor()
     cell.backgroundView = nil
     return cell
@@ -210,10 +235,10 @@ class AdviceCollectionviewCell : UICollectionViewCell, UITableViewDataSource, UI
 class LegDetailCell : UITableViewCell {
   
   @IBOutlet weak var fromStation: UILabel!
-  @IBOutlet weak var toStation: UILabel!
-  @IBOutlet weak var toPlatform: UILabel!
   @IBOutlet weak var fromPlatform: UILabel!
-  @IBOutlet weak var trainType: UILabel!
+  @IBOutlet weak var fromTime: UILabel!
+  
+  @IBOutlet weak var fromStationLeftMargin: NSLayoutConstraint!
   
   required init(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -222,32 +247,27 @@ class LegDetailCell : UITableViewCell {
     backgroundColor = UIColor.clearColor()
   }
   
-  var reisDeel:ReisDeel? {
+  var isTussenstop:Bool = false {
     didSet {
-      if let deel = reisDeel {
-        let from = deel.stops.first
-        let to = deel.stops.last
-        
-        fromStation.text = from?.name ?? ""
-        fromPlatform.text = from?.spoor
-        
-        toStation.text = to?.name
-        toPlatform.text = to?.spoor
-        
-        var vervoerType = ""
-        println(deel.vervoerType)
-        if deel.vervoerType == "Sprinter" {
-          vervoerType = "SPR"
-        } else if deel.vervoerType == "Intercity" {
-          vervoerType = "IC"
-        } else if deel.vervoerType == "Intercity direct" {
-          vervoerType = "ICD"
-        } else if deel.vervoerType == "Thalys" {
-          vervoerType = "TLY"
-        }
-        
-        trainType.text = vervoerType
-      }
+      updateUI()
+    }
+  }
+  
+  var stop:Stop? {
+    didSet {
+      updateUI()
+    }
+  }
+  
+  func updateUI() {
+    if let stop = stop {
+      fromStation.text = stop.name ?? ""
+      fromPlatform.text = stop.spoor
+      fromTime.text = stop.time?.toHHMM().string()
+      
+      fromTime.textColor = isTussenstop ? UIColor.grayColor() : UIColor.lightGreyColor()
+      fromStation.textColor = isTussenstop ? UIColor.grayColor() : UIColor.whiteColor()
+      fromStationLeftMargin.constant = isTussenstop ? 26 : 16
     }
   }
 }

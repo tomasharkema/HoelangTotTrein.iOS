@@ -29,7 +29,7 @@ extension TreinTicker {
   
   func bumpTo() {
     let mostUsed = MostUsed.getListByVisited().slice(10).filter {
-      return $0.code != self.from.code
+      return $0.code != self.from?.code
     }
     
     if mostUsed.count == 0 {

@@ -16,6 +16,7 @@ let OriginalFromKey = "OriginalFromKey"
 let CurrentAdvice = "CurrentAdvice"
 let Advices = "Advices"
 let AdviceOffset = "AdviceOffset"
+let LastOpenedKey = "LastOpenedKey"
 
 let UserDefaults = NSUserDefaults(suiteName: "group.tomas.hltt")!
 let CloudUserService = NSUbiquitousKeyValueStore.defaultStore()
@@ -141,6 +142,15 @@ extension NSUserDefaults {
       
         CloudUserService.setDouble(newValue!.timeIntervalSince1970, forKey: AdviceOffset);
       }
+    }
+  }
+  
+  var lastOpened:NSDate {
+    get {
+      return NSDate(timeIntervalSince1970: doubleForKey(LastOpenedKey))
+    }
+    set {
+      setDouble(newValue.timeIntervalSince1970, forKey: LastOpenedKey)
     }
   }
   

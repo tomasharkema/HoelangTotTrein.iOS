@@ -41,7 +41,7 @@ class HomeViewController: UIViewController {
   
   private var selectionState:StationType = .From {
     didSet {
-      if let i:Int = find(TreinTicker.sharedInstance.stations, selectionState == .From ? TreinTicker.sharedInstance.from : TreinTicker.sharedInstance.to) {
+      if let i:Int = find(TreinTicker.sharedInstance.stations, selectionState == .From ? TreinTicker.sharedInstance.from! : TreinTicker.sharedInstance.to!) {
         let station:Station = TreinTicker.sharedInstance.stations[i]
         self.pick(station)
         selectRow()
@@ -50,7 +50,7 @@ class HomeViewController: UIViewController {
   }
   
   private func selectRow() {
-    if let i = find(TreinTicker.sharedInstance.stations, selectionState == .From ? TreinTicker.sharedInstance.from : TreinTicker.sharedInstance.to!) {
+    if let i = find(TreinTicker.sharedInstance.stations, selectionState == .From ? TreinTicker.sharedInstance.from! : TreinTicker.sharedInstance.to!) {
       //stationPicker.selectRow(i, inComponent: 0, animated: true)
     }
   }
@@ -69,6 +69,11 @@ class HomeViewController: UIViewController {
     
     fromButton.titleLabel?.adjustsFontSizeToFitWidth = true
     toButton.titleLabel?.adjustsFontSizeToFitWidth = true
+    
+    NSNotificationCenter.defaultCenter().addObserverForName(NSUserDefaultsDidChangeNotification, object: nil, queue: NSOperationQueue.mainQueue()) { [weak self] _ in
+      self?.reload()
+      return;
+    }
     
     TreinTicker.sharedInstance.adviceChangedHandler = { [weak self] (advice) in
       self?.reload()
@@ -89,7 +94,7 @@ class HomeViewController: UIViewController {
     headerView.updateConstraints()
     
     if blurView == nil {
-      let effect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+      let effect = UIBlurEffect(style: .Dark)
       let blurView = UIVisualEffectView(effect: effect)
       var frame = headerView.frame
       frame.size.width = view.frame.width
@@ -135,6 +140,10 @@ class HomeViewController: UIViewController {
       TreinTicker.sharedInstance.switchAdviceRequest()
       TreinTicker.sharedInstance.saveOriginalFrom()
     }
+  }
+  
+  @IBAction func pageControllerTouched(sender: AnyObject) {
+    advicesCollectionView.scrollToItemAtIndexPath(NSIndexPath(forRow: (sender as UIPageControl).currentPage, inSection: 0), atScrollPosition: .CenteredVertically, animated: true)
   }
   
   override func preferredStatusBarStyle() -> UIStatusBarStyle {

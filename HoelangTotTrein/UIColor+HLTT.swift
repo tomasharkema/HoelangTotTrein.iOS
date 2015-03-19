@@ -13,6 +13,10 @@ extension UIColor {
     class func primaryGreyColor() -> UIColor {
         return UIColor.blackColor()
     }
+  
+    class func lightGreyColor() -> UIColor {
+        return UIColor(red: 200/255.0, green: 200/255.0, blue: 200/255.0, alpha: 1)
+    }
     
     class func secundairGreyColor() -> UIColor {
         return UIColor(red: 120/255.0, green: 120/255.0, blue: 120/255.0, alpha: 1)

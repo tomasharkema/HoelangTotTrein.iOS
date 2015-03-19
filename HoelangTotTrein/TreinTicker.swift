@@ -197,17 +197,19 @@ class TreinTicker: NSObject {
   }
   
   private var _from:Station?
-  var from:Station! {
+  var from:Station? {
     set {
-      _from = newValue
-      UserDefaults.from = newValue.code
-      if (newValue != nil && to != nil && fromToChanged != nil) {
-        adviceRequest = AdviceRequest(from: newValue, to: to)
-        dispatch_async(dispatch_get_main_queue()) {
-          self.fromToChanged(from: newValue, to: self.to)
+      if let from = newValue {
+        _from = from
+        UserDefaults.from = from.code
+        if (to != nil && fromToChanged != nil) {
+          adviceRequest = AdviceRequest(from: from, to: to!)
+          dispatch_async(dispatch_get_main_queue()) {
+            self.fromToChanged(from: from, to: self.to)
+          }
         }
+        MostUsed.addStation(from)
       }
-      MostUsed.addStation(newValue)
     }
     get {
       if _from == nil || _from != UserDefaults.from {
@@ -221,19 +223,21 @@ class TreinTicker: NSObject {
   }
   
   private var _to:Station?
-  var to:Station! {
+  var to:Station? {
     set {
-      _to = newValue
-      UserDefaults.to = newValue.code
-      if (from != nil && newValue != nil && fromToChanged != nil) {
-        adviceRequest = AdviceRequest(from: from, to: newValue)
-        
-        dispatch_async(dispatch_get_main_queue()) {
-          self.fromToChanged(from: self.from, to: newValue)
+      if let to = newValue {
+        _to = newValue
+        UserDefaults.to = to.code
+        if (from != nil && fromToChanged != nil) {
+          adviceRequest = AdviceRequest(from: from!, to: to)
+          
+          dispatch_async(dispatch_get_main_queue()) {
+            self.fromToChanged(from: self.from, to: to)
+          }
         }
+        
+        MostUsed.addStation(to)
       }
-      
-      MostUsed.addStation(newValue)
     }
     get {
       if _to == nil || _to!.code != UserDefaults.to {
@@ -248,9 +252,11 @@ class TreinTicker: NSObject {
   }
   
   func setInitialState() {
-    adviceRequest = AdviceRequest(from: from, to: to)
-    if let cb = fromToChanged {
-      cb(from: from, to: to)
+    if from != nil && to != nil {
+    adviceRequest = AdviceRequest(from: from!, to: to!)
+      if let cb = fromToChanged {
+        cb(from: from, to: to)
+      }
     }
   }
   

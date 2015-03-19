@@ -45,13 +45,13 @@ struct ReisDeel {
 }
 
 enum Status : String {
-  case NoStatus = "nostatus"
+  case NoStatus = "NO-STATUS"
   case VolgensPlan = "VOLGENS-PLAN"
   case NietMogelijk = "NIET-MOGELIJK"
   case Vertraagd = "VERTRAAGD"
   case Gewijzigd = "GEWIJZIGD"
   case Nieuw = "NIEUW"
-  case PlanGewijzigd = "PLAN-GEWIJZIGD"
+  case PlanGewijzigd = "PLAN-GEWIJZGD"
   case NietOptimaal = "NIET-OPTIMAAL"
 }
 
@@ -106,11 +106,7 @@ class Advice: NSObject, NSCoding, Hashable {
       vertrekVertraging = vertraging.stringValue
     }
     
-    if let status = obj["Status"] {
-      self.status = Status(rawValue: status.stringValue)!
-    } else {
-      self.status = .NoStatus
-    }
+    self.status = Status(rawValue: obj["Status"]?.stringValue ?? "NO-STATUS") ?? Status.NoStatus
   }
   
   required init(coder aDecoder: NSCoder) {
@@ -197,7 +193,7 @@ class Advice: NSObject, NSCoding, Hashable {
         var firstStop = deel.stops.first
         var lastStop = deel.stops.last
         
-        return str + "\(firstStop!.name) (\(firstStop!.spoor!))\n"
+        return str + "\(firstStop!.name) (\(firstStop?.spoor))\n"
       })
     } else {
       return ""
