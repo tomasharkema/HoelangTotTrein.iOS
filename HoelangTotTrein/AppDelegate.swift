@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       NewRelic.startWithApplicationToken("AA37eca143a6cbc43c025498e41838d785d5666a06")
       
       // Override point for customization after application launch
-      application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert | UIUserNotificationType.Badge, categories: nil))
+      application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Sound | .Alert | .Badge, categories: nil))
       
       NSNotificationCenter.defaultCenter().addObserverForName(NSUbiquitousKeyValueStoreDidChangeExternallyNotification, object: NSUbiquitousKeyValueStore.defaultStore(), queue: NSOperationQueue.mainQueue()) { (notification) in
         let ubiquitousKeyValueStore = notification.object as NSUbiquitousKeyValueStore
@@ -29,8 +29,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       }
       
       NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("showNotification:"), name: "showNotification", object: nil)
-    
-      TreinTicker.sharedInstance.fromCurrentLocation()
+      let lastOpened = UserDefaults.lastOpened
+      
+      println("Last opened: \(lastOpened.timeIntervalSinceDate(NSDate()))")
+      if lastOpened.timeIntervalSinceDate(NSDate()) < -(60*60*4) {
+        TreinTicker.sharedInstance.fromCurrentLocation()
+      }
+      
+      UserDefaults.lastOpened = NSDate()
       return true
     }
 
@@ -53,7 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
       TreinTicker.sharedInstance.start()
-      TreinTicker.sharedInstance.fromCurrentLocation()
     }
 
     func applicationDidBecomeActive(application: UIApplication) {

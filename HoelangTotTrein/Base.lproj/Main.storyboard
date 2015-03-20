@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D98g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oWt-5Q-I8W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D105g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oWt-5Q-I8W">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -8,10 +8,9 @@
     <customFonts key="customFonts">
         <mutableArray key="Aktiv-Light.otf">
             <string>AktivGrotesk-Hairline</string>
+            <string>AktivGrotesk-Hairline</string>
         </mutableArray>
         <mutableArray key="Aktiv-Thin.otf">
-            <string>AktivGrotesk-Light</string>
-            <string>AktivGrotesk-Light</string>
             <string>AktivGrotesk-Light</string>
             <string>AktivGrotesk-Light</string>
             <string>AktivGrotesk-Light</string>
@@ -64,46 +63,80 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="588" height="598"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sji-sN-jPE">
-                                                            <rect key="frame" x="286" y="218" width="17" height="35"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sji-sN-jPE">
+                                                            <rect key="frame" x="285" y="208" width="18" height="34"/>
                                                             <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="30"/>
+                                                            <color key="textColor" red="0.82352941176470584" green="0.82352941176470584" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-vu-ncM">
+                                                            <rect key="frame" x="275" y="366" width="39.5" height="19.5"/>
+                                                            <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
                                                             <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GeW-Cx-8vh">
-                                                            <rect key="frame" x="194" y="253" width="201" height="94"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="70" id="MeB-YS-CYn"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" name="AktivGrotesk-Hairline" family="Aktiv Grotesk" pointSize="80"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14:42" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mR-pa-MF0">
+                                                            <rect key="frame" x="16" y="366" width="44" height="19.5"/>
+                                                            <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
+                                                            <color key="textColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tv4-RH-FIf">
+                                                            <rect key="frame" x="222" y="258" width="143" height="82"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PbI-8L-lBa">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="107" height="82"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="82" id="2DV-kw-2ki"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="AktivGrotesk-Hairline" family="Aktiv Grotesk" pointSize="90"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="42" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZY-AM-bPZ">
+                                                                    <rect key="frame" x="107" y="0.0" width="36" height="38"/>
+                                                                    <fontDescription key="fontDescription" name="AktivGrotesk-Hairline" family="Aktiv Grotesk" pointSize="30"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="PbI-8L-lBa" firstAttribute="top" secondItem="tv4-RH-FIf" secondAttribute="top" id="0QB-uN-ATO"/>
+                                                                <constraint firstItem="lZY-AM-bPZ" firstAttribute="leading" secondItem="PbI-8L-lBa" secondAttribute="trailing" id="9hE-a1-kB7"/>
+                                                                <constraint firstItem="lZY-AM-bPZ" firstAttribute="top" secondItem="tv4-RH-FIf" secondAttribute="top" id="R66-QM-WT6"/>
+                                                                <constraint firstAttribute="trailing" secondItem="lZY-AM-bPZ" secondAttribute="trailing" id="RMy-BY-aW9"/>
+                                                                <constraint firstItem="PbI-8L-lBa" firstAttribute="leading" secondItem="tv4-RH-FIf" secondAttribute="leading" id="Uck-Fz-88T"/>
+                                                                <constraint firstItem="lZY-AM-bPZ" firstAttribute="top" secondItem="tv4-RH-FIf" secondAttribute="top" id="cfc-Ft-fbD"/>
+                                                                <constraint firstAttribute="bottom" secondItem="PbI-8L-lBa" secondAttribute="bottom" id="eDN-xl-5Qu"/>
+                                                                <constraint firstAttribute="bottom" secondItem="lZY-AM-bPZ" secondAttribute="bottom" constant="8" id="h61-Lx-dY9"/>
+                                                            </constraints>
                                                             <variation key="default">
                                                                 <mask key="constraints">
-                                                                    <exclude reference="MeB-YS-CYn"/>
+                                                                    <exclude reference="R66-QM-WT6"/>
+                                                                    <exclude reference="h61-Lx-dY9"/>
                                                                 </mask>
                                                             </variation>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="From" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-vu-ncM">
-                                                            <rect key="frame" x="274" y="190" width="40" height="20"/>
+                                                        </view>
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2m-fH-Zcv">
+                                                            <rect key="frame" x="285" y="387" width="18" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
                                                             <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="To" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2m-fH-Zcv">
-                                                            <rect key="frame" x="285" y="347" width="18" height="31"/>
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:42" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f43-kc-j50">
+                                                            <rect key="frame" x="16" y="387" width="44" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
                                                             <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="+ 3 min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTm-f0-VEC">
-                                                            <rect key="frame" x="8" y="289" width="61" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 3 min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTm-f0-VEC">
+                                                            <rect key="frame" x="8" y="289" width="58.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="18"/>
                                                             <color key="textColor" red="1" green="0.42745098040000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="25" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="g5X-iN-mDp">
-                                                            <rect key="frame" x="8" y="386" width="572" height="204"/>
+                                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="25" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="g5X-iN-mDp">
+                                                            <rect key="frame" x="8" y="380" width="564" height="210"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="204" id="JnM-7R-PPq"/>
@@ -117,92 +150,72 @@
                                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bBk-BX-VZh" id="gaZ-aW-kJS">
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Koog Bloemwijk" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X32-Wm-7Rk">
-                                                                                <rect key="frame" x="8" y="14" width="218" height="16"/>
-                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="13"/>
-                                                                                <color key="textColor" red="0.64172170510000004" green="0.63824700320000005" blue="0.69894139" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Koog Bloemwijk" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S6r-CB-CTV">
-                                                                                <rect key="frame" x="319" y="14" width="214" height="16"/>
-                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="13"/>
-                                                                                <color key="textColor" red="0.64172170510000004" green="0.63824700320000005" blue="0.69894139" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Koog Bloemwijk" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X32-Wm-7Rk">
+                                                                                <rect key="frame" x="60" y="3" width="120" height="19.5"/>
+                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
+                                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="7-8" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBX-Gu-PgZ">
-                                                                                <rect key="frame" x="541" y="14" width="23" height="16"/>
+                                                                                <rect key="frame" x="536.5" y="3" width="27" height="19.5"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="20" id="gi6-iU-Heg"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="13"/>
+                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
+                                                                                <variation key="default">
+                                                                                    <mask key="constraints">
+                                                                                        <exclude reference="gi6-iU-Heg"/>
+                                                                                    </mask>
+                                                                                </variation>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="2a" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbC-CA-erq">
-                                                                                <rect key="frame" x="234" y="14" width="20" height="16"/>
-                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="13"/>
-                                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&gt;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECC-gY-PIk">
-                                                                                <rect key="frame" x="262" y="14" width="7" height="16"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:42" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRb-Vf-UC2">
+                                                                                <rect key="frame" x="8" y="2.5" width="44" height="19.5"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="width" constant="7" id="BUm-Sr-aCB"/>
+                                                                                    <constraint firstAttribute="width" constant="20" id="73w-Ll-mgO"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="13"/>
-                                                                                <color key="textColor" red="0.64172170510000004" green="0.63824700320000005" blue="0.69894139" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
+                                                                                <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SPR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxZ-Sg-MwT">
-                                                                                <rect key="frame" x="269" y="14" width="35" height="16"/>
-                                                                                <constraints>
-                                                                                    <constraint firstAttribute="width" constant="35" id="jel-L8-UYm"/>
-                                                                                </constraints>
-                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="13"/>
-                                                                                <color key="textColor" red="0.64172170510000004" green="0.63824700320000005" blue="0.69894139" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&gt;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wy4-nk-5B3">
-                                                                                <rect key="frame" x="304" y="14" width="7" height="16"/>
-                                                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="13"/>
-                                                                                <color key="textColor" red="0.64172170506931703" green="0.63824700319385108" blue="0.69894139000297084" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                <nil key="highlightedColor"/>
+                                                                                <variation key="default">
+                                                                                    <mask key="constraints">
+                                                                                        <exclude reference="73w-Ll-mgO"/>
+                                                                                    </mask>
+                                                                                </variation>
                                                                             </label>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <constraints>
-                                                                            <constraint firstItem="wy4-nk-5B3" firstAttribute="leading" secondItem="zxZ-Sg-MwT" secondAttribute="trailing" id="2dt-i4-xHZ"/>
                                                                             <constraint firstAttribute="centerY" secondItem="SBX-Gu-PgZ" secondAttribute="centerY" id="6nd-dx-Ufy"/>
                                                                             <constraint firstAttribute="trailingMargin" secondItem="SBX-Gu-PgZ" secondAttribute="trailing" id="9qx-gn-uzS"/>
+                                                                            <constraint firstAttribute="centerY" secondItem="SBX-Gu-PgZ" secondAttribute="centerY" id="At2-8o-xJV"/>
                                                                             <constraint firstItem="X32-Wm-7Rk" firstAttribute="leading" secondItem="gaZ-aW-kJS" secondAttribute="leading" constant="8" id="Bsh-J4-mNa"/>
-                                                                            <constraint firstAttribute="centerY" secondItem="ECC-gY-PIk" secondAttribute="centerY" id="DNZ-8X-ZrY"/>
-                                                                            <constraint firstItem="ECC-gY-PIk" firstAttribute="width" secondItem="wy4-nk-5B3" secondAttribute="width" id="DPc-UC-cSu"/>
-                                                                            <constraint firstItem="S6r-CB-CTV" firstAttribute="leading" secondItem="wy4-nk-5B3" secondAttribute="trailing" constant="8" id="De6-aG-Jxo"/>
-                                                                            <constraint firstItem="zxZ-Sg-MwT" firstAttribute="leading" secondItem="ECC-gY-PIk" secondAttribute="trailing" id="Q1Z-fa-cpg"/>
-                                                                            <constraint firstItem="ECC-gY-PIk" firstAttribute="leading" secondItem="tbC-CA-erq" secondAttribute="trailing" constant="8" id="Rmm-d9-qzn"/>
-                                                                            <constraint firstItem="tbC-CA-erq" firstAttribute="width" secondItem="SBX-Gu-PgZ" secondAttribute="width" id="cTL-YU-ReE"/>
-                                                                            <constraint firstItem="tbC-CA-erq" firstAttribute="leading" secondItem="X32-Wm-7Rk" secondAttribute="trailing" constant="8" id="f5L-xc-mnQ"/>
+                                                                            <constraint firstAttribute="centerY" secondItem="X32-Wm-7Rk" secondAttribute="centerY" id="EdA-cx-fag"/>
+                                                                            <constraint firstAttribute="centerX" secondItem="X32-Wm-7Rk" secondAttribute="centerX" id="EiV-B2-y2c"/>
+                                                                            <constraint firstItem="zRb-Vf-UC2" firstAttribute="leading" secondItem="gaZ-aW-kJS" secondAttribute="leadingMargin" id="dgA-pj-9AH"/>
+                                                                            <constraint firstItem="SBX-Gu-PgZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="X32-Wm-7Rk" secondAttribute="trailing" id="fR7-mW-F0M"/>
                                                                             <constraint firstAttribute="centerY" secondItem="X32-Wm-7Rk" secondAttribute="centerY" id="fSa-AS-kIe"/>
-                                                                            <constraint firstAttribute="centerY" secondItem="zxZ-Sg-MwT" secondAttribute="centerY" id="hRl-NZ-25o"/>
-                                                                            <constraint firstAttribute="centerY" secondItem="wy4-nk-5B3" secondAttribute="centerY" id="hrP-if-1ma"/>
-                                                                            <constraint firstItem="SBX-Gu-PgZ" firstAttribute="leading" secondItem="S6r-CB-CTV" secondAttribute="trailing" id="hyj-1F-sKk"/>
-                                                                            <constraint firstAttribute="centerY" secondItem="tbC-CA-erq" secondAttribute="centerY" id="nhg-PH-XO9"/>
-                                                                            <constraint firstAttribute="centerY" secondItem="S6r-CB-CTV" secondAttribute="centerY" id="vLw-wZ-F3I"/>
-                                                                            <constraint firstAttribute="centerX" secondItem="zxZ-Sg-MwT" secondAttribute="centerX" id="yjN-2n-i6y"/>
+                                                                            <constraint firstItem="SBX-Gu-PgZ" firstAttribute="trailing" secondItem="gaZ-aW-kJS" secondAttribute="trailingMargin" id="nis-eW-TmL"/>
+                                                                            <constraint firstItem="X32-Wm-7Rk" firstAttribute="leading" secondItem="zRb-Vf-UC2" secondAttribute="trailing" constant="8" id="ppi-K6-CsM"/>
+                                                                            <constraint firstAttribute="centerY" secondItem="zRb-Vf-UC2" secondAttribute="centerY" id="zKv-tv-sov"/>
                                                                         </constraints>
                                                                         <variation key="default">
                                                                             <mask key="constraints">
-                                                                                <exclude reference="cTL-YU-ReE"/>
+                                                                                <exclude reference="Bsh-J4-mNa"/>
+                                                                                <exclude reference="EiV-B2-y2c"/>
+                                                                                <exclude reference="fSa-AS-kIe"/>
+                                                                                <exclude reference="6nd-dx-Ufy"/>
+                                                                                <exclude reference="9qx-gn-uzS"/>
                                                                             </mask>
                                                                         </variation>
                                                                     </tableViewCellContentView>
                                                                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <connections>
-                                                                        <outlet property="fromPlatform" destination="tbC-CA-erq" id="PVy-z1-z09"/>
+                                                                        <outlet property="fromPlatform" destination="SBX-Gu-PgZ" id="2Fj-EF-hgu"/>
                                                                         <outlet property="fromStation" destination="X32-Wm-7Rk" id="LjV-bP-hhy"/>
-                                                                        <outlet property="toPlatform" destination="SBX-Gu-PgZ" id="AOv-Aj-mXp"/>
-                                                                        <outlet property="toStation" destination="S6r-CB-CTV" id="taa-Be-N2U"/>
-                                                                        <outlet property="trainType" destination="zxZ-Sg-MwT" id="DdG-Yz-Zwv"/>
+                                                                        <outlet property="fromStationLeftMargin" destination="ppi-K6-CsM" id="IjU-gy-jnx"/>
+                                                                        <outlet property="fromTime" destination="zRb-Vf-UC2" id="giN-OH-cZo"/>
                                                                     </connections>
                                                                 </tableViewCell>
                                                             </prototypes>
@@ -216,49 +229,57 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <constraints>
-                                                    <constraint firstItem="u2m-fH-Zcv" firstAttribute="top" secondItem="GeW-Cx-8vh" secondAttribute="bottom" id="0Zt-YI-KeT"/>
-                                                    <constraint firstAttribute="centerY" secondItem="GeW-Cx-8vh" secondAttribute="centerY" id="6iM-IE-hUe"/>
+                                                    <constraint firstItem="g5X-iN-mDp" firstAttribute="top" secondItem="tv4-RH-FIf" secondAttribute="bottom" constant="40" id="28q-1V-s4I"/>
+                                                    <constraint firstItem="u2m-fH-Zcv" firstAttribute="top" secondItem="tv4-RH-FIf" secondAttribute="bottom" constant="22" id="3aG-qO-gpz"/>
                                                     <constraint firstAttribute="centerX" secondItem="u2m-fH-Zcv" secondAttribute="centerX" id="7JP-j3-Rtr"/>
                                                     <constraint firstItem="g5X-iN-mDp" firstAttribute="top" secondItem="u2m-fH-Zcv" secondAttribute="bottom" constant="30" id="8Z7-nE-T8k"/>
+                                                    <constraint firstItem="tv4-RH-FIf" firstAttribute="top" secondItem="sji-sN-jPE" secondAttribute="bottom" constant="16" id="8kQ-5v-E3p"/>
                                                     <constraint firstItem="g5X-iN-mDp" firstAttribute="bottom" secondItem="hlB-1k-3YJ" secondAttribute="bottomMargin" id="GVs-xZ-tVu"/>
                                                     <constraint firstItem="sji-sN-jPE" firstAttribute="top" secondItem="gaH-vu-ncM" secondAttribute="bottom" constant="8" id="Ht4-2w-oAM"/>
-                                                    <constraint firstItem="g5X-iN-mDp" firstAttribute="trailing" secondItem="hlB-1k-3YJ" secondAttribute="trailingMargin" id="HvE-W8-5wX"/>
+                                                    <constraint firstItem="g5X-iN-mDp" firstAttribute="trailing" secondItem="hlB-1k-3YJ" secondAttribute="trailingMargin" constant="-8" id="HvE-W8-5wX"/>
+                                                    <constraint firstItem="9mR-pa-MF0" firstAttribute="bottom" secondItem="gaH-vu-ncM" secondAttribute="bottom" id="LRw-Dc-GYt"/>
+                                                    <constraint firstItem="9mR-pa-MF0" firstAttribute="top" secondItem="gaH-vu-ncM" secondAttribute="top" id="SWi-aC-OZE"/>
+                                                    <constraint firstItem="9mR-pa-MF0" firstAttribute="leading" secondItem="hlB-1k-3YJ" secondAttribute="leadingMargin" constant="8" id="SkM-6M-32x"/>
+                                                    <constraint firstItem="u2m-fH-Zcv" firstAttribute="bottom" secondItem="f43-kc-j50" secondAttribute="bottom" id="UfW-Kp-Lia"/>
                                                     <constraint firstAttribute="centerX" secondItem="sji-sN-jPE" secondAttribute="centerX" id="V1q-D3-hYw"/>
+                                                    <constraint firstAttribute="centerY" secondItem="tv4-RH-FIf" secondAttribute="centerY" id="V2X-Nw-E6B"/>
+                                                    <constraint firstItem="gaH-vu-ncM" firstAttribute="top" secondItem="tv4-RH-FIf" secondAttribute="bottom" constant="26" id="YZ6-Nv-j88"/>
                                                     <constraint firstAttribute="centerX" secondItem="gaH-vu-ncM" secondAttribute="centerX" id="aCN-Xd-rLM"/>
+                                                    <constraint firstItem="u2m-fH-Zcv" firstAttribute="top" secondItem="f43-kc-j50" secondAttribute="top" id="f7N-RO-a1y"/>
+                                                    <constraint firstAttribute="centerX" secondItem="tv4-RH-FIf" secondAttribute="centerX" id="fwg-4S-cDo"/>
+                                                    <constraint firstItem="u2m-fH-Zcv" firstAttribute="top" secondItem="gaH-vu-ncM" secondAttribute="bottom" constant="2" id="h3B-bK-du6"/>
                                                     <constraint firstAttribute="centerY" secondItem="RTm-f0-VEC" secondAttribute="centerY" id="iPy-P1-zTk"/>
-                                                    <constraint firstAttribute="centerX" secondItem="GeW-Cx-8vh" secondAttribute="centerX" id="pqO-vZ-QiT"/>
+                                                    <constraint firstItem="f43-kc-j50" firstAttribute="leading" secondItem="hlB-1k-3YJ" secondAttribute="leadingMargin" constant="8" id="n1r-NK-zBT"/>
                                                     <constraint firstItem="g5X-iN-mDp" firstAttribute="leading" secondItem="hlB-1k-3YJ" secondAttribute="leadingMargin" id="rd9-nF-pHw"/>
                                                     <constraint firstItem="RTm-f0-VEC" firstAttribute="leading" secondItem="hlB-1k-3YJ" secondAttribute="leadingMargin" id="sBA-xp-Mip"/>
-                                                    <constraint firstItem="GeW-Cx-8vh" firstAttribute="top" secondItem="sji-sN-jPE" secondAttribute="bottom" id="yZy-VV-lQ3"/>
                                                 </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="Ht4-2w-oAM"/>
+                                                        <exclude reference="8Z7-nE-T8k"/>
+                                                        <exclude reference="3aG-qO-gpz"/>
+                                                    </mask>
+                                                </variation>
                                                 <connections>
                                                     <outlet property="adviceDetailTableView" destination="g5X-iN-mDp" id="ZGJ-J8-Ddq"/>
                                                     <outlet property="from" destination="gaH-vu-ncM" id="GtX-jL-5HM"/>
+                                                    <outlet property="fromTime" destination="9mR-pa-MF0" id="idI-mW-bEJ"/>
+                                                    <outlet property="minutesToGoLabel" destination="PbI-8L-lBa" id="8m5-6u-CDJ"/>
+                                                    <outlet property="secondsToGoLabel" destination="lZY-AM-bPZ" id="dyz-Db-ubI"/>
                                                     <outlet property="spoor" destination="sji-sN-jPE" id="yQe-3N-YBP"/>
-                                                    <outlet property="timeToGoLabel" destination="GeW-Cx-8vh" id="ZzN-3I-Dii"/>
                                                     <outlet property="to" destination="u2m-fH-Zcv" id="Zs5-En-eUq"/>
+                                                    <outlet property="toTime" destination="f43-kc-j50" id="pKl-Gc-dcf"/>
                                                     <outlet property="vertagingLabel" destination="RTm-f0-VEC" id="WZF-Xj-mDK"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FQ1-5b-PMG">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="144"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQ1-5b-PMG">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z98-f2-3V3">
-                                                <rect key="frame" x="55" y="34" width="490" height="47"/>
-                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="28"/>
-                                                <state key="normal" title="Van">
-                                                    <color key="titleColor" red="0.32549019607843138" green="0.84705882352941175" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="fromButton:" destination="oWt-5Q-I8W" eventType="touchUpInside" id="Mvv-YT-wBR"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymF-Fb-idj">
-                                                <rect key="frame" x="55" y="81" width="490" height="47"/>
-                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="28"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymF-Fb-idj">
+                                                <rect key="frame" x="54" y="66" width="492" height="42"/>
+                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="26"/>
                                                 <state key="normal" title="Naar">
                                                     <color key="titleColor" red="0.32549019610000002" green="0.84705882349999995" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -267,8 +288,8 @@
                                                     <action selector="toButton:" destination="oWt-5Q-I8W" eventType="touchUpInside" id="yh6-10-uB5"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YqX-YU-ZZT">
-                                                <rect key="frame" x="553" y="34" width="31" height="94"/>
+                                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YqX-YU-ZZT">
+                                                <rect key="frame" x="554" y="24" width="30" height="84"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="3VG-zP-7cX"/>
                                                 </constraints>
@@ -278,21 +299,32 @@
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vanTotIcon" translatesAutoresizingMaskIntoConstraints="NO" id="VLg-Ge-ERe">
-                                                <rect key="frame" x="16" y="46" width="30" height="68"/>
+                                                <rect key="frame" x="16" y="30" width="30" height="68"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="q5H-jh-Sdj"/>
                                                 </constraints>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z98-f2-3V3">
+                                                <rect key="frame" x="54" y="24" width="492" height="42"/>
+                                                <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="26"/>
+                                                <state key="normal" title="Van">
+                                                    <color key="titleColor" red="0.32549019607843138" green="0.84705882352941175" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="fromButton:" destination="oWt-5Q-I8W" eventType="touchUpInside" id="Mvv-YT-wBR"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="z98-f2-3V3" firstAttribute="top" secondItem="FQ1-5b-PMG" secondAttribute="top" constant="34" id="45C-qo-Ru3"/>
+                                            <constraint firstItem="z98-f2-3V3" firstAttribute="top" secondItem="FQ1-5b-PMG" secondAttribute="top" constant="24" id="45C-qo-Ru3"/>
                                             <constraint firstAttribute="centerY" secondItem="YqX-YU-ZZT" secondAttribute="centerY" id="Af8-Hq-zxb"/>
                                             <constraint firstItem="VLg-Ge-ERe" firstAttribute="leading" secondItem="FQ1-5b-PMG" secondAttribute="leading" constant="16" id="CJh-QP-yU2"/>
                                             <constraint firstItem="z98-f2-3V3" firstAttribute="leading" secondItem="FQ1-5b-PMG" secondAttribute="leading" id="CcW-68-ocX"/>
                                             <constraint firstAttribute="trailing" secondItem="z98-f2-3V3" secondAttribute="trailing" id="II9-g7-1op"/>
                                             <constraint firstItem="YqX-YU-ZZT" firstAttribute="leading" secondItem="ymF-Fb-idj" secondAttribute="trailing" constant="8" id="LhC-mG-v15"/>
-                                            <constraint firstItem="VLg-Ge-ERe" firstAttribute="top" secondItem="FQ1-5b-PMG" secondAttribute="top" constant="46" id="MdX-Au-wB6"/>
+                                            <constraint firstItem="VLg-Ge-ERe" firstAttribute="top" secondItem="FQ1-5b-PMG" secondAttribute="top" constant="30" id="MdX-Au-wB6"/>
                                             <constraint firstAttribute="trailing" secondItem="ymF-Fb-idj" secondAttribute="trailing" id="Pjn-Ei-iqg"/>
                                             <constraint firstItem="YqX-YU-ZZT" firstAttribute="bottom" secondItem="ymF-Fb-idj" secondAttribute="bottom" id="PxL-l2-TFx"/>
                                             <constraint firstItem="ymF-Fb-idj" firstAttribute="leading" secondItem="VLg-Ge-ERe" secondAttribute="trailing" constant="8" id="TRs-uH-76k"/>
@@ -304,7 +336,7 @@
                                             <constraint firstItem="z98-f2-3V3" firstAttribute="leading" secondItem="VLg-Ge-ERe" secondAttribute="trailing" constant="8" id="m6F-bi-UhJ"/>
                                             <constraint firstItem="ymF-Fb-idj" firstAttribute="leading" secondItem="FQ1-5b-PMG" secondAttribute="leading" id="w3z-wo-f62"/>
                                             <constraint firstAttribute="centerX" secondItem="ymF-Fb-idj" secondAttribute="centerX" id="xTW-EO-P2q"/>
-                                            <constraint firstAttribute="bottom" secondItem="ymF-Fb-idj" secondAttribute="bottom" constant="16" id="zqp-P9-UJL"/>
+                                            <constraint firstAttribute="bottom" secondItem="ymF-Fb-idj" secondAttribute="bottom" constant="12" id="zqp-P9-UJL"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -317,9 +349,9 @@
                                         </variation>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uya-yO-sZK">
-                                        <rect key="frame" x="251" y="152" width="98" height="30"/>
+                                        <rect key="frame" x="251" y="128" width="190" height="29"/>
                                         <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="15"/>
-                                        <state key="normal" title="huidige locatie">
+                                        <state key="normal" title="reis vanaf huidige locatie">
                                             <color key="titleColor" red="0.32549019607843138" green="0.84705882352941175" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -342,9 +374,12 @@
                                                 <exclude reference="SsV-mm-dZd"/>
                                             </mask>
                                         </variation>
+                                        <connections>
+                                            <action selector="pageControllerTouched:" destination="oWt-5Q-I8W" eventType="valueChanged" id="Zrw-OX-h96"/>
+                                        </connections>
                                     </pageControl>
-                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="fullscreen-open" translatesAutoresizingMaskIntoConstraints="NO" id="mNh-ip-lIq">
-                                        <rect key="frame" x="350" y="465" width="240" height="128"/>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fullscreen-open" translatesAutoresizingMaskIntoConstraints="NO" id="mNh-ip-lIq">
+                                        <rect key="frame" x="561" y="561" width="29" height="29"/>
                                     </imageView>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="O1F-b1-oF6">
                                         <rect key="frame" x="282" y="282" width="37" height="37"/>
@@ -405,7 +440,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOj-or-ggn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="423" y="283"/>
+            <point key="canvasLocation" x="365.5" y="351"/>
         </scene>
         <!--Picker View Controller-->
         <scene sceneID="NWC-gr-06l">

@@ -512,6 +512,7 @@
 				C3261C381A992E070046DD81 /* Sources */,
 				C3261C391A992E070046DD81 /* Frameworks */,
 				C3261C3A1A992E070046DD81 /* Resources */,
+				C39259201ABB462500E7BE41 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -761,6 +762,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		C39259201ABB462500E7BE41 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SCRIPT=`/usr/bin/find \"${SRCROOT}\" -name newrelic_postbuild.sh | head -n 1`\n\n/bin/sh \"${SCRIPT}\" \"AA37eca143a6cbc43c025498e41838d785d5666a06\"";
 		};
 		FEF4AE03628C6FDB69C0C58C /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
