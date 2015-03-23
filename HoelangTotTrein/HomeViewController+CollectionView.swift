@@ -267,7 +267,7 @@ class LegDetailCell : UITableViewCell {
       
       fromTime.textColor = isTussenstop ? UIColor.grayColor() : UIColor.lightGreyColor()
       fromStation.textColor = isTussenstop ? UIColor.grayColor() : UIColor.whiteColor()
-      fromStationLeftMargin.constant = isTussenstop ? 26 : 16
+      fromStationLeftMargin.constant = 16//isTussenstop ? 26 : 16
     }
   }
 }

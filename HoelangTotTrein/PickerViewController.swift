@@ -162,10 +162,8 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     if let station = currentStation {
       if let index = findIndex(mostUsed, station) {
         indexPath = NSIndexPath(forRow: index, inSection: 0)
-      } else {
-        if let index = findIndex(stations, station) {
-          indexPath = NSIndexPath(forRow: index, inSection: 2)
-        }
+      } else if let index = findIndex(stations, station) {
+        indexPath = NSIndexPath(forRow: index, inSection: 2)
       }
       if let ix = indexPath {
         if tableView.cellForRowAtIndexPath(ix) != nil {
@@ -231,10 +229,11 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     if section == 0 {
       return isEditing() ? "" : (mostUsed.count == 0 ? "" : "Meest gebruikt")
     } else if section == 1 {
-      return isEditing() ? "" : (TreinTicker.sharedInstance.closeStations.count == 0 ? "" : "Dichtstebij")
-    } else {
+      return isEditing() ? "" : (TreinTicker.sharedInstance.closeStations.count == 0 ? "" : "Dichstbij")
+    } else if section == 2 {
       return isEditing() ? "" : (stations.count == 0 ? "" : "A-Z")
     }
+    return ""
   }
   
   func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -320,7 +319,7 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   }
   
   override func preferredStatusBarStyle() -> UIStatusBarStyle {
-    return UIStatusBarStyle.LightContent
+    return .LightContent
   }
   
   func dismissPicker() {

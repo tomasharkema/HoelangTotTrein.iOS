@@ -28,6 +28,9 @@ extension TreinTicker : CLLocationManagerDelegate {
       // final destination
       switchAdviceRequestOriginal()
       originalFrom = to
+      if let a = arrivedStation {
+        fireArrivalNotification(a)
+      }
       return;
     }
     
@@ -75,6 +78,16 @@ extension TreinTicker : CLLocationManagerDelegate {
   
   func locationManager(manager: CLLocationManager!, didVisit visit: CLVisit!) {
     println(visit)
+  }
+  
+  func fireArrivalNotification(station:Station) {
+    let notificationBody = "Je bent aangekomen op \(station.name.lang). Vergeet niet uit te tjekken"
+    let notification = UILocalNotification()
+    notification.alertBody = notificationBody
+    notification.fireDate = NSDate()
+    notification.soundName = UILocalNotificationDefaultSoundName
+    
+    NSNotificationCenter.defaultCenter().postNotificationName("showNotification", object: notification)
   }
   
 }

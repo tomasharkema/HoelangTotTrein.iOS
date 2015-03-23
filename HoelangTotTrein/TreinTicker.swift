@@ -132,8 +132,11 @@ class TreinTicker: NSObject {
       }
     }
     API().getStations { [weak self] stations in
-      let s:Array<Station> = stations
-      self?.stations = s
+      let s:[Station] = stations
+      println(s)
+      if s.count > 0 {
+        self?.stations = s
+      }
       self?.setInitialState()
       
       if let cb = self?.stationChangedHandler {
@@ -160,8 +163,11 @@ class TreinTicker: NSObject {
       minuteTicker = 0
       for region in locationManager.monitoredRegions.allObjects {
         if let r = region as? CLRegion {
-          println("STOP OBSERVING FOR \(findStationByCode(CodeContainer.getFromString(r.identifier))!.name.lang)")
-          locationManager.stopMonitoringForRegion(r)
+          if let station = findStationByCode(CodeContainer.getFromString(r.identifier)) {
+            let name = station.name.lang
+            println("Unregister for \(name)")
+            locationManager.stopMonitoringForRegion(r)
+          }
         }
       }
       var i = 0
