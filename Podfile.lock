@@ -3,7 +3,7 @@ PODS:
   - NewRelicAgent (4.186)
 
 DEPENDENCIES:
-  - Alamofire (~> 1.1)
+  - Alamofire
   - NewRelicAgent
 
 SPEC CHECKSUMS:

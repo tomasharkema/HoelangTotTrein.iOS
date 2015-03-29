@@ -5,5 +5,5 @@ use_frameworks!
 
 link_with 'Widget', 'HoelangTotTrein WatchKit Extension', 'HLTTKit'
 
-pod 'Alamofire', '~> 1.1'
+pod 'Alamofire'
 pod 'NewRelicAgent'
