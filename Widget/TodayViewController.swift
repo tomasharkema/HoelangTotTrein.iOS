@@ -13,6 +13,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
   @IBOutlet weak var fromLabel: UILabel!
   @IBOutlet weak var timeLabel: UILabel!
+  @IBOutlet weak var secondsLabel: UILabel!
   @IBOutlet weak var toLabel: UILabel!
   @IBOutlet weak var vertagingLabel: UILabel!
   @IBOutlet weak var spoorLabel: UILabel!
@@ -49,9 +50,19 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   func updateUI() {
     let treinTicker = TreinTicker.sharedExtensionInstance
     
-      self.timeLabel.text = treinTicker.currentAdivce?.vertrek.actual.toMMSSFromNow().string() ?? ""
-      UIView.animateWithDuration(1.0) {
-        self.timeLabel.textColor = treinTicker.currentAdivce?.vertrek.actual.timeIntervalSinceNow < 60 ? UIColor.redThemeColor() : UIColor.whiteColor()
+    if let endDate = treinTicker.currentAdivce?.vertrek.actual {
+      
+      var hourString = ""
+      if let hour = endDate.toMMSSFromNow().hour {
+        hourString = hour == "0" ? "" : hour + ":"
+      }
+      
+      timeLabel.text = hourString + "" + endDate.toMMSSFromNow().minute
+      secondsLabel.text = endDate.toMMSSFromNow().second
+    }
+    
+    UIView.animateWithDuration(1.0) {
+      self.timeLabel.textColor = treinTicker.currentAdivce?.vertrek.actual.timeIntervalSinceNow < 60 ? UIColor.redThemeColor() : UIColor.whiteColor()
     }
     
     self.fromLabel.text = TreinTicker.sharedExtensionInstance.from?.name.lang ?? ""

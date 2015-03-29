@@ -218,13 +218,12 @@ class AdviceCollectionviewCell : UICollectionViewCell, UITableViewDataSource, UI
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     let count = advice?.reisDeel.count ?? 0
-    return count + 1
+    return count
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     var cell:LegDetailCell = tableView.dequeueReusableCellWithIdentifier("legCell") as LegDetailCell
-    cell.stop = advice?.reisDeel.count == indexPath.row ? advice?.reisDeel[indexPath.row-1].stops.last : advice?.reisDeel[indexPath.row].stops.first
-    cell.isTussenstop = !(indexPath.row == 0 || advice?.reisDeel.count == indexPath.row)
+    cell.reisDeel = advice?.reisDeel[indexPath.row]
     cell.backgroundColor = UIColor.clearColor()
     cell.backgroundView = nil
     return cell
@@ -238,7 +237,10 @@ class LegDetailCell : UITableViewCell {
   @IBOutlet weak var fromPlatform: UILabel!
   @IBOutlet weak var fromTime: UILabel!
   
-  @IBOutlet weak var fromStationLeftMargin: NSLayoutConstraint!
+  @IBOutlet weak var toTime: UILabel!
+  @IBOutlet weak var toStation: UILabel!
+  @IBOutlet weak var toPlatform: UILabel!
+  
   
   required init(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -247,27 +249,27 @@ class LegDetailCell : UITableViewCell {
     backgroundColor = UIColor.clearColor()
   }
   
-  var isTussenstop:Bool = false {
-    didSet {
-      updateUI()
-    }
-  }
-  
-  var stop:Stop? {
+  var reisDeel:ReisDeel? {
     didSet {
       updateUI()
     }
   }
   
   func updateUI() {
-    if let stop = stop {
-      fromStation.text = stop.name ?? ""
-      fromPlatform.text = stop.spoor
-      fromTime.text = stop.time?.toHHMM().string()
+    if let reisDeel = reisDeel {
+      let fromStop = reisDeel.stops.first
+      let toStop = reisDeel.stops.last
       
-      fromTime.textColor = isTussenstop ? UIColor.grayColor() : UIColor.lightGreyColor()
-      fromStation.textColor = isTussenstop ? UIColor.grayColor() : UIColor.whiteColor()
-      fromStationLeftMargin.constant = 16//isTussenstop ? 26 : 16
+      fromStation.text = fromStop?.name
+      fromPlatform.text = fromStop?.spoor
+      fromTime.text = fromStop?.time?.toHHMM().string()
+      
+      toStation.text = toStop?.name ?? ""
+      toPlatform.text = toStop?.spoor
+      toTime.text = toStop?.time?.toHHMM().string()
+      
+//      fromTime.textColor = isTussenstop ? UIColor.grayColor() : UIColor.lightGreyColor()
+//      fromStation.textColor = isTussenstop ? UIColor.grayColor() : UIColor.whiteColor()
     }
   }
 }
