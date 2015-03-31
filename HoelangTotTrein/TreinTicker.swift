@@ -88,10 +88,10 @@ class TreinTicker: NSObject {
   
   var currentLocation:CLLocation!
   
-  var tickerHandler:TickerHandler!
-  var adviceChangedHandler:AdviceChangedHandler!
-  var stationChangedHandler:StationsChangeHandler!
-  var fromToChanged:FromToChanged!
+  var tickerHandler:TickerHandler?
+  var adviceChangedHandler:AdviceChangedHandler?
+  var stationChangedHandler:StationsChangeHandler?
+  var fromToChanged:FromToChanged?
   
   var locationManager:CLLocationManager
   var geofences:[CLRegion] = []
@@ -143,17 +143,30 @@ class TreinTicker: NSObject {
         cb(s)
       }
     }
+    NSNotificationCenter.defaultCenter().addObserverForName(NSUserDefaultsDidChangeNotification, object: nil, queue: NSOperationQueue.mainQueue()) { _ in
+      NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("userDefaultsDidChange"), userInfo: nil, repeats: false)
+      return
+    }
+  }
+  
+  func userDefaultsDidChange() {
+    
+    fromToChanged?(from: from, to: to)
   }
   
   var currentAdivce:Advice? {
     set {
       println("set currentAdivce")
+      if (UserDefaults.currentAdvice == newValue) {
+        return
+      }
       UserDefaults.currentAdvice = newValue
       let currentAdvice = newValue
       
       if (adviceChangedHandler != nil && currentAdvice != nil) {
         dispatch_async(dispatch_get_main_queue()) {
-          self.adviceChangedHandler(currentAdvice!)
+          self.adviceChangedHandler?(currentAdvice!)
+          return;
         }
       }
       
@@ -211,7 +224,8 @@ class TreinTicker: NSObject {
         if (to != nil && fromToChanged != nil) {
           adviceRequest = AdviceRequest(from: from, to: to!)
           dispatch_async(dispatch_get_main_queue()) {
-            self.fromToChanged(from: from, to: self.to)
+            self.fromToChanged?(from: from, to: self.to)
+            return
           }
         }
         MostUsed.addStation(from)
@@ -236,9 +250,9 @@ class TreinTicker: NSObject {
         UserDefaults.to = to.code
         if (from != nil && fromToChanged != nil) {
           adviceRequest = AdviceRequest(from: from!, to: to)
-          
           dispatch_async(dispatch_get_main_queue()) {
-            self.fromToChanged(from: self.from, to: to)
+            self.fromToChanged?(from: self.from, to: to)
+            return;
           }
         }
         
@@ -282,7 +296,7 @@ class TreinTicker: NSObject {
     }
     if from != nil && to != nil {
       if let cb = fromToChanged {
-        fromToChanged(from: from, to: to)
+        fromToChanged?(from: from, to: to)
       }
     }
   }

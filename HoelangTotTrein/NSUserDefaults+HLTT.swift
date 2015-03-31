@@ -137,11 +137,9 @@ extension NSUserDefaults {
       }
     }
     set {
-      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-        self.setDouble(newValue?.timeIntervalSince1970 ?? 0, forKey: AdviceOffset)
-      
-        CloudUserService.setDouble(newValue!.timeIntervalSince1970, forKey: AdviceOffset);
-      }
+      self.setDouble(newValue?.timeIntervalSince1970 ?? 0, forKey: AdviceOffset)
+    
+      CloudUserService.setDouble(newValue!.timeIntervalSince1970, forKey: AdviceOffset)
     }
   }
   

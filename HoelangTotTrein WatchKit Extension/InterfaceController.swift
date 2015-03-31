@@ -52,7 +52,6 @@ class InterfaceController: WKInterfaceController {
     treinTicker.start()
     
     NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("userDefaultsDidChange"), name:NSUserDefaultsDidChangeNotification, object: nil)
-
     
     super.willActivate()
   }
@@ -65,9 +64,7 @@ class InterfaceController: WKInterfaceController {
   func updateUI() {
     if let t = time {
       timer.setDate(t)
-      UIView.animateWithDuration(1.0) {
-        self.timer.setTextColor(t.timeIntervalSinceNow < 60 ? UIColor.redThemeColor() : UIColor.whiteColor())
-      }
+      self.timer.setTextColor(t.timeIntervalSinceNow < 60 ? UIColor.redThemeColor() : UIColor.whiteColor())
       timer.start()
     }
     

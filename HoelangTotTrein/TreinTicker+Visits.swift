@@ -35,7 +35,7 @@ extension TreinTicker : CLLocationManagerDelegate {
     }
     
     updateAdvice {
-      let notificationBody = $0.notificationPhrase(code.deelIndex)
+      let notificationBody = $0.notificationPhrase(code.deelIndex+1)
       
       let notification = UILocalNotification()
       notification.alertBody = notificationBody
@@ -81,7 +81,7 @@ extension TreinTicker : CLLocationManagerDelegate {
   }
   
   func fireArrivalNotification(station:Station) {
-    let notificationBody = "Je bent aangekomen op \(station.name.lang). Vergeet niet uit te tjekken"
+    let notificationBody = "Je bent aangekomen op \(station.name.lang) (duh). Voor je het vergeet: wel uitchecken hè? 😇"
     let notification = UILocalNotification()
     notification.alertBody = notificationBody
     notification.fireDate = NSDate()

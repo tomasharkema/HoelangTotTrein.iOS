@@ -70,11 +70,6 @@ class HomeViewController: UIViewController {
     fromButton.titleLabel?.adjustsFontSizeToFitWidth = true
     toButton.titleLabel?.adjustsFontSizeToFitWidth = true
     
-    NSNotificationCenter.defaultCenter().addObserverForName(NSUserDefaultsDidChangeNotification, object: nil, queue: NSOperationQueue.mainQueue()) { [weak self] _ in
-      self?.reload()
-      return;
-    }
-    
     TreinTicker.sharedInstance.adviceChangedHandler = { [weak self] (advice) in
       self?.reload()
       return;

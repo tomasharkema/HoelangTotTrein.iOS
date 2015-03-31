@@ -218,7 +218,7 @@ class AdviceCollectionviewCell : UICollectionViewCell, UITableViewDataSource, UI
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     let count = advice?.reisDeel.count ?? 0
-    return count
+    return count < 2 ? 0 : count
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
