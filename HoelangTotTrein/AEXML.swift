@@ -68,12 +68,12 @@ public class AEXMLElement {
   public class var errorElementName: String { return "AEXMLError" }
   
   // non-optional first element with given name (<error> element if not exists)
-  public subscript(key: String) -> AEXMLElement? {
+  public subscript(key: String) -> AEXMLElement {
     if name == AEXMLElement.errorElementName {
       return self
     } else {
       let filtered = children.filter { $0.name == key }
-      return filtered.count > 0 ? filtered.first! : nil
+      return filtered.count > 0 ? filtered.first! : AEXMLElement(AEXMLElement.errorElementName, value: "element <\(key)> not found")
     }
   }
   
@@ -266,7 +266,7 @@ public class AEXMLDocument: AEXMLElement {
 
 // MARK: -
 
-private class AEXMLParser: NSObject, NSXMLParserDelegate {
+class AEXMLParser: NSObject, NSXMLParserDelegate {
   
   // MARK: Properties
   
@@ -305,17 +305,19 @@ private class AEXMLParser: NSObject, NSXMLParserDelegate {
     currentParent = currentElement
   }
   
-  func parser(parser: NSXMLParser, foundCharacters string: String) {
-    currentValue += string
+  func parser(parser: NSXMLParser, foundCharacters string: String?) {
+    currentValue += string ?? String()
     let newValue = currentValue.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
     currentElement?.value = newValue == String() ? nil : newValue
   }
   
-  func parser(parser: NSXMLParser!, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!) {
+  func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
     currentParent = currentParent?.parent
+    currentElement = nil
   }
   
   func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
     self.parseError = parseError
   }
+  
 }

@@ -69,21 +69,21 @@ class Station: NSObject, NSCoding {
   
     init (obj:AEXMLElement) {
       stationData = obj
-      code    = obj["Code"]?.stringValue
-      type    = obj["Type"]?.stringValue
-      land    = obj["Land"]?.stringValue
-      lat     = obj["Lat"]?.doubleValue
-      long    = obj["Lon"]?.doubleValue
-      UICCode = obj["UICCode"]?.intValue ?? 0;
+      code    = obj["Code"].stringValue
+      type    = obj["Type"].stringValue
+      land    = obj["Land"].stringValue
+      lat     = obj["Lat"].doubleValue
+      long    = obj["Lon"].doubleValue
+      UICCode = obj["UICCode"].intValue ?? 0;
       
       
-      let namen: AEXMLElement = obj["Namen"]!
+      let namen: AEXMLElement = obj["Namen"]
       
       let kort = namen["Kort"];
       let middel = namen["Middel"];
       let lang = namen["Lang"];
       
-      name = Namen(kort: kort?.stringValue ?? "", middel: middel?.stringValue ?? "", lang: lang?.stringValue ?? "")
+      name = Namen(kort: kort.stringValue ?? "", middel: middel.stringValue ?? "", lang: lang.stringValue ?? "")
     }
     
     func getLocation() -> CLLocation {

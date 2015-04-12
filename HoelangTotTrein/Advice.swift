@@ -76,41 +76,35 @@ class Advice: NSObject, NSCoding, Hashable {
   init(obj: AEXMLElement, adviceRequest:AdviceRequest) {
     self.adviceRequest = adviceRequest
     
-    overstappen = obj["AantalOverstappen"]?.intValue ?? 0
+    overstappen = obj["AantalOverstappen"].intValue ?? 0
     
-    vertrek = OVTime(planned:obj["GeplandeVertrekTijd"]?.dateValue ?? NSDate(),
-      actual: obj["ActueleVertrekTijd"]?.dateValue ?? NSDate())
+    vertrek = OVTime(planned:obj["GeplandeVertrekTijd"].dateValue ?? NSDate(),
+      actual: obj["ActueleVertrekTijd"].dateValue ?? NSDate())
     
-    aankomst = OVTime(planned:obj["GeplandeAankomstTijd"]?.dateValue ?? NSDate(),
-      actual: obj["ActueleAankomstTijd"]?.dateValue ?? NSDate())
+    aankomst = OVTime(planned:obj["GeplandeAankomstTijd"].dateValue ?? NSDate(),
+      actual: obj["ActueleAankomstTijd"].dateValue ?? NSDate())
     
-    reisDeel = obj["ReisDeel"]!.all!.map { reisDeel in
-      let vervoerder = reisDeel["Vervoerder"]?.stringValue ?? ""
-      let vervoerType = reisDeel["VervoerType"]?.stringValue ?? ""
+    reisDeel = obj["ReisDeel"].all!.map { reisDeel in
+      let vervoerder = reisDeel["Vervoerder"].stringValue ?? ""
+      let vervoerType = reisDeel["VervoerType"].stringValue ?? ""
       
-      let stops:[Stop] = reisDeel["ReisStop"]!.all!.map { stop in
-        let spoor = stop["Spoor"]?.stringValue ?? ""
-        let time = stop["Tijd"]?.dateValue ?? NSDate()
-        let naam = stop["Naam"]?.stringValue ?? ""
+      let stops:[Stop] = reisDeel["ReisStop"].all!.map { stop in
+        let spoor = stop["Spoor"].stringValue ?? ""
+        let time = stop["Tijd"].dateValue ?? NSDate()
+        let naam = stop["Naam"].stringValue ?? ""
         return Stop(time: time, spoor: spoor, name: naam)
       }
       
       return ReisDeel(vervoerder: vervoerder, stops: stops, vervoerType:vervoerType)
     }
     
-    if let mel = obj["Melding"] {
-      melding = Melding(id: mel["Id"]?.stringValue ?? "", ernstig: false, text: mel["Text"]?.stringValue ?? "")
-    } else {
-      melding = nil
-    }
+    let mel = obj["Melding"]
+    melding = Melding(id: mel["Id"].stringValue ?? "", ernstig: false, text: mel["Text"].stringValue ?? "")
     
-    if let vertraging = obj["VertrekVertraging"] {
-      vertrekVertraging = vertraging.stringValue
-    } else {
-      vertrekVertraging = nil
-    }
+    let vertraging = obj["VertrekVertraging"]
+    vertrekVertraging = vertraging.stringValue
     
-    self.status = Status(rawValue: obj["Status"]?.stringValue ?? "NO-STATUS") ?? Status.NoStatus
+    self.status = Status(rawValue: obj["Status"].stringValue ?? "NO-STATUS") ?? Status.NoStatus
   }
   
   required init(coder aDecoder: NSCoder) {
