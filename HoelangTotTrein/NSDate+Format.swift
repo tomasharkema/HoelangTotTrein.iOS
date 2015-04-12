@@ -68,4 +68,21 @@ extension NSDate {
     return HHMM(hour: hour, minute: minute, date:self)
   }
   
+  func toHMSSFromNow() -> HHMMSS {
+    var flags: NSCalendarUnit = .HourCalendarUnit | .MinuteCalendarUnit | .SecondCalendarUnit
+    var options: NSCalendarOptions = .WrapComponents
+    
+    let com = NSCalendar.currentCalendar().components(flags, fromDate: NSDate(), toDate: self, options: options)
+    
+    let h = max(com.hour, 0)
+    let m = max(com.minute, 0)
+    let s = max(com.second, 0)
+    
+    let hour:String? = h > 0 ? "\(h)" : .None
+    let minute = String(m)
+    let second = s < 10 ? String("0\(s)") : String(s)
+    
+    return HHMMSS(hour: hour, minute: minute, second: second, date:self)
+  }
+  
 }

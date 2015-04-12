@@ -152,7 +152,7 @@ class AdviceCollectionviewCell : UICollectionViewCell, UITableViewDataSource, UI
       minutesToGoLabel.text = advice?.vertrek.actual.toMMSSFromNow().minute
       secondsToGoLabel.text = advice?.vertrek.actual.toMMSSFromNow().second
       
-      spoor.text = advice?.fromPlatform ?? ""
+      spoor.text = "spoor " + (advice?.fromPlatform ?? "")
       
       if let a = advice {
         let fromTime = a.vertrek.getFormattedString()
@@ -205,8 +205,8 @@ class AdviceCollectionviewCell : UICollectionViewCell, UITableViewDataSource, UI
         hourString = hour == "0" ? "" : hour + ":"
       }
       
-      minutesToGoLabel.text = hourString + "" + endDate.toMMSSFromNow().minute
-      secondsToGoLabel.text = endDate.toMMSSFromNow().second
+      minutesToGoLabel.text = hourString + "" + endDate.toHMSSFromNow().minute
+      secondsToGoLabel.text = ":\(endDate.toMMSSFromNow().second)"
       secondsToGoLabel.textColor = UIColor.whiteColor()
       minutesToGoLabel.textColor = UIColor.whiteColor()
     }
