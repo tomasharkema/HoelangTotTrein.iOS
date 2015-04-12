@@ -186,7 +186,7 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
       station = stationsFound()[indexPath.row]
     }
     
-    var cell:PickerCellView = self.tableView.dequeueReusableCellWithIdentifier("cell") as PickerCellView
+    var cell:PickerCellView = self.tableView.dequeueReusableCellWithIdentifier("cell") as! PickerCellView
     
     cell.station = station
     return cell
@@ -198,13 +198,13 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if section == 0 {
-      return !isEditing() ? mostUsed.count : 0
+      return !isInEditingState() ? mostUsed.count : 0
     } else if section == 1 {
-      return !isEditing() ? TreinTicker.sharedInstance.closeStations.count : 0
+      return !isInEditingState() ? TreinTicker.sharedInstance.closeStations.count : 0
     } else if section == 2 {
-      return !isEditing() ? stations.count : 0
+      return !isInEditingState() ? stations.count : 0
     } else {
-      return isEditing() ? stationsFound().count : 0
+      return isInEditingState() ? stationsFound().count : 0
     }
   }
   
@@ -227,18 +227,18 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   
   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     if section == 0 {
-      return isEditing() ? "" : (mostUsed.count == 0 ? "" : "Meest gebruikt")
+      return isInEditingState() ? "" : (mostUsed.count == 0 ? "" : "Meest gebruikt")
     } else if section == 1 {
-      return isEditing() ? "" : (TreinTicker.sharedInstance.closeStations.count == 0 ? "" : "Dichstbij")
+      return isInEditingState() ? "" : (TreinTicker.sharedInstance.closeStations.count == 0 ? "" : "Dichstbij")
     } else if section == 2 {
-      return isEditing() ? "" : (stations.count == 0 ? "" : "A-Z")
+      return isInEditingState() ? "" : (stations.count == 0 ? "" : "A-Z")
     }
     return ""
   }
   
   func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
     
-    let headerView = view as UITableViewHeaderFooterView
+    let headerView = view as! UITableViewHeaderFooterView
     headerView.textLabel.font = UIFont(name: "Aktiv-Light", size: 16.0)
     headerView.textLabel.textColor = UIColor.whiteColor()
     headerView.contentView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.7)
@@ -270,7 +270,7 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     }
   }
   
-  func isEditing() -> Bool {
+  func isInEditingState() -> Bool {
     return searchView.text != ""
   }
   

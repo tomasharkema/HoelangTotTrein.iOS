@@ -43,10 +43,10 @@ class MostUsed {
           }
         }
         
-        if let i = dict[station["code"] as NSString] {
-            dict[station["code"] as NSString] = i+1
+        if let i = dict[station["code"] as! NSString] {
+            dict[station["code"] as! NSString] = i+1
         } else {
-            dict[station["code"] as NSString] = 1
+            dict[station["code"] as! NSString] = 1
         }
       }
       
@@ -57,7 +57,7 @@ class MostUsed {
           return obj1 > obj2
       }
       
-      return stations.map { find(TreinTicker.sharedInstance.stations, $0)! }
+      return stations.map { find(TreinTicker.sharedInstance.stations, $0 as String)! }
   }
     
 }

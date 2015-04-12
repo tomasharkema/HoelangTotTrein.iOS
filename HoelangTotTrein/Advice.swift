@@ -100,17 +100,21 @@ class Advice: NSObject, NSCoding, Hashable {
     
     if let mel = obj["Melding"] {
       melding = Melding(id: mel["Id"]?.stringValue ?? "", ernstig: false, text: mel["Text"]?.stringValue ?? "")
+    } else {
+      melding = nil
     }
     
     if let vertraging = obj["VertrekVertraging"] {
       vertrekVertraging = vertraging.stringValue
+    } else {
+      vertrekVertraging = nil
     }
     
     self.status = Status(rawValue: obj["Status"]?.stringValue ?? "NO-STATUS") ?? Status.NoStatus
   }
   
   required init(coder aDecoder: NSCoder) {
-    adviceRequest = AdviceRequest(from: aDecoder.decodeObjectForKey("from") as Station, to: aDecoder.decodeObjectForKey("to") as Station)
+    adviceRequest = AdviceRequest(from: aDecoder.decodeObjectForKey("from") as! Station, to: aDecoder.decodeObjectForKey("to") as! Station)
     
     overstappen = aDecoder.decodeIntegerForKey("overstappen")
     
@@ -118,19 +122,21 @@ class Advice: NSObject, NSCoding, Hashable {
     
     aankomst = OVTime(planned: NSDate(timeIntervalSinceReferenceDate: aDecoder.decodeDoubleForKey("aankomst.planned")), actual: NSDate(timeIntervalSinceReferenceDate: aDecoder.decodeDoubleForKey("aankomst.actual")))
     
-    reisDeel = (aDecoder.decodeObjectForKey("reisDeel") as [NSData]).map { data in
-      let data = NSKeyedUnarchiver.unarchiveObjectWithData(data) as [AnyObject]
-      let stops:[Stop] = (data[1] as [AnyObject]).map { obj in
-        let data = obj as [AnyObject]
+    reisDeel = (aDecoder.decodeObjectForKey("reisDeel") as! [NSData]).map { data in
+      let data = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! [AnyObject]
+      let stops:[Stop] = (data[1] as! [AnyObject]).map { obj in
+        let data = obj as! [AnyObject]
         return Stop(time: data[0] as? NSDate, spoor: data[1] as? String, name: data[2] as? String ?? "")
       }
-      return ReisDeel(vervoerder: data[0] as String, stops: stops, vervoerType: data[2] as? String ?? "")
+      return ReisDeel(vervoerder: data[0] as! String, stops: stops, vervoerType: data[2] as? String ?? "")
     }
     
     vertrekVertraging = aDecoder.decodeObjectForKey("vertrekVertraging") as? String ?? ""
     
     if let m = aDecoder.decodeObjectForKey("melding.id") {
-      melding = Melding(id: aDecoder.decodeObjectForKey("melding.id") as String, ernstig: aDecoder.decodeBoolForKey("melding.ernstig"), text: aDecoder.decodeObjectForKey("melding.text") as String)
+      melding = Melding(id: aDecoder.decodeObjectForKey("melding.id") as! String, ernstig: aDecoder.decodeBoolForKey("melding.ernstig"), text: aDecoder.decodeObjectForKey("melding.text") as! String)
+    } else {
+      melding = nil
     }
     
     if let status = aDecoder.decodeObjectForKey("status") as? String {
@@ -189,7 +195,7 @@ class Advice: NSObject, NSCoding, Hashable {
   
   func legPhraseLeft() -> String {
     if reisDeel.count > 1 {
-      return reisDeel.reduce("", { str, deel in
+      return reisDeel.reduce("", combine: { str, deel in
         var firstStop = deel.stops.first
         var lastStop = deel.stops.last
         
@@ -214,7 +220,7 @@ class Advice: NSObject, NSCoding, Hashable {
   
   func notificationPhrase(deelIndex:Int) -> String {
     let vervolg = self.reisDeel[min(deelIndex + 1, self.reisDeel.count-1)].stops
-    let vervolgStation = vervolg.first?
+    let vervolgStation = vervolg.first
     let aankomst = vervolg.last?.name ?? "??"
     
     let newStation = self.firstStop()

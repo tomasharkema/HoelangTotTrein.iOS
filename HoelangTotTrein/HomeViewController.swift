@@ -138,7 +138,7 @@ class HomeViewController: UIViewController {
   }
   
   @IBAction func pageControllerTouched(sender: AnyObject) {
-    advicesCollectionView.scrollToItemAtIndexPath(NSIndexPath(forRow: (sender as UIPageControl).currentPage, inSection: 0), atScrollPosition: .CenteredVertically, animated: true)
+    advicesCollectionView.scrollToItemAtIndexPath(NSIndexPath(forRow: (sender as! UIPageControl).currentPage, inSection: 0), atScrollPosition: .CenteredVertically, animated: true)
   }
   
   override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -147,7 +147,7 @@ class HomeViewController: UIViewController {
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "picker" {
-      let picker:PickerViewController = segue.destinationViewController as PickerViewController
+      let picker:PickerViewController = segue.destinationViewController as! PickerViewController
       
       let image = mainView.screenShot()
       

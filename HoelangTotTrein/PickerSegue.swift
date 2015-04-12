@@ -11,8 +11,8 @@ import UIKit
 class PickerSegue: UIStoryboardSegue {
   
   override func perform() {
-    let source = sourceViewController as UIViewController
-    let dest = destinationViewController as UIViewController
+    let source = sourceViewController as! UIViewController
+    let dest = destinationViewController as! UIViewController
 
     source.presentViewController(dest, animated: false, completion: nil)
   }
@@ -23,8 +23,8 @@ class UnwindPickerSegue: UIStoryboardSegue {
   
   override func perform() {
     
-    let source = sourceViewController as UIViewController
-    let dest = destinationViewController as UIViewController
+    let source = sourceViewController as! UIViewController
+    let dest = destinationViewController as! UIViewController
     
     source.dismissViewControllerAnimated(false, completion:nil)
   }

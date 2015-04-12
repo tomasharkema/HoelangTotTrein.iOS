@@ -60,7 +60,7 @@ extension TreinTicker : CLLocationManagerDelegate {
     
     shouldUpdate = false
     
-    self.currentLocation = (locations.first as CLLocation).copy() as CLLocation
+    self.currentLocation = (locations.first)!.copy() as! CLLocation
     println(currentLocation)
     
     self.closeStations =  Station.sortStationsOnLocation(stations, loc: currentLocation!, sorter: <, number:5)

@@ -143,7 +143,7 @@ public class AEXMLElement {
   private var parentsCount: Int {
     var count = 0
     var element = self
-    while let parent = element.parent? {
+    while let parent = element.parent {
       count++
       element = parent
     }

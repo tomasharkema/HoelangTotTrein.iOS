@@ -174,7 +174,7 @@ class TreinTicker: NSObject {
         return;
       }
       minuteTicker = 0
-      for region in locationManager.monitoredRegions.allObjects {
+      for region in locationManager.monitoredRegions {
         if let r = region as? CLRegion {
           if let station = findStationByCode(CodeContainer.getFromString(r.identifier)) {
             let name = station.name.lang

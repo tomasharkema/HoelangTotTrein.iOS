@@ -44,13 +44,13 @@ class Station: NSObject, NSCoding {
     let stationData:AEXMLElement
   
     required init(coder aDecoder: NSCoder) {
-        self.code = aDecoder.decodeObjectForKey("code") as String?
-        self.type = aDecoder.decodeObjectForKey("type") as String?
-        self.land = aDecoder.decodeObjectForKey("land") as String?
+        self.code = aDecoder.decodeObjectForKey("code") as? String
+        self.type = aDecoder.decodeObjectForKey("type") as? String
+        self.land = aDecoder.decodeObjectForKey("land") as? String
         self.lat = aDecoder.decodeDoubleForKey("lat")
         self.long = aDecoder.decodeDoubleForKey("long")
         self.UICCode = aDecoder.decodeIntegerForKey("UICCode")
-        self.name = Namen(kort: aDecoder.decodeObjectForKey("name.kort") as String!, middel: aDecoder.decodeObjectForKey("name.middel") as String!, lang: aDecoder.decodeObjectForKey("name.lang") as String!)
+        self.name = Namen(kort: aDecoder.decodeObjectForKey("name.kort") as! String, middel: aDecoder.decodeObjectForKey("name.middel") as! String, lang: aDecoder.decodeObjectForKey("name.lang") as! String)
         self.stationData = AEXMLDocument()
         super.init()
     }
@@ -108,7 +108,7 @@ class Station: NSObject, NSCoding {
             return sorter(a:dict[a]!, b:dict[b]!)
         }
       
-        return stationsK.slice(number).map { find(stations, $0)! }
+        return stationsK.slice(number).map { find(stations, $0 as! String)! }
     }
   
     class func getClosestStation(stations: Array<Station>,loc:CLLocation) -> Station? {

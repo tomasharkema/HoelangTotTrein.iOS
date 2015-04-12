@@ -48,7 +48,7 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
   }
   
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCellWithReuseIdentifier(AdviceReuseIdentifier, forIndexPath: indexPath) as AdviceCollectionviewCell
+    let cell = collectionView.dequeueReusableCellWithReuseIdentifier(AdviceReuseIdentifier, forIndexPath: indexPath) as! AdviceCollectionviewCell
     cell.advice = TreinTicker.sharedInstance.getUpcomingAdvices()[indexPath.row]
     return cell
   }
@@ -79,7 +79,7 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
     let cells = advicesCollectionView.visibleCells()
     let contentOffset = scrollView.contentOffset
     for cellObj in cells {
-      let cell = cellObj as AdviceCollectionviewCell
+      let cell = cellObj as! AdviceCollectionviewCell
       let offset = offsetForCell(cell, contentOffset: Int(contentOffset.y))
       
       let progress = 1 - abs(CGFloat(offset) / cell.bounds.height)/2
@@ -101,7 +101,7 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
   func getMiddleVisibleCell() -> AdviceCollectionviewCell? {
     let visibleCells = advicesCollectionView.visibleCells()
     for cellObj in visibleCells {
-      let cell = cellObj as AdviceCollectionviewCell
+      let cell = cellObj as! AdviceCollectionviewCell
       if cell.progress > 0.9 {
         return cell
       }
@@ -222,7 +222,7 @@ class AdviceCollectionviewCell : UICollectionViewCell, UITableViewDataSource, UI
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    var cell:LegDetailCell = tableView.dequeueReusableCellWithIdentifier("legCell") as LegDetailCell
+    var cell:LegDetailCell = tableView.dequeueReusableCellWithIdentifier("legCell") as! LegDetailCell
     cell.reisDeel = advice?.reisDeel[indexPath.row]
     cell.backgroundColor = UIColor.clearColor()
     cell.backgroundView = nil

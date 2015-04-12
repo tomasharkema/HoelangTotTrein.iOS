@@ -32,7 +32,7 @@ extension NSUserDefaults {
       NSKeyedUnarchiver.setClass(Station.classForKeyedUnarchiver(), forClassName: "Widget.Station")
       NSKeyedUnarchiver.setClass(Station.classForKeyedUnarchiver(), forClassName: "HoelangTotTrein_WatchKit_Extension.Station")
       if let data = objectForKey(StationsKey) as? NSData {
-        return NSKeyedUnarchiver.unarchiveObjectWithData(data) as [Station]
+        return NSKeyedUnarchiver.unarchiveObjectWithData(data) as! [Station]
       }
       return []
     }
@@ -41,7 +41,7 @@ extension NSUserDefaults {
   var mostUsed:[[NSString:AnyObject]] {
     get {
       if let mostUsedArray = arrayForKey(MostUsedKey) {
-        return mostUsedArray as [[NSString:AnyObject]]
+        return mostUsedArray as! [[NSString:AnyObject]]
       } else {
         return []
       }

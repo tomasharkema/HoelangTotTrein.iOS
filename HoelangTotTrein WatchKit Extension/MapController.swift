@@ -70,7 +70,7 @@ class MapController : WKInterfaceController, CLLocationManagerDelegate {
   }
   
   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-    let location = locations.first as CLLocation
+    let location = locations.first as! CLLocation
     
     updateUI(location)
     

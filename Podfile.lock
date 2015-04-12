@@ -1,13 +1,13 @@
 PODS:
-  - Alamofire (1.1.4)
+  - Alamofire (1.2.0)
   - NewRelicAgent (4.186)
 
 DEPENDENCIES:
-  - Alamofire
+  - Alamofire (~> 1.2)
   - NewRelicAgent
 
 SPEC CHECKSUMS:
-  Alamofire: 524225da382071ee3e6d0badd0ee4b4dc36740de
-  NewRelicAgent: 3ad10d9fe34dc0bffa1f2a1d50793d607b62823a
+  Alamofire: d765c5c1713aa64106b0228aaa600a1e6851f68d
+  NewRelicAgent: c9efe4386f703c97741fbb1f65e80d5513a04866
 
-COCOAPODS: 0.36.0
+COCOAPODS: 0.36.3

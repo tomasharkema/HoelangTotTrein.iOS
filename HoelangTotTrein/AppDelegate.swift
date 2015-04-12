@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Sound | .Alert | .Badge, categories: nil))
       
       NSNotificationCenter.defaultCenter().addObserverForName(NSUbiquitousKeyValueStoreDidChangeExternallyNotification, object: NSUbiquitousKeyValueStore.defaultStore(), queue: NSOperationQueue.mainQueue()) { (notification) in
-        let ubiquitousKeyValueStore = notification.object as NSUbiquitousKeyValueStore
+        let ubiquitousKeyValueStore = notification.object as! NSUbiquitousKeyValueStore
         ubiquitousKeyValueStore.synchronize()
         println("FROM: \(ubiquitousKeyValueStore.objectForKey(FromKey))")
         
