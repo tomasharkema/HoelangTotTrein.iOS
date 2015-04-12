@@ -68,12 +68,12 @@ public class AEXMLElement {
   public class var errorElementName: String { return "AEXMLError" }
   
   // non-optional first element with given name (<error> element if not exists)
-  public subscript(key: String) -> AEXMLElement {
+  public subscript(key: String) -> AEXMLElement? {
     if name == AEXMLElement.errorElementName {
       return self
     } else {
       let filtered = children.filter { $0.name == key }
-      return filtered.count > 0 ? filtered.first! : AEXMLElement(AEXMLElement.errorElementName, value: "element <\(key)> not found")
+      return filtered.count > 0 ? filtered.first! : nil
     }
   }
   
