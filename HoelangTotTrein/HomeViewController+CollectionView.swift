@@ -197,7 +197,6 @@ class AdviceCollectionviewCell : UICollectionViewCell, UITableViewDataSource, UI
     if endDate.timeIntervalSinceNow < 60 {
       minutesToGoLabel.text = endDate.toMMSSFromNow().second
       secondsToGoLabel.text = ""
-      minutesToGoLabel.textColor = UIColor.redThemeColor()
     } else {
       
       var hourString = ""
@@ -218,7 +217,7 @@ class AdviceCollectionviewCell : UICollectionViewCell, UITableViewDataSource, UI
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     let count = advice?.reisDeel.count ?? 0
-    return count < 2 ? 0 : count
+    return count
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

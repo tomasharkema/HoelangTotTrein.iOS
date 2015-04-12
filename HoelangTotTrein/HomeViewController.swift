@@ -35,7 +35,9 @@ class HomeViewController: UIViewController {
   
   @IBOutlet weak var advicesIndicator: UIPageControl!
   
-  var blurView: UIVisualEffectView?
+  var headerBlurView: UIVisualEffectView?
+  var collectionBlurView: UIVisualEffectView?
+  @IBOutlet weak var backgroundView: UIImageView!
   
   var cellTimer:NSTimer?
   
@@ -82,14 +84,14 @@ class HomeViewController: UIViewController {
     }
   }
   
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
     TreinTicker.sharedInstance.start()
     
-    headerView.updateConstraints()
+    headerView.layoutIfNeeded()
     
-    if blurView == nil {
-      let effect = UIBlurEffect(style: .Dark)
+    if headerBlurView == nil {
+      let effect = UIBlurEffect(style: .Light)
       let blurView = UIVisualEffectView(effect: effect)
       var frame = headerView.frame
       frame.size.width = view.frame.width
@@ -99,7 +101,11 @@ class HomeViewController: UIViewController {
       headerView.addSubview(blurView)
       headerView.sendSubviewToBack(blurView)
       
-      self.blurView = blurView
+      self.headerBlurView = blurView
+    }
+    
+    if collectionBlurView == nil {
+      let darkEffect = UIBlurEffect(style: .Dark)
     }
   }
   
