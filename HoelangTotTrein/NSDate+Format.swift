@@ -79,8 +79,8 @@ extension NSDate {
     let s = max(com.second, 0)
     
     let hour:String? = h > 0 ? "\(h)" : .None
-    let minute = String(m)
-    let second = s < 10 ? String("0\(s)") : String(s)
+    let minute = h > 0 && m < 10 ? "0\(m)" : String(m)
+    let second = s < 10 ? "0\(s)" : String(s)
     
     return HHMMSS(hour: hour, minute: minute, second: second, date:self)
   }

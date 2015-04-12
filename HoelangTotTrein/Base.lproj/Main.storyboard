@@ -56,10 +56,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
-                                    <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TBt-RP-4zL">
-                                        <rect key="frame" x="0.0" y="200" width="600" height="600"/>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TBt-RP-4zL">
+                                        <rect key="frame" x="0.0" y="137" width="600" height="463"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nhF-fJ-eeE">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="463"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
                                         <blurEffect style="dark"/>
@@ -81,39 +81,39 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="588" height="598"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="spoor 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sji-sN-jPE">
-                                                            <rect key="frame" x="21" y="168" width="65" height="22"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="spoor 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sji-sN-jPE">
+                                                            <rect key="frame" x="55" y="168" width="65" height="22"/>
                                                             <fontDescription key="fontDescription" name="VarelaRound-Regular" family="Varela Round" pointSize="18"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-vu-ncM">
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="From" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-vu-ncM">
                                                             <rect key="frame" x="274" y="357" width="40" height="20"/>
                                                             <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
                                                             <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14:42" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mR-pa-MF0">
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="14:42" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mR-pa-MF0">
                                                             <rect key="frame" x="16" y="357" width="44" height="20"/>
                                                             <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
                                                             <color key="textColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tv4-RH-FIf">
-                                                            <rect key="frame" x="29" y="206" width="261" height="125"/>
+                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tv4-RH-FIf">
+                                                            <rect key="frame" x="63" y="206" width="261" height="125"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="42" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZY-AM-bPZ">
-                                                                    <rect key="frame" x="175" y="50" width="86" height="65"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="42" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZY-AM-bPZ">
+                                                                    <rect key="frame" x="175" y="49" width="86" height="65"/>
                                                                     <fontDescription key="fontDescription" name="GothamThin" family="Gotham Thin" pointSize="72"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PbI-8L-lBa">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="07" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="100" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PbI-8L-lBa">
                                                                     <rect key="frame" x="0.0" y="0.0" width="175" height="125"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="82" id="2DV-kw-2ki"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="GothamThin" family="Gotham Thin" pointSize="140"/>
+                                                                    <fontDescription key="fontDescription" name="GothamThin" family="Gotham Thin" pointSize="135"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <variation key="default">
@@ -146,19 +146,19 @@
                                                                 </mask>
                                                             </variation>
                                                         </view>
-                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2m-fH-Zcv">
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="To" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2m-fH-Zcv">
                                                             <rect key="frame" x="285" y="379" width="18" height="20"/>
                                                             <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
                                                             <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:42" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f43-kc-j50">
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="13:42" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f43-kc-j50">
                                                             <rect key="frame" x="16" y="379" width="44" height="20"/>
                                                             <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="17"/>
                                                             <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="87" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="g5X-iN-mDp">
+                                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="87" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="g5X-iN-mDp">
                                                             <rect key="frame" x="0.0" y="356" width="588" height="234"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
@@ -309,8 +309,8 @@
                                                                 </mask>
                                                             </variation>
                                                         </tableView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="+ 3 min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTm-f0-VEC">
-                                                            <rect key="frame" x="0.0" y="0.0" width="62" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="+ 3 min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTm-f0-VEC">
+                                                            <rect key="frame" x="55" y="342" width="62" height="17"/>
                                                             <fontDescription key="fontDescription" name="GothamThin" family="Gotham Thin" pointSize="18"/>
                                                             <color key="textColor" red="1" green="0.42745098040000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -321,6 +321,7 @@
                                                 <constraints>
                                                     <constraint firstItem="g5X-iN-mDp" firstAttribute="top" secondItem="tv4-RH-FIf" secondAttribute="bottom" constant="25" id="28q-1V-s4I"/>
                                                     <constraint firstItem="u2m-fH-Zcv" firstAttribute="top" secondItem="tv4-RH-FIf" secondAttribute="bottom" constant="22" id="3aG-qO-gpz"/>
+                                                    <constraint firstItem="RTm-f0-VEC" firstAttribute="leading" secondItem="hlB-1k-3YJ" secondAttribute="leadingMargin" constant="55" id="3iB-Em-TGt"/>
                                                     <constraint firstAttribute="centerX" secondItem="u2m-fH-Zcv" secondAttribute="centerX" id="7JP-j3-Rtr"/>
                                                     <constraint firstItem="g5X-iN-mDp" firstAttribute="top" secondItem="u2m-fH-Zcv" secondAttribute="bottom" constant="30" id="8Z7-nE-T8k"/>
                                                     <constraint firstItem="tv4-RH-FIf" firstAttribute="top" secondItem="sji-sN-jPE" secondAttribute="bottom" constant="16" id="8kQ-5v-E3p"/>
@@ -337,9 +338,11 @@
                                                     <constraint firstAttribute="centerY" secondItem="tv4-RH-FIf" secondAttribute="centerY" id="V2X-Nw-E6B"/>
                                                     <constraint firstItem="gaH-vu-ncM" firstAttribute="top" secondItem="tv4-RH-FIf" secondAttribute="bottom" constant="26" id="YZ6-Nv-j88"/>
                                                     <constraint firstAttribute="centerX" secondItem="gaH-vu-ncM" secondAttribute="centerX" id="aCN-Xd-rLM"/>
-                                                    <constraint firstItem="sji-sN-jPE" firstAttribute="leading" secondItem="hlB-1k-3YJ" secondAttribute="leading" constant="21" id="btH-sy-YoB"/>
-                                                    <constraint firstItem="tv4-RH-FIf" firstAttribute="leading" secondItem="hlB-1k-3YJ" secondAttribute="leadingMargin" constant="21" id="cEF-Wx-L0X"/>
+                                                    <constraint firstItem="sji-sN-jPE" firstAttribute="leading" secondItem="hlB-1k-3YJ" secondAttribute="leading" constant="55" id="btH-sy-YoB"/>
+                                                    <constraint firstItem="tv4-RH-FIf" firstAttribute="leading" secondItem="hlB-1k-3YJ" secondAttribute="leadingMargin" priority="750" constant="55" id="cEF-Wx-L0X"/>
+                                                    <constraint firstAttribute="centerY" secondItem="tv4-RH-FIf" secondAttribute="centerY" id="czg-Fg-DCu"/>
                                                     <constraint firstAttribute="trailing" secondItem="g5X-iN-mDp" secondAttribute="trailing" id="d6d-DU-drN"/>
+                                                    <constraint firstItem="RTm-f0-VEC" firstAttribute="top" secondItem="tv4-RH-FIf" secondAttribute="bottom" constant="8" id="e80-TI-26y"/>
                                                     <constraint firstItem="u2m-fH-Zcv" firstAttribute="top" secondItem="f43-kc-j50" secondAttribute="top" id="f7N-RO-a1y"/>
                                                     <constraint firstAttribute="centerX" secondItem="tv4-RH-FIf" secondAttribute="centerX" id="fwg-4S-cDo"/>
                                                     <constraint firstItem="u2m-fH-Zcv" firstAttribute="top" secondItem="gaH-vu-ncM" secondAttribute="bottom" constant="2" id="h3B-bK-du6"/>
@@ -349,17 +352,21 @@
                                                     <constraint firstItem="g5X-iN-mDp" firstAttribute="leading" secondItem="hlB-1k-3YJ" secondAttribute="leading" id="qLb-pg-Sgv"/>
                                                     <constraint firstItem="g5X-iN-mDp" firstAttribute="leading" secondItem="hlB-1k-3YJ" secondAttribute="leadingMargin" id="rd9-nF-pHw"/>
                                                     <constraint firstItem="RTm-f0-VEC" firstAttribute="leading" secondItem="hlB-1k-3YJ" secondAttribute="leadingMargin" id="sBA-xp-Mip"/>
+                                                    <constraint firstItem="RTm-f0-VEC" firstAttribute="top" secondItem="sji-sN-jPE" secondAttribute="bottom" id="sWJ-C7-Y7b"/>
+                                                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="tv4-RH-FIf" secondAttribute="trailing" constant="20" id="u2f-qu-02C"/>
                                                 </constraints>
                                                 <variation key="default">
                                                     <mask key="constraints">
                                                         <exclude reference="Ht4-2w-oAM"/>
                                                         <exclude reference="V1q-D3-hYw"/>
+                                                        <exclude reference="pzg-3P-a4T"/>
                                                         <exclude reference="Cip-m4-ndu"/>
                                                         <exclude reference="HDi-bh-1ER"/>
                                                         <exclude reference="V2X-Nw-E6B"/>
                                                         <exclude reference="fwg-4S-cDo"/>
                                                         <exclude reference="iPy-P1-zTk"/>
                                                         <exclude reference="sBA-xp-Mip"/>
+                                                        <exclude reference="sWJ-C7-Y7b"/>
                                                         <exclude reference="8Z7-nE-T8k"/>
                                                         <exclude reference="HvE-W8-5wX"/>
                                                         <exclude reference="rd9-nF-pHw"/>
@@ -380,19 +387,19 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sV1-vu-Ar6">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="133"/>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sV1-vu-Ar6">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="137"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="DoP-8k-B93">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="133"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="137"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
                                         <blurEffect style="light"/>
                                     </visualEffectView>
-                                    <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wyt-Ft-ku1">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="133"/>
+                                    <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wyt-Ft-ku1">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="137"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4v-XK-wsA">
-                                                <rect key="frame" x="55" y="30" width="37" height="37"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4v-XK-wsA">
+                                                <rect key="frame" x="55" y="30" width="40" height="39"/>
                                                 <fontDescription key="fontDescription" name="VarelaRound-Regular" family="Varela Round" pointSize="22"/>
                                                 <state key="normal" title="Van">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -402,20 +409,20 @@
                                                     <action selector="fromButton:" destination="oWt-5Q-I8W" eventType="touchUpInside" id="JXJ-OW-b6j"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="naar" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyP-v0-jw7">
-                                                <rect key="frame" x="21" y="75" width="26" height="37"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="naar" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyP-v0-jw7">
+                                                <rect key="frame" x="21" y="77" width="26" height="39"/>
                                                 <fontDescription key="fontDescription" name="VarelaRound-Regular" family="Varela Round" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="van" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPa-Pf-CyE">
-                                                <rect key="frame" x="21" y="30" width="26" height="37"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="van" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPa-Pf-CyE">
+                                                <rect key="frame" x="21" y="30" width="26" height="39"/>
                                                 <fontDescription key="fontDescription" name="VarelaRound-Regular" family="Varela Round" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Zj-hm-CgF">
-                                                <rect key="frame" x="55" y="75" width="46" height="37"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Zj-hm-CgF">
+                                                <rect key="frame" x="55" y="77" width="51" height="39"/>
                                                 <fontDescription key="fontDescription" name="VarelaRound-Regular" family="Varela Round" pointSize="22"/>
                                                 <state key="normal" title="Naar">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -425,8 +432,8 @@
                                                     <action selector="toButton:" destination="oWt-5Q-I8W" eventType="touchUpInside" id="jCK-sG-eud"/>
                                                 </connections>
                                             </button>
-                                            <button hidden="YES" opaque="NO" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1f-yi-bzQ">
-                                                <rect key="frame" x="562" y="47" width="30" height="39"/>
+                                            <button hidden="YES" opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1f-yi-bzQ">
+                                                <rect key="frame" x="562" y="49" width="30" height="39"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="ONs-yu-NWA"/>
                                                 </constraints>
@@ -437,6 +444,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="YPa-Pf-CyE" firstAttribute="top" secondItem="Wyt-Ft-ku1" secondAttribute="top" constant="30" id="6QJ-pC-eJS"/>
                                             <constraint firstItem="U4v-XK-wsA" firstAttribute="bottom" secondItem="YPa-Pf-CyE" secondAttribute="bottom" id="8Ij-hT-bDI"/>
@@ -467,8 +475,8 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="lWS-R8-8Sb">
-                                        <rect key="frame" x="557" y="200" width="39" height="37"/>
+                                    <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="lWS-R8-8Sb">
+                                        <rect key="frame" x="565" y="167" width="39" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="37" id="SsV-mm-dZd"/>
                                         </constraints>
@@ -493,6 +501,9 @@
                                         <state key="normal" title="reis vanaf huidige locatie">
                                             <color key="titleColor" red="0.32549019607843138" green="0.84705882352941175" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <variation key="widthClass=regular" ambiguous="YES">
+                                            <rect key="frame" x="319" y="0.0" width="163" height="29"/>
+                                        </variation>
                                         <connections>
                                             <action selector="locButton:" destination="oWt-5Q-I8W" eventType="touchUpInside" id="gqU-j1-hbI"/>
                                         </connections>
@@ -600,13 +611,13 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zoeken" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="48L-gC-GNF">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zoeken" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="48L-gC-GNF">
                                         <rect key="frame" x="94" y="8" width="450" height="42"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="VarelaRound-Regular" family="Varela Round" pointSize="22"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D03-lx-fTx">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D03-lx-fTx">
                                         <rect key="frame" x="560" y="8" width="20" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="med-4V-dD9"/>
@@ -723,10 +734,10 @@
     </scenes>
     <resources>
         <image name="background" width="640" height="1136"/>
-        <image name="close" width="20" height="20"/>
+        <image name="close" width="15" height="15"/>
         <image name="fullscreen-open" width="29" height="29"/>
         <image name="pullDown" width="32" height="25"/>
         <image name="switchIcon" width="40" height="39"/>
-        <image name="vanTotIcon_small" width="10" height="38"/>
+        <image name="vanTotIcon_small" width="15" height="56"/>
     </resources>
 </document>

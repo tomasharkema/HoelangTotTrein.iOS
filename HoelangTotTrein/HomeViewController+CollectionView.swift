@@ -177,6 +177,10 @@ class AdviceCollectionviewCell : UICollectionViewCell, UITableViewDataSource, UI
         vertagingLabel.hidden = true
       }
       
+      let count = advice?.reisDeel.count ?? 0
+      let contentOffsetY = adviceDetailTableView.frame.height - (CGFloat(count) * 87)
+      adviceDetailTableView.contentOffset.y = -contentOffsetY
+      
       updateUI()
     }
   }
@@ -202,10 +206,13 @@ class AdviceCollectionviewCell : UICollectionViewCell, UITableViewDataSource, UI
       var hourString = ""
       if let hour = endDate.toMMSSFromNow().hour {
         hourString = hour == "0" ? "" : hour + ":"
+        
+        secondsToGoLabel.text = hour != "0" ? "" : ":\(endDate.toMMSSFromNow().second)"
+      } else {
+        secondsToGoLabel.text = ":\(endDate.toMMSSFromNow().second)"
       }
       
       minutesToGoLabel.text = hourString + "" + endDate.toHMSSFromNow().minute
-      secondsToGoLabel.text = ":\(endDate.toMMSSFromNow().second)"
       secondsToGoLabel.textColor = UIColor.whiteColor()
       minutesToGoLabel.textColor = UIColor.whiteColor()
     }
