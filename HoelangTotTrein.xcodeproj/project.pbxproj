@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8804BA511ADA929C002BD584 /* Gotham-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8804BA501ADA929C002BD584 /* Gotham-Thin.ttf */; };
+		88DBA0FA1ADA941E00A2BE0E /* VarelaRound-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88DBA0F91ADA941E00A2BE0E /* VarelaRound-Regular.ttf */; };
+		88DBA0FB1ADA941E00A2BE0E /* VarelaRound-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88DBA0F91ADA941E00A2BE0E /* VarelaRound-Regular.ttf */; };
+		88DBA0FC1ADA941E00A2BE0E /* VarelaRound-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88DBA0F91ADA941E00A2BE0E /* VarelaRound-Regular.ttf */; };
+		88DBA0FD1ADA941E00A2BE0E /* VarelaRound-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88DBA0F91ADA941E00A2BE0E /* VarelaRound-Regular.ttf */; };
+		88DBA0FE1ADA941E00A2BE0E /* VarelaRound-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88DBA0F91ADA941E00A2BE0E /* VarelaRound-Regular.ttf */; };
 		C301D8AB1A992FD000FB414D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3883A4B1A96772C002A3CE4 /* Alamofire.framework */; };
 		C301D8AE1A992FE100FB414D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C301D8AD1A992FE100FB414D /* Pods.framework */; };
 		C301D8B01A99349300FB414D /* Aktiv-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = C371CF841A90F838004C35A0 /* Aktiv-Thin.otf */; };
@@ -165,6 +171,8 @@
 
 /* Begin PBXFileReference section */
 		3601E695C84C96385D481886 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		8804BA501ADA929C002BD584 /* Gotham-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham-Thin.ttf"; sourceTree = "<group>"; };
+		88DBA0F91ADA941E00A2BE0E /* VarelaRound-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VarelaRound-Regular.ttf"; sourceTree = "<group>"; };
 		AE01B4B52BDC71CED562DEBB /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C301D8AD1A992FE100FB414D /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = "Pods/build/Debug-iphoneos/Pods.framework"; sourceTree = "<group>"; };
 		C301D8AF1A99303700FB414D /* HoelangTotTrein WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "HoelangTotTrein WatchKit Extension.entitlements"; sourceTree = "<group>"; };
@@ -450,6 +458,8 @@
 		C371CF811A90F79C004C35A0 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				88DBA0F91ADA941E00A2BE0E /* VarelaRound-Regular.ttf */,
+				8804BA501ADA929C002BD584 /* Gotham-Thin.ttf */,
 				C371CF841A90F838004C35A0 /* Aktiv-Thin.otf */,
 				C371CF821A90F7B2004C35A0 /* Aktiv-Light.otf */,
 			);
@@ -681,6 +691,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3261C4C1A992E070046DD81 /* HoelangTotTrein WatchKit App.app in Resources */,
+				88DBA0FD1ADA941E00A2BE0E /* VarelaRound-Regular.ttf in Resources */,
 				C301D8B01A99349300FB414D /* Aktiv-Thin.otf in Resources */,
 				C301D8B11A99349300FB414D /* Aktiv-Light.otf in Resources */,
 				C3261C481A992E070046DD81 /* Images.xcassets in Resources */,
@@ -692,6 +703,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3261C541A992E070046DD81 /* Interface.storyboard in Resources */,
+				88DBA0FE1ADA941E00A2BE0E /* VarelaRound-Regular.ttf in Resources */,
 				C301D8B21A99349400FB414D /* Aktiv-Thin.otf in Resources */,
 				C301D8B31A99349400FB414D /* Aktiv-Light.otf in Resources */,
 				C3261C561A992E070046DD81 /* Images.xcassets in Resources */,
@@ -705,7 +717,9 @@
 				C371CF851A90F838004C35A0 /* Aktiv-Thin.otf in Resources */,
 				C3C120281AB5DC08007A61A2 /* HoelangTotTrein WatchKit App.app in Resources */,
 				C36CEFA71A8B3D8300C9F3CC /* Main.storyboard in Resources */,
+				8804BA511ADA929C002BD584 /* Gotham-Thin.ttf in Resources */,
 				C36CEFAC1A8B3D8300C9F3CC /* LaunchScreen.xib in Resources */,
+				88DBA0FA1ADA941E00A2BE0E /* VarelaRound-Regular.ttf in Resources */,
 				C371CF791A8FAF88004C35A0 /* sloterdijk.gpx in Resources */,
 				C36CEFA91A8B3D8300C9F3CC /* Images.xcassets in Resources */,
 				C371CF831A90F7B2004C35A0 /* Aktiv-Light.otf in Resources */,
@@ -716,6 +730,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88DBA0FB1ADA941E00A2BE0E /* VarelaRound-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,6 +739,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3883A4A1A965AA5002A3CE4 /* Aktiv-Light.otf in Resources */,
+				88DBA0FC1ADA941E00A2BE0E /* VarelaRound-Regular.ttf in Resources */,
 				C3883A491A965AA5002A3CE4 /* Aktiv-Thin.otf in Resources */,
 				C3883A321A95D8B3002A3CE4 /* MainInterface.storyboard in Resources */,
 			);
