@@ -24,8 +24,8 @@ class PickerCellView : UITableViewCell {
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
-        nameLabel.textColor = selected ? UIColor.primaryThemeColor() : UIColor.whiteColor()
-        contentView.backgroundColor = selected ? UIColor.traitaryGreyColor() : UIColor.clearColor()
+        nameLabel.textColor = selected ? UIColor.blackColor() : UIColor.whiteColor()
+        contentView.backgroundColor = selected ? UIColor.whiteColor().colorWithAlphaComponent(0.5) : UIColor.clearColor()
         backgroundColor = UIColor.clearColor()
         super.setSelected(selected, animated: animated)
     }

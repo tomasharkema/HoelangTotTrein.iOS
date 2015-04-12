@@ -88,20 +88,18 @@ class HomeViewController: UIViewController {
     super.viewDidLayoutSubviews()
     TreinTicker.sharedInstance.start()
     
-    headerView.layoutIfNeeded()
-    
     if headerBlurView == nil {
-      let effect = UIBlurEffect(style: .Light)
-      let blurView = UIVisualEffectView(effect: effect)
-      var frame = headerView.frame
-      frame.size.width = view.frame.width
-      blurView.frame = frame
+//      let effect = UIBlurEffect(style: .Light)
+//      let blurView = UIVisualEffectView(effect: effect)
+//      var frame = headerView.frame
+//      frame.size.width = view.frame.width
+//      blurView.frame = frame
       
-      headerView.backgroundColor = UIColor.clearColor()
-      headerView.addSubview(blurView)
-      headerView.sendSubviewToBack(blurView)
+//      headerView.backgroundColor = UIColor.clearColor()
+//      headerView.addSubview(blurView)
+//      headerView.sendSubviewToBack(blurView)
       
-      self.headerBlurView = blurView
+      //self.headerBlurView = blurView
     }
     
     if collectionBlurView == nil {

@@ -239,9 +239,10 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
     
     let headerView = view as! UITableViewHeaderFooterView
-    headerView.textLabel.font = UIFont(name: "Aktiv-Light", size: 16.0)
-    headerView.textLabel.textColor = UIColor.whiteColor()
-    headerView.contentView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.7)
+    headerView.textLabel.font = UIFont(name: "VarelaRound-Regular", size: 16.0)
+    headerView.textLabel.textColor = UIColor.blackColor()
+    headerView.contentView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.8)
+    headerView.backgroundView = nil
   }
   
   func textFieldDidBeginEditing(textField: UITextField) {
