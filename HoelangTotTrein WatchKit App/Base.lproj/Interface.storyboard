@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6751" systemVersion="14D98g" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7702" systemVersion="14E11f" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Aktiv-Light.otf">
-            <string>AktivGrotesk-Hairline</string>
-        </mutableArray>
         <mutableArray key="Aktiv-Thin.otf">
             <string>AktivGrotesk-Light</string>
             <string>AktivGrotesk-Light</string>
@@ -23,25 +20,25 @@
                     <items>
                         <button width="1" height="30" alignment="left" title="Button" id="dK5-bu-QhB">
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                            <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="10"/>
+                            <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="12"/>
                             <connections>
                                 <action selector="fromTapped" destination="AgC-eL-Hgc" id="aHx-AO-fjV"/>
                             </connections>
                         </button>
                         <label alignment="center" text="1" textAlignment="center" id="QiF-o1-hKb">
-                            <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="13"/>
+                            <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="16"/>
                         </label>
                         <group width="1" height="53" alignment="center" verticalAlignment="center" contentMode="center" id="Ze0-8T-NYb">
                             <items>
                                 <timer alignment="center" verticalAlignment="center" textAlignment="center" id="p84-Rj-IBJ">
-                                    <fontDescription key="font" name="AktivGrotesk-Hairline" family="Aktiv Grotesk" pointSize="34"/>
+                                    <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="40"/>
                                     <calendarUnit key="units" minute="YES" second="YES"/>
                                 </timer>
                             </items>
                         </group>
                         <button width="1" height="30" alignment="left" verticalAlignment="bottom" title="Button" id="Glr-mg-Xah">
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                            <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="10"/>
+                            <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="12"/>
                             <connections>
                                 <action selector="toTapped" destination="AgC-eL-Hgc" id="Mqt-6m-wXp"/>
                             </connections>
@@ -62,29 +59,6 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="222" y="373"/>
-        </scene>
-        <!--map-->
-        <scene sceneID="VDe-hV-Uhz">
-            <objects>
-                <controller identifier="mapController" title="map" id="FaY-nq-qI9" customClass="MapController" customModule="HoelangTotTrein_WatchKit_Extension">
-                    <items>
-                        <group alignment="left" layout="vertical" id="Y5x-bT-XUj">
-                            <items>
-                                <map height="100" alignment="left" id="3Gq-Ep-ytd"/>
-                                <timer alignment="center" textAlignment="center" id="AZP-a3-796">
-                                    <color key="textColor" red="0.32549019610000002" green="0.84705882349999995" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="font" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="27"/>
-                                    <calendarUnit key="units" minute="YES" second="YES"/>
-                                </timer>
-                            </items>
-                        </group>
-                    </items>
-                    <connections>
-                        <outlet property="map" destination="3Gq-Ep-ytd" id="sYH-aa-bBI"/>
-                    </connections>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="464" y="374.25"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="BOz-TT-tkC">

@@ -18,3 +18,9 @@
 #define COCOAPODS_VERSION_MINOR_NewRelicAgent 186
 #define COCOAPODS_VERSION_PATCH_NewRelicAgent 0
 
+// Observable-Swift
+#define COCOAPODS_POD_AVAILABLE_Observable_Swift
+#define COCOAPODS_VERSION_MAJOR_Observable_Swift 0
+#define COCOAPODS_VERSION_MINOR_Observable_Swift 4
+#define COCOAPODS_VERSION_PATCH_Observable_Swift 2
+

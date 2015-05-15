@@ -1,13 +1,16 @@
 PODS:
   - Alamofire (1.2.0)
   - NewRelicAgent (4.186)
+  - Observable-Swift (0.4.2)
 
 DEPENDENCIES:
   - Alamofire (~> 1.2)
   - NewRelicAgent
+  - Observable-Swift
 
 SPEC CHECKSUMS:
   Alamofire: d765c5c1713aa64106b0228aaa600a1e6851f68d
   NewRelicAgent: c9efe4386f703c97741fbb1f65e80d5513a04866
+  Observable-Swift: 25ddaa7e5735cbb03034e573c9f97f3feae5887c
 
-COCOAPODS: 0.36.3
+COCOAPODS: 0.37.0

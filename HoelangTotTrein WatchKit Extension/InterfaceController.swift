@@ -8,6 +8,7 @@
 
 import WatchKit
 import Foundation
+import Observable
 
 class InterfaceController: WKInterfaceController {
   
@@ -25,22 +26,22 @@ class InterfaceController: WKInterfaceController {
     treinTicker.fromCurrentLocation()
     // Configure interface objects here.
     
-    treinTicker.adviceChangedHandler = { [weak self] (advice) in
-      println()
+    treinTicker.adviceChangedHandler += { [weak self] _ in
       self?.updateUI()
+      return;
     }
     
-    treinTicker.tickerHandler = { [weak self] time in
+    treinTicker.tickerHandler += { [weak self] time in
+      
       if self?.time != time.date {
         self?.time = time.date
-        println("setNewTime")
         self?.updateUI()
       }
+    
     }
     
-    treinTicker.fromToChanged = { [weak self] _ in
-      println("fromToChanged")
-      self?.updateUI()
+    treinTicker.fromToChanged += { _ in
+      self.updateUI()
     }
     
     super.awakeWithContext(context)

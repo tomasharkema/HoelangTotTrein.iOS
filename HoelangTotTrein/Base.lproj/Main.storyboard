@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oWt-5Q-I8W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14E11f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oWt-5Q-I8W">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -57,9 +57,9 @@
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TBt-RP-4zL">
-                                        <rect key="frame" x="0.0" y="137" width="600" height="463"/>
+                                        <rect key="frame" x="0.0" y="141" width="600" height="459"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nhF-fJ-eeE">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="463"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="459"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
                                         <blurEffect style="dark"/>
@@ -388,18 +388,18 @@
                                         </cells>
                                     </collectionView>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sV1-vu-Ar6">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="137"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="141"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="DoP-8k-B93">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="137"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="141"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
                                         <blurEffect style="light"/>
                                     </visualEffectView>
                                     <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wyt-Ft-ku1">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="137"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="141"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4v-XK-wsA">
-                                                <rect key="frame" x="55" y="30" width="40" height="39"/>
+                                                <rect key="frame" x="55" y="34" width="40" height="39"/>
                                                 <fontDescription key="fontDescription" name="VarelaRound-Regular" family="Varela Round" pointSize="22"/>
                                                 <state key="normal" title="Van">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -410,19 +410,19 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="naar" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyP-v0-jw7">
-                                                <rect key="frame" x="21" y="77" width="26" height="39"/>
+                                                <rect key="frame" x="21" y="81" width="26" height="39"/>
                                                 <fontDescription key="fontDescription" name="VarelaRound-Regular" family="Varela Round" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="van" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPa-Pf-CyE">
-                                                <rect key="frame" x="21" y="30" width="26" height="39"/>
+                                                <rect key="frame" x="21" y="34" width="26" height="39"/>
                                                 <fontDescription key="fontDescription" name="VarelaRound-Regular" family="Varela Round" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Zj-hm-CgF">
-                                                <rect key="frame" x="55" y="77" width="51" height="39"/>
+                                                <rect key="frame" x="55" y="81" width="51" height="39"/>
                                                 <fontDescription key="fontDescription" name="VarelaRound-Regular" family="Varela Round" pointSize="22"/>
                                                 <state key="normal" title="Naar">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -433,7 +433,7 @@
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1f-yi-bzQ">
-                                                <rect key="frame" x="562" y="49" width="30" height="39"/>
+                                                <rect key="frame" x="562" y="51" width="30" height="39"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="ONs-yu-NWA"/>
                                                 </constraints>
@@ -446,7 +446,7 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="YPa-Pf-CyE" firstAttribute="top" secondItem="Wyt-Ft-ku1" secondAttribute="top" constant="30" id="6QJ-pC-eJS"/>
+                                            <constraint firstItem="YPa-Pf-CyE" firstAttribute="top" secondItem="Wyt-Ft-ku1" secondAttribute="top" constant="34" id="6QJ-pC-eJS"/>
                                             <constraint firstItem="U4v-XK-wsA" firstAttribute="bottom" secondItem="YPa-Pf-CyE" secondAttribute="bottom" id="8Ij-hT-bDI"/>
                                             <constraint firstItem="cyP-v0-jw7" firstAttribute="top" secondItem="YPa-Pf-CyE" secondAttribute="bottom" constant="8" id="AEg-Jh-svB"/>
                                             <constraint firstItem="cyP-v0-jw7" firstAttribute="trailing" secondItem="YPa-Pf-CyE" secondAttribute="trailing" id="JcU-kV-7oo"/>
@@ -469,14 +469,14 @@
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="emx-74-XDy"/>
-                                                <exclude reference="uk4-mZ-psX"/>
                                                 <exclude reference="8Ij-hT-bDI"/>
+                                                <exclude reference="uk4-mZ-psX"/>
                                                 <exclude reference="ngH-Zh-x0M"/>
                                             </mask>
                                         </variation>
                                     </view>
                                     <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="lWS-R8-8Sb">
-                                        <rect key="frame" x="565" y="167" width="39" height="37"/>
+                                        <rect key="frame" x="565" y="171" width="39" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="37" id="SsV-mm-dZd"/>
                                         </constraints>
@@ -495,11 +495,11 @@
                                             <action selector="pageControllerTouched:" destination="oWt-5Q-I8W" eventType="valueChanged" id="Zrw-OX-h96"/>
                                         </connections>
                                     </pageControl>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uya-yO-sZK">
-                                        <rect key="frame" x="219" y="0.0" width="163" height="29"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uya-yO-sZK">
+                                        <rect key="frame" x="219" y="150" width="163" height="29"/>
                                         <fontDescription key="fontDescription" name="AktivGrotesk-Light" family="Aktiv Grotesk" pointSize="15"/>
                                         <state key="normal" title="reis vanaf huidige locatie">
-                                            <color key="titleColor" red="0.32549019607843138" green="0.84705882352941175" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <variation key="widthClass=regular" ambiguous="YES">
                                             <rect key="frame" x="319" y="0.0" width="163" height="29"/>
@@ -549,6 +549,7 @@
                                     <constraint firstItem="Wyt-Ft-ku1" firstAttribute="leading" secondItem="XdA-ld-a6e" secondAttribute="leading" id="tpq-lW-Rpn"/>
                                     <constraint firstAttribute="trailing" secondItem="eWd-OC-jgv" secondAttribute="trailing" id="tqS-TB-XR5"/>
                                     <constraint firstAttribute="trailing" secondItem="TBt-RP-4zL" secondAttribute="trailing" id="uWw-Xq-M01"/>
+                                    <constraint firstItem="uya-yO-sZK" firstAttribute="top" secondItem="Wyt-Ft-ku1" secondAttribute="bottom" constant="9" id="zIM-3E-z0p"/>
                                     <constraint firstItem="TBt-RP-4zL" firstAttribute="top" secondItem="XdA-ld-a6e" secondAttribute="top" id="zfu-dU-Bgd"/>
                                 </constraints>
                                 <variation key="default">

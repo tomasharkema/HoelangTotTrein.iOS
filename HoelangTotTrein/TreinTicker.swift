@@ -9,11 +9,7 @@
 import UIKit
 import CoreLocation
 import Alamofire
-
-typealias TickerHandler = (HHMMSS) -> Void
-typealias AdviceChangedHandler = (Advice) -> Void
-typealias StationsChangeHandler = (Array<Station>) -> Void
-typealias FromToChanged = (from:Station?, to:Station?) -> Void
+import Observable
 
 enum NotificationNamespace: String {
   case Station = "Station"
@@ -39,6 +35,11 @@ struct CodeContainer {
     let components = split(string) {$0 == ":"}
     return CodeContainer(namespace: NotificationNamespace.fromString(components.first!), code: components[1], deelIndex: NSString(string:components.last!).integerValue)
   }
+}
+
+struct FromTo {
+  let from: Station?
+  let to: Station?
 }
 
 private var treinTickerSharedInstance:TreinTicker!
@@ -88,10 +89,12 @@ class TreinTicker: NSObject {
   
   var currentLocation:CLLocation!
   
-  var tickerHandler:TickerHandler?
-  var adviceChangedHandler:AdviceChangedHandler?
-  var stationChangedHandler:StationsChangeHandler?
-  var fromToChanged:FromToChanged?
+  var tickerHandler = Event<HHMMSS>()
+  var adviceChangedHandler = Event<Advice>()
+  var stationChangedHandler = Event<[Station]>()
+  var fromToChanged = Event<FromTo>()
+  var locationUpdated = Event<CLLocation>()
+  var userDefaultsDidChange = Event<Void>()
   
   var locationManager:CLLocationManager
   var geofences:[CLRegion] = []
@@ -122,50 +125,39 @@ class TreinTicker: NSObject {
     
     locationManager.delegate = self
     locationManager.requestAlwaysAuthorization()
-    locationManager.startMonitoringVisits()
     
     if stations.count > 0 {
-      
-      self.setInitialState()
-      if let cb = stationChangedHandler {
-        cb(stations)
-      }
+      stationChangedHandler.notify(stations)
     }
+    
     API().getStations { [weak self] stations in
-      let s:[Station] = stations
-      println(s)
-      if s.count > 0 {
-        self?.stations = s
-      }
       self?.setInitialState()
-      
-      if let cb = self?.stationChangedHandler {
-        cb(s)
-      }
+      self?.stations = stations
+      self?.stationChangedHandler.notify(stations)
     }
+    
     NSNotificationCenter.defaultCenter().addObserverForName(NSUserDefaultsDidChangeNotification, object: nil, queue: NSOperationQueue.mainQueue()) { _ in
-      NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("userDefaultsDidChange"), userInfo: nil, repeats: false)
+      self.userDefaultsDidChange.notify()
       return
     }
-  }
-  
-  func userDefaultsDidChange() {
     
-    fromToChanged?(from: from, to: to)
+    userDefaultsDidChange += { [weak self] _ in
+      self?.fromToChanged.notify(FromTo(from: self?.from, to: self?.to))
+    }
   }
   
   var currentAdivce:Advice? {
     set {
-      println("set currentAdivce")
       if (UserDefaults.currentAdvice == newValue) {
         return
       }
       UserDefaults.currentAdvice = newValue
       let currentAdvice = newValue
       
-      if (adviceChangedHandler != nil && currentAdvice != nil) {
+      if (currentAdvice != nil) {
         dispatch_async(dispatch_get_main_queue()) {
-          self.adviceChangedHandler?(currentAdvice!)
+          self.adviceChangedHandler.notify(currentAdvice!)
+
           return;
         }
       }
@@ -177,8 +169,6 @@ class TreinTicker: NSObject {
       for region in locationManager.monitoredRegions {
         if let r = region as? CLRegion {
           if let station = findStationByCode(CodeContainer.getFromString(r.identifier)) {
-            let name = station.name.lang
-            println("Unregister for \(name)")
             locationManager.stopMonitoringForRegion(r)
           }
         }
@@ -221,10 +211,10 @@ class TreinTicker: NSObject {
       if let from = newValue {
         _from = from
         UserDefaults.from = from.code
-        if (to != nil && fromToChanged != nil) {
+        if (to != nil) {
           adviceRequest = AdviceRequest(from: from, to: to!)
           dispatch_async(dispatch_get_main_queue()) {
-            self.fromToChanged?(from: from, to: self.to)
+            self.fromToChanged.notify(FromTo(from: from, to: self.to))
             return
           }
         }
@@ -248,10 +238,10 @@ class TreinTicker: NSObject {
       if let to = newValue {
         _to = newValue
         UserDefaults.to = to.code
-        if (from != nil && fromToChanged != nil) {
+        if (from != nil) {
           adviceRequest = AdviceRequest(from: from!, to: to)
           dispatch_async(dispatch_get_main_queue()) {
-            self.fromToChanged?(from: self.from, to: to)
+            self.fromToChanged.notify(FromTo(from: self.from, to: to))
             return;
           }
         }
@@ -273,10 +263,8 @@ class TreinTicker: NSObject {
   
   func setInitialState() {
     if from != nil && to != nil {
-    adviceRequest = AdviceRequest(from: from!, to: to!)
-      if let cb = fromToChanged {
-        cb(from: from, to: to)
-      }
+      adviceRequest = AdviceRequest(from: from!, to: to!)
+      fromToChanged.notify(FromTo(from: self.from, to: to))
     }
   }
   
@@ -290,14 +278,10 @@ class TreinTicker: NSObject {
     
     heartBeat = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("timerCallback"), userInfo: nil, repeats: true)
     if let advice = currentAdivce {
-      if let cb = adviceChangedHandler {
-        cb(advice)
-      }
+      self.fromToChanged.notify(FromTo(from: self.from, to: to))
     }
     if from != nil && to != nil {
-      if let cb = fromToChanged {
-        fromToChanged?(from: from, to: to)
-      }
+      self.fromToChanged.notify(FromTo(from: self.from, to: to))
     }
   }
   
@@ -378,9 +362,8 @@ class TreinTicker: NSObject {
         } else {
           self.currentAdivce = currentAdv
         }
-        if let th = tickerHandler {
-          th(currentAdv.vertrek.actual.toMMSSFromNow())
-        }
+        
+        self.tickerHandler.notify(currentAdv.vertrek.actual.toMMSSFromNow())
       }
     }
     

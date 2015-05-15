@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import Observable
 
 typealias SelectStationHandler = (Station) -> Void
 
@@ -46,22 +47,27 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
   
   var selectStationHandler:SelectStationHandler!
   
-  var mostUsed:Array<Station> = []
-  var stations:Array<Station> = []
+  var mostUsed = [Station]()
+  var stations = [Station]()
   
   func reload() {
-    self.mostUsed = MostUsed.getListByVisited().slice(5)
-    stations = TreinTicker.sharedInstance.stations.filter { [weak self] station in
-      return (self?.mostUsed.contains(station) != nil)
-    }
-    
-    if let tv = tableView {
-      tv.reloadData()
-      selectRow()
+    {
+      self.mostUsed = MostUsed.getListByVisited().slice(10)
+      self.stations = TreinTicker.sharedInstance.stations.filter { [weak self] station in
+        return (self?.mostUsed.contains(station) != nil)
+      }
+      
+    } ~> {
+      if let tv = self.tableView {
+        tv.reloadData()
+        self.selectRow()
+      }
     }
   }
   
   /// MARK: View Lifecycle
+  
+  var locationUpdatedSubscription: EventSubscription<CLLocation>? = Optional.None;
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -83,15 +89,26 @@ class PickerViewController : UIViewController, UITableViewDelegate, UITableViewD
     searchView.addTarget(self, action: Selector("textFieldDidChange:"), forControlEvents: UIControlEvents.EditingChanged)
     searchView.attributedPlaceholder = NSAttributedString(string: "Zoeken...", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.3)])
     
-    self.headerView.transform = CGAffineTransformMakeTranslation(0, -self.headerView.bounds.height)
-    self.tableView.transform = CGAffineTransformScale(CGAffineTransformMakeTranslation(0.0, self.view.bounds.height), 0.9, 0.9);
+    headerView.transform = CGAffineTransformMakeTranslation(0, -self.headerView.bounds.height)
+    tableView.transform = CGAffineTransformScale(CGAffineTransformMakeTranslation(0.0, self.view.bounds.height), 0.9, 0.9);
     backdropImageView.alpha = 0
+    
+    self.stations = TreinTicker.sharedInstance.stations
+    reload()
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    reload()
+    locationUpdatedSubscription = TreinTicker.sharedInstance.locationUpdated += { [weak self] _ in
+      self?.reload()
+      return;
+    }
+    
     animateMenu(true, animated: true, completion: nil)
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    locationUpdatedSubscription?.invalidate()
   }
   
   /// MARK: Show State Animations

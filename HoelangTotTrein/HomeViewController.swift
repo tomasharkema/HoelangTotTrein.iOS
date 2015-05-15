@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Observable
 
 enum StationType {
   case From
@@ -71,16 +72,20 @@ class HomeViewController: UIViewController {
     
     fromButton.titleLabel?.adjustsFontSizeToFitWidth = true
     toButton.titleLabel?.adjustsFontSizeToFitWidth = true
-    
-    TreinTicker.sharedInstance.adviceChangedHandler = { [weak self] (advice) in
+
+    TreinTicker.sharedInstance.adviceChangedHandler += { [weak self] _ in
       self?.reload()
       return;
     }
     
-    TreinTicker.sharedInstance.fromToChanged = { [weak self] from, to in
+    TreinTicker.sharedInstance.fromToChanged += { [weak self] fromTo in
+      let from = fromTo.from
+      let to = fromTo.to
+      
       self?.toButton.setTitle(to?.name.lang, forState: UIControlState.Normal)
       self?.fromButton.setTitle(from?.name.lang, forState: UIControlState.Normal)
       self?.reload()
+      return;
     }
   }
   

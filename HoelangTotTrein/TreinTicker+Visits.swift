@@ -60,34 +60,41 @@ extension TreinTicker : CLLocationManagerDelegate {
     
     shouldUpdate = false
     
-    self.currentLocation = (locations.first)!.copy() as! CLLocation
-    println(currentLocation)
+    self.currentLocation = (locations.first)!.copy() as! CLLocation;
     
-    self.closeStations =  Station.sortStationsOnLocation(stations, loc: currentLocation!, sorter: <, number:5)
+    let back: () -> Station = {
+      self.closeStations =  Station.sortStationsOnLocation(self.stations, loc: self.currentLocation!, number:10, sorter: <)
+      let closest = Station.getClosestStation(self.stations, loc: self.currentLocation!)
+      return closest!
+    }
     
-    let closest = Station.getClosestStation(stations, loc: currentLocation!)
-    
-    if let toOpt = to {
-      if (closest! == toOpt) {
-        switchAdviceRequest()
-      } else {
-        from = closest
+    let main: Station -> () = { closest in
+      if let toOpt = self.to {
+        if (closest == toOpt) {
+          self.switchAdviceRequest()
+        } else {
+          self.from = closest
+        }
       }
+    }
+    
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+      let result = back()
+      dispatch_async(dispatch_get_main_queue(), {
+        main(result)
+        self.locationUpdated.notify(self.currentLocation)
+      })
     }
   }
   
-  func locationManager(manager: CLLocationManager!, didVisit visit: CLVisit!) {
-    println(visit)
-  }
-  
   func fireArrivalNotification(station:Station) {
-    let notificationBody = "Je bent aangekomen op \(station.name.lang) (duh). Voor je het vergeet: wel uitchecken hè? 😇"
-    let notification = UILocalNotification()
-    notification.alertBody = notificationBody
-    notification.fireDate = NSDate()
-    notification.soundName = UILocalNotificationDefaultSoundName
-    
-    NSNotificationCenter.defaultCenter().postNotificationName("showNotification", object: notification)
+//    let notificationBody = "Je bent aangekomen op \(station.name.lang) (duh). Voor je het vergeet: wel uitchecken hè? 😇"
+//    let notification = UILocalNotification()
+//    notification.alertBody = notificationBody
+//    notification.fireDate = NSDate()
+//    notification.soundName = UILocalNotificationDefaultSoundName
+//    
+//    NSNotificationCenter.defaultCenter().postNotificationName("showNotification", object: notification)
   }
   
 }

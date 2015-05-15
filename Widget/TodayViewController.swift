@@ -8,6 +8,7 @@
 
 import UIKit
 import NotificationCenter
+import Observable
 
 class TodayViewController: UIViewController, NCWidgetProviding {
         
@@ -26,21 +27,21 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     super.viewDidLoad()
     let treinTicker = TreinTicker.sharedExtensionInstance
     
-    treinTicker.tickerHandler = { [weak self] time in
+    treinTicker.tickerHandler += { _ in
+      self.updateUI()
+      return;
+    };
+    
+    treinTicker.adviceChangedHandler += { [weak self] _ in
       self?.updateUI()
       return;
-    }
+    };
     
-    treinTicker.adviceChangedHandler = { [weak self] (advice) in
-      self?.updateUI()
-      return;
-    }
-    
-    treinTicker.fromToChanged = { [weak self] from, to in
-      self?.updateUI()
-      return;
-    }
-    
+//    treinTicker.fromToChanged.afterChange.add { [weak self] (_, _) in
+//      self?.updateUI()
+//      return;
+//    };
+//    
     treinTicker.start()
     
     //NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("updateUI"), name: NSUserDefaultsDidChangeNotification, object: nil)
@@ -87,7 +88,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
   override func viewDidDisappear(animated: Bool) {
     super.viewDidDisappear(animated)
     NSNotificationCenter.defaultCenter().removeObserver(self, name: NSUserDefaultsDidChangeNotification, object: nil)
-    println("viewDidDisappear")
     TreinTicker.sharedExtensionInstance.stop()
   }
   

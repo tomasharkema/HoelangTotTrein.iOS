@@ -85,7 +85,7 @@ class Station: NSObject, NSCoding {
       
       name = Namen(kort: kort?.stringValue ?? "", middel: middel?.stringValue ?? "", lang: lang?.stringValue ?? "")
     }
-    
+  
     func getLocation() -> CLLocation {
         return CLLocation(latitude: lat!, longitude: long!)
     }
@@ -95,7 +95,7 @@ class Station: NSObject, NSCoding {
         return CLCircularRegion(center: center, radius: RADIUS, identifier: CodeContainer(namespace: .Station, code: code, deelIndex: i).string())
     }
     
-    class func sortStation(stations:Array<Station>, sortableRepresentation:(a:Station) -> Double, sorter:(a:Double, b:Double) -> Bool, number:Int = -1) -> Array<Station> {
+    class func sortStation(stations:Array<Station>, sortableRepresentation:(a:Station) -> Double, number:Int = -1, sorter:(a:Double, b:Double) -> Bool) -> Array<Station> {
         var dict = Dictionary<NSString, Double>()
         
         for station in stations {
@@ -126,10 +126,10 @@ class Station: NSObject, NSCoding {
         return closestStation
     }
   
-    class func sortStationsOnLocation(stations: Array<Station>, loc:CLLocation, sorter:(a:Double, b:Double) -> Bool, number:Int = -1) -> Array<Station> {
+    class func sortStationsOnLocation(stations: Array<Station>, loc:CLLocation, number:Int = -1, sorter:(a:Double, b:Double) -> Bool) -> Array<Station> {
         return sortStation(stations, sortableRepresentation: {
           return $0.getLocation().distanceFromLocation(loc)
-          }, sorter: sorter, number:number)
+          }, number:number, sorter: sorter)
     }
 }
 
