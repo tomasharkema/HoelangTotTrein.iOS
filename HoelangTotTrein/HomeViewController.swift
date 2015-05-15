@@ -47,14 +47,7 @@ class HomeViewController: UIViewController {
       if let i:Int = find(TreinTicker.sharedInstance.stations, selectionState == .From ? TreinTicker.sharedInstance.from! : TreinTicker.sharedInstance.to!) {
         let station:Station = TreinTicker.sharedInstance.stations[i]
         self.pick(station)
-        selectRow()
       }
-    }
-  }
-  
-  private func selectRow() {
-    if let i = find(TreinTicker.sharedInstance.stations, selectionState == .From ? TreinTicker.sharedInstance.from! : TreinTicker.sharedInstance.to!) {
-      //stationPicker.selectRow(i, inComponent: 0, animated: true)
     }
   }
   
@@ -92,20 +85,6 @@ class HomeViewController: UIViewController {
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     TreinTicker.sharedInstance.start()
-    
-    if headerBlurView == nil {
-//      let effect = UIBlurEffect(style: .Light)
-//      let blurView = UIVisualEffectView(effect: effect)
-//      var frame = headerView.frame
-//      frame.size.width = view.frame.width
-//      blurView.frame = frame
-      
-//      headerView.backgroundColor = UIColor.clearColor()
-//      headerView.addSubview(blurView)
-//      headerView.sendSubviewToBack(blurView)
-      
-      //self.headerBlurView = blurView
-    }
     
     if collectionBlurView == nil {
       let darkEffect = UIBlurEffect(style: .Dark)

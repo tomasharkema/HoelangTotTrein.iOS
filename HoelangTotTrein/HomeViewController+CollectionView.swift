@@ -273,9 +273,6 @@ class LegDetailCell : UITableViewCell {
       toStation.text = toStop?.name ?? ""
       toPlatform.text = toStop?.spoor
       toTime.text = toStop?.time?.toHHMM().string()
-      
-//      fromTime.textColor = isTussenstop ? UIColor.grayColor() : UIColor.lightGreyColor()
-//      fromStation.textColor = isTussenstop ? UIColor.grayColor() : UIColor.whiteColor()
     }
   }
 }

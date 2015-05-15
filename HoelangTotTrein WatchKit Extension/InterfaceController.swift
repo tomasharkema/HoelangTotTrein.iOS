@@ -17,6 +17,7 @@ class InterfaceController: WKInterfaceController {
   @IBOutlet weak var fromButton: WKInterfaceButton!
   @IBOutlet weak var toButton: WKInterfaceButton!
   @IBOutlet weak var spoorLabel: WKInterfaceLabel!
+  @IBOutlet weak var vertragingsLabel: WKInterfaceLabel!
   
   var time:NSDate?
   
@@ -69,9 +70,16 @@ class InterfaceController: WKInterfaceController {
       timer.start()
     }
     
-    fromButton.setTitle((treinTicker.from?.name.lang ?? "" ) + " - " + treinTicker.currentAdivce!.vertrek.getFormattedString() ?? "")
-    toButton.setTitle((treinTicker.to?.name.lang ?? "") + " - " + treinTicker.currentAdivce!.aankomst.getFormattedString() ?? "")
-    spoorLabel.setText(treinTicker.currentAdivce!.fromPlatform ?? "")
+    fromButton.setTitle((treinTicker.from?.name.lang ?? "" ) + "\n" + treinTicker.currentAdivce!.vertrek.getFormattedString() ?? "")
+    toButton.setTitle((treinTicker.to?.name.lang ?? "") + "\n" + treinTicker.currentAdivce!.aankomst.getFormattedString() ?? "")
+    
+    if let spoor = treinTicker.currentAdivce?.fromPlatform {
+      spoorLabel.setText("spoor \(spoor)")
+    } else {
+      spoorLabel.setText("")
+    }
+    
+    vertragingsLabel.setText(treinTicker.currentAdivce?.vertrekVertraging ?? "")
   }
   
   @IBAction func fromTapped() {
