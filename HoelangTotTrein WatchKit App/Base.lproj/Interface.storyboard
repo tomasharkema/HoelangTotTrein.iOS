@@ -40,7 +40,7 @@
                         </group>
                         <group width="1" height="53" alignment="center" verticalAlignment="center" contentMode="center" id="Ze0-8T-NYb">
                             <items>
-                                <timer alignment="center" verticalAlignment="center" textAlignment="center" id="p84-Rj-IBJ">
+                                <timer width="1" alignment="center" verticalAlignment="center" textAlignment="center" id="p84-Rj-IBJ">
                                     <fontDescription key="font" name="GothamThin" family="Gotham Thin" pointSize="40"/>
                                     <calendarUnit key="units" minute="YES" second="YES"/>
                                 </timer>

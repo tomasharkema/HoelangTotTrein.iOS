@@ -70,8 +70,10 @@ class InterfaceController: WKInterfaceController {
       timer.start()
     }
     
-    fromButton.setTitle((treinTicker.from?.name.lang ?? "" ) + "\n" + treinTicker.currentAdivce!.vertrek.getFormattedString() ?? "")
-    toButton.setTitle((treinTicker.to?.name.lang ?? "") + "\n" + treinTicker.currentAdivce!.aankomst.getFormattedString() ?? "")
+    if let currentAdvice = treinTicker.currentAdivce {
+      fromButton.setTitle((treinTicker.from?.name.lang ?? "" ) + " " + currentAdvice.vertrek.getFormattedString() ?? "")
+      toButton.setTitle((treinTicker.to?.name.lang ?? "") + " " + currentAdvice.aankomst.getFormattedString() ?? "")
+    }
     
     if let spoor = treinTicker.currentAdivce?.fromPlatform {
       spoorLabel.setText("spoor \(spoor)")

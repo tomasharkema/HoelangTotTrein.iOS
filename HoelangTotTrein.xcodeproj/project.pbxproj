@@ -101,6 +101,7 @@
 		C38F06DD1AA8A78B00597F67 /* TreinTicker+Visits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F06DC1AA8A78B00597F67 /* TreinTicker+Visits.swift */; };
 		C38F06DE1AA8A78B00597F67 /* TreinTicker+Visits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F06DC1AA8A78B00597F67 /* TreinTicker+Visits.swift */; };
 		C3C0EC421B0681E30009B30C /* Gotham-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8804BA501ADA929C002BD584 /* Gotham-Thin.ttf */; };
+		C3C0EC431B068A550009B30C /* HLTT WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C3C131631AFD01560081421F /* HLTT WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C3C131591AFCCFAC0081421F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C131571AFCCFAC0081421F /* Alamofire.framework */; };
 		C3C1315A1AFCCFAC0081421F /* Observable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C131581AFCCFAC0081421F /* Observable.framework */; };
 		C3C1315C1AFCCFB80081421F /* Observable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C1315B1AFCCFB80081421F /* Observable.framework */; };
@@ -127,6 +128,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = C36CEF9B1A8B3D8300C9F3CC;
 			remoteInfo = HoelangTotTrein;
+		};
+		C3C0EC441B068A550009B30C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C36CEF941A8B3D8300C9F3CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3C131621AFD01560081421F;
+			remoteInfo = "HLTT WatchKit Extension";
 		};
 		C3C1316F1AFD01560081421F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -156,6 +164,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				C3883A351A95D8B3002A3CE4 /* Widget.appex in Embed App Extensions */,
+				C3C0EC431B068A550009B30C /* HLTT WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,6 +546,7 @@
 			);
 			dependencies = (
 				C32BE63B1B067907003FEBA7 /* PBXTargetDependency */,
+				C3C0EC451B068A550009B30C /* PBXTargetDependency */,
 			);
 			name = HoelangTotTrein;
 			productName = HoelangTotTrein;
@@ -665,6 +675,7 @@
 					};
 					C3C1316C1AFD01560081421F = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = RSRVS8D9PW;
 					};
 				};
 			};
@@ -957,6 +968,11 @@
 			target = C36CEF9B1A8B3D8300C9F3CC /* HoelangTotTrein */;
 			targetProxy = C36CEFB21A8B3D8300C9F3CC /* PBXContainerItemProxy */;
 		};
+		C3C0EC451B068A550009B30C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3C131621AFD01560081421F /* HLTT WatchKit Extension */;
+			targetProxy = C3C0EC441B068A550009B30C /* PBXContainerItemProxy */;
+		};
 		C3C131701AFD01560081421F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C3C1316C1AFD01560081421F /* HLTT WatchKit App */;
@@ -1101,8 +1117,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HoelangTotTrein/HoelangTotTrein.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods",
@@ -1183,8 +1199,8 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Widget/Widget.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos/Pods",
@@ -1203,6 +1219,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1223,6 +1240,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1264,8 +1282,8 @@
 			baseConfigurationReference = CD505C2AEB56160ABEC7D50A /* Pods.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "HLTT WatchKit Extension.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
