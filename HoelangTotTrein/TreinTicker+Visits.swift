@@ -10,9 +10,6 @@ import UIKit
 import CoreLocation
 
 extension TreinTicker : CLLocationManagerDelegate {
-  func locationManager(manager: CLLocationManager!, didStartMonitoringForRegion region: CLRegion!) {
-    println("START OBSERVING FOR \(findStationByCode(CodeContainer.getFromString(region.identifier))!.name.lang)")
-  }
   
   func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
     println("ERROR! \(error.description)")
@@ -22,7 +19,6 @@ extension TreinTicker : CLLocationManagerDelegate {
     locationManager.stopMonitoringForRegion(region)
     let code = CodeContainer.getFromString(region.identifier)
     let arrivedStation = findStationByCode(code)
-    println("DID ENTER REGION: \(arrivedStation!.name.lang)")
     
     if (currentAdivce?.reisDeel.count <= (code.deelIndex + 1)) {
       // final destination
@@ -34,7 +30,7 @@ extension TreinTicker : CLLocationManagerDelegate {
       return;
     }
     
-    updateAdvice {
+    adviceDataSubscription = adviceDataUpdated.add {
       let notificationBody = $0.notificationPhrase(code.deelIndex+1)
       
       let notification = UILocalNotification()
@@ -43,13 +39,11 @@ extension TreinTicker : CLLocationManagerDelegate {
       notification.soundName = UILocalNotificationDefaultSoundName
       
       NSNotificationCenter.defaultCenter().postNotificationName("showNotification", object: notification)
+      
+      self.adviceDataSubscription?.invalidate()
     }
     
     from = arrivedStation
-  }
-  
-  func locationManager(manager: CLLocationManager!, didExitRegion region: CLRegion!) {
-    println("DID LEAVE REGION: \(region.identifier)")
   }
   
   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {

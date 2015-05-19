@@ -89,28 +89,28 @@ extension HomeViewController : UIScrollViewDelegate, UICollectionViewDataSource,
   }
   
   func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-    if let cell = getMiddleVisibleCell() {
+    if let (cell, indexPath) = getMiddleVisibleCell() {
       let advice = cell.advice
       TreinTicker.sharedInstance.adviceOffset = advice?.vertrek.actual
-      advicesIndicator.currentPage = advicesCollectionView.indexPathForCell(cell)?.row ?? 0
+      advicesIndicator.currentPage = indexPath?.row ?? 0
     }
     
     startTimerForMiddleVisibleCell()
   }
   
-  func getMiddleVisibleCell() -> AdviceCollectionviewCell? {
+  func getMiddleVisibleCell() -> (AdviceCollectionviewCell, NSIndexPath?)? {
     let visibleCells = advicesCollectionView.visibleCells()
     for cellObj in visibleCells {
       let cell = cellObj as! AdviceCollectionviewCell
       if cell.progress > 0.9 {
-        return cell
+        return (cell, advicesCollectionView.indexPathForCell(cell))
       }
     }
     return nil;
   }
   
   func startTimerForMiddleVisibleCell() {
-    if let cell = getMiddleVisibleCell() {
+    if let (cell, _) = getMiddleVisibleCell() {
       if cellTimer != nil {
         cellTimer?.invalidate()
         cellTimer = nil

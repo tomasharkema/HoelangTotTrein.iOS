@@ -1,4 +1,4 @@
-//
+ //
 //  TreinTicker.swift
 //  HoelangTotTrein
 //
@@ -96,6 +96,9 @@ class TreinTicker: NSObject {
   var locationUpdated = Event<CLLocation>()
   var userDefaultsDidChange = Event<Void>()
   
+  var adviceDataUpdated = Event<Advice>()
+  var adviceDataSubscription: EventSubscription<Advice>? = .None
+  
   var locationManager:CLLocationManager
   var geofences:[CLRegion] = []
   
@@ -189,7 +192,7 @@ class TreinTicker: NSObject {
     }
   }
   
-  private var adviceRequest:AdviceRequest! {
+  private var adviceRequest:AdviceRequest? {
     didSet {
       changeRequest()
       minuteTicker = 0
@@ -298,23 +301,16 @@ class TreinTicker: NSObject {
       currentAdviceRequest = nil
     }
     
-    currentAdviceRequest = API().getAdvice(self.adviceRequest) { advices in
-      let a:Array<Advice> = advices;
-      self.advices = a
-      
-      if let cb = self.updateCallback {
+    if let adviceRequest = adviceRequest {
+      currentAdviceRequest = API().getAdvice(adviceRequest) { advices in
+        let a:Array<Advice> = advices;
+        self.advices = a
+        
         if let adv = self.getCurrentAdvice() {
-          cb(adv)
-          self.updateCallback = nil
+          self.adviceDataUpdated.notify(adv)
         }
       }
-      
     }
-  }
-  
-  var updateCallback:((Advice) -> Void)!
-  func updateAdvice(cb:(Advice) -> Void) {
-    updateCallback = cb
   }
   
   func getUpcomingAdvices() -> [Advice] {
