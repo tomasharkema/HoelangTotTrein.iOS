@@ -225,10 +225,10 @@ class Advice: NSObject, NSCoding, Hashable {
     
     let newStation = self.firstStop()
     let vervolgStationTime:String = newStation?.time!.toHHMM().string() ?? ""
-    let vervolgStationToGo:String = newStation?.time?.toMMSSFromNow().string() ?? ""
+    let vervolgStationToGo:String = newStation?.time?.toMMSSFromNow().shortString() ?? ""
     let vervolgSpoor:String = newStation?.spoor ?? ""
     
-    return "De trein naar \(aankomst) vertrekt over " + vervolgStationToGo + " min (" + vervolgStationTime + "u) van spoor " + vervolgSpoor
+    return "De trein naar \(aankomst) vertrekt over \(vervolgStationToGo) (\(vervolgStationTime)u) van spoor \(vervolgSpoor)"
   }
 }
 

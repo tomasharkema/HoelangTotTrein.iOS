@@ -62,13 +62,13 @@ extension TreinTicker : CLLocationManagerDelegate {
     
     self.currentLocation = (locations.first)!.copy() as! CLLocation;
     
-    let back: () -> Station = {
+    let back: () -> Station? = {
       self.closeStations =  Station.sortStationsOnLocation(self.stations, loc: self.currentLocation!, number:10, sorter: <)
       let closest = Station.getClosestStation(self.stations, loc: self.currentLocation!)
-      return closest!
+      return closest
     }
     
-    let main: Station -> () = { closest in
+    let main: Station? -> () = { closest in
       if let toOpt = self.to {
         if (closest == toOpt) {
           self.switchAdviceRequest()
@@ -80,11 +80,12 @@ extension TreinTicker : CLLocationManagerDelegate {
     
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
       let result = back()
-      dispatch_async(dispatch_get_main_queue(), {
+      dispatch_async(dispatch_get_main_queue()) {
         main(result)
         self.locationUpdated.notify(self.currentLocation)
-      })
+      }
     }
+    
   }
   
   func fireArrivalNotification(station:Station) {

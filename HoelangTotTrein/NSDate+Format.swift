@@ -22,6 +22,20 @@ struct HHMMSS {
     
     return "\(h)\(minute):\(second)"
   }
+  
+  func shortString() -> String {
+    if let hour = hour {
+      if hour != "" {
+        return "\(hour) uur"
+      }
+    }
+    
+    if minute != "" || minute != "00" {
+      return "\(minute) min."
+    }
+    
+    return "\(second) sec."
+  }
 }
 
 struct HHMM {
