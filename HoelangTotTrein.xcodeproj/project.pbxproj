@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		40D210361123EC32FA963E2D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE01B4B52BDC71CED562DEBB /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		8804BA511ADA929C002BD584 /* Gotham-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8804BA501ADA929C002BD584 /* Gotham-Thin.ttf */; };
 		88DBA0FA1ADA941E00A2BE0E /* VarelaRound-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88DBA0F91ADA941E00A2BE0E /* VarelaRound-Regular.ttf */; };
 		88DBA0FB1ADA941E00A2BE0E /* VarelaRound-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88DBA0F91ADA941E00A2BE0E /* VarelaRound-Regular.ttf */; };
@@ -19,13 +18,30 @@
 		C30EAB551A9A1196000A3176 /* UIView+Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30EAB4E1A9A1196000A3176 /* UIView+Screenshot.swift */; };
 		C30EAB561A9A1196000A3176 /* UIView+Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30EAB4E1A9A1196000A3176 /* UIView+Screenshot.swift */; };
 		C31626C11A8EA72F00410F63 /* NSDate+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31626C01A8EA72F00410F63 /* NSDate+Format.swift */; };
+		C32302181B13B1440009C364 /* HLTT WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C32301FB1B13B1440009C364 /* HLTT WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C323021F1B13B1B20009C364 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3261C411A992E070046DD81 /* InterfaceController.swift */; };
+		C32302201B13B1B20009C364 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3261C431A992E070046DD81 /* NotificationController.swift */; };
+		C32302211B13B1B20009C364 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3261C451A992E070046DD81 /* GlanceController.swift */; };
+		C32302221B13B1BC0009C364 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3261C471A992E070046DD81 /* Images.xcassets */; };
+		C32302241B13B1C70009C364 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3261C521A992E070046DD81 /* Interface.storyboard */; };
+		C32302251B13B1CA0009C364 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3261C551A992E070046DD81 /* Images.xcassets */; };
+		C32302261B13B2910009C364 /* Advice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D191A8E7F8F0056DDFC /* Advice.swift */; };
+		C32302271B13B29F0009C364 /* TreinTicker+Visits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F06DC1AA8A78B00597F67 /* TreinTicker+Visits.swift */; };
+		C32302281B13B2AA0009C364 /* TreinTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36CEFC41A8B3FDC00C9F3CC /* TreinTicker.swift */; };
+		C32302291B13B2AF0009C364 /* TreinTicker+WatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3621E8B1AA4AC6B00CADA71 /* TreinTicker+WatchHelper.swift */; };
+		C323022A1B13B3560009C364 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D151A8E4B540056DDFC /* Station.swift */; };
+		C323022B1B13B3EB0009C364 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D111A8E44C40056DDFC /* API.swift */; };
+		C323022C1B13B3F50009C364 /* NSUserDefaults+HLTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3883A1E1A950836002A3CE4 /* NSUserDefaults+HLTT.swift */; };
+		C323022D1B13B4070009C364 /* MostUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371CF8B1A911E65004C35A0 /* MostUsed.swift */; };
+		C323022E1B13B40E0009C364 /* AEXML.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3348D201AAD8C1C00503067 /* AEXML.swift */; };
+		C323022F1B13B41F0009C364 /* NSDate+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31626C01A8EA72F00410F63 /* NSDate+Format.swift */; };
+		C32302301B13B4380009C364 /* Array+HLTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3883A1C1A950648002A3CE4 /* Array+HLTT.swift */; };
+		C32302311B13B44B0009C364 /* XMLParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D0F1A8E41C80056DDFC /* XMLParse.swift */; };
+		C32302321B13B4560009C364 /* UIColor+HLTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371CF7B1A8FDCA0004C35A0 /* UIColor+HLTT.swift */; };
+		C32302361B13B6A30009C364 /* HLTT WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = C323020A1B13B1440009C364 /* HLTT WatchKit App.app */; };
 		C324485F1A9F461E00F6AC15 /* PickerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C324485E1A9F461E00F6AC15 /* PickerSegue.swift */; };
 		C32BBF9F1A9A16D5005B596B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE01B4B52BDC71CED562DEBB /* Pods.framework */; };
 		C32BBFA01A9A16D5005B596B /* Pods.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE01B4B52BDC71CED562DEBB /* Pods.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C32BE63D1B067DA7003FEBA7 /* VarelaRound-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88DBA0F91ADA941E00A2BE0E /* VarelaRound-Regular.ttf */; };
-		C32BE63E1B067DA7003FEBA7 /* Gotham-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8804BA501ADA929C002BD584 /* Gotham-Thin.ttf */; };
-		C32BE63F1B067DA7003FEBA7 /* Aktiv-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = C371CF841A90F838004C35A0 /* Aktiv-Thin.otf */; };
-		C32BE6401B067DA7003FEBA7 /* Aktiv-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C371CF821A90F7B2004C35A0 /* Aktiv-Light.otf */; };
 		C3348D211AAD8C1C00503067 /* AEXML.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3348D201AAD8C1C00503067 /* AEXML.swift */; };
 		C33A03E31A8F98EB004E88F5 /* XML+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A03E21A8F98EB004E88F5 /* XML+Format.swift */; };
 		C3621E8E1AA4AE0300CADA71 /* TreinTicker+WatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3621E8B1AA4AC6B00CADA71 /* TreinTicker+WatchHelper.swift */; };
@@ -37,23 +53,6 @@
 		C36CEFB81A8B3D8300C9F3CC /* HoelangTotTreinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36CEFB71A8B3D8300C9F3CC /* HoelangTotTreinTests.swift */; };
 		C36CEFC31A8B3E8A00C9F3CC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36CEFC21A8B3E8A00C9F3CC /* HomeViewController.swift */; };
 		C36CEFC51A8B3FDC00C9F3CC /* TreinTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36CEFC41A8B3FDC00C9F3CC /* TreinTicker.swift */; };
-		C36E15591B135C4F001C5425 /* HLTT WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = C3C1316D1AFD01560081421F /* HLTT WatchKit App.app */; };
-		C36E155C1B135CF9001C5425 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3261C411A992E070046DD81 /* InterfaceController.swift */; };
-		C36E155D1B135CF9001C5425 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3261C431A992E070046DD81 /* NotificationController.swift */; };
-		C36E155E1B135CF9001C5425 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3261C451A992E070046DD81 /* GlanceController.swift */; };
-		C36E155F1B135D33001C5425 /* Advice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D191A8E7F8F0056DDFC /* Advice.swift */; };
-		C36E15601B135D40001C5425 /* NSDate+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31626C01A8EA72F00410F63 /* NSDate+Format.swift */; };
-		C36E15611B135D4A001C5425 /* TreinTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36CEFC41A8B3FDC00C9F3CC /* TreinTicker.swift */; };
-		C36E15621B135D62001C5425 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D151A8E4B540056DDFC /* Station.swift */; };
-		C36E15631B135D6C001C5425 /* AEXML.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3348D201AAD8C1C00503067 /* AEXML.swift */; };
-		C36E15641B135D91001C5425 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D111A8E44C40056DDFC /* API.swift */; };
-		C36E15651B135DA1001C5425 /* TreinTicker+Visits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F06DC1AA8A78B00597F67 /* TreinTicker+Visits.swift */; };
-		C36E15661B135DAF001C5425 /* UIColor+HLTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371CF7B1A8FDCA0004C35A0 /* UIColor+HLTT.swift */; };
-		C36E15671B135DC4001C5425 /* NSUserDefaults+HLTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3883A1E1A950836002A3CE4 /* NSUserDefaults+HLTT.swift */; };
-		C36E15681B135DCF001C5425 /* MostUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371CF8B1A911E65004C35A0 /* MostUsed.swift */; };
-		C36E15691B135DE8001C5425 /* TreinTicker+WatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3621E8B1AA4AC6B00CADA71 /* TreinTicker+WatchHelper.swift */; };
-		C36E156A1B135DFC001C5425 /* Array+HLTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3883A1C1A950648002A3CE4 /* Array+HLTT.swift */; };
-		C36E156B1B135E4E001C5425 /* XMLParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D0F1A8E41C80056DDFC /* XMLParse.swift */; };
 		C371CF791A8FAF88004C35A0 /* sloterdijk.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C371CF781A8FAF88004C35A0 /* sloterdijk.gpx */; };
 		C371CF7C1A8FDCA0004C35A0 /* UIColor+HLTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371CF7B1A8FDCA0004C35A0 /* UIColor+HLTT.swift */; };
 		C371CF831A90F7B2004C35A0 /* Aktiv-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C371CF821A90F7B2004C35A0 /* Aktiv-Light.otf */; };
@@ -62,6 +61,14 @@
 		C371CF891A90FD4A004C35A0 /* PickerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371CF881A90FD4A004C35A0 /* PickerCellView.swift */; };
 		C371CF8C1A911E65004C35A0 /* MostUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371CF8B1A911E65004C35A0 /* MostUsed.swift */; };
 		C371CF8E1A912ED2004C35A0 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371CF8D1A912ED2004C35A0 /* Dictionary.swift */; };
+		C3724FC71B139CCF00AAE375 /* Den Haag HS.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C371CF7D1A8FF046004C35A0 /* Den Haag HS.gpx */; };
+		C3724FC81B139CD000AAE375 /* Den Haag HS.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C371CF7D1A8FF046004C35A0 /* Den Haag HS.gpx */; };
+		C3724FC91B139CD000AAE375 /* Den Haag HS.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C371CF7D1A8FF046004C35A0 /* Den Haag HS.gpx */; };
+		C3724FCA1B139CD400AAE375 /* sloterdijk.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C371CF781A8FAF88004C35A0 /* sloterdijk.gpx */; };
+		C3724FCB1B139CD400AAE375 /* sloterdijk.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C371CF781A8FAF88004C35A0 /* sloterdijk.gpx */; };
+		C3724FCE1B139CD800AAE375 /* Koog aan de Zaan.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C371CF7A1A8FCBF1004C35A0 /* Koog aan de Zaan.gpx */; };
+		C3724FCF1B139CD800AAE375 /* Koog aan de Zaan.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C371CF7A1A8FCBF1004C35A0 /* Koog aan de Zaan.gpx */; };
+		C3724FD01B139CD900AAE375 /* Koog aan de Zaan.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C371CF7A1A8FCBF1004C35A0 /* Koog aan de Zaan.gpx */; };
 		C3883A1D1A950648002A3CE4 /* Array+HLTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3883A1C1A950648002A3CE4 /* Array+HLTT.swift */; };
 		C3883A1F1A950836002A3CE4 /* NSUserDefaults+HLTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3883A1E1A950836002A3CE4 /* NSUserDefaults+HLTT.swift */; };
 		C3883A2B1A95D8B3002A3CE4 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3883A2A1A95D8B3002A3CE4 /* NotificationCenter.framework */; };
@@ -84,10 +91,6 @@
 		C3883A491A965AA5002A3CE4 /* Aktiv-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = C371CF841A90F838004C35A0 /* Aktiv-Thin.otf */; };
 		C3883A4A1A965AA5002A3CE4 /* Aktiv-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C371CF821A90F7B2004C35A0 /* Aktiv-Light.otf */; };
 		C3883A4C1A96772C002A3CE4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3883A4B1A96772C002A3CE4 /* Alamofire.framework */; };
-		C38C3E991B0676F800ADDECB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3261C471A992E070046DD81 /* Images.xcassets */; };
-		C38C3E9B1B0676FF00ADDECB /* HoelangTotTrein WatchKit Extension.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = C301D8AF1A99303700FB414D /* HoelangTotTrein WatchKit Extension.entitlements */; };
-		C38C3E9D1B06770A00ADDECB /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3261C521A992E070046DD81 /* Interface.storyboard */; };
-		C38C3EA01B06770E00ADDECB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3261C551A992E070046DD81 /* Images.xcassets */; };
 		C38F06DD1AA8A78B00597F67 /* TreinTicker+Visits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F06DC1AA8A78B00597F67 /* TreinTicker+Visits.swift */; };
 		C38F06DE1AA8A78B00597F67 /* TreinTicker+Visits.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38F06DC1AA8A78B00597F67 /* TreinTicker+Visits.swift */; };
 		C3C0EC421B0681E30009B30C /* Gotham-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8804BA501ADA929C002BD584 /* Gotham-Thin.ttf */; };
@@ -100,9 +103,24 @@
 		C3C53D1A1A8E7F8F0056DDFC /* Advice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D191A8E7F8F0056DDFC /* Advice.swift */; };
 		C3D683031A9FB20D00949AFE /* HomeViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D683021A9FB20D00949AFE /* HomeViewController+CollectionView.swift */; };
 		C3E729721AAE29F900CE93B5 /* AEXML.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3348D201AAD8C1C00503067 /* AEXML.swift */; };
+		CD823360997119CDD94A7169 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE01B4B52BDC71CED562DEBB /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C323020C1B13B1440009C364 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C36CEF941A8B3D8300C9F3CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C32302091B13B1440009C364;
+			remoteInfo = "HLTT WatchKit App";
+		};
+		C32302341B13B5480009C364 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C36CEF941A8B3D8300C9F3CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C32301FA1B13B1440009C364;
+			remoteInfo = "HLTT WatchKit Extension";
+		};
 		C32BE63A1B067907003FEBA7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C36CEF941A8B3D8300C9F3CC /* Project object */;
@@ -116,20 +134,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = C36CEF9B1A8B3D8300C9F3CC;
 			remoteInfo = HoelangTotTrein;
-		};
-		C36E15561B135BEE001C5425 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C36CEF941A8B3D8300C9F3CC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C3C1316C1AFD01560081421F;
-			remoteInfo = "HLTT WatchKit App";
-		};
-		C36E155A1B135CB1001C5425 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C36CEF941A8B3D8300C9F3CC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C3C131621AFD01560081421F;
-			remoteInfo = "HLTT WatchKit Extension";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -151,8 +155,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				C32302181B13B1440009C364 /* HLTT WatchKit Extension.appex in Embed App Extensions */,
 				C3883A351A95D8B3002A3CE4 /* Widget.appex in Embed App Extensions */,
-				C3C0EC431B068A550009B30C /* HLTT WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,6 +177,8 @@
 		C30EAB4D1A9A1196000A3176 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		C30EAB4E1A9A1196000A3176 /* UIView+Screenshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Screenshot.swift"; sourceTree = "<group>"; };
 		C31626C01A8EA72F00410F63 /* NSDate+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Format.swift"; sourceTree = "<group>"; };
+		C32301FB1B13B1440009C364 /* HLTT WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HLTT WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C323020A1B13B1440009C364 /* HLTT WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HLTT WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C324485E1A9F461E00F6AC15 /* PickerSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerSegue.swift; sourceTree = "<group>"; };
 		C3261C3F1A992E070046DD81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3261C401A992E070046DD81 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
@@ -224,7 +230,7 @@
 		C3C131571AFCCFAC0081421F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Pods/Alamofire.framework"; sourceTree = "<group>"; };
 		C3C131581AFCCFAC0081421F /* Observable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Observable.framework; path = "Pods/../build/Debug-iphoneos/Pods/Observable.framework"; sourceTree = "<group>"; };
 		C3C1315B1AFCCFB80081421F /* Observable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Observable.framework; path = "Pods/../build/Debug-iphoneos/Pods/Observable.framework"; sourceTree = "<group>"; };
-		C3C1316D1AFD01560081421F /* HLTT WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HLTT WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3C131631AFD01560081421F /* HLTT WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HLTT WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C53D0F1A8E41C80056DDFC /* XMLParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParse.swift; sourceTree = "<group>"; };
 		C3C53D111A8E44C40056DDFC /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		C3C53D151A8E4B540056DDFC /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
@@ -235,11 +241,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		60A90A68844AD75B909328D0 /* Frameworks */ = {
+		C32301F81B13B1440009C364 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40D210361123EC32FA963E2D /* Pods.framework in Frameworks */,
+				CD823360997119CDD94A7169 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,7 +395,8 @@
 				C36CEFB11A8B3D8300C9F3CC /* HoelangTotTreinTests.xctest */,
 				C3883A291A95D8B3002A3CE4 /* Widget.appex */,
 				C3C131631AFD01560081421F /* HLTT WatchKit Extension.appex */,
-				C3C1316D1AFD01560081421F /* HLTT WatchKit App.app */,
+				C32301FB1B13B1440009C364 /* HLTT WatchKit Extension.appex */,
+				C323020A1B13B1440009C364 /* HLTT WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -516,6 +523,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C32301FA1B13B1440009C364 /* HLTT WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C323021C1B13B1440009C364 /* Build configuration list for PBXNativeTarget "HLTT WatchKit Extension" */;
+			buildPhases = (
+				C94804C334B97D3EABB67D65 /* Check Pods Manifest.lock */,
+				C32301F71B13B1440009C364 /* Sources */,
+				C32301F81B13B1440009C364 /* Frameworks */,
+				C32301F91B13B1440009C364 /* Resources */,
+				94B5264D035C6C0168332446 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C323020D1B13B1440009C364 /* PBXTargetDependency */,
+			);
+			name = "HLTT WatchKit Extension";
+			productName = "HLTT WatchKit Extension";
+			productReference = C32301FB1B13B1440009C364 /* HLTT WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		C32302091B13B1440009C364 /* HLTT WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C32302191B13B1440009C364 /* Build configuration list for PBXNativeTarget "HLTT WatchKit App" */;
+			buildPhases = (
+				C32302081B13B1440009C364 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HLTT WatchKit App";
+			productName = "HLTT WatchKit App";
+			productReference = C323020A1B13B1440009C364 /* HLTT WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 		C36CEF9B1A8B3D8300C9F3CC /* HoelangTotTrein */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C36CEFBB1A8B3D8300C9F3CC /* Build configuration list for PBXNativeTarget "HoelangTotTrein" */;
@@ -532,8 +574,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				C32302351B13B5480009C364 /* PBXTargetDependency */,
 				C32BE63B1B067907003FEBA7 /* PBXTargetDependency */,
-				C3C0EC451B068A550009B30C /* PBXTargetDependency */,
 			);
 			name = HoelangTotTrein;
 			productName = HoelangTotTrein;
@@ -575,40 +617,6 @@
 			productReference = C3883A291A95D8B3002A3CE4 /* Widget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		C3C131621AFD01560081421F /* HLTT WatchKit Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C3C1317F1AFD01570081421F /* Build configuration list for PBXNativeTarget "HLTT WatchKit Extension" */;
-			buildPhases = (
-				FD390A79190845C9B8E2E8B6 /* Check Pods Manifest.lock */,
-				C3C1315F1AFD01560081421F /* Sources */,
-				C3C131611AFD01560081421F /* Resources */,
-				60A90A68844AD75B909328D0 /* Frameworks */,
-				6562A445A671B863B136C0E1 /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C3C131701AFD01560081421F /* PBXTargetDependency */,
-			);
-			name = "HLTT WatchKit Extension";
-			productName = "HLTT WatchKit Extension";
-			productType = "com.apple.product-type.watchkit-extension";
-		};
-		C3C1316C1AFD01560081421F /* HLTT WatchKit App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C3C1317C1AFD01570081421F /* Build configuration list for PBXNativeTarget "HLTT WatchKit App" */;
-			buildPhases = (
-				C3C1316B1AFD01560081421F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "HLTT WatchKit App";
-			productName = "HLTT WatchKit App";
-			productReference = C3C1316D1AFD01560081421F /* HLTT WatchKit App.app */;
-			productType = "com.apple.product-type.application.watchapp";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -618,6 +626,22 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Tomas Harkema";
 				TargetAttributes = {
+					C32301FA1B13B1440009C364 = {
+						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = RSRVS8D9PW;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+					C32302091B13B1440009C364 = {
+						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = RSRVS8D9PW;
+					};
 					C36CEF9B1A8B3D8300C9F3CC = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = RSRVS8D9PW;
@@ -646,22 +670,6 @@
 							};
 						};
 					};
-					C3C131621AFD01560081421F = {
-						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = RSRVS8D9PW;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
-							};
-							com.apple.iCloud = {
-								enabled = 1;
-							};
-						};
-					};
-					C3C1316C1AFD01560081421F = {
-						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = RSRVS8D9PW;
-					};
 				};
 			};
 			buildConfigurationList = C36CEF971A8B3D8300C9F3CC /* Build configuration list for PBXProject "HoelangTotTrein" */;
@@ -680,17 +688,36 @@
 				C36CEF9B1A8B3D8300C9F3CC /* HoelangTotTrein */,
 				C36CEFB01A8B3D8300C9F3CC /* HoelangTotTreinTests */,
 				C3883A281A95D8B3002A3CE4 /* Widget */,
-				C3C131621AFD01560081421F /* HLTT WatchKit Extension */,
-				C3C1316C1AFD01560081421F /* HLTT WatchKit App */,
+				C32301FA1B13B1440009C364 /* HLTT WatchKit Extension */,
+				C32302091B13B1440009C364 /* HLTT WatchKit App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C32301F91B13B1440009C364 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C32302361B13B6A30009C364 /* HLTT WatchKit App.app in Resources */,
+				C32302221B13B1BC0009C364 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C32302081B13B1440009C364 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C32302241B13B1C70009C364 /* Interface.storyboard in Resources */,
+				C32302251B13B1CA0009C364 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C36CEF9A1A8B3D8300C9F3CC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3724FD01B139CD900AAE375 /* Koog aan de Zaan.gpx in Resources */,
 				C371CF851A90F838004C35A0 /* Aktiv-Thin.otf in Resources */,
 				C36CEFA71A8B3D8300C9F3CC /* Main.storyboard in Resources */,
 				8804BA511ADA929C002BD584 /* Gotham-Thin.ttf in Resources */,
@@ -698,6 +725,7 @@
 				88DBA0FA1ADA941E00A2BE0E /* VarelaRound-Regular.ttf in Resources */,
 				C371CF791A8FAF88004C35A0 /* sloterdijk.gpx in Resources */,
 				C36CEFA91A8B3D8300C9F3CC /* Images.xcassets in Resources */,
+				C3724FC91B139CD000AAE375 /* Den Haag HS.gpx in Resources */,
 				C371CF831A90F7B2004C35A0 /* Aktiv-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -706,7 +734,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3724FCF1B139CD800AAE375 /* Koog aan de Zaan.gpx in Resources */,
 				88DBA0FB1ADA941E00A2BE0E /* VarelaRound-Regular.ttf in Resources */,
+				C3724FC81B139CD000AAE375 /* Den Haag HS.gpx in Resources */,
+				C3724FCA1B139CD400AAE375 /* sloterdijk.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -715,44 +746,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3883A4A1A965AA5002A3CE4 /* Aktiv-Light.otf in Resources */,
+				C3724FCB1B139CD400AAE375 /* sloterdijk.gpx in Resources */,
+				C3724FC71B139CCF00AAE375 /* Den Haag HS.gpx in Resources */,
 				C3C0EC421B0681E30009B30C /* Gotham-Thin.ttf in Resources */,
+				C3724FCE1B139CD800AAE375 /* Koog aan de Zaan.gpx in Resources */,
 				88DBA0FC1ADA941E00A2BE0E /* VarelaRound-Regular.ttf in Resources */,
 				C3883A491A965AA5002A3CE4 /* Aktiv-Thin.otf in Resources */,
 				C3883A321A95D8B3002A3CE4 /* MainInterface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C3C131611AFD01560081421F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C32BE6421B067DA8003FEBA7 /* Gotham-Thin.ttf in Resources */,
-				C38C3E9C1B06770000ADDECB /* HoelangTotTrein WatchKit Extension.entitlements in Resources */,
-				C38C3E961B0676EE00ADDECB /* Info.plist in Resources */,
-				C38C3E9F1B06770E00ADDECB /* Images.xcassets in Resources */,
-				C32BE6431B067DA8003FEBA7 /* Aktiv-Thin.otf in Resources */,
-				C38C3E981B0676F800ADDECB /* Images.xcassets in Resources */,
-				C3C1316E1AFD01560081421F /* HLTT WatchKit App.app in Resources */,
-				C32BE6411B067DA8003FEBA7 /* VarelaRound-Regular.ttf in Resources */,
-				C32BE6441B067DA8003FEBA7 /* Aktiv-Light.otf in Resources */,
-				C38C3E9E1B06770B00ADDECB /* Interface.storyboard in Resources */,
-				C38C3E971B0676F100ADDECB /* PushNotificationPayload.apns in Resources */,
-				C36E15591B135C4F001C5425 /* HLTT WatchKit App.app in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C3C1316B1AFD01560081421F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C38C3E9D1B06770A00ADDECB /* Interface.storyboard in Resources */,
-				C38C3EA01B06770E00ADDECB /* Images.xcassets in Resources */,
-				C32BE6401B067DA7003FEBA7 /* Aktiv-Light.otf in Resources */,
-				C38C3E9B1B0676FF00ADDECB /* HoelangTotTrein WatchKit Extension.entitlements in Resources */,
-				C32BE63F1B067DA7003FEBA7 /* Aktiv-Thin.otf in Resources */,
-				C38C3E991B0676F800ADDECB /* Images.xcassets in Resources */,
-				C32BE63D1B067DA7003FEBA7 /* VarelaRound-Regular.ttf in Resources */,
-				C32BE63E1B067DA7003FEBA7 /* Gotham-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -789,7 +789,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6562A445A671B863B136C0E1 /* Copy Pods Resources */ = {
+		94B5264D035C6C0168332446 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -804,7 +804,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FD390A79190845C9B8E2E8B6 /* Check Pods Manifest.lock */ = {
+		C94804C334B97D3EABB67D65 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -837,6 +837,29 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C32301F71B13B1440009C364 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C32302201B13B1B20009C364 /* NotificationController.swift in Sources */,
+				C32302321B13B4560009C364 /* UIColor+HLTT.swift in Sources */,
+				C323022E1B13B40E0009C364 /* AEXML.swift in Sources */,
+				C32302271B13B29F0009C364 /* TreinTicker+Visits.swift in Sources */,
+				C323022A1B13B3560009C364 /* Station.swift in Sources */,
+				C323022F1B13B41F0009C364 /* NSDate+Format.swift in Sources */,
+				C32302281B13B2AA0009C364 /* TreinTicker.swift in Sources */,
+				C323022D1B13B4070009C364 /* MostUsed.swift in Sources */,
+				C32302301B13B4380009C364 /* Array+HLTT.swift in Sources */,
+				C323021F1B13B1B20009C364 /* InterfaceController.swift in Sources */,
+				C32302311B13B44B0009C364 /* XMLParse.swift in Sources */,
+				C32302291B13B2AF0009C364 /* TreinTicker+WatchHelper.swift in Sources */,
+				C32302211B13B1B20009C364 /* GlanceController.swift in Sources */,
+				C323022B1B13B3EB0009C364 /* API.swift in Sources */,
+				C32302261B13B2910009C364 /* Advice.swift in Sources */,
+				C323022C1B13B3F50009C364 /* NSUserDefaults+HLTT.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C36CEF981A8B3D8300C9F3CC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -902,32 +925,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3C1315F1AFD01560081421F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C36E156A1B135DFC001C5425 /* Array+HLTT.swift in Sources */,
-				C36E155C1B135CF9001C5425 /* InterfaceController.swift in Sources */,
-				C36E15601B135D40001C5425 /* NSDate+Format.swift in Sources */,
-				C36E15611B135D4A001C5425 /* TreinTicker.swift in Sources */,
-				C36E15671B135DC4001C5425 /* NSUserDefaults+HLTT.swift in Sources */,
-				C36E156B1B135E4E001C5425 /* XMLParse.swift in Sources */,
-				C36E15691B135DE8001C5425 /* TreinTicker+WatchHelper.swift in Sources */,
-				C36E15681B135DCF001C5425 /* MostUsed.swift in Sources */,
-				C36E155D1B135CF9001C5425 /* NotificationController.swift in Sources */,
-				C36E155E1B135CF9001C5425 /* GlanceController.swift in Sources */,
-				C36E15631B135D6C001C5425 /* AEXML.swift in Sources */,
-				C36E15651B135DA1001C5425 /* TreinTicker+Visits.swift in Sources */,
-				C36E155F1B135D33001C5425 /* Advice.swift in Sources */,
-				C36E15641B135D91001C5425 /* API.swift in Sources */,
-				C36E15621B135D62001C5425 /* Station.swift in Sources */,
-				C36E15661B135DAF001C5425 /* UIColor+HLTT.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C323020D1B13B1440009C364 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C32302091B13B1440009C364 /* HLTT WatchKit App */;
+			targetProxy = C323020C1B13B1440009C364 /* PBXContainerItemProxy */;
+		};
+		C32302351B13B5480009C364 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C32301FA1B13B1440009C364 /* HLTT WatchKit Extension */;
+			targetProxy = C32302341B13B5480009C364 /* PBXContainerItemProxy */;
+		};
 		C32BE63B1B067907003FEBA7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C3883A281A95D8B3002A3CE4 /* Widget */;
@@ -937,16 +947,6 @@
 			isa = PBXTargetDependency;
 			target = C36CEF9B1A8B3D8300C9F3CC /* HoelangTotTrein */;
 			targetProxy = C36CEFB21A8B3D8300C9F3CC /* PBXContainerItemProxy */;
-		};
-		C36E155B1B135CB1001C5425 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C3C131621AFD01560081421F /* HLTT WatchKit Extension */;
-			targetProxy = C36E155A1B135CB1001C5425 /* PBXContainerItemProxy */;
-		};
-		C3C131701AFD01560081421F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C3C1316C1AFD01560081421F /* HLTT WatchKit App */;
-			targetProxy = C36E15561B135BEE001C5425 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -978,6 +978,87 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C323021A1B13B1440009C364 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Watch;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = HLTT_WatchKit_Extension;
+				INFOPLIST_FILE = "$(SRCROOT)/HoelangTotTrein WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		C323021B1B13B1440009C364 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Watch;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				IBSC_MODULE = HLTT_WatchKit_Extension;
+				INFOPLIST_FILE = "$(SRCROOT)/HoelangTotTrein WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
+		C323021D1B13B1440009C364 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3601E695C84C96385D481886 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "HLTT WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/HoelangTotTrein WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C323021E1B13B1440009C364 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD505C2AEB56160ABEC7D50A /* Pods.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "HLTT WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/HoelangTotTrein WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		C36CEFB91A8B3D8300C9F3CC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1136,29 +1217,6 @@
 			};
 			name = Release;
 		};
-		C36E15571B135C02001C5425 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3601E695C84C96385D481886 /* Pods.debug.xcconfig */;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				INFOPLIST_FILE = "$(SRCROOT)/HoelangTotTrein WatchKit Extension/Info.plist";
-				PRODUCT_NAME = "HLTT WatchKit Extension";
-			};
-			name = Debug;
-		};
-		C36E15581B135C02001C5425 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CD505C2AEB56160ABEC7D50A /* Pods.release.xcconfig */;
-			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				INFOPLIST_FILE = "$(SRCROOT)/HoelangTotTrein WatchKit Extension/Info.plist";
-				PRODUCT_NAME = "HLTT WatchKit Extension";
-			};
-			name = Release;
-		};
 		C3883A371A95D8B3002A3CE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3601E695C84C96385D481886 /* Pods.debug.xcconfig */;
@@ -1208,92 +1266,27 @@
 			};
 			name = Release;
 		};
-		C3C1317D1AFD01570081421F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Watch;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				IBSC_MODULE = HLTT_WatchKit_Extension;
-				INFOPLIST_FILE = "$(SRCROOT)/HoelangTotTrein WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
-			};
-			name = Debug;
-		};
-		C3C1317E1AFD01570081421F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Watch;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_NO_COMMON_BLOCKS = YES;
-				IBSC_MODULE = HLTT_WatchKit_Extension;
-				INFOPLIST_FILE = "$(SRCROOT)/HoelangTotTrein WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
-		C3C131801AFD01570081421F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3601E695C84C96385D481886 /* Pods.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "HLTT WatchKit Extension.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "$(SRCROOT)/HoelangTotTrein WatchKit Extension/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		C3C131811AFD01570081421F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CD505C2AEB56160ABEC7D50A /* Pods.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "HLTT WatchKit Extension.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/HoelangTotTrein WatchKit Extension/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 /* Begin XCConfigurationList section */
+		C32302191B13B1440009C364 /* Build configuration list for PBXNativeTarget "HLTT WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C323021A1B13B1440009C364 /* Debug */,
+				C323021B1B13B1440009C364 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C323021C1B13B1440009C364 /* Build configuration list for PBXNativeTarget "HLTT WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C323021D1B13B1440009C364 /* Debug */,
+				C323021E1B13B1440009C364 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C36CEF971A8B3D8300C9F3CC /* Build configuration list for PBXProject "HoelangTotTrein" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1326,24 +1319,6 @@
 			buildConfigurations = (
 				C3883A371A95D8B3002A3CE4 /* Debug */,
 				C3883A381A95D8B3002A3CE4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C3C1317C1AFD01570081421F /* Build configuration list for PBXNativeTarget "HLTT WatchKit App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C3C1317D1AFD01570081421F /* Debug */,
-				C3C1317E1AFD01570081421F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C3C1317F1AFD01570081421F /* Build configuration list for PBXNativeTarget "HLTT WatchKit Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C36E15571B135C02001C5425 /* Debug */,
-				C36E15581B135C02001C5425 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -43,6 +43,7 @@ extension TreinTicker : CLLocationManagerDelegate {
       notification.fireDate = NSDate()
       notification.soundName = UILocalNotificationDefaultSoundName
       notification.userInfo = $0.notificationUserInfo(code.deelIndex+1)
+      notification.alertTitle = "Overstappen"
       
       NSNotificationCenter.defaultCenter().postNotificationName("showNotification", object: notification)
       
@@ -96,6 +97,7 @@ extension TreinTicker : CLLocationManagerDelegate {
     notification.fireDate = NSDate()
     notification.userInfo = userInfo
     notification.soundName = UILocalNotificationDefaultSoundName
+    notification.alertTitle = "Uitstappen"
     
     NSNotificationCenter.defaultCenter().postNotificationName("showNotification", object: notification)
   }

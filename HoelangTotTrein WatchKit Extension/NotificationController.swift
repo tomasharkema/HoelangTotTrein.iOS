@@ -38,26 +38,31 @@ class NotificationController: WKUserNotificationInterfaceController {
     override func didReceiveLocalNotification(localNotification: UILocalNotification, withCompletion completionHandler: ((WKUserNotificationInterfaceType) -> Void)) {
         println("didReceiveLocalNotification")
       
-      if let userInfo = localNotification.userInfo, type = NotificationType(rawValue: userInfo["type"] as? String ?? "") {
-        
-        switch type {
-        case .Uitstappen:
+      if let userInfo = localNotification.userInfo {
+        if let type = userInfo["type"] as? String {
+          let notType = NotificationType(rawValue: type)!
+          
+          switch notType {
+          case .Uitstappen:
+            completionHandler(.Default)
+          case .Overstappen:
+            let date = userInfo["date"] as? NSDate
+            
+            timeLabel.setDate(date ?? NSDate())
+            timeLabel.start()
+            
+            toLabel.setText("-> " + (userInfo["to"] as? String ?? ""))
+            spoorLabel.setText("spoor " + (userInfo["spoor"] as? String ?? ""))
+            vertragingLabel.setText(userInfo["vertraging"] as? String ?? "")
+            
+            setTitle("Overstappen")
+            
+            updateUserActivity("nl.tomasharkema.HoelangTotTrein.view", userInfo: ["":""], webpageURL: NSURL(scheme: "http", host: "9292.nl", path: "/"))
+            
+            completionHandler(.Custom)
+          }
+        } else {
           completionHandler(.Default)
-        case .Overstappen:
-          let date = userInfo["date"] as? NSDate
-          
-          timeLabel.setDate(date ?? NSDate())
-          timeLabel.start()
-          
-          toLabel.setText("-> " + (userInfo["to"] as? String ?? ""))
-          spoorLabel.setText("spoor " + (userInfo["spoor"] as? String ?? ""))
-          vertragingLabel.setText(userInfo["vertraging"] as? String ?? "")
-          
-          setTitle("Overstappen")
-          
-          updateUserActivity("nl.tomasharkema.HoelangTotTrein.view", userInfo: ["":""], webpageURL: NSURL(scheme: "http", host: "9292.nl", path: "/"))
-          
-          completionHandler(.Custom)
         }
         
       } else {
