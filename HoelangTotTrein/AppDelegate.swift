@@ -74,5 +74,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       UIApplication.sharedApplication().presentLocalNotificationNow(not)
     }
   }
+  
+  func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]!) -> Void) -> Bool {
+    println(userActivity)
+    if let window = self.window {
+      window.rootViewController?.restoreUserActivityState(userActivity)
+    }
+    return true
+  }
 }
 

@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7702" systemVersion="14E17e" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7706" systemVersion="14E17e" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="7701"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="Gotham-Thin.ttf">
-            <string>GothamThin</string>
-        </mutableArray>
-        <mutableArray key="VarelaRound-Regular.ttf">
-            <string>VarelaRound-Regular</string>
-            <string>VarelaRound-Regular</string>
-            <string>VarelaRound-Regular</string>
-            <string>VarelaRound-Regular</string>
-        </mutableArray>
-    </customFonts>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
@@ -22,7 +11,7 @@
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="HLTT_WatchKit_App" customModuleProvider="target">
                     <items>
                         <button width="1" height="30" alignment="left" title="Button" id="dK5-bu-QhB">
-                            <fontDescription key="font" name="VarelaRound-Regular" family="Varela Round" pointSize="12"/>
+                            <fontDescription key="font" type="system" pointSize="12"/>
                             <connections>
                                 <action selector="fromTapped" destination="AgC-eL-Hgc" id="aHx-AO-fjV"/>
                             </connections>
@@ -30,35 +19,29 @@
                         <group width="1" alignment="left" id="FRH-9n-Ftg">
                             <items>
                                 <label alignment="center" text="spoor 1" textAlignment="center" id="QiF-o1-hKb">
-                                    <fontDescription key="font" name="VarelaRound-Regular" family="Varela Round" pointSize="14"/>
+                                    <fontDescription key="font" type="system" pointSize="14"/>
                                 </label>
                                 <label alignment="center" text=" +1" textAlignment="center" id="GVg-Yr-408">
                                     <color key="textColor" red="1" green="0.42745098040000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="font" name="VarelaRound-Regular" family="Varela Round" pointSize="14"/>
+                                    <fontDescription key="font" type="system" pointSize="14"/>
                                 </label>
                             </items>
                         </group>
                         <group width="1" height="53" alignment="center" verticalAlignment="center" contentMode="center" id="Ze0-8T-NYb">
                             <items>
                                 <timer width="1" alignment="center" verticalAlignment="center" textAlignment="center" id="p84-Rj-IBJ">
-                                    <fontDescription key="font" name="GothamThin" family="Gotham Thin" pointSize="40"/>
+                                    <fontDescription key="font" type="system" pointSize="34"/>
                                     <calendarUnit key="units" minute="YES" second="YES"/>
                                 </timer>
                             </items>
                         </group>
                         <button width="1" height="30" alignment="left" verticalAlignment="bottom" title="Button" id="Glr-mg-Xah">
-                            <fontDescription key="font" name="VarelaRound-Regular" family="Varela Round" pointSize="12"/>
+                            <fontDescription key="font" type="system" pointSize="12"/>
                             <connections>
                                 <action selector="toTapped" destination="AgC-eL-Hgc" id="Mqt-6m-wXp"/>
                             </connections>
                         </button>
                     </items>
-                    <menu key="menu" id="9Ob-J8-b64">
-                        <items>
-                            <menuItem title="Van" icon="add" id="Csl-8o-XYf"/>
-                            <menuItem title="Naar" icon="accept" id="gOD-9t-QX5"/>
-                        </items>
-                    </menu>
                     <connections>
                         <outlet property="fromButton" destination="dK5-bu-QhB" id="e4s-b5-b7h"/>
                         <outlet property="spoorLabel" destination="QiF-o1-hKb" id="DUt-oJ-taz"/>
@@ -73,38 +56,101 @@
         <!--Glance Interface Controller-->
         <scene sceneID="BOz-TT-tkC">
             <objects>
-                <glanceController spacing="0.0" id="0uZ-2p-rRc" customClass="GlanceController" customModule="HLTT_WatchKit_App" customModuleProvider="target">
+                <glanceController spacing="0.0" id="0uZ-2p-rRc" customClass="GlanceController" customModule="HLTT_WatchKit_Extension">
                     <items>
-                        <group alignment="left" id="t8f-Gd-c4y"/>
-                        <group alignment="left" id="uCw-4Q-Ouw"/>
+                        <group alignment="left" id="t8f-Gd-c4y">
+                            <items>
+                                <timer width="1" alignment="center" textAlignment="center" id="FS4-2p-TcA">
+                                    <fontDescription key="font" type="system" pointSize="34"/>
+                                    <calendarUnit key="units" minute="YES" second="YES"/>
+                                </timer>
+                            </items>
+                        </group>
+                        <group alignment="left" layout="vertical" id="uCw-4Q-Ouw">
+                            <items>
+                                <group width="1" alignment="left" id="rZd-TQ-czH">
+                                    <items>
+                                        <label alignment="center" text="spoor 1" textAlignment="center" id="i7Z-5C-x27">
+                                            <fontDescription key="font" type="system" pointSize="14"/>
+                                        </label>
+                                        <label alignment="center" text=" +1" textAlignment="center" id="AAM-w0-dFj">
+                                            <color key="textColor" red="1" green="0.42745098040000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="font" type="system" pointSize="14"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <label alignment="center" text="van" textAlignment="center" numberOfLines="2" id="yg7-cD-sBr">
+                                    <fontDescription key="font" type="system" pointSize="14"/>
+                                </label>
+                                <label alignment="center" text="naar" textAlignment="center" numberOfLines="2" id="IDX-4c-53K">
+                                    <fontDescription key="font" type="system" pointSize="14"/>
+                                </label>
+                            </items>
+                        </group>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
+                    <connections>
+                        <outlet property="fromLabel" destination="yg7-cD-sBr" id="dYk-Ls-eZ5"/>
+                        <outlet property="spoorLabel" destination="i7Z-5C-x27" id="2GB-nP-B6E"/>
+                        <outlet property="timer" destination="FS4-2p-TcA" id="6u4-uO-71e"/>
+                        <outlet property="toLabel" destination="IDX-4c-53K" id="APw-hz-toD"/>
+                        <outlet property="vertragingsLabel" destination="AAM-w0-dFj" id="wpN-uI-LgR"/>
+                    </connections>
                 </glanceController>
             </objects>
             <point key="canvasLocation" x="222" y="673"/>
         </scene>
         <!--Static Notification Interface Controller-->
-        <scene sceneID="AEw-b0-oYE">
+        <scene sceneID="2yp-Ei-olh">
             <objects>
-                <notificationController id="YCC-NB-fut">
+                <notificationController id="E00-Qt-qJJ">
                     <items>
-                        <label alignment="left" text="Alert Label" id="XkS-y5-khE"/>
+                        <label alignment="left" text="Alert Label" numberOfLines="10" id="GWg-TC-mw9"/>
                     </items>
-                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <notificationCategory key="notificationCategory" id="8Qe-xy-0Ay"/>
+                    <color key="backgroundColor" red="0.59999999999999998" green="0.1803921568627451" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
-                        <outlet property="notificationAlertLabel" destination="XkS-y5-khE" id="49B-RR-99y"/>
-                        <segue destination="gdX-wl-uQE" kind="relationship" relationship="dynamicNotificationInterface" id="fKh-qV-3T2"/>
+                        <outlet property="notificationAlertLabel" destination="GWg-TC-mw9" id="u1i-hp-6Fr"/>
+                        <segue destination="ZCD-XT-6b1" kind="relationship" relationship="dynamicNotificationInterface" id="gaC-zd-GKr"/>
                     </connections>
                 </notificationController>
             </objects>
-            <point key="canvasLocation" x="222" y="1001"/>
+            <point key="canvasLocation" x="223" y="897"/>
         </scene>
         <!--Notification Controller-->
-        <scene sceneID="KIl-fV-djm">
+        <scene sceneID="zKp-H6-GPx">
             <objects>
-                <controller id="gdX-wl-uQE" customClass="NotificationController" customModule="HLTT_WatchKit_App" customModuleProvider="target"/>
+                <controller id="ZCD-XT-6b1" customClass="NotificationController" customModule="HLTT_WatchKit_Extension">
+                    <items>
+                        <timer width="1" alignment="center" textAlignment="center" id="mxz-F2-3wV">
+                            <fontDescription key="font" type="system" pointSize="34"/>
+                            <calendarUnit key="units" minute="YES" second="YES"/>
+                        </timer>
+                        <group width="1" alignment="left" id="niB-g4-VSS">
+                            <items>
+                                <label alignment="center" text="spoor 1" textAlignment="center" id="Q0W-OK-crj">
+                                    <fontDescription key="font" type="system" pointSize="14"/>
+                                </label>
+                                <label alignment="center" text=" +1" textAlignment="center" id="SGs-lh-b8d">
+                                    <color key="textColor" red="1" green="0.42745098040000001" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="system" pointSize="14"/>
+                                </label>
+                            </items>
+                        </group>
+                        <label alignment="center" text="naar" textAlignment="center" numberOfLines="2" id="D15-kZ-jbS">
+                            <fontDescription key="font" type="system" pointSize="14"/>
+                        </label>
+                    </items>
+                    <color key="backgroundColor" red="0.59999999999999998" green="0.18039215689999999" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="spoorLabel" destination="Q0W-OK-crj" id="sb0-5U-iQd"/>
+                        <outlet property="timeLabel" destination="mxz-F2-3wV" id="QJo-sc-akg"/>
+                        <outlet property="toLabel" destination="D15-kZ-jbS" id="YeG-rH-7L6"/>
+                        <outlet property="vertragingLabel" destination="SGs-lh-b8d" id="1q6-W5-jj8"/>
+                    </connections>
+                </controller>
             </objects>
-            <point key="canvasLocation" x="553" y="1001"/>
+            <point key="canvasLocation" x="523" y="897"/>
         </scene>
     </scenes>
 </document>

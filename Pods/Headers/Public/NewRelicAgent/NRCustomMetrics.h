@@ -1,1 +1,1 @@
-../../../NewRelicAgent/NewRelic_iOS_Agent_4.186/NewRelicAgent.framework/Versions/A/Headers/NRCustomMetrics.h
+../../../NewRelicAgent/NewRelic_iOS_Agent_5.0.3/NewRelicAgent.framework/Versions/A/Headers/NRCustomMetrics.h

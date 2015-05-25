@@ -157,17 +157,6 @@ class TreinTicker: NSObject {
       UserDefaults.currentAdvice = newValue
       let currentAdvice = newValue
       
-      if (currentAdvice != nil) {
-        dispatch_async(dispatch_get_main_queue()) {
-          self.adviceChangedHandler.notify(currentAdvice!)
-
-          return;
-        }
-      }
-      
-      if isExtention {
-        return;
-      }
       minuteTicker = 0
       for region in locationManager.monitoredRegions {
         if let r = region as? CLRegion {
@@ -185,6 +174,12 @@ class TreinTicker: NSObject {
         
         locationManager.startMonitoringForRegion(station?.getRegion(i))
         i++
+      }
+      
+      if let currentAdvice = currentAdvice {
+        dispatch_async(dispatch_get_main_queue()) {
+          self.adviceChangedHandler.notify(currentAdvice)
+        }
       }
     }
     get {

@@ -133,7 +133,7 @@ class Advice: NSObject, NSCoding, Hashable {
     
     vertrekVertraging = aDecoder.decodeObjectForKey("vertrekVertraging") as? String ?? ""
     
-    if let m = aDecoder.decodeObjectForKey("melding.id") {
+    if let m: AnyObject = aDecoder.decodeObjectForKey("melding.id") {
       melding = Melding(id: aDecoder.decodeObjectForKey("melding.id") as! String, ernstig: aDecoder.decodeBoolForKey("melding.ernstig"), text: aDecoder.decodeObjectForKey("melding.text") as! String)
     } else {
       melding = nil
@@ -221,14 +221,36 @@ class Advice: NSObject, NSCoding, Hashable {
   func notificationPhrase(deelIndex:Int) -> String {
     let vervolg = self.reisDeel[min(deelIndex + 1, self.reisDeel.count-1)].stops
     let vervolgStation = vervolg.first
-    let aankomst = vervolg.last?.name ?? "??"
+    let aankomst = vervolg.last?.name ?? ""
     
     let newStation = self.firstStop()
-    let vervolgStationTime:String = newStation?.time!.toHHMM().string() ?? ""
+    let vervolgStationTime:String = newStation?.time?.toHHMM().string() ?? ""
     let vervolgStationToGo:String = newStation?.time?.toMMSSFromNow().shortString() ?? ""
     let vervolgSpoor:String = newStation?.spoor ?? ""
     
     return "De trein naar \(aankomst) vertrekt over \(vervolgStationToGo) (\(vervolgStationTime)u) van spoor \(vervolgSpoor)"
+  }
+  
+  func notificationUserInfo(deelIndex: Int) -> [NSObject : AnyObject] {
+    let vervolg = self.reisDeel[min(deelIndex + 1, self.reisDeel.count-1)].stops
+    let aankomst = vervolg.last?.name ?? ""
+    
+    let newStation = self.firstStop()
+    let vervolgSpoor:String = newStation?.spoor ?? ""
+    return [
+      "type":NotificationType.Overstappen.rawValue,
+      "to": aankomst,
+      "spoor": vervolgSpoor,
+      "date": newStation?.time ?? NSDate(),
+      "vertraging": vertrekVertraging ?? ""
+    ]
+  }
+  
+  func getNTUrl() -> NSURL {
+    let fromName = adviceRequest.from.name.lang.stringByReplacingOccurrencesOfString(" ", withString: "-", options: .CaseInsensitiveSearch, range: nil).lowercaseString
+    let toName = adviceRequest.to.name.lang.stringByReplacingOccurrencesOfString(" ", withString: "-", options: .CaseInsensitiveSearch, range: nil).lowercaseString
+    
+    return NSURL(scheme: "http", host: "9292.nl", path: "/reisadvies/station-\(fromName)/station-\(toName)/")!
   }
 }
 

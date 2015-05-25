@@ -25,7 +25,7 @@ extension NSUserDefaults {
   
   var stations:[Station] {
     set {
-      self.setObject(NSKeyedArchiver.archivedDataWithRootObject(newValue), forKey: StationsKey)
+      setObject(NSKeyedArchiver.archivedDataWithRootObject(newValue), forKey: StationsKey)
     }
     get {
       NSKeyedUnarchiver.setClass(Station.classForKeyedUnarchiver(), forClassName: "HoelangTotTrein.Station")

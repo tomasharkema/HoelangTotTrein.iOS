@@ -9,6 +9,11 @@
 import UIKit
 import CoreLocation
 
+enum NotificationType: String {
+  case Overstappen = "overstappen"
+  case Uitstappen = "uitstappen"
+}
+
 extension TreinTicker : CLLocationManagerDelegate {
   
   func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
@@ -37,6 +42,7 @@ extension TreinTicker : CLLocationManagerDelegate {
       notification.alertBody = notificationBody
       notification.fireDate = NSDate()
       notification.soundName = UILocalNotificationDefaultSoundName
+      notification.userInfo = $0.notificationUserInfo(code.deelIndex+1)
       
       NSNotificationCenter.defaultCenter().postNotificationName("showNotification", object: notification)
       
@@ -83,13 +89,15 @@ extension TreinTicker : CLLocationManagerDelegate {
   }
   
   func fireArrivalNotification(station:Station) {
-//    let notificationBody = "Je bent aangekomen op \(station.name.lang) (duh). Voor je het vergeet: wel uitchecken hè? 😇"
-//    let notification = UILocalNotification()
-//    notification.alertBody = notificationBody
-//    notification.fireDate = NSDate()
-//    notification.soundName = UILocalNotificationDefaultSoundName
-//    
-//    NSNotificationCenter.defaultCenter().postNotificationName("showNotification", object: notification)
+    let notificationBody = "Stap uit op station \(station.name.lang)"
+    let userInfo = ["type": NotificationType.Uitstappen.rawValue]
+    let notification = UILocalNotification()
+    notification.alertBody = notificationBody
+    notification.fireDate = NSDate()
+    notification.userInfo = userInfo
+    notification.soundName = UILocalNotificationDefaultSoundName
+    
+    NSNotificationCenter.defaultCenter().postNotificationName("showNotification", object: notification)
   }
   
 }

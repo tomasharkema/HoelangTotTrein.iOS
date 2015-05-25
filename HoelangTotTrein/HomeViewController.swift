@@ -66,9 +66,14 @@ class HomeViewController: UIViewController {
     fromButton.titleLabel?.adjustsFontSizeToFitWidth = true
     toButton.titleLabel?.adjustsFontSizeToFitWidth = true
 
-    TreinTicker.sharedInstance.adviceChangedHandler += { [weak self] _ in
+    TreinTicker.sharedInstance.adviceChangedHandler += { [weak self] currentAdvice in
       self?.reload()
-      return;
+      self?.userActivity?.webpageURL = currentAdvice.getNTUrl()
+      println(currentAdvice.getNTUrl())
+      if let userActivity = self?.userActivity {
+        self?.updateUserActivityState(userActivity)
+        userActivity.becomeCurrent()
+      }
     }
     
     TreinTicker.sharedInstance.fromToChanged += { [weak self] fromTo in
@@ -89,6 +94,22 @@ class HomeViewController: UIViewController {
     if collectionBlurView == nil {
       let darkEffect = UIBlurEffect(style: .Dark)
     }
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    
+    userActivity = NSUserActivity(activityType: "nl.tomasharkema.HoelangTotTrein.view")
+    userActivity?.title = "view"
+    userActivity?.userInfo = ["":""]
+    userActivity?.webpageURL = TreinTicker.sharedInstance.currentAdivce?.getNTUrl()
+    userActivity?.becomeCurrent()
+    
+    super.viewWillAppear(animated)
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    userActivity?.invalidate()
   }
   
   func pick(station:Station) {

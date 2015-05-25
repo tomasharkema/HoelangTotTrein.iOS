@@ -10,7 +10,7 @@ import WatchKit
 import Foundation
 import Observable
 
-class InterfaceController: WKInterfaceController {
+class InterfaceController: WKInterfaceController, NSUserActivityDelegate {
   
   @IBOutlet weak var timer: WKInterfaceTimer!
   
@@ -19,48 +19,56 @@ class InterfaceController: WKInterfaceController {
   @IBOutlet weak var spoorLabel: WKInterfaceLabel!
   @IBOutlet weak var vertragingsLabel: WKInterfaceLabel!
   
+  var adviceSub:EventSubscription<Advice>?
+  var tickerSub:EventSubscription<HHMMSS>?
+  var fromToSub:EventSubscription<FromTo>?
+  
   var time:NSDate?
   
-  let treinTicker = TreinTicker.sharedExtensionInstance
+  let treinTicker = TreinTicker.sharedInstance
   
   override func awakeWithContext(context: AnyObject?) {
-    treinTicker.fromCurrentLocation()
-    // Configure interface objects here.
-    
-    treinTicker.adviceChangedHandler += { [weak self] _ in
-      self?.updateUI()
-      return;
-    }
-    
-    treinTicker.tickerHandler += { [weak self] time in
-      
-      if self?.time != time.date {
-        self?.time = time.date
-        self?.updateUI()
-      }
-    
-    }
-    
-    treinTicker.fromToChanged += { _ in
-      self.updateUI()
-    }
-    
     super.awakeWithContext(context)
   }
   
   override func willActivate() {
     // This method is called when watch view controller is about to be visible to user
     
+    treinTicker.fromCurrentLocation()
+    
+    adviceSub = treinTicker.adviceChangedHandler += { [weak self] _ in
+      self?.updateUI()
+      println("adviceChangedHandler")
+      self?.updateUserActivity("nl.tomasharkema.HoelangTotTrein.view", userInfo: ["":""], webpageURL: self?.treinTicker.currentAdivce?.getNTUrl())
+    }
+    
+    tickerSub = treinTicker.tickerHandler += { [weak self] time in
+      if self?.time != time.date {
+        self?.time = time.date
+        self?.updateUI()
+        println("tickerHandler and Update")
+      }
+      
+      println("tickerHandler")
+    }
+    
+    fromToSub = treinTicker.fromToChanged += { _ in
+      self.updateUI()
+      println("fromToChanged")
+    }
+    
     treinTicker.start()
     
     NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("userDefaultsDidChange"), name:NSUserDefaultsDidChangeNotification, object: nil)
+    
+    updateUserActivity("nl.tomasharkema.HoelangTotTrein.view", userInfo: ["":""], webpageURL: NSURL(scheme: "http", host: "9292.nl", path: "/"))
     
     super.willActivate()
   }
   
   func userDefaultsDidChange() {
     println("userDefaultsDidChange")
-    NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updateUI"), userInfo: nil, repeats: false)
+    updateUI()
   }
   
   func updateUI() {
@@ -96,8 +104,16 @@ class InterfaceController: WKInterfaceController {
     // This method is called when watch view controller is no longer visible
     treinTicker.stop()
     NSNotificationCenter.defaultCenter().removeObserver(self, name: NSUserDefaultsDidChangeNotification, object: nil)
+    
+    adviceSub?.invalidate()
+    tickerSub?.invalidate()
+    fromToSub?.invalidate()
+    
+    invalidateUserActivity()
+    
     super.didDeactivate()
   }
-  
-  
+  func userActivityWasContinued(userActivity: NSUserActivity) {
+    println("YAY")
+  }
 }

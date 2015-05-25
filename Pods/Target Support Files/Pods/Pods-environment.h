@@ -10,13 +10,13 @@
 #define COCOAPODS_POD_AVAILABLE_Alamofire
 #define COCOAPODS_VERSION_MAJOR_Alamofire 1
 #define COCOAPODS_VERSION_MINOR_Alamofire 2
-#define COCOAPODS_VERSION_PATCH_Alamofire 0
+#define COCOAPODS_VERSION_PATCH_Alamofire 2
 
 // NewRelicAgent
 #define COCOAPODS_POD_AVAILABLE_NewRelicAgent
-#define COCOAPODS_VERSION_MAJOR_NewRelicAgent 4
-#define COCOAPODS_VERSION_MINOR_NewRelicAgent 186
-#define COCOAPODS_VERSION_PATCH_NewRelicAgent 0
+#define COCOAPODS_VERSION_MAJOR_NewRelicAgent 5
+#define COCOAPODS_VERSION_MINOR_NewRelicAgent 0
+#define COCOAPODS_VERSION_PATCH_NewRelicAgent 3
 
 // Observable-Swift
 #define COCOAPODS_POD_AVAILABLE_Observable_Swift
