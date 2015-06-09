@@ -13,4 +13,4 @@ SPEC CHECKSUMS:
   NewRelicAgent: f59d6d0dd064f214b13bbc87e78277de0c3d60a4
   Observable-Swift: 25ddaa7e5735cbb03034e573c9f97f3feae5887c
 
-COCOAPODS: 0.37.1
+COCOAPODS: 0.37.2
