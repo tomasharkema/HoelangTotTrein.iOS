@@ -32,15 +32,15 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>6</string>
+	<string>7</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Ik gebruik je locatie, YO</string>
+	<string>Deze app gebruikt je locatie om snel vanaf je huidige locatie te reizen. Ook gebruikt de app je locatie om je een notificatie te sturen wanneer je moet overstappen.</string>
 	<key>NSLocationUsageDescription</key>
-	<string>Ik gebruik je locatie, YO</string>
+	<string>Deze app gebruikt je locatie om snel vanaf je huidige locatie te reizen. Ook gebruikt de app je locatie om je een notificatie te sturen wanneer je moet overstappen.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Ik gebruik je locatie, YO</string>
+	<string>Deze app gebruikt je locatie om snel vanaf je huidige locatie te reizen. Ook gebruikt de app je locatie om je een notificatie te sturen wanneer je moet overstappen.</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>nl.tomasharkema.HoelangTotTrein.view</string>
