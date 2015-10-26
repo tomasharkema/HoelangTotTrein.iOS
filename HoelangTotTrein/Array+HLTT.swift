@@ -10,13 +10,13 @@ import Foundation
 
 extension Array {
   
-  func slice(n:Int) -> [T] {
+  func slice(n:Int) -> [Element] {
     
     if n == -1 {
       return self
     }
     
-    var objects: [T] = []
+    var objects = [Element]()
     var index = 0
     
     for obj in self {

@@ -1,16 +1,19 @@
 PODS:
-  - Alamofire (1.2.2)
-  - NewRelicAgent (5.0.3)
+  - AEXML (2.0.0)
+  - Alamofire (2.0.2)
+  - NewRelicAgent (5.3.0)
   - Observable-Swift (0.4.2)
 
 DEPENDENCIES:
-  - Alamofire (~> 1.2)
+  - AEXML
+  - Alamofire (~> 2.0.2)
   - NewRelicAgent
   - Observable-Swift
 
 SPEC CHECKSUMS:
-  Alamofire: 11a6022f5089887d92ffb5a3014c97a0a915ab98
-  NewRelicAgent: f59d6d0dd064f214b13bbc87e78277de0c3d60a4
+  AEXML: 88014f770428bbcb1eedaa35f1e0b342c1f2b2d0
+  Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
+  NewRelicAgent: fea3ed94d4c363a5c94f811fd6eee3b6028128d0
   Observable-Swift: 25ddaa7e5735cbb03034e573c9f97f3feae5887c
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.39.0.beta.4

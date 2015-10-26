@@ -33,7 +33,6 @@
 		C323022B1B13B3EB0009C364 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D111A8E44C40056DDFC /* API.swift */; };
 		C323022C1B13B3F50009C364 /* NSUserDefaults+HLTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3883A1E1A950836002A3CE4 /* NSUserDefaults+HLTT.swift */; };
 		C323022D1B13B4070009C364 /* MostUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C371CF8B1A911E65004C35A0 /* MostUsed.swift */; };
-		C323022E1B13B40E0009C364 /* AEXML.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3348D201AAD8C1C00503067 /* AEXML.swift */; };
 		C323022F1B13B41F0009C364 /* NSDate+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31626C01A8EA72F00410F63 /* NSDate+Format.swift */; };
 		C32302301B13B4380009C364 /* Array+HLTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3883A1C1A950648002A3CE4 /* Array+HLTT.swift */; };
 		C32302311B13B44B0009C364 /* XMLParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D0F1A8E41C80056DDFC /* XMLParse.swift */; };
@@ -42,7 +41,6 @@
 		C324485F1A9F461E00F6AC15 /* PickerSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C324485E1A9F461E00F6AC15 /* PickerSegue.swift */; };
 		C32BBF9F1A9A16D5005B596B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE01B4B52BDC71CED562DEBB /* Pods.framework */; };
 		C32BBFA01A9A16D5005B596B /* Pods.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE01B4B52BDC71CED562DEBB /* Pods.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C3348D211AAD8C1C00503067 /* AEXML.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3348D201AAD8C1C00503067 /* AEXML.swift */; };
 		C33A03E31A8F98EB004E88F5 /* XML+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A03E21A8F98EB004E88F5 /* XML+Format.swift */; };
 		C3621E8E1AA4AE0300CADA71 /* TreinTicker+WatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3621E8B1AA4AC6B00CADA71 /* TreinTicker+WatchHelper.swift */; };
 		C3621E8F1AA4AE0400CADA71 /* TreinTicker+WatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3621E8B1AA4AC6B00CADA71 /* TreinTicker+WatchHelper.swift */; };
@@ -102,7 +100,6 @@
 		C3C53D161A8E4B540056DDFC /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D151A8E4B540056DDFC /* Station.swift */; };
 		C3C53D1A1A8E7F8F0056DDFC /* Advice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C53D191A8E7F8F0056DDFC /* Advice.swift */; };
 		C3D683031A9FB20D00949AFE /* HomeViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D683021A9FB20D00949AFE /* HomeViewController+CollectionView.swift */; };
-		C3E729721AAE29F900CE93B5 /* AEXML.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3348D201AAD8C1C00503067 /* AEXML.swift */; };
 		CD823360997119CDD94A7169 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE01B4B52BDC71CED562DEBB /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -858,7 +855,6 @@
 			files = (
 				C32302201B13B1B20009C364 /* NotificationController.swift in Sources */,
 				C32302321B13B4560009C364 /* UIColor+HLTT.swift in Sources */,
-				C323022E1B13B40E0009C364 /* AEXML.swift in Sources */,
 				C32302271B13B29F0009C364 /* TreinTicker+Visits.swift in Sources */,
 				C323022A1B13B3560009C364 /* Station.swift in Sources */,
 				C323022F1B13B41F0009C364 /* NSDate+Format.swift in Sources */,
@@ -892,7 +888,6 @@
 				C324485F1A9F461E00F6AC15 /* PickerSegue.swift in Sources */,
 				C3C53D1A1A8E7F8F0056DDFC /* Advice.swift in Sources */,
 				C371CF8C1A911E65004C35A0 /* MostUsed.swift in Sources */,
-				C3348D211AAD8C1C00503067 /* AEXML.swift in Sources */,
 				C36CEFC31A8B3E8A00C9F3CC /* HomeViewController.swift in Sources */,
 				C33A03E31A8F98EB004E88F5 /* XML+Format.swift in Sources */,
 				C36CEFC51A8B3FDC00C9F3CC /* TreinTicker.swift in Sources */,
@@ -932,7 +927,6 @@
 				C3883A431A95DA74002A3CE4 /* Advice.swift in Sources */,
 				C38F06DE1AA8A78B00597F67 /* TreinTicker+Visits.swift in Sources */,
 				C3883A461A95DAA5002A3CE4 /* XMLParse.swift in Sources */,
-				C3E729721AAE29F900CE93B5 /* AEXML.swift in Sources */,
 				C3883A3E1A95DA5E002A3CE4 /* UIColor+HLTT.swift in Sources */,
 				C30EAB501A9A1196000A3176 /* Threading.swift in Sources */,
 				C3883A3F1A95DA61002A3CE4 /* Dictionary.swift in Sources */,

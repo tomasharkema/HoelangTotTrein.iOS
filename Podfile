@@ -5,6 +5,7 @@ link_with 'Widget', 'HLTT WatchKit Extension'
 
 use_frameworks!
 
-pod 'Alamofire', '~> 1.2'
+pod 'Alamofire', '~> 2.0.2'
 pod 'NewRelicAgent'
 pod 'Observable-Swift'
+pod 'AEXML'
